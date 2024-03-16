@@ -44,10 +44,13 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="github.html">Github</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Phinx</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#tao-sphinx">Tạo sphinx</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#build-sphinx">Build sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cai-dat-sphinx">Cài đặt sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tao-document-layout">Tạo document layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tao-requirements">Tạo requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cai-dat-can-thiet">Cài đặt cần thiết</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#deploy-len-github">Deploy lên github</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#them-extension">Thêm extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clone-document">Clone document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-sphinx">Build sphinx</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="zephyr.html">Zephyr</a></li>
@@ -85,36 +88,192 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="#phinx" id="id1">Phinx</a></p>
 <ul>
-<li><p><a class="reference internal" href="#tao-sphinx" id="id2">Tạo sphinx</a></p></li>
-<li><p><a class="reference internal" href="#build-sphinx" id="id3">Build sphinx</a></p></li>
-<li><p><a class="reference internal" href="#deploy-len-github" id="id4">Deploy lên github</a></p></li>
-<li><p><a class="reference internal" href="#them-extension" id="id5">Thêm extension</a></p></li>
+<li><p><a class="reference internal" href="#cai-dat-sphinx" id="id2">Cài đặt sphinx</a></p></li>
+<li><p><a class="reference internal" href="#tao-document-layout" id="id3">Tạo document layout</a></p></li>
+<li><p><a class="reference internal" href="#tao-requirements" id="id4">Tạo requirements</a></p></li>
+<li><p><a class="reference internal" href="#cai-dat-can-thiet" id="id5">Cài đặt cần thiết</a></p></li>
+<li><p><a class="reference internal" href="#deploy-len-github" id="id6">Deploy lên github</a></p></li>
+<li><p><a class="reference internal" href="#clone-document" id="id7">Clone document</a></p></li>
+<li><p><a class="reference internal" href="#build-sphinx" id="id8">Build sphinx</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
-<section id="tao-sphinx">
-<h2><a class="toc-backref" href="#id2">Tạo sphinx</a><a class="headerlink" href="#tao-sphinx" title="Permalink to this heading"></a></h2>
+<section id="cai-dat-sphinx">
+<h2><a class="toc-backref" href="#id2">Cài đặt sphinx</a><a class="headerlink" href="#cai-dat-sphinx" title="Permalink to this heading"></a></h2>
+<p><strong>Ubuntu</strong>
+Mở terminal và làm theo hướng dẫn dưới</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">sphinx</span>
+</pre></div>
+</div>
 </section>
-<section id="build-sphinx">
-<h2><a class="toc-backref" href="#id3">Build sphinx</a><a class="headerlink" href="#build-sphinx" title="Permalink to this heading"></a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">-</span><span class="n">build</span> <span class="o">-</span><span class="n">b</span> <span class="n">html</span> <span class="o">.</span> <span class="n">_build</span><span class="o">/</span><span class="n">html</span>
-<span class="n">google</span><span class="o">-</span><span class="n">chrome</span> <span class="n">_build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+<section id="tao-document-layout">
+<h2><a class="toc-backref" href="#id3">Tạo document layout</a><a class="headerlink" href="#tao-document-layout" title="Permalink to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">-</span><span class="n">quickstart</span> <span class="n">docs</span>
+</pre></div>
+</div>
+<p>Nó sẽ hiện thiết lập layout, ta làm theo phía dưới</p>
+<ul class="simple">
+<li><p>Separate source and build directories (y/n) [n]: Write <code class="docutils literal notranslate"><span class="pre">y</span></code> (without quotes) and press Enter.</p></li>
+<li><p>Project name: Write <code class="docutils literal notranslate"><span class="pre">your</span> <span class="pre">project`name</span></code> (without quotes) and press Enter.</p></li>
+<li><p>Author name(s): Write <code class="docutils literal notranslate"><span class="pre">Your</span> <span class="pre">name</span></code> (without quotes) and press Enter.</p></li>
+<li><p>Project release []: Write <code class="docutils literal notranslate"><span class="pre">year</span> <span class="pre">release</span></code> (without quotes) and press Enter.</p></li>
+<li><p>Project language [en]: Leave it empty (the default, English) and press Enter.</p></li>
+</ul>
+<p>Sau khi hoàn thành thiết lập ta sẽ được thư mục có cấu trúc sau</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    docs
+├── build
+├── make.bat
+├── Makefile
+└── source
+    ├── conf.py
+    ├── index.rst
+    ├── _static
+    └── _templates
+</pre></div>
+</div>
+</section>
+<section id="tao-requirements">
+<h2><a class="toc-backref" href="#id4">Tạo requirements</a><a class="headerlink" href="#tao-requirements" title="Permalink to this heading"></a></h2>
+<p>Tạo file <code class="docutils literal notranslate"><span class="pre">requirements.in</span></code> với nội dung:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sphinx</span><span class="o">&gt;=</span><span class="mi">5</span><span class="p">,</span><span class="o">&lt;</span><span class="mi">6</span>
+<span class="n">sphinx_rtd_theme</span>
+</pre></div>
+</div>
+<p>Tạo file <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> với nội dung:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1"># This file is autogenerated by pip-compile with python 3.10</span>
+<span class="c1"># To update, run:</span>
+<span class="c1">#</span>
+<span class="c1">#    pip-compile docs/requirements.in</span>
+<span class="c1">#</span>
+<span class="n">alabaster</span><span class="o">==</span><span class="mf">0.7.12</span>
+    <span class="c1"># via sphinx</span>
+<span class="n">babel</span><span class="o">==</span><span class="mf">2.10.3</span>
+    <span class="c1"># via sphinx</span>
+<span class="n">certifi</span><span class="o">==</span><span class="mf">2022.6.15</span>
+    <span class="c1"># via requests</span>
+<span class="n">charset</span><span class="o">-</span><span class="n">normalizer</span><span class="o">==</span><span class="mf">2.1.0</span>
+    <span class="c1"># via requests</span>
+<span class="n">docutils</span><span class="o">==</span><span class="mf">0.17.1</span>
+    <span class="c1"># via</span>
+    <span class="c1">#   sphinx</span>
+    <span class="c1">#   sphinx-rtd-theme</span>
+<span class="n">idna</span><span class="o">==</span><span class="mf">3.3</span>
+    <span class="c1"># via requests</span>
+<span class="n">imagesize</span><span class="o">==</span><span class="mf">1.4.1</span>
+    <span class="c1"># via sphinx</span>
+<span class="n">jinja2</span><span class="o">==</span><span class="mf">3.1.2</span>
+    <span class="c1"># via sphinx</span>
+<span class="n">markupsafe</span><span class="o">==</span><span class="mf">2.1.1</span>
+    <span class="c1"># via jinja2</span>
+<span class="n">packaging</span><span class="o">==</span><span class="mf">21.3</span>
+    <span class="c1"># via sphinx</span>
+<span class="n">pygments</span><span class="o">==</span><span class="mf">2.12.0</span>
+    <span class="c1"># via sphinx</span>
+<span class="n">pyparsing</span><span class="o">==</span><span class="mf">3.0.9</span>
+    <span class="c1"># via packaging</span>
+<span class="n">pytz</span><span class="o">==</span><span class="mf">2022.1</span>
+    <span class="c1"># via babel</span>
+<span class="n">requests</span><span class="o">==</span><span class="mf">2.28.1</span>
+<span class="c1"># via sphinx</span>
+<span class="n">snowballstemmer</span><span class="o">==</span><span class="mf">2.2.0</span>
+    <span class="c1"># via sphinx</span>
+<span class="n">sphinx</span><span class="o">==</span><span class="mf">5.0.2</span>
+    <span class="c1"># via</span>
+    <span class="c1">#   -r docs/requirements.in</span>
+    <span class="c1">#   sphinx-rtd-theme</span>
+<span class="n">sphinx</span><span class="o">-</span><span class="n">rtd</span><span class="o">-</span><span class="n">theme</span><span class="o">==</span><span class="mf">1.0.0</span>
+    <span class="c1"># via -r docs/requirements.in</span>
+<span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">applehelp</span><span class="o">==</span><span class="mf">1.0.2</span>
+    <span class="c1"># via sphinx</span>
+<span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">devhelp</span><span class="o">==</span><span class="mf">1.0.2</span>
+    <span class="c1"># via sphinx</span>
+<span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">htmlhelp</span><span class="o">==</span><span class="mf">2.0.0</span>
+    <span class="c1"># via sphinx</span>
+<span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">jsmath</span><span class="o">==</span><span class="mf">1.0.1</span>
+    <span class="c1"># via sphinx</span>
+<span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">qthelp</span><span class="o">==</span><span class="mf">1.0.3</span>
+    <span class="c1"># via sphinx</span>
+<span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">serializinghtml</span><span class="o">==</span><span class="mf">1.1.5</span>
+    <span class="c1"># via sphinx</span>
+<span class="n">urllib3</span><span class="o">==</span><span class="mf">1.26.9</span>
+    <span class="c1"># via requests</span>
+<span class="n">furo</span><span class="o">==</span><span class="mf">2021.11.16</span>
+</pre></div>
+</div>
+</section>
+<section id="cai-dat-can-thiet">
+<h2><a class="toc-backref" href="#id5">Cài đặt cần thiết</a><a class="headerlink" href="#cai-dat-can-thiet" title="Permalink to this heading"></a></h2>
+<p><strong>1. Theme</strong></p>
+<p>Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm như dưới:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx_rtd_theme&#39;</span><span class="p">]</span>
+
+<span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;sphinx_rtd_theme&quot;</span>
+</pre></div>
+</div>
+<p><strong>2. Sphinx_copybutton</strong></p>
+<p>Thêm <code class="docutils literal notranslate"><span class="pre">sphinx-copybutton</span></code> vào <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.
+Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm như dưới đây</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx_copybutton&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
 <section id="deploy-len-github">
-<h2><a class="toc-backref" href="#id4">Deploy lên github</a><a class="headerlink" href="#deploy-len-github" title="Permalink to this heading"></a></h2>
-</section>
-<section id="them-extension">
-<h2><a class="toc-backref" href="#id5">Thêm extension</a><a class="headerlink" href="#them-extension" title="Permalink to this heading"></a></h2>
-<p><strong>1.Copy button</strong>
-Cài đặt package</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">copybutton</span>
+<h2><a class="toc-backref" href="#id6">Deploy lên github</a><a class="headerlink" href="#deploy-len-github" title="Permalink to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Tạo một <code class="docutils literal notranslate"><span class="pre">repository</span></code> mới, để chế độ <code class="docutils literal notranslate"><span class="pre">public</span></code>.</p></li>
+<li><p>Bấm vào <code class="docutils literal notranslate"><span class="pre">creating</span> <span class="pre">a</span> <span class="pre">new</span> <span class="pre">file</span></code> để tạo 1 file <code class="docutils literal notranslate"><span class="pre">readme.txt</span></code>. Sau đó <code class="docutils literal notranslate"><span class="pre">commit</span> <span class="pre">change</span></code>.</p></li>
+<li><p>Bấm vào <code class="docutils literal notranslate"><span class="pre">&lt;&gt;Code</span></code>. Chọn <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">file</span></code>, chọn tiếp <code class="docutils literal notranslate"><span class="pre">Upload</span> <span class="pre">file</span></code>. Kéo bỏ thư mục <code class="docutils literal notranslate"><span class="pre">docs</span></code> vào.</p></li>
+<li><p>Chọn <code class="docutils literal notranslate"><span class="pre">Commit</span> <span class="pre">changes</span></code>.</p></li>
+<li><p>Chọn <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">file</span></code>, chọn tiếp <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">new</span> <span class="pre">file</span></code>. Tạo thư mục <code class="docutils literal notranslate"><span class="pre">.github/workflows/sphinx.yml</span></code>.</p></li>
+<li><p>File <code class="docutils literal notranslate"><span class="pre">sphinx.yml</span></code> có nội dung như phía dưới và nhấn <code class="docutils literal notranslate"><span class="pre">Commit</span> <span class="pre">change</span></code> 2 lần.</p>
+<blockquote>
+<div><div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>name: &quot;Sphinx: Render docs&quot;
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+        contents: write
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build HTML
+      uses: ammaraskar/sphinx-action@master
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: html-docs
+        path: docs/build/html/
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == &#39;refs/heads/main&#39;
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: docs/build/html
 </pre></div>
 </div>
-<p>Mở file conf.py và thêm extension</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx_copybutton&#39;</span><span class="p">]</span>
+</div></blockquote>
+</li>
+<li><p>Chọn <code class="docutils literal notranslate"><span class="pre">Setting</span></code>, chọn <code class="docutils literal notranslate"><span class="pre">Pages</span></code>, chọn <code class="docutils literal notranslate"><span class="pre">Deploy</span> <span class="pre">from</span> <span class="pre">branch</span></code>. Ở <code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">branch</span></code> chọn <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code>, sau đó nhấn <code class="docutils literal notranslate"><span class="pre">Save</span></code>.</p></li>
+</ol>
+</section>
+<section id="clone-document">
+<h2><a class="toc-backref" href="#id7">Clone document</a><a class="headerlink" href="#clone-document" title="Permalink to this heading"></a></h2>
+<p>Xóa folder docs trong máy đi và clone trên github về.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="o">&lt;</span><span class="n">github</span><span class="o">-</span><span class="n">document</span><span class="o">-</span><span class="n">url</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Thêm file <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>, cho <code class="docutils literal notranslate"><span class="pre">build</span></code> vào trong đó.</p>
+</section>
+<section id="build-sphinx">
+<h2><a class="toc-backref" href="#id8">Build sphinx</a><a class="headerlink" href="#build-sphinx" title="Permalink to this heading"></a></h2>
+<p>Dưới đây là cách build để xem trên local</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">docs</span>
+<span class="n">make</span> <span class="n">html</span>
+<span class="n">google</span><span class="o">-</span><span class="n">chrome</span> <span class="n">build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
 </pre></div>
 </div>
 </section>
