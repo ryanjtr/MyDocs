@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zephyr &mdash; ZephyrDocs 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Board PCB" href="pcb.html" />
+    <link rel="prev" title="Phinx" href="sphinx.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> ZephyrDocs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="github.html">Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Phinx</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Zephyr</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cach-nap-code-blinky-cho-board-stm32f401">Cách nạp code blinky cho board stm32f401</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cach-nap-code-blinky-cho-board-stm32f103">Cách nạp code blinky cho board stm32f103</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cach-nap-code-blinky-cho-board-stm32f407">Cách nạp code blinky cho board stm32f407</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pcb.html">Board PCB</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ZephyrDocs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Zephyr</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Contents/zephyr.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="zephyr">
+<h1><a class="toc-backref" href="#id1">Zephyr</a><a class="headerlink" href="#zephyr" title="Permalink to this heading"></a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#zephyr" id="id1">Zephyr</a></p>
+<ul>
+<li><p><a class="reference internal" href="#cach-nap-code-blinky-cho-board-stm32f401" id="id2">Cách nạp code blinky cho board stm32f401</a></p></li>
+<li><p><a class="reference internal" href="#cach-nap-code-blinky-cho-board-stm32f103" id="id3">Cách nạp code blinky cho board stm32f103</a></p></li>
+<li><p><a class="reference internal" href="#cach-nap-code-blinky-cho-board-stm32f407" id="id4">Cách nạp code blinky cho board stm32f407</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Once activated your shell will be prefixed with (.venv). The virtual environment can be deactivated at any time by running: deactivate.</p>
+</div>
+<p>Nếu lần đầu chạy code phải chạy lệnh sau trên terminal</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">venv</span>
+<span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">~/</span><span class="n">zephyrproject</span><span class="o">/.</span><span class="n">venv</span>
+</pre></div>
+</div>
+<p>Sau đó vô môi trường .venv</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/</span><span class="n">zephyrproject</span><span class="o">/.</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+</pre></div>
+</div>
+<section id="cach-nap-code-blinky-cho-board-stm32f401">
+<h2><a class="toc-backref" href="#id2">Cách nạp code blinky cho board stm32f401</a><a class="headerlink" href="#cach-nap-code-blinky-cho-board-stm32f401" title="Permalink to this heading"></a></h2>
+<p>Sử dụng cáp USB, giữ nút <code class="docutils literal notranslate"><span class="pre">BOOT0</span></code> và nhấn nút <code class="docutils literal notranslate"><span class="pre">Reset</span></code>
+.. code-block:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/</span><span class="n">zephyrproject</span><span class="o">/.</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">cd</span> <span class="o">~/</span><span class="n">zephyrproject</span><span class="o">/</span><span class="n">zephyr</span>
+<span class="n">west</span> <span class="n">build</span> <span class="o">-</span><span class="n">p</span> <span class="n">always</span> <span class="o">-</span><span class="n">b</span> <span class="n">stm32f401_mini</span> <span class="n">samples</span><span class="o">/</span><span class="n">basic</span><span class="o">/</span><span class="n">blinky</span>
+<span class="n">west</span> <span class="n">flash</span>
+</pre></div>
+</div>
+</section>
+<section id="cach-nap-code-blinky-cho-board-stm32f103">
+<h2><a class="toc-backref" href="#id3">Cách nạp code blinky cho board stm32f103</a><a class="headerlink" href="#cach-nap-code-blinky-cho-board-stm32f103" title="Permalink to this heading"></a></h2>
+<p>Sử dụng st-link, nếu lỗi thì nhấn nút <code class="docutils literal notranslate"><span class="pre">Reset</span></code> và flash lại, sau đó flash lại 1 lần nữa.
+.. code-block:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/</span><span class="n">zephyrproject</span><span class="o">/.</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">cd</span> <span class="o">~/</span><span class="n">zephyrproject</span><span class="o">/</span><span class="n">zephyr</span>
+<span class="n">west</span> <span class="n">build</span> <span class="o">-</span><span class="n">p</span> <span class="n">always</span> <span class="o">-</span><span class="n">b</span> <span class="n">stm32_min_dev_blue</span> <span class="n">samples</span><span class="o">/</span><span class="n">basic</span><span class="o">/</span><span class="n">blinky</span>
+<span class="n">west</span> <span class="n">flash</span>
+</pre></div>
+</div>
+</section>
+<section id="cach-nap-code-blinky-cho-board-stm32f407">
+<h2><a class="toc-backref" href="#id4">Cách nạp code blinky cho board stm32f407</a><a class="headerlink" href="#cach-nap-code-blinky-cho-board-stm32f407" title="Permalink to this heading"></a></h2>
+<p>BLink LED for stm32f407 (LED4 = PD12)
+.. code-block:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/</span><span class="n">zephyrproject</span><span class="o">/.</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">cd</span> <span class="o">~/</span><span class="n">zephyrproject</span><span class="o">/</span><span class="n">zephyr</span>
+<span class="n">west</span> <span class="n">build</span> <span class="o">-</span><span class="n">p</span> <span class="n">always</span> <span class="o">-</span><span class="n">b</span> <span class="n">stm32f4_disco</span> <span class="n">samples</span><span class="o">/</span><span class="n">basic</span><span class="o">/</span><span class="n">blinky</span>
+<span class="n">west</span> <span class="n">flash</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sphinx.html" class="btn btn-neutral float-left" title="Phinx" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pcb.html" class="btn btn-neutral float-right" title="Board PCB" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, RyanDank.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
