@@ -1,4 +1,8 @@
-Welcome to RyanDank documentation!
+.. image:: Contents/image/electric.svg
+    :width: 30%
+    :class: right-image
+
+Welcome to RyanDank documentation
 ==========================================
 
 .. toctree::

@@ -1,5 +1,6 @@
-Phinx
-=====
+Sphinx
+======
+
 .. contents:: 
     :depth: 2
 
@@ -120,7 +121,7 @@ Tạo file ``requirements.txt`` với nội dung:
         # via requests
     furo==2021.11.16
 
-Cài đặt cần thiết
+Tùy chỉnh cần thiết
 -----------------
 
 **1. Theme**
