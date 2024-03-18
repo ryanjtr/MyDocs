@@ -1,12 +1,15 @@
 Zephyr
 ======
 
-.. contents:: 
+.. contents::
     :depth: 2
 
 .. note:: 
 
     Once activated your shell will be prefixed with (.venv). The virtual environment can be deactivated at any time by running: deactivate.
+
+Nạp code
+--------
 
 Nếu lần đầu chạy code phải chạy lệnh sau trên terminal
 
@@ -21,10 +24,10 @@ Sau đó vô môi trường .venv
 
     source ~/zephyrproject/.venv/bin/activate
 
-Cách nạp code blinky cho board stm32f401
-------------------------------------------
+**Nạp blinky code cho board stm32f401**
 
 Sử dụng cáp USB, giữ nút ``BOOT0`` và nhấn nút ``Reset``
+
 .. code-block:: 
 
     source ~/zephyrproject/.venv/bin/activate
@@ -32,10 +35,10 @@ Sử dụng cáp USB, giữ nút ``BOOT0`` và nhấn nút ``Reset``
     west build -p always -b stm32f401_mini samples/basic/blinky
     west flash
 
-Cách nạp code blinky cho board stm32f103
-------------------------------------------
+**Nạp blinky code cho board stm32f103**
 
 Sử dụng st-link, nếu lỗi thì nhấn nút ``Reset`` và flash lại, sau đó flash lại 1 lần nữa.
+
 .. code-block::
 
     source ~/zephyrproject/.venv/bin/activate
@@ -43,10 +46,10 @@ Sử dụng st-link, nếu lỗi thì nhấn nút ``Reset`` và flash lại, sau
     west build -p always -b stm32_min_dev_blue samples/basic/blinky
     west flash
 
-Cách nạp code blinky cho board stm32f407
-------------------------------------------
+**Nạp blinky code cho board stm32f407**
 
-BLink LED for stm32f407 (LED4 = PD12)
+Blink LED for stm32f407 (LED4 = PD12)
+
 .. code-block::
 
     source ~/zephyrproject/.venv/bin/activate
