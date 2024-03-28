@@ -12,6 +12,8 @@ Welcome to RyanDank documentation
    Contents/sphinx 
    Contents/zephyr
    Contents/pcb
+   Contents/mqtt
+   Contents/internet
 
 
    
