@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sphinx &mdash; ZephyrDocs 2024 documentation</title>
+  <title>Sphinx &mdash; RyanDocs 2024 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -37,7 +37,7 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            ZephyrDocs
+            RyanDocs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -53,7 +53,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#cai-dat-sphinx">Cài đặt sphinx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tao-document-layout">Tạo document layout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tao-requirements">Tạo requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tuy-chinh-can-thiet">Tùy chỉnh cần thiết</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tuy-chinh-can-thiet">Tùy chỉnh cần thiết</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#theme">1. Theme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sphinx-copybutton">2. Sphinx_copybutton</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#deploy-len-github">Deploy lên github</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#clone-document">Clone document</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-sphinx">Build sphinx</a></li>
@@ -61,6 +65,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="zephyr.html">Zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pcb.html">Board PCB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mqtt.html">MQTT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internet.html">Internet</a></li>
 </ul>
 
         </div>
@@ -69,7 +75,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">ZephyrDocs</a>
+          <a href="../index.html">RyanDocs</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -211,19 +217,23 @@ Mở terminal và làm theo hướng dẫn dưới</p>
 </section>
 <section id="tuy-chinh-can-thiet">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">Tùy chỉnh cần thiết</a><a class="headerlink" href="#tuy-chinh-can-thiet" title="Link to this heading"></a></h2>
-<p><strong>1. Theme</strong></p>
+<section id="theme">
+<h3>1. Theme<a class="headerlink" href="#theme" title="Link to this heading"></a></h3>
 <p>Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm như dưới:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx_rtd_theme&#39;</span><span class="p">]</span>
 
 <span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;sphinx_rtd_theme&quot;</span>
 </pre></div>
 </div>
-<p><strong>2. Sphinx_copybutton</strong></p>
+</section>
+<section id="sphinx-copybutton">
+<h3>2. Sphinx_copybutton<a class="headerlink" href="#sphinx-copybutton" title="Link to this heading"></a></h3>
 <p>Thêm <code class="docutils literal notranslate"><span class="pre">sphinx-copybutton</span></code> vào <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.
 Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm như dưới đây</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx_copybutton&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
+</section>
 </section>
 <section id="deploy-len-github">
 <h2><a class="toc-backref" href="#id6" role="doc-backlink">Deploy lên github</a><a class="headerlink" href="#deploy-len-github" title="Link to this heading"></a></h2>
@@ -235,7 +245,7 @@ Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span>
 <li><p>Chọn <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">file</span></code>, chọn tiếp <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">new</span> <span class="pre">file</span></code>. Tạo thư mục <code class="docutils literal notranslate"><span class="pre">.github/workflows/sphinx.yml</span></code>.</p></li>
 <li><p>File <code class="docutils literal notranslate"><span class="pre">sphinx.yml</span></code> có nội dung như phía dưới và nhấn <code class="docutils literal notranslate"><span class="pre">Commit</span> <span class="pre">change</span></code> 2 lần.</p>
 <blockquote>
-<div><div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>name: &quot;Sphinx: Render docs&quot;
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>name: &quot;Sphinx: Render docs&quot;
 
 on: push
 

@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'ZephyrDocs'
+project = 'RyanDocs'
 copyright = '2024, RyanDank'
 author = 'RyanDank'
 

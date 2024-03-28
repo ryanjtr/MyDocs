@@ -122,9 +122,10 @@ Tạo file ``requirements.txt`` với nội dung:
     furo==2021.11.16
 
 Tùy chỉnh cần thiết
------------------
+---------------------------
 
-**1. Theme**
+1. Theme
+~~~~~~~~~~~
 
 Vào ``conf.py`` và thêm như dưới:
 
@@ -134,7 +135,8 @@ Vào ``conf.py`` và thêm như dưới:
 
     html_theme = "sphinx_rtd_theme"
 
-**2. Sphinx_copybutton**
+2. Sphinx_copybutton
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Thêm ``sphinx-copybutton`` vào ``requirements.txt``.
 Vào ``conf.py`` và thêm như dưới đây
@@ -154,7 +156,7 @@ Deploy lên github
 5. Chọn ``Add file``, chọn tiếp ``Create new file``. Tạo thư mục ``.github/workflows/sphinx.yml``.
 6. File ``sphinx.yml`` có nội dung như phía dưới và nhấn ``Commit change`` 2 lần.
     
-    .. code-block:: yml
+    .. code-block:: 
 
         name: "Sphinx: Render docs"
 
