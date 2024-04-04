@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assembly Language &mdash; RyanDocs 2024 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Examples and Explanations" href="Code.html" />
+    <link rel="prev" title="RISC-V" href="riscv.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> RyanDocs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../github.html">Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zephyr.html">Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcb.html">Board PCB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internet.html">Internet</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="riscv.html">RISC-V</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Assembly Language</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-set-and-equ-diirectives">The .set and .equ diirectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#global-directive">Global directive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-align-directive">The .align directive</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Code.html">Examples and Explanations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Assembly_script.html">The RV32I ISA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GVSOC.html">GVSOC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gap8_and_PULP.html">GVSOC-GAP8 - PULP PLATFORM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Professional_terminology.html">Professional terminology</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RyanDocs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="riscv.html">RISC-V</a> &raquo;</li>
+      <li>Assembly Language</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Contents/RISCV/Introduction.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="assembly-language">
+<h1>Assembly Language<a class="headerlink" href="#assembly-language" title="Permalink to this heading"></a></h1>
+<section id="the-set-and-equ-diirectives">
+<h2>The .set and .equ diirectives<a class="headerlink" href="#the-set-and-equ-diirectives" title="Permalink to this heading"></a></h2>
+<p>Sử dụng <code class="docutils literal notranslate"><span class="pre">.set</span></code></p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.set</span><span class="w"> </span><span class="no">max_value</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="w"></span>
+
+<span class="nl">truncates_value_to_max:</span><span class="w"></span>
+<span class="w">    </span><span class="nf">li</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">max_value</span><span class="w"></span>
+<span class="w">    </span><span class="nf">ble</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">ok</span><span class="w"></span>
+<span class="w">    </span><span class="nf">mv</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="w"></span>
+<span class="nl">ok:</span><span class="w"></span>
+<span class="w">    </span><span class="nf">ret</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Sử dụng <code class="docutils literal notranslate"><span class="pre">.equ</span></code></p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.equ</span><span class="w"> </span><span class="no">MAX_SIZE</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="w">   </span><span class="c1">; Định nghĩa hằng số MAX_SIZE với giá trị 100</span>
+
+<span class="na">.section</span><span class="w"> </span><span class="no">.data</span><span class="w"></span>
+<span class="nl">array:</span><span class="w"> </span><span class="na">.space</span><span class="w"> </span><span class="no">MAX_SIZE</span><span class="w">    </span><span class="c1">; Sử dụng MAX_SIZE trong việc cấp phát không gian cho mảng</span>
+
+<span class="na">.section</span><span class="w"> </span><span class="no">.text</span><span class="w"></span>
+<span class="nl">main:</span><span class="w"></span>
+<span class="w">    </span><span class="nf">li</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">MAX_SIZE</span><span class="w">    </span><span class="c1">; Sử dụng MAX_SIZE trong mã lệnh</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li><p>Dù cả hai .equ và .set đều được sử dụng để tạo ra các hằng số trong mã hợp ngữ, nhưng chúng có một số điểm khác nhau:</p></li>
+<li><p>Cách đặt giá trị:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.equ</span></code>: Giá trị của hằng số được đặt khi khai báo hằng số và không thay đổi sau đó. Mỗi lần bạn sử dụng .equ để định nghĩa một hằng số, giá trị của nó sẽ được cố định.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.set</span></code>: Có thể sử dụng .set để thay đổi giá trị của một hằng số sau khi nó đã được định nghĩa. Điều này cho phép bạn thay đổi giá trị của một hằng số trong quá trình lập trình nếu cần thiết.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Phạm vi:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.equ</span></code>: Hằng số được định nghĩa bằng .equ chỉ có hiệu lực trong phạm vi cụ thể mà nó được định nghĩa, chẳng hạn như trong một tệp mã hợp ngữ.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.set</span></code>: Có thể sử dụng .set để định nghĩa hằng số ở một tệp mã hợp ngữ và sau đó sử dụng lại nó trong các tệp mã hợp ngữ khác. Điều này cho phép chia sẻ hằng số giữa nhiều tệp mã hợp ngữ.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<p>Ví dụ:</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.equ</span><span class="w"> </span><span class="no">MAX_SIZE</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="w">      </span><span class="c1">; Định nghĩa hằng số MAX_SIZE với giá trị 100</span>
+
+<span class="na">.set</span><span class="w"> </span><span class="no">max_value</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="w">      </span><span class="c1">; Định nghĩa hằng số max_value với giá trị 42</span>
+</pre></div>
+</div>
+<p>Trong ví dụ trên, giá trị của MAX_SIZE sẽ luôn là 100, trong khi giá trị của max_value có thể thay đổi trong quá trình lập trình.</p>
+</section>
+<section id="global-directive">
+<h2>Global directive<a class="headerlink" href="#global-directive" title="Permalink to this heading"></a></h2>
+<p>Theo mặc định thì các label được tạo và sử dụng <code class="docutils literal notranslate"><span class="pre">.set</span></code>, <code class="docutils literal notranslate"><span class="pre">.equ</span></code> được lưu trữ trong symbol table như local symbol</p>
+<p>Muốn chuyển sang global thì làm như sau</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.globl</span><span class="w"> </span><span class="no">max_value</span><span class="w"></span>
+<span class="na">.globl</span><span class="w"> </span><span class="no">start</span><span class="w"></span>
+
+<span class="na">.set</span><span class="w"> </span><span class="no">max_value</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="w"></span>
+
+<span class="nl">start:</span><span class="w"></span>
+<span class="w">    </span><span class="nf">li</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">max_value</span><span class="w"></span>
+<span class="w">    </span><span class="nf">jal</span><span class="w"> </span><span class="no">process_temp</span><span class="w"></span>
+<span class="w">    </span><span class="nf">ret</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="the-align-directive">
+<h2>The .align directive<a class="headerlink" href="#the-align-directive" title="Permalink to this heading"></a></h2>
+<p>Một số hệ thống máy tính, bao gồm cả những hệ thống tuân theo Kiến trúc Tập lệnh (ISA) RV32I,
+yêu cầu các chỉ thị hoặc dữ liệu đa byte được lưu trữ trên các địa chỉ là bội số của một số cho
+trước. Ví dụ, trong RV32I, các chỉ thị phải được lưu trữ tại các địa chỉ là bội số của bốn.</p>
+<p>Tuy nhiên, không phải tất cả các bộ dịch tự động đảm bảo sự căn chỉnh này. Ví dụ, bộ dịch GNU
+không kiểm tra xem các chỉ thị RV32I có được đặt ở địa chỉ đúng không. Vì vậy, nếu bạn dịch mã như sau:</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.text</span><span class="w"></span>
+<span class="nl">foo:</span><span class="w"></span>
+<span class="nf">j</span><span class="w"> </span><span class="no">next</span><span class="w"></span>
+<span class="na">.byte</span><span class="w"> </span><span class="mi">0xa</span><span class="w"></span>
+<span class="nl">next:</span><span class="w"></span>
+<span class="nf">ret</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Bộ dịch sẽ không phản ánh gì, nhưng khi chạy mã này trên một CPU RV32I, nó sẽ thất bại khi thực thi
+chỉ thị ret vì nó yêu cầu các chỉ thị phải bắt đầu từ các địa chỉ là bội số của bốn.</p>
+<p>Để đảm bảo căn chỉnh chính xác, các lập trình viên hoặc trình biên dịch cần điều chỉnh bộ đếm vị
+trí thủ công hoặc sử dụng các chỉ thị như <code class="docutils literal notranslate"><span class="pre">.align</span> <span class="pre">N</span></code>. Ví dụ:</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.text</span><span class="w"></span>
+<span class="nl">foo:</span><span class="w"></span>
+<span class="nf">j</span><span class="w"> </span><span class="no">next</span><span class="w"></span>
+<span class="na">.byte</span><span class="w"> </span><span class="mi">0xa</span><span class="w"></span>
+<span class="na">.align</span><span class="w"> </span><span class="mi">2</span><span class="w">   </span><span class="c1"># Đảm bảo chỉ thị tiếp theo được căn chỉnh với ranh giới 4 byte</span>
+<span class="nl">next:</span><span class="w"></span>
+<span class="nf">ret</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Ở đây, <code class="docutils literal notranslate"><span class="pre">.align</span> <span class="pre">2</span></code> đảm bảo sự căn chỉnh, nhưng việc sử dụng nó thủ công có thể mất thời gian và dễ gây
+lỗi. Tốt hơn hết là để trình biên dịch xử lý điều này bằng cách sử dụng các chỉ thị .``align N``. Các
+chỉ thị này đảm bảo rằng bộ đếm vị trí căn chỉnh đúng mà không cần can thiệp thủ công.</p>
+<p>Ví dụ:</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.text</span><span class="w"></span>
+<span class="na">.align</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="nl">func1:</span><span class="w"></span>
+<span class="nf">addi</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="nf">ret</span><span class="w"></span>
+<span class="na">.align</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="nl">func2:</span><span class="w"></span>
+<span class="nf">addi</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="w"></span>
+<span class="nf">ret</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Ở đây, <code class="docutils literal notranslate"><span class="pre">.align</span> <span class="pre">2</span></code> đảm bảo mỗi hàm bắt đầu từ một địa chỉ là bội số của bốn, nhưng nếu bộ đếm vị trí đã được
+căn chỉnh, chỉ thị sẽ không có hiệu lực.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Tương tự, dữ liệu đa byte cũng nên được căn chỉnh để có hiệu suất tối ưu. Chỉ thị <code class="docutils literal notranslate"><span class="pre">.align</span> <span class="pre">N</span></code> có thể được
+sử dụng cho mục đích này, đảm bảo rằng dữ liệu như giá trị 16-bit, 32-bit hoặc 64-bit được lưu trữ tại
+các địa chỉ bội số của các giá trị phù hợp (2, 4 hoặc 8 tương ứng).</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="riscv.html" class="btn btn-neutral float-left" title="RISC-V" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Code.html" class="btn btn-neutral float-right" title="Examples and Explanations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, RyanDank.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

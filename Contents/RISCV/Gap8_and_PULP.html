@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GVSOC-GAP8 - PULP PLATFORM &mdash; RyanDocs 2024 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Professional terminology" href="Professional_terminology.html" />
+    <link rel="prev" title="GVSOC" href="GVSOC.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> RyanDocs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../github.html">Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zephyr.html">Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcb.html">Board PCB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internet.html">Internet</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="riscv.html">RISC-V</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html">Assembly Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Code.html">Examples and Explanations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Assembly_script.html">The RV32I ISA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GVSOC.html">GVSOC</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GVSOC-GAP8 - PULP PLATFORM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pulp-platform">PULP platform</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Professional_terminology.html">Professional terminology</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RyanDocs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="riscv.html">RISC-V</a> &raquo;</li>
+      <li>GVSOC-GAP8 - PULP PLATFORM</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Contents/RISCV/Gap8_and_PULP.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gvsoc-gap8-pulp-platform">
+<h1>GVSOC-GAP8 - PULP PLATFORM<a class="headerlink" href="#gvsoc-gap8-pulp-platform" title="Permalink to this heading"></a></h1>
+<section id="pulp-platform">
+<h2>PULP platform<a class="headerlink" href="#pulp-platform" title="Permalink to this heading"></a></h2>
+<section id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h3>
+<p>The PULP (Parallel Ultra-Low Power) Platform is a comprehensive initiative
+focused on creating energy-efficient parallel computing solutions. Here’s a more detailed breakdown:</p>
+<p>Hardware Components:</p>
+<p>PULP Cores: These are processor cores specifically designed for energy efficiency
+and parallel computing. They are optimized to perform computations while consuming
+minimal power. Examples include PULPino, RI5CY, and Zero-riscy cores, each suited for
+different types of applications and power constraints.
+PULP Systems: The platform provides reference designs and integration frameworks for
+assembling complete computing systems using PULP cores. These systems typically include
+processors, memory components, interfaces for peripherals (such as sensors or communication modules), and other necessary hardware elements.
+Software Components:</p>
+<p>Operating Systems: The PULP Platform supports various operating systems tailored for embedded and
+IoT applications. These operating systems provide the necessary infrastructure for managing hardware
+resources, scheduling tasks, and running applications efficiently.
+Compilers and Development Tools: The platform offers compilers, debuggers, and other development tools
+to facilitate software development for PULP-based systems. These tools enable developers to write, compile,
+and debug code for their applications running on PULP cores.
+Libraries and Middleware: PULP provides libraries and middleware to simplify common tasks in embedded
+software development, such as communication protocols, signal processing algorithms, and sensor data processing.
+Development Frameworks: PULP offers development frameworks and methodologies to help developers design,
+optimize, and deploy applications on PULP-based systems. These frameworks provide guidelines,
+best practices, and reusable components to streamline the development process.
+Community and Ecosystem:</p>
+<p>Collaboration: The PULP community encourages collaboration among developers, researchers, and
+enthusiasts interested in energy-efficient computing. Collaboration happens through forums,
+mailing lists, workshops, and collaborative projects.
+Open Source: PULP is an open-source project, meaning that its hardware and software components
+are freely available for anyone to use, modify, and contribute to. This open approach fosters
+innovation and accelerates the development of new technologies and applications.
+Education and Outreach: The PULP Platform provides educational resources, tutorials, and
+documentation to help users get started with PULP-based development. It aims to educate and
+empower developers to leverage parallel computing for energy-efficient IoT and embedded applications.
+In summary, the PULP Platform offers a comprehensive ecosystem of hardware and software components,
+along with a vibrant community, to support the development of energy-efficient parallel computing
+solutions for a wide range of embedded and IoT applications.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="GVSOC.html" class="btn btn-neutral float-left" title="GVSOC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Professional_terminology.html" class="btn btn-neutral float-right" title="Professional terminology" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, RyanDank.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples and Explanations &mdash; RyanDocs 2024 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The RV32I ISA" href="Assembly_script.html" />
+    <link rel="prev" title="Assembly Language" href="Introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> RyanDocs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../github.html">Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zephyr.html">Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcb.html">Board PCB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internet.html">Internet</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="riscv.html">RISC-V</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html">Assembly Language</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Examples and Explanations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cong-hai-so">Cộng hai số</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tim-gia-tri-max">Tìm giá trị max</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Assembly_script.html">The RV32I ISA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GVSOC.html">GVSOC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gap8_and_PULP.html">GVSOC-GAP8 - PULP PLATFORM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Professional_terminology.html">Professional terminology</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RyanDocs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="riscv.html">RISC-V</a> &raquo;</li>
+      <li>Examples and Explanations</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Contents/RISCV/Code.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples-and-explanations">
+<h1>Examples and Explanations<a class="headerlink" href="#examples-and-explanations" title="Permalink to this heading"></a></h1>
+<section id="cong-hai-so">
+<h2>Cộng hai số<a class="headerlink" href="#cong-hai-so" title="Permalink to this heading"></a></h2>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add two numbers loaded from main memory, then store the</span>
+<span class="c1"># result back into main memory.</span>
+
+<span class="c1"># Code starts here.</span>
+
+<span class="na">.section</span><span class="w"> </span><span class="no">.text</span><span class="w"></span>
+
+<span class="nl">main:</span><span class="w"></span>
+
+<span class="w">        </span><span class="nf">lui</span><span class="w">     </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="nv">%hi</span><span class="p">(</span><span class="no">x_addr</span><span class="p">)</span><span class="w">      </span><span class="c1"># a0 = x_addr</span>
+<span class="w">        </span><span class="nf">addi</span><span class="w">    </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="nv">%lo</span><span class="p">(</span><span class="no">x_addr</span><span class="p">)</span><span class="w">  </span><span class="c1">#   (performed in two halves)</span>
+<span class="w">        </span><span class="nf">lw</span><span class="w">      </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">a0</span><span class="p">)</span><span class="w">            </span><span class="c1"># t0 = *a0 = *x_addr = x</span>
+
+<span class="w">        </span><span class="nf">lui</span><span class="w">     </span><span class="no">a1</span><span class="p">,</span><span class="w"> </span><span class="nv">%hi</span><span class="p">(</span><span class="no">y_addr</span><span class="p">)</span><span class="w">      </span><span class="c1"># a1 = y_addr</span>
+<span class="w">        </span><span class="nf">addi</span><span class="w">    </span><span class="no">a1</span><span class="p">,</span><span class="w"> </span><span class="no">a1</span><span class="p">,</span><span class="w"> </span><span class="nv">%lo</span><span class="p">(</span><span class="no">y_addr</span><span class="p">)</span><span class="w">  </span><span class="c1">#</span>
+<span class="w">        </span><span class="nf">lw</span><span class="w">      </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">a1</span><span class="p">)</span><span class="w">            </span><span class="c1"># t1 = *a1 = *y_addr = y</span>
+
+<span class="w">        </span><span class="nf">add</span><span class="w">     </span><span class="no">t2</span><span class="p">,</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="w">           </span><span class="c1"># t2 = t0 + t1</span>
+<span class="w">        </span><span class="nf">lui</span><span class="w">     </span><span class="no">a2</span><span class="p">,</span><span class="w"> </span><span class="nv">%hi</span><span class="p">(</span><span class="no">z_addr</span><span class="p">)</span><span class="w">      </span><span class="c1"># a2 = z_addr</span>
+<span class="w">        </span><span class="nf">addi</span><span class="w">    </span><span class="no">a2</span><span class="p">,</span><span class="w"> </span><span class="no">a2</span><span class="p">,</span><span class="w"> </span><span class="nv">%lo</span><span class="p">(</span><span class="no">z_addr</span><span class="p">)</span><span class="w">  </span><span class="c1">#</span>
+<span class="w">        </span><span class="nf">sw</span><span class="w">      </span><span class="no">t2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">a2</span><span class="p">)</span><span class="w">            </span><span class="c1"># z = *z_addr = *a2 = t2</span>
+<span class="w">        </span><span class="nf">jr</span><span class="w">      </span><span class="no">ra</span><span class="w">                   </span><span class="c1"># return</span>
+
+
+<span class="c1"># Data is specified here.</span>
+
+<span class="na">.section</span><span class="w"> </span><span class="no">.data</span><span class="w"></span>
+
+<span class="nl">x_addr:</span><span class="w"></span>
+<span class="w">        </span><span class="na">.word</span><span class="w"> </span><span class="mi">13</span><span class="w">                     </span><span class="c1"># x = 13</span>
+<span class="nl">y_addr:</span><span class="w"></span>
+<span class="w">        </span><span class="na">.word</span><span class="w"> </span><span class="mi">-5</span><span class="w">                     </span><span class="c1"># y = -5</span>
+<span class="nl">z_addr:</span><span class="w"></span>
+<span class="w">        </span><span class="na">.word</span><span class="w"> </span><span class="mi">0</span><span class="w">                      </span><span class="c1"># z = 0</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">lui</span> <span class="pre">a0,</span> <span class="pre">%hi(x_addr)</span></code> Lệnh này nạp 16 bit hàng đầu của địa chỉ của biến <code class="docutils literal notranslate"><span class="pre">x_addr</span></code> vào thanh ghi a0.</p></li>
+</ul>
+<p>Trong RISC-V, để truy cập đến một biến trong bộ nhớ, chúng ta cần biết địa chỉ của nó.
+Tuy nhiên, do hạn chế về kích thước của lệnh, chúng ta chỉ có thể lưu trữ một phần của địa chỉ
+trong một lệnh. Để làm điều này, chúng ta sử dụng lệnh lui (Load Upper Immediate), nó nạp giá trị
+ngay sau dấu <code class="docutils literal notranslate"><span class="pre">%hi</span></code> vào thanh ghi. Đối với <code class="docutils literal notranslate"><span class="pre">%hi(x_addr)</span></code>, nó chỉ lấy 16 bit hàng đầu của địa chỉ của biến <code class="docutils literal notranslate"><span class="pre">x_addr</span></code> và lưu vào <code class="docutils literal notranslate"><span class="pre">a0</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">addi</span> <span class="pre">a0,</span> <span class="pre">a0,</span> <span class="pre">%lo(x_addr)</span></code> Lệnh này nạp 16 bit còn lại của địa chỉ của biến x_addr vào thanh ghi <code class="docutils literal notranslate"><span class="pre">a0</span></code>. Lệnh
+<code class="docutils literal notranslate"><span class="pre">addi</span></code> (Add Immediate) thêm một giá trị cố định vào một thanh ghi. Ở đây, <code class="docutils literal notranslate"><span class="pre">%lo(x_addr)</span></code> chỉ lấy 16 bit thấp
+nhất của địa chỉ của biến <code class="docutils literal notranslate"><span class="pre">x_addr</span></code>, sau đó cộng thêm vào giá trị hiện tại của thanh ghi <code class="docutils literal notranslate"><span class="pre">a0</span></code>. Kết quả là <code class="docutils literal notranslate"><span class="pre">a0</span></code>
+sẽ chứa toàn bộ địa chỉ của biến <code class="docutils literal notranslate"><span class="pre">x_addr</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">lw</span> <span class="pre">t0,</span> <span class="pre">0(a0)</span></code> Lệnh này nạp giá trị từ địa chỉ mà <code class="docutils literal notranslate"><span class="pre">a0</span></code> trỏ tới vào thanh ghi <code class="docutils literal notranslate"><span class="pre">t0</span></code>. Trong trường hợp này,
+nó tương đương với việc đọc giá trị của biến <code class="docutils literal notranslate"><span class="pre">x_addr</span></code> từ bộ nhớ và lưu vào <code class="docutils literal notranslate"><span class="pre">t0</span></code>. Điều này giúp chương
+trình có thể sử dụng giá trị của biến <code class="docutils literal notranslate"><span class="pre">x_addr</span></code> để thực hiện các phép toán hoặc tính toán khác.</p>
+<p>Tương tự cho <code class="docutils literal notranslate"><span class="pre">a1</span></code> và <code class="docutils literal notranslate"><span class="pre">t1</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">add</span> <span class="pre">t2,</span> <span class="pre">t0,</span> <span class="pre">t1</span></code> Thực hiện phép cộng của giá trị trong thanh ghi <code class="docutils literal notranslate"><span class="pre">t0</span></code> và <code class="docutils literal notranslate"><span class="pre">t1</span></code>, sau đó kết quả được
+lưu vào thanh ghi <code class="docutils literal notranslate"><span class="pre">t2</span></code>. Điều này tương đương với việc thực hiện phép tính <code class="docutils literal notranslate"><span class="pre">t2</span> <span class="pre">=</span> <span class="pre">t0</span> <span class="pre">+</span> <span class="pre">t1.</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">lui</span> <span class="pre">a2,</span> <span class="pre">%hi(z_addr)</span></code> Lệnh này tải 16 bit hàng đầu của địa chỉ của biến <code class="docutils literal notranslate"><span class="pre">z_addr</span></code> vào thanh ghi
+<code class="docutils literal notranslate"><span class="pre">a2</span></code>. Lưu ý rằng <code class="docutils literal notranslate"><span class="pre">%hi(z_addr)</span></code> chỉ lấy 16 bit hàng đầu của địa chỉ của biến <code class="docutils literal notranslate"><span class="pre">z_addr.</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">addi</span> <span class="pre">a2,</span> <span class="pre">a2,</span> <span class="pre">%lo(z_addr)</span></code> Lệnh này tải 16 bit còn lại của địa chỉ của biến <code class="docutils literal notranslate"><span class="pre">z_addr</span></code> vào thanh ghi
+<code class="docutils literal notranslate"><span class="pre">a2</span></code>. Lưu ý rằng <code class="docutils literal notranslate"><span class="pre">%lo(z_addr)</span></code> chỉ lấy 16 bit thấp nhất của địa chỉ của biến <code class="docutils literal notranslate"><span class="pre">z_addr</span></code>, sau đó cộng thêm
+vào giá trị hiện tại của thanh ghi <code class="docutils literal notranslate"><span class="pre">a2</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sw</span> <span class="pre">t2,</span> <span class="pre">0(a2)</span></code> Lệnh này lưu giá trị từ thanh ghi t2 vào bộ nhớ. Địa chỉ lưu trữ được xác định bằng
+cách kết hợp giá trị của thanh ghi a2 và một độ dịch chuyển 0 (vì <code class="docutils literal notranslate"><span class="pre">0(a2)</span></code> ), tức là giá trị địa chỉ
+mà <code class="docutils literal notranslate"><span class="pre">a2</span> <span class="pre">``</span> <span class="pre">trỏ</span> <span class="pre">tới.</span> <span class="pre">Kết</span> <span class="pre">quả</span> <span class="pre">của</span> <span class="pre">phép</span> <span class="pre">cộng</span> <span class="pre">``t2</span> <span class="pre">và</span> <span class="pre">z_addr</span></code> được lưu vào ô nhớ này, đó cũng chính là giá trị
+của biến <code class="docutils literal notranslate"><span class="pre">z</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">jr</span> <span class="pre">ra</span></code> Lệnh này trả về từ hàm, trở lại địa chỉ được lưu trong thanh ghi ra. Điều này thường được
+sử dụng để kết thúc một hàm.</p>
+</section>
+<section id="tim-gia-tri-max">
+<h2>Tìm giá trị max<a class="headerlink" href="#tim-gia-tri-max" title="Permalink to this heading"></a></h2>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1"># Move through an array of numbers and find the maximum value.</span>
+
+<span class="c1"># Code starts here.</span>
+
+<span class="na">.section</span><span class="w"> </span><span class="no">.text</span><span class="w"></span>
+
+<span class="nl">main:</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># t0 = array length</span>
+<span class="w">    </span><span class="nf">lui</span><span class="w">     </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="nv">%hi</span><span class="p">(</span><span class="no">length</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nf">addi</span><span class="w">    </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="nv">%lo</span><span class="p">(</span><span class="no">length</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nf">lw</span><span class="w">      </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">a0</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># a1 = array base</span>
+<span class="w">    </span><span class="nf">lui</span><span class="w">     </span><span class="no">a1</span><span class="p">,</span><span class="w"> </span><span class="nv">%hi</span><span class="p">(</span><span class="no">array</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nf">addi</span><span class="w">    </span><span class="no">a1</span><span class="p">,</span><span class="w"> </span><span class="no">a1</span><span class="p">,</span><span class="w"> </span><span class="nv">%lo</span><span class="p">(</span><span class="no">array</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Loop through the array, storing the max value so far in t1.</span>
+<span class="w">    </span><span class="c1"># WRITE THIS LOOP</span>
+
+<span class="w">    </span><span class="c1"># Copy the result (the max value) into the result space.</span>
+<span class="w">    </span><span class="nf">lui</span><span class="w">     </span><span class="no">a2</span><span class="p">,</span><span class="w"> </span><span class="nv">%hi</span><span class="p">(</span><span class="no">result</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nf">addi</span><span class="w">    </span><span class="no">a2</span><span class="p">,</span><span class="w"> </span><span class="no">a2</span><span class="p">,</span><span class="w"> </span><span class="nv">%lo</span><span class="p">(</span><span class="no">result</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nf">sw</span><span class="w">      </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">a2</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># End the program by returning from main()</span>
+<span class="w">    </span><span class="nf">jr</span><span class="w">      </span><span class="no">ra</span><span class="w">                   </span><span class="c1"># return</span>
+
+
+<span class="c1"># Data is specified here.</span>
+
+<span class="na">.section</span><span class="w"> </span><span class="no">.data</span><span class="w"></span>
+
+<span class="nl">length:</span><span class="w"></span>
+<span class="w">        </span><span class="na">.word</span><span class="w"> </span><span class="mi">6</span><span class="w">   </span><span class="c1"># The length of the array</span>
+<span class="nl">array:</span><span class="w"></span>
+<span class="w">    </span><span class="na">.word</span><span class="w"> </span><span class="mi">3</span><span class="w">   </span><span class="c1"># The values of the array</span>
+<span class="w">    </span><span class="na">.word</span><span class="w"> </span><span class="mi">12</span><span class="w"></span>
+<span class="w">    </span><span class="na">.word</span><span class="w"> </span><span class="mi">37</span><span class="w"></span>
+<span class="w">    </span><span class="na">.word</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
+<span class="w">    </span><span class="na">.word</span><span class="w"> </span><span class="mi">8</span><span class="w"></span>
+<span class="w">    </span><span class="na">.word</span><span class="w"> </span><span class="mi">20</span><span class="w"></span>
+<span class="nl">result:</span><span class="w"></span>
+<span class="w">    </span><span class="na">.word</span><span class="w"> </span><span class="mi">0</span><span class="w">   </span><span class="c1"># The place to store the result</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Introduction.html" class="btn btn-neutral float-left" title="Assembly Language" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Assembly_script.html" class="btn btn-neutral float-right" title="The RV32I ISA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, RyanDank.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

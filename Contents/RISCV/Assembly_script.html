@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The RV32I ISA &mdash; RyanDocs 2024 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="GVSOC" href="GVSOC.html" />
+    <link rel="prev" title="Examples and Explanations" href="Code.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> RyanDocs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../github.html">Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zephyr.html">Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcb.html">Board PCB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internet.html">Internet</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="riscv.html">RISC-V</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html">Assembly Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Code.html">Examples and Explanations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The RV32I ISA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dac-tinh">Đặc tính</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datatype">Datatype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rv32i-register">RV32I register</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load-store-architecture">Load/Store architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pseudo-instructions">Pseudo-instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logic-shift-and-arithmetic-instructions">Logic, shift, and arithmetic instructions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#instructions-syntax-and-operands">Instructions syntax and operands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dealing-with-large-immediate-values">Dealing with large immediate values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#logic-instructions">Logic instructions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shift-instructions">Shift instructions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arithmetic-instructions">Arithmetic instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#data-movement-instructions">Data movement instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="GVSOC.html">GVSOC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gap8_and_PULP.html">GVSOC-GAP8 - PULP PLATFORM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Professional_terminology.html">Professional terminology</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RyanDocs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="riscv.html">RISC-V</a> &raquo;</li>
+      <li>The RV32I ISA</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Contents/RISCV/Assembly_script.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="the-rv32i-isa">
+<h1>The RV32I ISA<a class="headerlink" href="#the-rv32i-isa" title="Permalink to this heading"></a></h1>
+<section id="dac-tinh">
+<h2>Đặc tính<a class="headerlink" href="#dac-tinh" title="Permalink to this heading"></a></h2>
+<p>Không gian địa chỉ 32 bit: Điều này có nghĩa là kiến trúc được thiết kế để làm việc với
+các địa chỉ bộ nhớ có độ dài 32 bit. Điều này giới hạn bộ nhớ có thể truy cập được là 2^32 (4 gigabyte) bộ nhớ.</p>
+<p>Ba mươi ba thanh ghi 32 bit: Các thanh ghi là các vị trí lưu trữ nhỏ trong bộ xử lý giữ
+các giá trị tạm thời và dữ liệu trung gian trong quá trình thực thi chương trình. Kiến trúc
+RV32IM có 33 thanh ghi 32 bit.</p>
+<p>Đại diện cho các giá trị số nguyên có dấu bằng phương pháp bù hai: Phương pháp biểu diễn giá
+trị số nguyên có dấu bằng phương pháp bù hai là một cách thức phổ biến để biểu diễn các số âm trong máy tính.</p>
+<p>Các hướng dẫn cơ bản: Bao gồm các hướng dẫn tính toán số nguyên, các hướng dẫn nạp và lưu trữ
+số nguyên và các hướng dẫn điều khiển luồng.</p>
+<p>Hướng dẫn nhân và chia: Kiến trúc này cũng bao gồm các hướng dẫn để nhân và chia các giá trị
+được lưu trữ trong các thanh ghi số nguyên (phần mở rộng M).</p>
+</section>
+<section id="datatype">
+<h2>Datatype<a class="headerlink" href="#datatype" title="Permalink to this heading"></a></h2>
+<img alt="../../_images/rv32idatatypes.png" src="../../_images/rv32idatatypes.png" />
+<p>RISC-V được thiết kế để  làm việc với các byte địa chỉ, bộ nhớ. Mỗi địa chỉ lưu trong 1 byte và là 1 address duy nhất.</p>
+<img alt="../../_images/address.png" src="../../_images/address.png" />
+<p>Khi lưu trữ một giá trị kiểu <code class="docutils literal notranslate"><span class="pre">halfword</span></code>, các byte tương ứng sẽ được lưu trữ trên nhiều vị trí bộ nhớ liên tiếp nhau.
+Ví dụ, khi lưu trữ một giá trị kiểu <code class="docutils literal notranslate"><span class="pre">halfword</span></code> (word) trong bộ nhớ, hai (bốn) byte sẽ được lưu trữ trên hai (bốn) vị trí bộ nhớ liên tiếp.</p>
+<p>Khi dịch một chương trình được viết bằng “C” sang mã hợp ngữ RV32I, các kiểu dữ liệu trong “C” phải được chuyển đổi
+thành các kiểu dữ liệu cơ bản của RISC-V. Bảng dưới mô tả các ánh xạ từ các kiểu dữ liệu cơ bản của “C” sang các kiểu
+dữ liệu cơ bản của RV32I. Tất cả các con trỏ trong “C” (ví dụ: int*, char*, và void*) đại diện cho các địa chỉ bộ nhớ
+và được ánh xạ sang kiểu dữ liệu từ dương.</p>
+<img alt="../../_images/mappingCdatatype.png" src="../../_images/mappingCdatatype.png" />
+</section>
+<section id="rv32i-register">
+<h2>RV32I register<a class="headerlink" href="#rv32i-register" title="Permalink to this heading"></a></h2>
+<p>ISA không đặc quyền RV32I chứa ba mươi ba thanh ghi 32-bit, còn được gọi là các thanh ghi không đặc quyền. Trong đó:</p>
+<p>Thanh ghi x0: Là một thanh ghi đặc biệt được kết nối cứng với giá trị không, tức là luôn trả về giá trị không khi đọc.</p>
+<p>Thanh ghi pc: Chứa bộ đếm chương trình, tức là địa chỉ của lệnh tiếp theo sẽ được thực thi. Nội dung của thanh ghi
+này được tự động cập nhật mỗi khi một lệnh được thực thi và có thể được cập nhật bởi các lệnh đặc biệt gọi là lệnh
+điều khiển luồng.</p>
+<p>Các thanh ghi còn lại (x1-x31): Là các thanh ghi tổng quát và có thể được sử dụng thay thế cho nhau. Tuy nhiên,
+thường quan trọng khi phải tuân thủ một tiêu chuẩn sử dụng thanh ghi. Ví dụ, luôn sử dụng cùng một tập hợp các
+thanh ghi để truyền các tham số khi gọi một hàm. Để giúp cho việc lập trình dễ dàng hơn, các thanh ghi này được
+đặt tên viết tắt (alias), có thể được sử dụng khi viết mã hợp ngữ. Mục tiêu là cho phép người lập trình sử dụng
+các tên thanh ghi có ý nghĩa hơn khi lập trình. Ví dụ, viết a0 thay vì x10 để chỉ thanh ghi chứa đối số đầu tiên
+của một hàm.</p>
+<img alt="../../_images/rv32iunprivildged.png" src="../../_images/rv32iunprivildged.png" />
+</section>
+<section id="load-store-architecture">
+<h2>Load/Store architecture<a class="headerlink" href="#load-store-architecture" title="Permalink to this heading"></a></h2>
+<p>Một kiến trúc Load/Store là một kiến trúc tập lệnh yêu cầu các giá trị phải được tải/lưu trữ một cách rõ
+ràng từ/đến bộ nhớ trước khi thực hiện các thao tác trên chúng. Nói cách khác, để đọc/ghi một giá trị từ/đến
+bộ nhớ, phần mềm phải thực thi một lệnh tải/lưu trữ.</p>
+<p>RISC-V là một kiến trúc Load/Store, do đó, để thực hiện các thao tác (ví dụ, các thao tác toán học) trên dữ
+liệu được lưu trữ trong bộ nhớ, nó yêu cầu dữ liệu phải được trước tiên lấy từ bộ nhớ vào một thanh ghi bằng
+cách thực thi một lệnh tải.</p>
+<p>ví dụ:</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">lw</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">a0</span><span class="p">)</span><span class="w"></span>
+<span class="nf">add</span><span class="w"> </span><span class="no">a6</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="w"></span>
+<span class="nf">sw</span><span class="w"> </span><span class="no">a6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">a0</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Lệnh đầu tiên, gọi là lệnh tải từ (load word) và được chỉ định bằng ký hiệu lw, là một lệnh tải.
+Nó lấy một giá trị từ bộ nhớ và lưu nó vào thanh ghi a5. Biểu thức 0(a0) chỉ định địa chỉ của vị
+trí bộ nhớ lưu trữ giá trị cần tải. Trong trường hợp này, địa chỉ là tổng của nội dung của thanh
+ghi a0 và hằng số 0. Nói cách khác, nếu thanh ghi a0 chứa giá trị 8000 khi lệnh tải này được thực
+thi, phần cứng sẽ lấy dữ liệu từ vị trí bộ nhớ liên kết với địa chỉ 8000.</p>
+<p>Lệnh thứ hai, được chỉ định bằng ký hiệu add, cộng hai giá trị và lưu kết quả vào một thanh ghi. Trong
+trường hợp này, nó đang thêm các giá trị từ các thanh ghi a5 và a5 và lưu kết quả vào thanh ghi a6.
+Lưu ý rằng, vì cả hai toán hạng nguồn đều giống nhau, tức là a5, kết quả tương đương với việc nhân nội dung của a5 với hai.</p>
+<p>Cuối cùng, lệnh thứ ba, gọi là lệnh lưu từ (store word) và được chỉ định bằng ký hiệu sw, lưu giá trị
+từ thanh ghi a6 vào bộ nhớ. Một lần nữa, biểu thức 0(a0) chỉ định địa chỉ của vị trí bộ nhớ sẽ nhận dữ liệu.</p>
+</section>
+<section id="pseudo-instructions">
+<h2>Pseudo-instructions<a class="headerlink" href="#pseudo-instructions" title="Permalink to this heading"></a></h2>
+<p>Khi lập trình một chương trình hợp ngữ, trình biên dịch chuyển đổi mỗi lệnh hợp ngữ
+(được mã hóa dưới dạng văn bản thô) thành lệnh máy tương ứng (được mã hóa dưới dạng nhị phân).
+Ví dụ, lệnh hợp ngữ <code class="docutils literal notranslate"><span class="pre">add</span> <span class="pre">x10,</span> <span class="pre">x11,</span> <span class="pre">x12</span></code> được chuyển đổi thành lệnh máy tương ứng của nó, được
+mã hóa bằng bốn byte là <code class="docutils literal notranslate"><span class="pre">0x00c58533</span></code>.</p>
+<p>Một pseudo-lệnh là một lệnh hợp ngữ không có một lệnh máy tương ứng trên vi xử lý, nhưng có
+thể được trình biên dịch tự động chuyển đổi thành một hoặc nhiều lệnh máy thay thế để đạt được
+cùng một hiệu ứng. Ví dụ, lệnh không làm gì, hoặc “nop”, là một pseudo-lệnh RV32I được chuyển
+đổi bởi trình biên dịch thành lệnh “<code class="docutils literal notranslate"><span class="pre">addi</span> <span class="pre">x0,</span> <span class="pre">x0,</span> <span class="pre">0</span></code>”. Một ví dụ khác là lệnh “mv”, mà sao chép
+nội dung của một thanh ghi vào một thanh ghi khác. Trong trường hợp này, pseudo-lệnh “mv a5, a7”,
+sao chép nội dung của a7 vào a5, được chuyển đổi thành lệnh “<code class="docutils literal notranslate"><span class="pre">addi</span> <span class="pre">a5,</span> <span class="pre">a7,</span> <span class="pre">0</span></code>”, thêm số không vào giá
+trị trong a7 và lưu kết quả vào thanh ghi a5.</p>
+<p>Vì sách tập trung vào lập trình hợp ngữ, phần còn lại của sách này sẽ không phân biệt pseudo-lệnh
+với các lệnh máy thực sự của RV32I. Chúng tôi đề nghị người đọc tham khảo “RISC-V Instruction Set
+Manual” [4] để có danh sách đầy đủ các lệnh máy thực sự và pseudo-lệnh của RV32I.</p>
+</section>
+<section id="logic-shift-and-arithmetic-instructions">
+<h2>Logic, shift, and arithmetic instructions<a class="headerlink" href="#logic-shift-and-arithmetic-instructions" title="Permalink to this heading"></a></h2>
+<section id="instructions-syntax-and-operands">
+<h3>Instructions syntax and operands<a class="headerlink" href="#instructions-syntax-and-operands" title="Permalink to this heading"></a></h3>
+<p>Trong kiến trúc RV32I của RISC-V, các lệnh logic (ví dụ: and, or), dịch (ví dụ: dịch trái, dịch phải)
+và toán học (ví dụ: cộng, trừ) hoạt động trên dữ liệu được chỉ định bởi các toán hạng của lệnh. Mỗi
+lệnh này bao gồm ba phần: một thanh ghi đích, và hai toán hạng nguồn.</p>
+<p>Thanh ghi đích (rd): Đây là thanh ghi mà kết quả của phép tính sẽ được lưu trữ.</p>
+<p>Toán hạng nguồn thứ nhất (rs1): Đây là thanh ghi chứa dữ liệu đầu tiên mà lệnh sẽ thao tác.</p>
+<p>Toán hạng nguồn thứ hai (rs2 hoặc imm): Đây là thanh ghi thứ hai hoặc một giá trị ngay lập tức. Nó chứa dữ
+liệu thứ hai mà lệnh sẽ sử dụng trong phép tính.</p>
+<p>Cú pháp của các lệnh logic, dịch và toán học có thể là:</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">MNM</span><span class="w"> </span><span class="no">rd</span><span class="p">,</span><span class="w"> </span><span class="no">rs1</span><span class="p">,</span><span class="w"> </span><span class="no">rs2</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">MNM</span><span class="w"> </span><span class="no">rd</span><span class="p">,</span><span class="w"> </span><span class="no">rs1</span><span class="p">,</span><span class="w"> </span><span class="no">imm</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Ở đây, “MNM” là mã lệnh, “rd” là thanh ghi đích, “rs1” là toán hạng nguồn thứ nhất và “rs2” (hoặc “imm”) là toán hạng thứ hai.</p>
+<p>Ví dụ, hãy xem xét các lệnh sau:</p>
+<p><code class="docutils literal notranslate"><span class="pre">and</span> <span class="pre">a0,</span> <span class="pre">a2,</span> <span class="pre">a6</span></code>: Lệnh này thực hiện phép toán “and” bit trên các giá trị từ a2 và a6, sau đó lưu kết quả vào a0.</p>
+<p><code class="docutils literal notranslate"><span class="pre">slli</span> <span class="pre">a1,</span> <span class="pre">a3,</span> <span class="pre">2</span></code>: Lệnh này dịch giá trị từ a3 sang trái hai lần và lưu kết quả vào a1.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sub</span> <span class="pre">a4,</span> <span class="pre">a5,</span> <span class="pre">a6</span></code>: Lệnh này trừ giá trị tại a6 từ giá trị tại a5 và lưu kết quả vào a4. (a4=a5-a6)</p>
+<p>Bất kỳ thanh ghi nào trong tất cả các thanh ghi tổng quát (x0-x31) đều có thể được sử dụng như là <code class="docutils literal notranslate"><span class="pre">rd</span></code>, <code class="docutils literal notranslate"><span class="pre">rs1</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">rs2</span></code>. Tuy nhiên,
+nếu <code class="docutils literal notranslate"><span class="pre">x0</span></code> (zero) được sử dụng làm thanh ghi đích, thì kết quả sẽ bị bỏ qua vì <code class="docutils literal notranslate"><span class="pre">x0</span></code> luôn luôn được kết nối cứng với giá trị không.</p>
+</section>
+<section id="dealing-with-large-immediate-values">
+<h3>Dealing with large immediate values<a class="headerlink" href="#dealing-with-large-immediate-values" title="Permalink to this heading"></a></h3>
+<p>Trong RISC-V, cách khuyến nghị để tải các giá trị ngay lập tức vào các thanh ghi là bằng
+cách sử dụng pseudo-lệnh “load immediate”, hoặc li. Pseudo-lệnh này sẽ tự động được chuyển
+đổi bởi trình biên dịch thành chuỗi lệnh máy tốt nhất để tạo ra giá trị mong muốn. Cú pháp
+của lệnh load immediate là:</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">li</span><span class="w"> </span><span class="no">rd</span><span class="p">,</span><span class="w"> </span><span class="no">imm</span><span class="w"></span>
+</pre></div>
+</div>
+<p>ở đó, rd chỉ ra thanh ghi đích và imm là giá trị ngay lập tức mong muốn.</p>
+<p>Giá trị ngay lập tức là một hằng số được mã hóa trực tiếp vào lệnh. Ngoài giá trị này,
+lệnh cũng phải mã hóa các thông tin khác như mã lệnh và các toán hạng khác. Vì tất cả
+các lệnh RV32I đều có đúng 32 bit, số lượng bit có sẵn để mã hóa giá trị ngay lập tức
+nhỏ hơn 32 bit. Trong thực tế, các lệnh toán học, logic và dịch của RV32I chỉ có thể mã
+hóa các giá trị ngay lập tức có thể được biểu diễn dưới dạng một số nguyên 12 bit trong
+hệ số nhị phân bù hai. Nói cách khác, các giá trị ngay lập tức được sử dụng như các toán
+hạng trên các lệnh này phải lớn hơn hoặc bằng -2048 và nhỏ hơn hoặc bằng 2047.</p>
+<p>Ví dụ, các lệnh sau đây là không hợp lệ:</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">add</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="mi">2048</span><span class="w"></span>
+<span class="nf">add</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="mi">10000</span><span class="w"></span>
+<span class="nf">add</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="mi">-3000</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Chúng không hợp lệ vì trình biên dịch không thể mã hóa các giá trị ngay lập tức vào lệnh
+(lưu ý rằng chúng có thể không được mã hóa dưới dạng số nguyên 12 bit trong hệ số nhị phân bù hai).
+Trong ví dụ này, trình biên dịch sẽ thất bại khi biên dịch mã và có thể hiển thị một thông báo lỗi.</p>
+<p>Để thực hiện các phép toán với các giá trị ngay lập tức nhỏ hơn -2048 hoặc lớn hơn 2047, người
+lập trình có thể sử dụng nhiều lệnh để tạo ra giá trị, lưu trữ nó vào một thanh ghi và sử dụng một
+lệnh mà đọc toán hạng thứ hai từ một thanh ghi.</p>
+<p>Giả sử chúng ta muốn thực hiện phép cộng với một giá trị ngay lập tức lớn hơn 2047,
+ví dụ như 3000. Nhưng nhớ rằng, trong kiến trúc RV32I, lệnh chỉ có thể mã hóa giá trị
+ngay lập tức từ -2048 đến 2047.</p>
+<p>Để thực hiện điều này, chúng ta có thể sử dụng nhiều lệnh để tạo ra giá trị 3000,
+sau đó thực hiện phép cộng với nó.</p>
+<p>Dưới đây là cách làm:</p>
+<p>Load một giá trị nhỏ hơn, chẳng hạn là 1000, vào một thanh ghi.
+Dịch giá trị này sang trái hai lần để nhân nó với 4, từ đó ta có giá trị 4000.
+Thêm một số nguyên khác vào giá trị này để đạt được giá trị cuối cùng là 3000.
+Dưới đây là mã hợp ngữ cho việc thực hiện điều này:</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">ADD</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="w">   </span><span class="c1"># Load giá trị 1000 vào thanh ghi a5</span>
+<span class="nf">SLLI</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w">     </span><span class="c1"># Dịch trái giá trị trong a5 hai lần</span>
+<span class="nf">ADDI</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="w">  </span><span class="c1"># Thêm 1000 vào giá trị trong a5 để đạt được 3000</span>
+</pre></div>
+</div>
+<p>Kết quả của các lệnh này là giá trị 3000 sẽ được lưu vào thanh ghi a5, và sau đó
+chúng ta có thể sử dụng giá trị này để thực hiện phép cộng với bất kỳ thanh ghi
+nào khác như sau:</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">ADD</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="w">     </span><span class="c1"># Thực hiện phép cộng giữa giá trị trong a0 và 3000, kết quả được lưu vào a0</span>
+</pre></div>
+</div>
+<p>Như vậy, chúng ta đã thực hiện phép cộng với một giá trị ngay lập tức lớn hơn 2047 bằng cách sử dụng
+nhiều lệnh để tạo ra giá trị này và sau đó thực hiện phép cộng với nó.</p>
+</section>
+<section id="logic-instructions">
+<h3>Logic instructions<a class="headerlink" href="#logic-instructions" title="Permalink to this heading"></a></h3>
+<p>Lệnh and/or/xor thực hiện phép
+toán bit “and”/”or”/”xor” trên các giá trị được lưu trong các thanh ghi rs1 và rs2,
+và kết quả được lưu vào thanh ghi rd. Còn các lệnh andi/ori/xori thực hiện phép toán
+sử dụng giá trị được lưu trong thanh ghi rs1 và một giá trị ngay lập tức.</p>
+<img alt="../../_images/rv32ilogic.png" src="../../_images/rv32ilogic.png" />
+<p>ví dụ</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">and</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a2</span><span class="p">,</span><span class="w"> </span><span class="no">s2</span><span class="w"> </span><span class="c1"># a0 &lt;= a2 &amp; s2</span>
+<span class="nf">or</span><span class="w"> </span><span class="no">a1</span><span class="p">,</span><span class="w"> </span><span class="no">a3</span><span class="p">,</span><span class="w"> </span><span class="no">s2</span><span class="w"> </span><span class="c1"># a1 &lt;= a3 | s2</span>
+<span class="nf">xor</span><span class="w"> </span><span class="no">a2</span><span class="p">,</span><span class="w"> </span><span class="no">a2</span><span class="p">,</span><span class="w"> </span><span class="no">a1</span><span class="w"> </span><span class="c1"># a2 &lt;= a2 ^ a1</span>
+<span class="nf">andi</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="c1"># a0 &lt;= a2 &amp; 3</span>
+<span class="nf">ori</span><span class="w"> </span><span class="no">a1</span><span class="p">,</span><span class="w"> </span><span class="no">a3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="c1"># a1 &lt;= a3 | 4</span>
+<span class="nf">xori</span><span class="w"> </span><span class="no">a2</span><span class="p">,</span><span class="w"> </span><span class="no">a2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c1"># a2 &lt;= a2 ^ 1</span>
+
+<span class="nf">li</span><span class="w"> </span><span class="no">a1</span><span class="p">,</span><span class="w"> </span><span class="mi">0xFE01AB23</span><span class="w"> </span><span class="c1"># a1 &lt;= 0xFE01AB23</span>
+<span class="nf">li</span><span class="w"> </span><span class="no">a2</span><span class="p">,</span><span class="w"> </span><span class="mi">0x0000FF00</span><span class="w"> </span><span class="c1"># a2 &lt;= 0x0000FF00</span>
+<span class="nf">and</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a1</span><span class="p">,</span><span class="w"> </span><span class="no">a2</span><span class="w"> </span><span class="c1"># a0 &lt;= a1 &amp; a2</span>
+</pre></div>
+</div>
+</section>
+<section id="shift-instructions">
+<h3>Shift instructions<a class="headerlink" href="#shift-instructions" title="Permalink to this heading"></a></h3>
+<p>Dịch chuyển được sử dụng để dịch các giá trị nhị phân sang trái hoặc sang phải. Các lệnh này
+có thể được sử dụng để đóng gói hoặc giải nén các bit thành từ hoặc để thực hiện các phép nhân và chia.</p>
+<p>Trong kiến trúc RV32I, có nhiều loại lệnh dịch khác nhau:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sll</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code>: Thực hiện một <strong>dịch trái logic</strong> trên giá trị ở thanh ghi <code class="docutils literal notranslate"><span class="pre">rs1</span></code> và lưu kết
+quả vào thanh ghi rd. Số lần dịch trái được xác định bởi giá trị trong thanh ghi <code class="docutils literal notranslate"><span class="pre">rs2</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">srl</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code>: Thực hiện một <a href="#id1"><span class="problematic" id="id2">**</span></a>dịch phải logic**trên giá trị ở thanh ghi <code class="docutils literal notranslate"><span class="pre">rs1</span></code> và lưu kết
+quả vào thanh ghi <code class="docutils literal notranslate"><span class="pre">rd</span></code>. Số lần dịch phải được xác định bởi giá trị trong thanh ghi <code class="docutils literal notranslate"><span class="pre">rs2</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sra</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code>: Thực hiện một <strong>dịch phải số học</strong> trên giá trị ở thanh ghi <code class="docutils literal notranslate"><span class="pre">rs1</span></code> và lưu kết
+quả vào thanh ghi <code class="docutils literal notranslate"><span class="pre">rd</span></code>. Số lần dịch phải được xác định bởi giá trị trong thanh ghi <code class="docutils literal notranslate"><span class="pre">rs2</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">slli</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">imm</span></code>: Thực hiện một <strong>dịch trái logic</strong> trên giá trị ở thanh ghi <code class="docutils literal notranslate"><span class="pre">rs1</span></code> và lưu kết
+quả vào thanh ghi <code class="docutils literal notranslate"><span class="pre">rd</span></code>. Số lần dịch trái được xác định bởi giá trị ngay lập tức <code class="docutils literal notranslate"><span class="pre">imm</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">srli</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">imm</span></code>: Thực hiện một <strong>dịch phải logic</strong> trên giá trị ở thanh ghi <code class="docutils literal notranslate"><span class="pre">rs1</span></code> và lưu kết
+quả vào thanh ghi <code class="docutils literal notranslate"><span class="pre">rd</span></code>. Số lần dịch phải được xác định bởi giá trị ngay lập tức <code class="docutils literal notranslate"><span class="pre">imm.</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">srai</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">imm</span></code>: Thực hiện một <strong>dịch phải số học</strong> trên giá trị ở thanh ghi <code class="docutils literal notranslate"><span class="pre">rs1</span> <span class="pre">``và</span> <span class="pre">lưu</span> <span class="pre">kết</span>
+<span class="pre">quả</span> <span class="pre">vào</span> <span class="pre">thanh</span> <span class="pre">ghi</span> <span class="pre">``rd</span></code>. Số lần dịch phải được xác định bởi giá trị ngay lập tức <code class="docutils literal notranslate"><span class="pre">imm</span></code>.</p>
+<p>Các lệnh dịch này được sử dụng để di chuyển các bit của giá trị từ rs1 sang trái hoặc sang
+phải, tùy thuộc vào loại lệnh được sử dụng. Dịch trái và dịch phải logic thêm hoặc loại bỏ các bit ở
+phía trái hoặc phải của giá trị mà không thay đổi dấu, trong khi dịch phải số học giữ nguyên dấu của
+giá trị. Điều này có thể được sử dụng để nhân hoặc chia một số nguyên với một lũy thừa của hai.</p>
+<p>Phép dịch phải logic chỉ có thể được sử dụng để chia các số không dấu. Trong trường hợp này,
+việc dịch một số không dấu N lần sang phải với phép dịch phải logic tương đương với việc
+chia số không dấu đó cho 2^N.</p>
+<p>Phép dịch phải số học là một loại phép dịch bit được sử dụng trong lập trình máy tính,
+đặc biệt trong việc xử lý các số nguyên có dấu. Khi thực hiện phép dịch phải số học trên
+một số nguyên, các bit của số này sẽ được dịch sang phải một số lần chỉ định, và bit trái
+nhất sẽ được sao chép lại vào các vị trí mới xuất hiện từ phía trái. Điều này giữ nguyên
+dấu của số khi thực hiện dịch phải.</p>
+<p>Cụ thể, nếu bit trái nhất của số là 1 (tức là số âm), thì sau phép dịch phải số học,
+các bit được thêm vào bên trái sẽ là 1. Ngược lại, nếu bit trái nhất của số là 0 (tức là số dương),
+thì các bit được thêm vào sẽ là 0.</p>
+<p>Phép dịch phải số học có thể được sử dụng để thực hiện các phép chia số nguyên cho các
+lũy thừa của 2. Điều này bởi vì mỗi lần dịch phải số học một lần tương đương với việc
+chia số nguyên cho 2.</p>
+<p>Trong ngôn ngữ lập trình và kiến trúc máy tính, các lệnh dịch phải số học thường được
+cung cấp để hỗ trợ các phép toán trên số nguyên có dấu.</p>
+</section>
+<section id="arithmetic-instructions">
+<h3>Arithmetic instructions<a class="headerlink" href="#arithmetic-instructions" title="Permalink to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">add</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code>: Thêm các giá trị trong <code class="docutils literal notranslate"><span class="pre">rs1</span></code> và <code class="docutils literal notranslate"><span class="pre">rs2</span> <span class="pre">``và</span> <span class="pre">lưu</span> <span class="pre">kết</span> <span class="pre">quả</span> <span class="pre">vào</span> <span class="pre">``rd</span></code>.
+<code class="docutils literal notranslate"><span class="pre">sub</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code>: Trừ giá trị trong <code class="docutils literal notranslate"><span class="pre">rs2</span></code> từ giá trị trong <code class="docutils literal notranslate"><span class="pre">rs1</span></code> và lưu kết quả vào <code class="docutils literal notranslate"><span class="pre">rd</span></code>.
+<code class="docutils literal notranslate"><span class="pre">addi</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">imm</span></code>: Thêm giá trị trong <code class="docutils literal notranslate"><span class="pre">rs1</span></code> với giá trị ngay lập tức imm và lưu kết quả vào <code class="docutils literal notranslate"><span class="pre">rd</span></code>.
+<code class="docutils literal notranslate"><span class="pre">mul</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code>: Nhân các giá trị trong <code class="docutils literal notranslate"><span class="pre">rs1</span> <span class="pre">``và</span> <span class="pre">``rs2</span></code> và lưu kết quả vào <code class="docutils literal notranslate"><span class="pre">rd</span></code>.
+<code class="docutils literal notranslate"><span class="pre">div{u}</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code>: Chia giá trị trong <code class="docutils literal notranslate"><span class="pre">rs1</span> <span class="pre">``cho</span> <span class="pre">giá</span> <span class="pre">trị</span> <span class="pre">trong</span> <span class="pre">``rs2</span></code> và lưu kết quả vào <code class="docutils literal notranslate"><span class="pre">rd</span></code>.</p>
+<p>Hậu tố <code class="docutils literal notranslate"><span class="pre">U</span> <span class="pre">``là</span> <span class="pre">tùy</span> <span class="pre">chọn</span> <span class="pre">và</span> <span class="pre">phải</span> <span class="pre">được</span> <span class="pre">sử</span> <span class="pre">dụng</span> <span class="pre">để</span> <span class="pre">chỉ</span> <span class="pre">ra</span> <span class="pre">rằng</span> <span class="pre">các</span> <span class="pre">giá</span> <span class="pre">trị</span> <span class="pre">trong</span> <span class="pre">``rs1</span></code> và <code class="docutils literal notranslate"><span class="pre">rs2</span></code> là không dấu.
+<code class="docutils literal notranslate"><span class="pre">rem{u}</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code>: Tính phần dư của phép chia giá trị trong <code class="docutils literal notranslate"><span class="pre">rs1</span></code> cho giá trị trong <code class="docutils literal notranslate"><span class="pre">rs2</span></code> và lưu kết
+quả vào <code class="docutils literal notranslate"><span class="pre">rd</span></code>.
+Các hướng dẫn <code class="docutils literal notranslate"><span class="pre">add</span></code> (add và addi) thêm hai số và lưu kết quả vào một thanh ghi (rd). Trong cả hai trường
+hợp, số đầu tiên được lấy từ thanh ghi <code class="docutils literal notranslate"><span class="pre">rs1</span></code>. Hướng dẫn add lấy số thứ hai từ thanh ghi <code class="docutils literal notranslate"><span class="pre">rs2</span></code> trong khi hướng
+dẫn addi sử dụng giá trị ngay lập tức <code class="docutils literal notranslate"><span class="pre">imm</span></code>.</p>
+<p>Hướng dẫn sub trừ giá trị trong <code class="docutils literal notranslate"><span class="pre">rs2</span></code> từ giá trị trong <code class="docutils literal notranslate"><span class="pre">rs1</span> <span class="pre">``và</span> <span class="pre">lưu</span> <span class="pre">kết</span> <span class="pre">quả</span> <span class="pre">vào</span> <span class="pre">``rd</span></code>. RV32I không chứa hướng dẫn
+<code class="docutils literal notranslate"><span class="pre">subi</span></code>, tức là một hướng dẫn trừ giá trị ngay lập tức từ nội dung của một thanh ghi và lưu kết quả vào một
+thanh ghi khác. Tuy nhiên, một lập trình viên có thể dễ dàng đạt được hiệu ứng này bằng cách thêm một giá
+trị ngay lập tức âm bằng cách sử dụng hướng dẫn <code class="docutils literal notranslate"><span class="pre">addi</span></code>.</p>
+<p>Hướng dẫn mul nhân các giá trị trong <code class="docutils literal notranslate"><span class="pre">rs1</span></code> và <code class="docutils literal notranslate"><span class="pre">rs2</span></code> và lưu kết quả vào rd.</p>
+<p>Hướng dẫn div và <code class="docutils literal notranslate"><span class="pre">divu</span> <span class="pre">``chia</span> <span class="pre">giá</span> <span class="pre">trị</span> <span class="pre">trong</span> <span class="pre">rs1</span> <span class="pre">cho</span> <span class="pre">giá</span> <span class="pre">trị</span> <span class="pre">trong</span> <span class="pre">``rs2</span> <span class="pre">``</span> <span class="pre">và</span> <span class="pre">lưu</span> <span class="pre">kết</span> <span class="pre">quả</span> <span class="pre">vào</span> <span class="pre">``rd</span></code>. Hướng
+dẫn <code class="docutils literal notranslate"><span class="pre">div</span></code> chia các số có dấu trong khi hướng dẫn <code class="docutils literal notranslate"><span class="pre">divu</span></code> chia các số không dấu.</p>
+<p>Hướng dẫn <code class="docutils literal notranslate"><span class="pre">rem</span></code> và <code class="docutils literal notranslate"><span class="pre">remu</span></code> tính phần dư của phép chia giá trị trong <code class="docutils literal notranslate"><span class="pre">rs1</span> <span class="pre">``cho</span> <span class="pre">giá</span> <span class="pre">trị</span> <span class="pre">trong</span> <span class="pre">``rs2</span> <span class="pre">``và</span> <span class="pre">lưu</span>
+<span class="pre">kết</span> <span class="pre">quả</span> <span class="pre">vào</span> <span class="pre">``rd</span></code>. Hướng dẫn rem tính phần dư cho phép chia của các số có dấu trong khi hướng dẫn <a href="#id3"><span class="problematic" id="id4">``</span></a>remu ``
+tính phần dư cho phép chia của các số không dấu.</p>
+<p>Ví dụ</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">add</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a2</span><span class="p">,</span><span class="w"> </span><span class="no">t2</span><span class="w"> </span><span class="c1"># a0 &lt;= a2 + t2</span>
+<span class="nf">addi</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a2</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="c1"># a0 &lt;= a2 + 10</span>
+<span class="nf">sub</span><span class="w"> </span><span class="no">a1</span><span class="p">,</span><span class="w"> </span><span class="no">t3</span><span class="p">,</span><span class="w"> </span><span class="no">a0</span><span class="w"> </span><span class="c1"># a1 &lt;= t3 - a0</span>
+<span class="nf">mul</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a1</span><span class="p">,</span><span class="w"> </span><span class="no">a2</span><span class="w"> </span><span class="c1"># a0 &lt;= a1 * a2</span>
+<span class="nf">div</span><span class="w"> </span><span class="no">a1</span><span class="p">,</span><span class="w"> </span><span class="no">a3</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="w"> </span><span class="c1"># a1 &lt;= a3 / a5</span>
+<span class="nf">rem</span><span class="w"> </span><span class="no">a1</span><span class="p">,</span><span class="w"> </span><span class="no">a3</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="w"> </span><span class="c1"># a1 &lt;= a3 % a5</span>
+<span class="nf">remu</span><span class="w"> </span><span class="no">a1</span><span class="p">,</span><span class="w"> </span><span class="no">a3</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="w"> </span><span class="c1"># a1 &lt;= a3 % a5</span>
+</pre></div>
+</div>
+<p>Trong trường hợp bạn lập trình cho một RV32I không có phần mở rộng M,
+tức là không chứa các hướng dẫn nhân và chia, bạn có thể kết hợp các hướng dẫn số học và
+dịch để thực hiện các phép nhân và chia. Mã lệnh hợp ngữ dưới đây cho thấy một ví dụ về
+cách sử dụng các hướng dẫn <code class="docutils literal notranslate"><span class="pre">slli</span></code> và <code class="docutils literal notranslate"><span class="pre">addi</span></code> để nhân giá trị của <code class="docutils literal notranslate"><span class="pre">a2</span></code> với <code class="docutils literal notranslate"><span class="pre">5</span></code> và với <code class="docutils literal notranslate"><span class="pre">10</span></code>:</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">slli</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="c1"># a0 &lt;= a2 * 4</span>
+<span class="nf">add</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a2</span><span class="w"> </span><span class="c1"># a0 &lt;= a0 + a2, tức là a2 * 5</span>
+<span class="nf">slli</span><span class="w"> </span><span class="no">a1</span><span class="p">,</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c1"># a1 &lt;= a0 * 2, tức là a2 * 10</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="data-movement-instructions">
+<h2>Data movement instructions<a class="headerlink" href="#data-movement-instructions" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Code.html" class="btn btn-neutral float-left" title="Examples and Explanations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="GVSOC.html" class="btn btn-neutral float-right" title="GVSOC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, RyanDank.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
