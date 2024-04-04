@@ -14,7 +14,7 @@ Welcome to RyanDank documentation
    Contents/pcb
    Contents/mqtt
    Contents/internet
-   Contents/RISCV/riscv.rst
+   Contents/RISCV/riscv
 
 
    
