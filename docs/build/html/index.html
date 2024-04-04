@@ -53,6 +53,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Contents/pcb.html">Board PCB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contents/mqtt.html">MQTT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contents/internet.html">Internet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contents/RISCV/riscv.html">RISC-V</a></li>
 </ul>
 
         </div>
@@ -92,7 +93,11 @@
 <li class="toctree-l2"><a class="reference internal" href="Contents/sphinx.html#cai-dat-sphinx">Cài đặt sphinx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Contents/sphinx.html#tao-document-layout">Tạo document layout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Contents/sphinx.html#tao-requirements">Tạo requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Contents/sphinx.html#tuy-chinh-can-thiet">Tùy chỉnh cần thiết</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contents/sphinx.html#tuy-chinh-can-thiet">Tùy chỉnh cần thiết</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Contents/sphinx.html#theme">1. Theme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Contents/sphinx.html#sphinx-copybutton">2. Sphinx_copybutton</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="Contents/sphinx.html#deploy-len-github">Deploy lên github</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Contents/sphinx.html#clone-document">Clone document</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Contents/sphinx.html#build-sphinx">Build sphinx</a></li>
@@ -103,7 +108,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Contents/pcb.html">Board PCB</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Contents/pcb.html#lam-mach-thu-cong">Làm mạch thủ công</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contents/pcb.html#lam-mach-thu-cong">Làm mạch thủ công</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Contents/pcb.html#dung-dich-lam-mach">1.Dung dịch làm mạch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Contents/pcb.html#quy-tac-di-day">2.Quy tắc đi dây</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Contents/mqtt.html">MQTT</a><ul>
@@ -115,8 +124,64 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Contents/internet.html">Internet</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Contents/internet.html#lenh">Lệnh</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Contents/internet.html#cai-mininet">Cài mininet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contents/internet.html#cai-mininet">Cài mininet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Contents/internet.html#kiem-tra-internet">1. Kiểm tra internet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Contents/internet.html#cai-dat-mininet">2. Cài đặt mininet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Contents/internet.html#cai-dat-xterm">3. Cài đặt xterm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Contents/internet.html#cai-dat-wireshark">4. Cài đặt Wireshark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Contents/internet.html#cai-dat-goi-python-tk">5. Cài đặt gói python-tk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Contents/internet.html#sao-chep-thu-muc-chua-cac-vi-du-cua-mininet-ra-thu-muc-ca-nhan-nguoi-dung">6. Sao chép thư mục chứa các ví dụ của Mininet ra thư mục cá nhân người dùng</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Contents/internet.html#thuc-thi-miniedit">7. Thực thi MiniEdit</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="Contents/internet.html#cach-su-dung-mininet">Cách sử  dụng mininet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Contents/RISCV/riscv.html">RISC-V</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Contents/RISCV/Introduction.html">Assembly Language</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Contents/RISCV/Introduction.html#the-set-and-equ-diirectives">The .set and .equ diirectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Contents/RISCV/Introduction.html#global-directive">Global directive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Contents/RISCV/Introduction.html#the-align-directive">The .align directive</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Contents/RISCV/Code.html">Code mẫu và giải thích</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Contents/RISCV/Code.html#cong-hai-so">Cộng hai số</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Contents/RISCV/Code.html#tim-gia-tri-max">Tìm giá trị max</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Contents/RISCV/Assembly_script.html">The RV32I ISA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Contents/RISCV/Assembly_script.html#dac-tinh">Đặc tính</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Contents/RISCV/Assembly_script.html#datatype">Datatype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Contents/RISCV/Assembly_script.html#rv32i-register">RV32I register</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Contents/RISCV/Assembly_script.html#load-store-architecture">Load/Store architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Contents/RISCV/Assembly_script.html#pseudo-instructions">Pseudo-instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Contents/RISCV/Assembly_script.html#logic-shift-and-arithmetic-instructions">Logic, shift, and arithmetic instructions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Contents/RISCV/Assembly_script.html#instructions-syntax-and-operands">Instructions syntax and operands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Contents/RISCV/Assembly_script.html#dealing-with-large-immediate-values">Dealing with large immediate values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Contents/RISCV/Assembly_script.html#logic-instructions">Logic instructions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Contents/RISCV/Assembly_script.html#shift-instructions">Shift instructions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Contents/RISCV/Assembly_script.html#arithmetic-instructions">Arithmetic instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Contents/RISCV/Assembly_script.html#data-movement-instructions">Data movement instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Contents/RISCV/GVSOC.html">GVSOC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Contents/RISCV/GVSOC.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Contents/RISCV/Gap8_and_PULP.html">GVSOC-GAP8 - PULP PLATFORM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Contents/RISCV/Gap8_and_PULP.html#pulp-platform">PULP platform</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Contents/RISCV/Gap8_and_PULP.html#introduction">Introduction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Contents/RISCV/Professional_terminology.html">Professional terminology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Contents/RISCV/Professional_terminology.html#profiling-tool">1. Profiling tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Contents/RISCV/Professional_terminology.html#sdk">2. SDK</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

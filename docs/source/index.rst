@@ -6,7 +6,7 @@ Welcome to RyanDank documentation
 ==========================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
 
    Contents/github
    Contents/sphinx 
@@ -14,6 +14,7 @@ Welcome to RyanDank documentation
    Contents/pcb
    Contents/mqtt
    Contents/internet
+   Contents/RISCV/riscv.rst
 
 
    
