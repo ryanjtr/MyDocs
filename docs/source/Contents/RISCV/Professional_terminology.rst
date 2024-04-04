@@ -1,7 +1,7 @@
 Professional terminology
 -----------------------------
 
-1. Profiling tool
+Profiling tool
 ~~~~~~~~~~~~~~~~~~~
 
 A "profiling tool" is a software tool used to gather information about the performance, 
@@ -23,7 +23,7 @@ Profiling tools are commonly used in software development and deployment to ensu
 applications perform efficiently and do not encounter performance issues when used in 
 real-world environments.
 
-2. SDK
+SDK
 ~~~~~~~~~~~~~~~~~~~~
 An SDK, or Software Development Kit, is essentially a set of tools, libraries, documentation, and 
 sample code provided by a platform or technology provider to facilitate the development of software 
