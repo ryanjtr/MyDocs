@@ -55,14 +55,6 @@ solutions for a wide range of embedded and IoT applications.
 PULP Toolchain
 ----------------
 
-Follow these steps:
-
-.. code-block:: bash
-
-    git clone https://github.com/pulp-platform/pulp-riscv-gnu-toolchain
-    cd pulp-riscv-gnu-toolchain
-    git submodule update --init --recursive
-
 Open new terminal to create new directory:
 
 .. code-block:: bash
@@ -73,16 +65,49 @@ Open new terminal to create new directory:
     cd riscv
     sudo mkdir bin
 
+Setup path:
+
+.. code-block:: bash
+
+    nano ~/.profile
+
+Add
+
+.. code-block:: bash 
+
+    if [ -d "/opt/riscv" ] ; then
+        PATH="/opt/riscv:$PATH"
+    fi
+
+Prerequisite
+
+.. code-block:: bash 
+
+    sudo apt-get install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev
+
+Follow these steps to install toolchain:
+
+.. code-block:: bash
+
+    git clone https://github.com/pulp-platform/pulp-riscv-gnu-toolchain
+    cd pulp-riscv-gnu-toolchain
+    git submodule update --init --recursive
+
 Then type:
 
 .. code-block:: bash
 
-    export PATH=/opt/riscv/bin:$PATH
     ./configure --prefix=/opt/riscv --with-arch=rv32imc --with-cmodel=medlow --enable-multilib
     make
 
 PULP SDK
 ----------------
+
+Prerequisite
+
+.. code-block:: bash
+
+    sudo apt-get install -y build-essential git libftdi-dev libftdi1 doxygen python3-pip libsdl2-dev curl cmake libusb-1.0-0-dev scons gtkwave libsndfile1-dev rsync autoconf automake texinfo libtool pkg-config libsdl2-ttf-dev
 
 Follow these steps:
 
@@ -94,10 +119,28 @@ Follow these steps:
 Clone pulp SDK and update submodule:
 
 .. code-block:: bash
-
-    export PULP_RISCV_GCC_TOOLCHAIN=/opt/riscv 
+    
+    git clone https://github.com/pulp-platform/pulp-sdk.git
     cd pulp-sdk
     git submodule update --init --recursive
+
+Edit ``pulp-sdk/configs/pulp-open.sh``, below line 32:
+
+.. code-block:: bash
+
+    export PULP_RISCV_GCC_TOOLCHAIN=/opt/riscv 
+
+Build gvsoc
+
+.. code-block:: bash
+
     source configs/pulp-open.sh
     make build
+
+.. warning::
+
+    Before running or doing anything in ``pulp-sdk`` directory, you must run ``source configs/pulp-open.sh``
+
+First simple test
+----------------------------------------
 
