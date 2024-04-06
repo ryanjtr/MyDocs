@@ -8,7 +8,7 @@ RISC-V
    Code
    Assembly_script
    GVSOC
-   Gap8_and_PULP
+   Pulp_toolchain_and_sdk
    Professional_terminology     
 
 

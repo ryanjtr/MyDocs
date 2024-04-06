@@ -82,7 +82,7 @@
           <li><a href="riscv.html">RISC-V</a> &raquo;</li>
       <li>PULP Toolchain and SDK</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/Contents/RISCV/Gap8_and_PULP.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/Contents/RISCV/Pulp_toolchain_and_sdk.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -135,9 +135,9 @@ sudo mkdir bin
 git submodule update --init --recursive
 </pre></div>
 </div>
-<p>Then type:</p>
+<p>Cause <code class="docutils literal notranslate"><span class="pre">/opt/riscv/bin</span></code> is in <code class="docutils literal notranslate"><span class="pre">root</span></code>, so must use <code class="docutils literal notranslate"><span class="pre">sudo</span></code> in <code class="docutils literal notranslate"><span class="pre">make</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./configure --prefix<span class="o">=</span>/opt/riscv --with-arch<span class="o">=</span>rv32imc --with-cmodel<span class="o">=</span>medlow --enable-multilib
-make
+sudo make
 </pre></div>
 </div>
 </section>

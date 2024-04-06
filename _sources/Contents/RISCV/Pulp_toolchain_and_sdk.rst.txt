@@ -56,12 +56,12 @@ Follow these steps to install toolchain:
     cd pulp-riscv-gnu-toolchain
     git submodule update --init --recursive
 
-Then type:
+Cause ``/opt/riscv/bin`` is in ``root``, so must use ``sudo`` in ``make``
 
 .. code-block:: bash
 
     ./configure --prefix=/opt/riscv --with-arch=rv32imc --with-cmodel=medlow --enable-multilib
-    make
+    sudo make
 
 PULP SDK installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
