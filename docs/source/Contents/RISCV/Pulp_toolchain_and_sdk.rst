@@ -122,6 +122,6 @@ First simple test
 References
 ~~~~~~~~~~~~~~~~~~
 
-`[1]. Installation toolchain and sdk <https://www.pulp-platform.org/docs/pulp_training/NBruschi_gvsoc_tutorial_part1.pdf> target="_blank"`_
+`[1]. Installation toolchain and sdk <https://www.pulp-platform.org/docs/pulp_training/NBruschi_gvsoc_tutorial_part1.pdf>`_
 
-External link: <a class="reference external" href="https://example.com/" rel="noopener noreferrer" target="_blank">Example</a>
+`<a class="reference external" href="https://example.com/" rel="noopener noreferrer" target="_blank">Example</a>`
