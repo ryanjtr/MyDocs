@@ -8,6 +8,7 @@ Welcome to RyanDank documentation
 .. toctree::
    :maxdepth: 4
 
+   Contents/Professional_terminology
    Contents/github
    Contents/sphinx 
    Contents/zephyr
