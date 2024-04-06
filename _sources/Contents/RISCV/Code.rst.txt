@@ -45,7 +45,7 @@ Add 2 numbers
             .word 0                      # z = 0
 
 
-* ``lui a0, %hi(x_addr)`` Lệnh này nạp 16 bit hàng đầu của địa chỉ của biến ``x_addr`` vào thanh ghi a0.
+``lui a0, %hi(x_addr)`` Lệnh này nạp 16 bit hàng đầu của địa chỉ của biến ``x_addr`` vào thanh ghi a0.
 Trong RISC-V, để truy cập đến một biến trong bộ nhớ, chúng ta cần biết địa chỉ của nó. 
 Tuy nhiên, do hạn chế về kích thước của lệnh, chúng ta chỉ có thể lưu trữ một phần của địa chỉ 
 trong một lệnh. Để làm điều này, chúng ta sử dụng lệnh lui (Load Upper Immediate), nó nạp giá trị 
@@ -104,7 +104,7 @@ Tìm giá trị max
 
         # Loop through the array, storing the max value so far in t1.
         # WRITE THIS LOOP
-
+        
         # Copy the result (the max value) into the result space.
         lui     a2, %hi(result)
         addi    a2, a2, %lo(result)

@@ -139,10 +139,8 @@
 <span class="w">        </span><span class="na">.word</span><span class="w"> </span><span class="mi">0</span><span class="w">                      </span><span class="c1"># z = 0</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">lui</span> <span class="pre">a0,</span> <span class="pre">%hi(x_addr)</span></code> Lệnh này nạp 16 bit hàng đầu của địa chỉ của biến <code class="docutils literal notranslate"><span class="pre">x_addr</span></code> vào thanh ghi a0.</p></li>
-</ul>
-<p>Trong RISC-V, để truy cập đến một biến trong bộ nhớ, chúng ta cần biết địa chỉ của nó.
+<p><code class="docutils literal notranslate"><span class="pre">lui</span> <span class="pre">a0,</span> <span class="pre">%hi(x_addr)</span></code> Lệnh này nạp 16 bit hàng đầu của địa chỉ của biến <code class="docutils literal notranslate"><span class="pre">x_addr</span></code> vào thanh ghi a0.
+Trong RISC-V, để truy cập đến một biến trong bộ nhớ, chúng ta cần biết địa chỉ của nó.
 Tuy nhiên, do hạn chế về kích thước của lệnh, chúng ta chỉ có thể lưu trữ một phần của địa chỉ
 trong một lệnh. Để làm điều này, chúng ta sử dụng lệnh lui (Load Upper Immediate), nó nạp giá trị
 ngay sau dấu <code class="docutils literal notranslate"><span class="pre">%hi</span></code> vào thanh ghi. Đối với <code class="docutils literal notranslate"><span class="pre">%hi(x_addr)</span></code>, nó chỉ lấy 16 bit hàng đầu của địa chỉ của biến <code class="docutils literal notranslate"><span class="pre">x_addr</span></code> và lưu vào <code class="docutils literal notranslate"><span class="pre">a0</span></code>.</p>
