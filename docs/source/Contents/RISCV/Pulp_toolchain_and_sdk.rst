@@ -123,5 +123,3 @@ References
 ~~~~~~~~~~~~~~~~~~
 
 `[1]. Installation toolchain and sdk <https://www.pulp-platform.org/docs/pulp_training/NBruschi_gvsoc_tutorial_part1.pdf>`_
-
-`<a class="reference external" href="https://example.com/" rel="noopener noreferrer" target="_blank">Example</a>`

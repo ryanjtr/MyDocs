@@ -145,7 +145,17 @@ Vào ``conf.py`` và thêm như dưới đây
 
     extensions = ['sphinx_copybutton']
 
+3. Sphinx-new-tab-link
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Thêm ``sphinx-new-tab-link`` vào ``requirements.txt``.
+
+Vào ``conf.py`` và thêm như dưới đây
+
+.. code-block::
+
+    extensions = ['sphinx_new_tab_link']
+    
 Deploy lên github
 -----------------
 
