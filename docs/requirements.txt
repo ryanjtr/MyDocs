@@ -58,3 +58,4 @@ urllib3==1.26.9
     # via requests
 sphinx-copybutton
 furo==2021.11.16
+sphinx-new-tab-link
