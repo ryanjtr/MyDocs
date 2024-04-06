@@ -172,11 +172,18 @@ make build
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Before running or doing anything in <code class="docutils literal notranslate"><span class="pre">pulp-sdk</span></code> directory, you must run <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">configs/pulp-open.sh</span></code></p>
+<p>You must run <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">configs/pulp-open.sh</span></code> before running or doing anything in <code class="docutils literal notranslate"><span class="pre">pulp-sdk</span></code> directory</p>
 </div>
 </section>
 <section id="first-simple-test">
 <h2>First simple test<a class="headerlink" href="#first-simple-test" title="Permalink to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> pulp-sdk
+<span class="nb">source</span> configs/pulp-open.sh
+<span class="nb">cd</span> tests/hello
+
+make clean all run
+</pre></div>
+</div>
 </section>
 </section>
 

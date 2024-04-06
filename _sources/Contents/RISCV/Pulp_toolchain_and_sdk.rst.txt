@@ -106,8 +106,16 @@ Build gvsoc
 
 .. Note:: 
 
-    Before running or doing anything in ``pulp-sdk`` directory, you must run ``source configs/pulp-open.sh``
+    You must run ``source configs/pulp-open.sh`` before running or doing anything in ``pulp-sdk`` directory
 
 First simple test
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+    cd pulp-sdk
+    source configs/pulp-open.sh
+    cd tests/hello
+    
+    make clean all run
 
