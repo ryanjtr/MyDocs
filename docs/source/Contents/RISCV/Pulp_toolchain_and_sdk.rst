@@ -42,6 +42,10 @@ Add
         PATH="/opt/riscv:$PATH"
     fi
 
+.. Note:: 
+
+    Log out Ubuntu and then log in
+
 Prerequisite
 
 .. code-block:: bash 
@@ -100,7 +104,7 @@ Build gvsoc
     source configs/pulp-open.sh
     make build
 
-.. warning::
+.. Note:: 
 
     Before running or doing anything in ``pulp-sdk`` directory, you must run ``source configs/pulp-open.sh``
 
