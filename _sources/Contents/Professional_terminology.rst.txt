@@ -25,6 +25,7 @@ real-world environments.
 
 SDK
 ~~~~~~~~~~~~~~~~~~~~
+
 An SDK, or Software Development Kit, is essentially a set of tools, libraries, documentation, and 
 sample code provided by a platform or technology provider to facilitate the development of software 
 applications for that specific platform. Here's a more detailed breakdown along with examples:

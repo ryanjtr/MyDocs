@@ -8,8 +8,7 @@ RISC-V
    Code
    Assembly_script
    GVSOC
-   Pulp_toolchain_and_sdk
-   Professional_terminology     
+   Pulp_toolchain_and_sdk   
 
 
 
