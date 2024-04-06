@@ -17,7 +17,7 @@ RISC-V
 
 
 Số nguyên không dấu và số nguyên có dấu là hai loại số nguyên được biểu diễn và xử lý khác nhau trong lập trình.
-
+x
 Số nguyên không dấu (unsigned integers):
 
 Số nguyên không dấu chỉ biểu diễn giá trị không âm (không có dấu).

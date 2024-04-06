@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GVSOC-GAP8 - PULP PLATFORM &mdash; RyanDocs 2024 documentation</title>
+  <title>GVSOC-GAP8 - PULP PLATFORM - TOOLCHAIN &mdash; RyanDocs 2024 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
@@ -53,13 +53,15 @@
 <li class="toctree-l2"><a class="reference internal" href="Code.html">Examples and Explanations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Assembly_script.html">The RV32I ISA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GVSOC.html">GVSOC</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">GVSOC-GAP8 - PULP PLATFORM</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GVSOC-GAP8 - PULP PLATFORM - TOOLCHAIN</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#pulp-platform">PULP platform</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#pulp-toolchain">PULP Toolchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pulp-sdk">PULP SDK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Professional_terminology.html">Professional terminology</a></li>
 </ul>
 </li>
@@ -80,7 +82,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="riscv.html">RISC-V</a> &raquo;</li>
-      <li>GVSOC-GAP8 - PULP PLATFORM</li>
+      <li>GVSOC-GAP8 - PULP PLATFORM - TOOLCHAIN</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/Contents/RISCV/Gap8_and_PULP.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -90,8 +92,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="gvsoc-gap8-pulp-platform">
-<h1>GVSOC-GAP8 - PULP PLATFORM<a class="headerlink" href="#gvsoc-gap8-pulp-platform" title="Permalink to this heading"></a></h1>
+  <section id="gvsoc-gap8-pulp-platform-toolchain">
+<h1>GVSOC-GAP8 - PULP PLATFORM - TOOLCHAIN<a class="headerlink" href="#gvsoc-gap8-pulp-platform-toolchain" title="Permalink to this heading"></a></h1>
 <section id="pulp-platform">
 <h2>PULP platform<a class="headerlink" href="#pulp-platform" title="Permalink to this heading"></a></h2>
 <section id="introduction">
@@ -133,6 +135,45 @@ along with a vibrant community, to support the development of energy-efficient p
 solutions for a wide range of embedded and IoT applications.</p>
 </section>
 </section>
+</section>
+<section id="pulp-toolchain">
+<h1>PULP Toolchain<a class="headerlink" href="#pulp-toolchain" title="Permalink to this heading"></a></h1>
+<p>Follow these steps:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/pulp-platform/pulp-riscv-gnu-toolchain
+<span class="nb">cd</span> pulp-riscv-gnu-toolchain
+git submodule update --init --recursive
+</pre></div>
+</div>
+<p>Open new terminal to create new directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span>
+<span class="nb">cd</span> /opt
+sudo mkdir riscv
+<span class="nb">cd</span> riscv
+sudo mkdir bin
+</pre></div>
+</div>
+<p>Then type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/opt/riscv/bin:<span class="nv">$PATH</span>
+./configure --prefix<span class="o">=</span>/opt/riscv --with-arch<span class="o">=</span>rv32imc --with-cmodel<span class="o">=</span>medlow --enable-multilib
+make
+</pre></div>
+</div>
+</section>
+<section id="pulp-sdk">
+<h1>PULP SDK<a class="headerlink" href="#pulp-sdk" title="Permalink to this heading"></a></h1>
+<p>Follow these steps:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install argcomplete pyelftools six
+pip install prettytable
+</pre></div>
+</div>
+<p>Clone pulp SDK and update submodule:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PULP_RISCV_GCC_TOOLCHAIN</span><span class="o">=</span>/opt/riscv
+<span class="nb">cd</span> pulp-sdk
+git submodule update --init --recursive
+<span class="nb">source</span> configs/pulp-open.sh
+make build
+</pre></div>
+</div>
 </section>
 
 

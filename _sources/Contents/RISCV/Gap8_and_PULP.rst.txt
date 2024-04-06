@@ -1,4 +1,4 @@
-GVSOC-GAP8 - PULP PLATFORM
+GVSOC-GAP8 - PULP PLATFORM - TOOLCHAIN
 -------------------------------
 
 
@@ -51,4 +51,53 @@ along with a vibrant community, to support the development of energy-efficient p
 solutions for a wide range of embedded and IoT applications.
 
 
+
+PULP Toolchain
+----------------
+
+Follow these steps:
+
+.. code-block:: bash
+
+    git clone https://github.com/pulp-platform/pulp-riscv-gnu-toolchain
+    cd pulp-riscv-gnu-toolchain
+    git submodule update --init --recursive
+
+Open new terminal to create new directory:
+
+.. code-block:: bash
+
+    cd
+    cd /opt
+    sudo mkdir riscv
+    cd riscv
+    sudo mkdir bin
+
+Then type:
+
+.. code-block:: bash
+
+    export PATH=/opt/riscv/bin:$PATH
+    ./configure --prefix=/opt/riscv --with-arch=rv32imc --with-cmodel=medlow --enable-multilib
+    make
+
+PULP SDK
+----------------
+
+Follow these steps:
+
+.. code-block:: bash
+
+    pip install argcomplete pyelftools six
+    pip install prettytable
+
+Clone pulp SDK and update submodule:
+
+.. code-block:: bash
+
+    export PULP_RISCV_GCC_TOOLCHAIN=/opt/riscv 
+    cd pulp-sdk
+    git submodule update --init --recursive
+    source configs/pulp-open.sh
+    make build
 
