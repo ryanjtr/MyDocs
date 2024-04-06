@@ -116,6 +116,10 @@ First simple test
     cd pulp-sdk
     source configs/pulp-open.sh
     cd tests/hello
-    
+
     make clean all run
 
+References
+~~~~~~~~~~~~~~~~~~
+
+`[1] Installation toolchain and sdk <https://www.pulp-platform.org/docs/pulp_training/NBruschi_gvsoc_tutorial_part1.pdf>`_
