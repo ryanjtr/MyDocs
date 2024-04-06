@@ -52,8 +52,8 @@ solutions for a wide range of embedded and IoT applications.
 
 
 
-PULP Toolchain
-----------------
+PULP Toolchain installation
+---------------------------------
 
 Open new terminal to create new directory:
 
@@ -100,8 +100,8 @@ Then type:
     ./configure --prefix=/opt/riscv --with-arch=rv32imc --with-cmodel=medlow --enable-multilib
     make
 
-PULP SDK
-----------------
+PULP SDK installation
+-----------------------------
 
 Prerequisite
 
