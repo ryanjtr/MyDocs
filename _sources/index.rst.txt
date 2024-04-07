@@ -6,7 +6,7 @@ Welcome to RyanDank documentation
 ==========================================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
    Contents/Professional_terminology
    Contents/github
