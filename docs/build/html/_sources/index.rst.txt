@@ -6,15 +6,16 @@ Welcome to RyanDank documentation
 ==========================================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
+   Contents/Professional_terminology
    Contents/github
    Contents/sphinx 
    Contents/zephyr
    Contents/pcb
    Contents/mqtt
    Contents/internet
-   Contents/RISCV/riscv.rst
+   Contents/RISCV/riscv
 
 
    

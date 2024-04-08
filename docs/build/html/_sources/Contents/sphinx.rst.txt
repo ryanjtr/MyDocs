@@ -127,7 +127,7 @@ Tùy chỉnh cần thiết
 1. Theme
 ~~~~~~~~~~~
 
-Vào ``conf.py`` và thêm như dưới:
+Vào ``conf.py`` và thêm extension như dưới:
 
 .. code-block::
 
@@ -139,13 +139,34 @@ Vào ``conf.py`` và thêm như dưới:
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Thêm ``sphinx-copybutton`` vào ``requirements.txt``.
-Vào ``conf.py`` và thêm như dưới đây
+Cài thư viện và máy 
+
+.. code-block:: python
+
+    pip install sphinx-copybutton
+
+Vào ``conf.py`` và thêm extension như dưới đây
 
 .. code-block::
 
     extensions = ['sphinx_copybutton']
 
+3. Sphinx-new-tab-link
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Thêm ``sphinx-new-tab-link`` vào ``requirements.txt``.
+Cài thư viện vào máy
+
+.. code-block:: python
+
+    pip install sphinx-new-tab-link
+
+Vào ``conf.py`` và thêm extension như dưới đây
+
+.. code-block::
+
+    extensions = ['sphinx_new_tab_link']
+    
 Deploy lên github
 -----------------
 
