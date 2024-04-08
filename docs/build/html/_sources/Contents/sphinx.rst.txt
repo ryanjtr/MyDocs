@@ -121,12 +121,18 @@ Tạo file ``requirements.txt`` với nội dung:
         # via requests
     furo==2021.11.16
 
-Tùy chỉnh cần thiết
+Tiện ích cần thiết
 ---------------------------
 
 1. Theme
 ~~~~~~~~~~~
 
+Cài thư viện vào máy
+
+.. code-block:: python
+
+    pip install sphinx-rtd-theme
+    
 Vào ``conf.py`` và thêm extension như dưới:
 
 .. code-block::
@@ -139,7 +145,7 @@ Vào ``conf.py`` và thêm extension như dưới:
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Thêm ``sphinx-copybutton`` vào ``requirements.txt``.
-Cài thư viện và máy 
+Cài thư viện vào máy 
 
 .. code-block:: python
 
