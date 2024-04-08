@@ -44,7 +44,7 @@ Add
 
 .. Note:: 
 
-    Log out Ubuntu and then log in
+    Log out Ubuntu and then log in after edit ``.profile``
 
 Prerequisite
 
@@ -106,7 +106,7 @@ Build gvsoc
 
 .. Note:: 
 
-    You must run ``source configs/pulp-open.sh`` before running or doing anything in ``pulp-sdk`` directory
+    Always run command ``source configs/pulp-open.sh`` before running or doing anything in ``pulp-sdk`` directory
 
 First simple test
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -123,3 +123,93 @@ References
 ~~~~~~~~~~~~~~~~~~
 
 `[1]. Installation toolchain and sdk <https://www.pulp-platform.org/docs/pulp_training/NBruschi_gvsoc_tutorial_part1.pdf>`_
+
+
+
+.. Environments module installation
+.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. Prerequisite: ``tcl``
+
+.. .. code-block:: bash
+
+..     sudo apt-get install tcl8.6-dev
+
+
+
+..  ./configure --with-to /usr/lib/tlc8.6/
+
+
+Run code in pulp-sdk
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Copy code folder to path ``pulp-sdk/tests/`` and then run
+
+
+Lab
+~~~~~~
+
+`LAB03 Embedded Programming on PULP <https://github.com/EEESlab/APAI23-LAB03-PULP-Embedded-Programming/blob/f862501580a95426f8a420779cf88869e134b596/docs/slides.pdf>`_
+
+Task 1
+*******
+
+If we change define N with 350. The checksum and the result will not be correct due to the limited range of data type ``unsigned char``, just 0-255. 
+So we must change the data type of array to ``unsigned int`` to have better range.
+
+.. code-block:: c
+
+    unsigned int array_1[N];
+
+    int init_array(unsigned int *A_ar, int size)
+
+    void print_array(unsigned int *A_ar, int size)
+
+    int vector_sum(unsigned int *A_ar, int size)
+
+Task 2
+*********
+
+Code in task 2 performs maxtrix-vector multiplication and measures its performance using performance counter
+on the PULP platform.
+
+
+.. list-table:: Performance
+    :widths: 25 25 25
+    :header-rows: 1
+
+    * 
+      - 
+      - -01
+      - -03
+      - -03 HWLoops
+    *
+      - Clock Cycles
+      - 198615
+      - 186262
+      - 190599
+    *
+      - Instr
+      - 71427
+      - 60329
+      - 62622
+    * 
+      - MAC
+      - 2500
+      - 2500
+      - 2500
+    * 
+      - CPI 
+      - 2
+      - 3
+      - 3
+    *
+      - Intr/Cycles
+      - 0
+      - 0
+      - 0
+    *
+      - Intr/MAC
+      - 28
+      - 24
+      - 25

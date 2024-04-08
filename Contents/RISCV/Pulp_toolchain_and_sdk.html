@@ -59,6 +59,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#pulp-sdk-installation">PULP SDK installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#first-simple-test">First simple test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-code-in-pulp-sdk">Run code in pulp-sdk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lab">Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#task-1">Task 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2">Task 2</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -127,7 +133,7 @@ sudo mkdir bin
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Log out Ubuntu and then log in</p>
+<p>Log out Ubuntu and then log in after edit <code class="docutils literal notranslate"><span class="pre">.profile</span></code></p>
 </div>
 <p>Prerequisite</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev
@@ -173,7 +179,7 @@ make build
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You must run <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">configs/pulp-open.sh</span></code> before running or doing anything in <code class="docutils literal notranslate"><span class="pre">pulp-sdk</span></code> directory</p>
+<p>Always run command <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">configs/pulp-open.sh</span></code> before running or doing anything in <code class="docutils literal notranslate"><span class="pre">pulp-sdk</span></code> directory</p>
 </div>
 </section>
 <section id="first-simple-test">
@@ -189,6 +195,33 @@ make clean all run
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://www.pulp-platform.org/docs/pulp_training/NBruschi_gvsoc_tutorial_part1.pdf" rel="noopener noreferrer" target="_blank">[1]. Installation toolchain and sdk</a></p>
+</section>
+<section id="run-code-in-pulp-sdk">
+<h2>Run code in pulp-sdk<a class="headerlink" href="#run-code-in-pulp-sdk" title="Permalink to this heading"></a></h2>
+<p>Copy code folder to path <code class="docutils literal notranslate"><span class="pre">pulp-sdk/tests/</span></code> and then run</p>
+</section>
+<section id="lab">
+<h2>Lab<a class="headerlink" href="#lab" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://github.com/EEESlab/APAI23-LAB03-PULP-Embedded-Programming/blob/f862501580a95426f8a420779cf88869e134b596/docs/slides.pdf" rel="noopener noreferrer" target="_blank">LAB03 Embedded Programming on PULP</a></p>
+<section id="task-1">
+<h3>Task 1<a class="headerlink" href="#task-1" title="Permalink to this heading"></a></h3>
+<p>If we change define N with 350. The checksum and the result will not be correct due to the limited range of data type <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code>, just 0-255.
+So we must change the data type of array to <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code> to have better range.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">array_1</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">init_array</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A_ar</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">print_array</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A_ar</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">vector_sum</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A_ar</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="task-2">
+<h3>Task 2<a class="headerlink" href="#task-2" title="Permalink to this heading"></a></h3>
+<p>Code in task 2 performs maxtrix-vector multiplication and measures its performance using performance counter
+on the PULP platform.</p>
+</section>
 </section>
 </section>
 
