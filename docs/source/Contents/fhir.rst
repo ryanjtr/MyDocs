@@ -4,12 +4,12 @@ Docker
 Installation
 -----------------
 
-`Cài đặt docker cho window <https://www.docker.com/products/docker-desktop/>`_
+`Docker for window <https://www.docker.com/products/docker-desktop/>`_
 
 Create container
 --------------------
 
-Crate a container for hapi server to run on localhost
+Crate a container for Hapi server to run on localhost
 
 .. code-block:: docker
 
@@ -21,4 +21,9 @@ Crate a container for hapi server to run on localhost
 Select the container and hit start button
 
 .. image:: image/docker2.png
+
+Click ``8080:8080`` to open Hapi server on localhost.
+
+.. image:: image/docker3.png
+.. image:: image/docker4.png
 
