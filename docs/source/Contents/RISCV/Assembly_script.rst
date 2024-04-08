@@ -60,7 +60,7 @@ của một hàm.
 .. image:: ../image/rv32iunprivildged.png
 
 Load/Store architecture
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 Một kiến trúc Load/Store là một kiến trúc tập lệnh yêu cầu các giá trị phải được tải/lưu trữ một cách rõ 
