@@ -3,6 +3,7 @@ Lab
 
 LAB3
 ~~~~~~~~~~
+
 `Slide and assignemnts <https://github.com/EEESlab/APAI23-LAB03-PULP-Embedded-Programming/blob/f862501580a95426f8a420779cf88869e134b596/docs/slides.pdf>`_
 
 **Task 1**
