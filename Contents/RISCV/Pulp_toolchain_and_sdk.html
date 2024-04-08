@@ -198,7 +198,7 @@ make clean all run
 </section>
 <section id="run-code-in-pulp-sdk">
 <h2>Run code in pulp-sdk<a class="headerlink" href="#run-code-in-pulp-sdk" title="Permalink to this heading"></a></h2>
-<p>Copy code folder to path <code class="docutils literal notranslate"><span class="pre">pulp-sdk/tests/</span></code> and then run</p>
+<p>Copy project folder to path <code class="docutils literal notranslate"><span class="pre">pulp-sdk/tests/</span></code> and then run.</p>
 </section>
 <section id="lab">
 <h2>Lab<a class="headerlink" href="#lab" title="Permalink to this heading"></a></h2>
@@ -221,6 +221,54 @@ So we must change the data type of array to <code class="docutils literal notran
 <h3>Task 2<a class="headerlink" href="#task-2" title="Permalink to this heading"></a></h3>
 <p>Code in task 2 performs maxtrix-vector multiplication and measures its performance using performance counter
 on the PULP platform.</p>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">Performance</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>-01</p></th>
+<th class="head"><p>-03</p></th>
+<th class="head"><p>-03 HWLoops</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Clock Cycles</p></td>
+<td><p>198615</p></td>
+<td><p>186262</p></td>
+<td><p>190599</p></td>
+</tr>
+<tr class="row-odd"><td><p>Instr</p></td>
+<td><p>71427</p></td>
+<td><p>60329</p></td>
+<td><p>62622</p></td>
+</tr>
+<tr class="row-even"><td><p>MAC</p></td>
+<td><p>2500</p></td>
+<td><p>2500</p></td>
+<td><p>2500</p></td>
+</tr>
+<tr class="row-odd"><td><p>CPI</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>Intr/Cycles</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Intr/MAC</p></td>
+<td><p>28</p></td>
+<td><p>24</p></td>
+<td><p>25</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 </section>

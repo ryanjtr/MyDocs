@@ -172,14 +172,14 @@ tin thực thi, điều này có nghĩa là chúng không có tác động đế
 <p>Các tham chiếu đến nhãn số thường được phân biệt bằng hậu tố ‘b’ hoặc ‘f’. ‘b’ đại diện cho “trước” (before) và ‘f’
 đại diện cho “sau” (forward). Những tham chiếu này chỉ ra rằng tham chiếu đến một nhãn số được định nghĩa trước đó hoặc sau tham chiếu đó.</p>
 <p>Ví dụ minh họa:</p>
-<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span>1:      # Nhãn số 1, đánh dấu đầu của một vòng lặp
-        beqz a1, 1f    # Nếu a1 = 0 thì nhảy đến nhãn số 1 sau (1f)
-        mul a0, a0, a2 # Thực hiện phép nhân
-        addi a1, a1, -1 # Giảm giá trị của a1
-        j 1b           # Nhảy đến nhãn số 1 trước (1b) để lặp lại
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span>1:  # Nhãn số 1, đánh dấu đầu của một vòng lặp
+    beqz a1, 1f    # Nếu a1 = 0 thì nhảy đến nhãn số 1 sau (1f)
+    mul a0, a0, a2 # Thực hiện phép nhân
+    addi a1, a1, -1 # Giảm giá trị của a1
+    j 1b           # Nhảy đến nhãn số 1 trước (1b) để lặp lại
 
-1:      # Nhãn số 1, đánh dấu kết thúc của vòng lặp
-        ret            # Trở về khỏi hàm
+1:  # Nhãn số 1, đánh dấu kết thúc của vòng lặp
+    ret            # Trở về khỏi hàm
 </pre></div>
 </div>
 <p>Trong ví dụ trên, có một vòng lặp được đánh dấu bằng nhãn số 1. Lệnh nhảy j 1b nhảy đến nhãn số 1

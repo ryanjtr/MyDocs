@@ -143,7 +143,7 @@ References
 Run code in pulp-sdk
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Copy code folder to path ``pulp-sdk/tests/`` and then run
+Copy project folder to path ``pulp-sdk/tests/`` and then run.
 
 
 Lab
@@ -175,7 +175,7 @@ on the PULP platform.
 
 
 .. list-table:: Performance
-    :widths: 25 25 25
+    :widths: 25 25 25 25
     :header-rows: 1
 
     * 

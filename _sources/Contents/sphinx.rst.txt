@@ -121,13 +121,13 @@ Tạo file ``requirements.txt`` với nội dung:
         # via requests
     furo==2021.11.16
 
-Tùy chỉnh cần thiết
+Tiện ích cần thiết
 ---------------------------
 
 1. Theme
 ~~~~~~~~~~~
 
-Vào ``conf.py`` và thêm như dưới:
+Vào ``conf.py`` và thêm extension như dưới:
 
 .. code-block::
 
@@ -139,7 +139,13 @@ Vào ``conf.py`` và thêm như dưới:
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Thêm ``sphinx-copybutton`` vào ``requirements.txt``.
-Vào ``conf.py`` và thêm như dưới đây
+Cài thư viện và máy 
+
+.. code-block:: python
+
+    pip install sphinx-copybutton
+
+Vào ``conf.py`` và thêm extension như dưới đây
 
 .. code-block::
 
@@ -149,8 +155,13 @@ Vào ``conf.py`` và thêm như dưới đây
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Thêm ``sphinx-new-tab-link`` vào ``requirements.txt``.
+Cài thư viện vào máy
 
-Vào ``conf.py`` và thêm như dưới đây
+.. code-block:: python
+
+    pip install sphinx-new-tab-link
+
+Vào ``conf.py`` và thêm extension như dưới đây
 
 .. code-block::
 

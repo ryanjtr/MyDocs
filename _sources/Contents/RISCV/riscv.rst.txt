@@ -62,14 +62,14 @@ Ví dụ minh họa:
 
 .. code-block:: asm
 
-    1:      # Nhãn số 1, đánh dấu đầu của một vòng lặp
-            beqz a1, 1f    # Nếu a1 = 0 thì nhảy đến nhãn số 1 sau (1f)
-            mul a0, a0, a2 # Thực hiện phép nhân
-            addi a1, a1, -1 # Giảm giá trị của a1
-            j 1b           # Nhảy đến nhãn số 1 trước (1b) để lặp lại
+    1:  # Nhãn số 1, đánh dấu đầu của một vòng lặp
+        beqz a1, 1f    # Nếu a1 = 0 thì nhảy đến nhãn số 1 sau (1f)
+        mul a0, a0, a2 # Thực hiện phép nhân
+        addi a1, a1, -1 # Giảm giá trị của a1
+        j 1b           # Nhảy đến nhãn số 1 trước (1b) để lặp lại
 
-    1:      # Nhãn số 1, đánh dấu kết thúc của vòng lặp
-            ret            # Trở về khỏi hàm
+    1:  # Nhãn số 1, đánh dấu kết thúc của vòng lặp
+        ret            # Trở về khỏi hàm
 
 Trong ví dụ trên, có một vòng lặp được đánh dấu bằng nhãn số 1. Lệnh nhảy j 1b nhảy đến nhãn số 1 
 trước (được đánh dấu bằng 'b'). Khi vòng lặp kết thúc, lệnh nhảy j 1f nhảy đến nhãn số 1 sau 
