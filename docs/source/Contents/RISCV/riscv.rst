@@ -4,12 +4,13 @@ RISC-V
 .. toctree::
    :maxdepth: 2
 
+   Lab
    Introduction
    Code
    Assembly_script
    GVSOC
    Pulp_toolchain_and_sdk   
-   Lab
+   
 
 
 * Arithmetic là một phần của toán học, tập trung vào các phép tính cơ bản như  cộng, trừ, nhân, chia và các quy tắc liên quan đến chúng.
