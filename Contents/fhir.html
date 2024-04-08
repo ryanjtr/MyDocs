@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Board PCB &mdash; RyanDocs 2024 documentation</title>
+  <title>Docker &mdash; RyanDocs 2024 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
@@ -22,8 +22,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="MQTT" href="mqtt.html" />
-    <link rel="prev" title="Zephyr" href="zephyr.html" /> 
+    <link rel="next" title="RISC-V" href="RISCV/riscv.html" />
+    <link rel="prev" title="Internet" href="internet.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,17 +46,14 @@
 <li class="toctree-l1"><a class="reference internal" href="github.html">Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zephyr.html">Zephyr</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Board PCB</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#lam-mach-thu-cong">Làm mạch thủ công</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#dung-dich-lam-mach">1.Dung dịch làm mạch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#quy-tac-di-day">2.Quy tắc đi dây</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="pcb.html">Board PCB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mqtt.html">MQTT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="internet.html">Internet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fhir.html">Docker</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-container">Create container</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="RISCV/riscv.html">RISC-V</a></li>
 </ul>
 
@@ -74,9 +71,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Board PCB</li>
+      <li>Docker</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/Contents/pcb.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Contents/fhir.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -84,31 +81,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="board-pcb">
-<h1><a class="toc-backref" href="#id1">Board PCB</a><a class="headerlink" href="#board-pcb" title="Permalink to this heading"></a></h1>
-<div class="contents topic" id="contents">
-<p class="topic-title">Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#board-pcb" id="id1">Board PCB</a></p>
-<ul>
-<li><p><a class="reference internal" href="#lam-mach-thu-cong" id="id2">Làm mạch thủ công</a></p></li>
-</ul>
-</li>
-</ul>
+  <section id="docker">
+<h1>Docker<a class="headerlink" href="#docker" title="Permalink to this heading"></a></h1>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://www.docker.com/products/docker-desktop/" rel="noopener noreferrer" target="_blank">Cài đặt docker cho window</a></p>
+</section>
+<section id="create-container">
+<h2>Create container<a class="headerlink" href="#create-container" title="Permalink to this heading"></a></h2>
+<p>Crate a container for hapi server to run on localhost</p>
+<div class="highlight-docker notranslate"><div class="highlight"><pre><span></span>docker pull hapiproject/hapi:latest
+docker run -p <span class="m">8080</span>:8080 hapiproject/hapi:latest
+</pre></div>
 </div>
-<section id="lam-mach-thu-cong">
-<h2><a class="toc-backref" href="#id2">Làm mạch thủ công</a><a class="headerlink" href="#lam-mach-thu-cong" title="Permalink to this heading"></a></h2>
-<section id="dung-dich-lam-mach">
-<h3>1.Dung dịch làm mạch<a class="headerlink" href="#dung-dich-lam-mach" title="Permalink to this heading"></a></h3>
-<p>Tỉ lệ cồn và axeton: 7:3</p>
-</section>
-<section id="quy-tac-di-day">
-<h3>2.Quy tắc đi dây<a class="headerlink" href="#quy-tac-di-day" title="Permalink to this heading"></a></h3>
-<ul class="simple">
-<li><p>Không đi dây xuyên qua 2 chân ic</p></li>
-<li><p>Không đi dây dưới ic để tránh nhiễu</p></li>
-</ul>
-</section>
+<img alt="../_images/docker1.png" src="../_images/docker1.png" />
+<p>Select the container and hit start button</p>
+<img alt="../_images/docker2.png" src="../_images/docker2.png" />
 </section>
 </section>
 
@@ -116,8 +104,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="zephyr.html" class="btn btn-neutral float-left" title="Zephyr" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="mqtt.html" class="btn btn-neutral float-right" title="MQTT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="internet.html" class="btn btn-neutral float-left" title="Internet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="RISCV/riscv.html" class="btn btn-neutral float-right" title="RISC-V" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
