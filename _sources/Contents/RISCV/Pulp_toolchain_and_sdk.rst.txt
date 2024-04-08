@@ -149,10 +149,12 @@ Copy project folder to path ``pulp-sdk/tests/`` and then run.
 Lab
 ~~~~~~
 
-`LAB03 Embedded Programming on PULP <https://github.com/EEESlab/APAI23-LAB03-PULP-Embedded-Programming/blob/f862501580a95426f8a420779cf88869e134b596/docs/slides.pdf>`_
+LAB3
+**********
+`Slide and assignemnts <https://github.com/EEESlab/APAI23-LAB03-PULP-Embedded-Programming/blob/f862501580a95426f8a420779cf88869e134b596/docs/slides.pdf>`_
 
-Task 1
-*******
+#. Task 1
+
 
 If we change define N with 350. The checksum and the result will not be correct due to the limited range of data type ``unsigned char``, just 0-255. 
 So we must change the data type of array to ``unsigned int`` to have better range.
@@ -226,8 +228,8 @@ So we must change the data type of array to ``unsigned int`` to have better rang
             printf("Result is not correct. Got %d instead of %d\n", computed_result, expected_result);
     }
 
-Task 2
-*********
+#. Task 2
+
 
 Code in task 2 performs maxtrix-vector multiplication and measures its performance using performance counter
 on the PULP platform.
