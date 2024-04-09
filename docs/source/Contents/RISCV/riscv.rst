@@ -61,7 +61,7 @@ Các tham chiếu đến nhãn số thường được phân biệt bằng hậu
 
 Ví dụ minh họa:
 
-.. code-block:: asm
+.. code-block:: 
 
     1:  # Nhãn số 1, đánh dấu đầu của một vòng lặp
         beqz a1, 1f    # Nếu a1 = 0 thì nhảy đến nhãn số 1 sau (1f)
