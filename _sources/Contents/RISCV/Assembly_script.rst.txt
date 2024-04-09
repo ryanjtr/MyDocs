@@ -257,7 +257,7 @@ Trong kiến trúc RV32I, có nhiều loại lệnh dịch khác nhau:
 ``sll rd, rs1, rs2``: Thực hiện một **dịch trái logic** trên giá trị ở thanh ghi ``rs1`` và lưu kết 
 quả vào thanh ghi rd. Số lần dịch trái được xác định bởi giá trị trong thanh ghi ``rs2``.
 
-``srl rd, rs1, rs2``: Thực hiện một **dịch phải logic**trên giá trị ở thanh ghi ``rs1`` và lưu kết 
+``srl rd, rs1, rs2``: Thực hiện một **dịch phải logic** trên giá trị ở thanh ghi ``rs1`` và lưu kết 
 quả vào thanh ghi ``rd``. Số lần dịch phải được xác định bởi giá trị trong thanh ghi ``rs2``.
 
 ``sra rd, rs1, rs2``: Thực hiện một **dịch phải số học** trên giá trị ở thanh ghi ``rs1`` và lưu kết 
@@ -321,11 +321,11 @@ trị ngay lập tức âm bằng cách sử dụng hướng dẫn ``addi``.
 
 Hướng dẫn mul nhân các giá trị trong ``rs1`` và ``rs2`` và lưu kết quả vào rd.
 
-Hướng dẫn div và ``divu ``chia giá trị trong rs1 cho giá trị trong ``rs2 `` và lưu kết quả vào ``rd``. Hướng 
-dẫn ``div`` chia các số có dấu trong khi hướng dẫn ``divu`` chia các số không dấu.
+Hướng dẫn div và ``divu ``chia giá trị trong rs1 cho giá trị trong ``rs2`` và lưu kết quả vào ``rd``. Hướng 
+dẫn ``div`` chia các số có dấu trong khi hướng dẫn ``divu`` chia các số không dấu. 
 
-Hướng dẫn ``rem`` và ``remu`` tính phần dư của phép chia giá trị trong ``rs1 ``cho giá trị trong ``rs2 ``và lưu 
-kết quả vào ``rd``. Hướng dẫn rem tính phần dư cho phép chia của các số có dấu trong khi hướng dẫn ``remu ``
+Hướng dẫn ``rem`` và ``remu`` tính phần dư của phép chia giá trị trong ``rs1`` cho giá trị trong ``rs2`` và lưu 
+kết quả vào ``rd`` . Hướng dẫn rem tính phần dư cho phép chia của các số có dấu trong khi hướng dẫn ``remu``
 tính phần dư cho phép chia của các số không dấu.
 
 Ví dụ
