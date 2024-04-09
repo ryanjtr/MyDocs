@@ -1,7 +1,7 @@
 Assembly Language
 ---------------------------
 
-The .set and .equ diirectives
+The .set and .equ directives
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Sử dụng ``.set``
