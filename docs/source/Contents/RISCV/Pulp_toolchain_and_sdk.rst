@@ -46,6 +46,8 @@ Add
 
     Log out Ubuntu and then log in after edit ``.profile``
 
+Open new terminal to install toolchain:
+
 Prerequisite
 
 .. code-block:: bash 
@@ -69,6 +71,8 @@ Cause ``/opt/riscv/bin`` is in ``root``, so must use ``sudo`` in ``make``
 
 PULP SDK installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Open new terminal to install pulp-sdk
 
 Prerequisite
 
