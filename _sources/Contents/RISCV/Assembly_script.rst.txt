@@ -355,3 +355,17 @@ Data movement instructions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+
+Câu lệnh addi sp, sp, -16 thường được sử dụng để cấp phát không gian trong ngăn xếp (stack) cho 
+các biến cục bộ hoặc cho frame của một hàm trong MIPS Assembly Language. Cụ thể, tác dụng của câu lệnh này là:
+
+Cấp phát không gian cho biến cục bộ: Khi một hàm được gọi, các biến cục bộ của hàm đó thường được 
+cấp phát không gian trong ngăn xếp. Việc giảm giá trị của sp bằng 16 (trong trường hợp này) sẽ mở 
+rộng ngăn xếp để chứa các biến cục bộ và các giá trị khác liên quan đến việc thực thi hàm.
+
+Cấp phát frame cho một hàm: Trong MIPS, khi một hàm được gọi, một frame mới được tạo ra trên ngăn 
+xếp để lưu trữ các biến cục bộ và các giá trị trả về. Câu lệnh addi sp, sp, -16 có thể được sử dụng 
+để tạo ra một frame mới cho hàm đó, bằng cách giảm giá trị của sp để cấp phát không gian mới trong ngăn xếp.
+
+Tóm lại, câu lệnh này thường được sử dụng để quản lý việc cấp phát không gian trong ngăn xếp, đặc 
+biệt là cho các biến cục bộ và các frame của các hàm trong chương trình MIPS.
