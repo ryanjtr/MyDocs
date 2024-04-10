@@ -151,8 +151,9 @@ And unsigned version ``bltu``, ``bgeu``
 
 ``j`` stand for jump. Ex: ``j Label``
 
-.. image:: ./image/ass1.png
-.. image:: ./image/ass2.png
-.. image:: ./image/ass3.png
-.. image:: ./image/ass4.png
-.. image:: ./image/ass5.png
+.. image:: ../image/ass1.png
+.. image:: ../image/ass2.png
+.. image:: ../image/ass3.png
+.. image:: ../image/ass4.png
+.. image:: ../image/ass5.png
+.. image:: ../image/ass6.png
