@@ -136,3 +136,23 @@ Find max value
         .word 0   # The place to store the result
 
         
+
+Decision making
+~~~~~~~~~~~~~~~~~~~
+
+``beq reg1, reg2, L1``
+means: go to statements labeled L1 if(value in reg1) == (value in reg2), otherwise go to next statement
+``beq`` stand for *branch if equal*
+Other wise instruction ``bne`` stand for *branch not equal*
+
+``blt`` stand for *branch if less than*
+``bge`` stand for *branch if greater than*
+And unsigned version ``bltu``, ``bgeu``
+
+``j`` stand for jump. Ex: ``j Label``
+
+.. image:: ./image/ass1.png
+.. image:: ./image/ass2.png
+.. image:: ./image/ass3.png
+.. image:: ./image/ass4.png
+.. image:: ./image/ass5.png
