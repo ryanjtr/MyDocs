@@ -123,30 +123,15 @@ First simple test
 
     make clean all run
 
+.. tip::
+
+    To run other project outside pulp-sdk, just move project folder to path ``pulp-sdk/tests/`` and then run.
+
 References
 ~~~~~~~~~~~~~~~~~~
 
 `[1]. Installation toolchain and sdk <https://www.pulp-platform.org/docs/pulp_training/NBruschi_gvsoc_tutorial_part1.pdf>`_
 
 
-
-.. Environments module installation
-.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. Prerequisite: ``tcl``
-
-.. .. code-block:: bash
-
-..     sudo apt-get install tcl8.6-dev
-
-
-
-..  ./configure --with-to /usr/lib/tlc8.6/
-
-
-Run code in pulp-sdk
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-Copy project folder to path ``pulp-sdk/tests/`` and then run.
 
 

@@ -189,3 +189,4 @@ References
 
 `[1]. Gap toolchain installation <https://github.com/GreenWaves-Technologies/gap-riscv-gnu-toolchain>`_
 `[2]. Gap sdk installation <https://github.com/GreenWaves-Technologies/gap_sdk>`_
+`[3]. Gap8 manual <https://greenwaves-technologies.com/manuals/BUILD/HOME/html/index.html>`_
