@@ -11,31 +11,31 @@ Download following packages
 .. code-block:: bash
 
     sudo apt-get install -y \
-    autoconf \
-    automake \
-    bison \
-    build-essential \
-    cmake \
-    curl \
-    doxygen \
-    flex \
-    git \
-    gtkwave \
-    libftdi-dev \
-    libftdi1 \
-    libjpeg-dev \
-    libsdl2-dev \
-    libsdl2-ttf-dev \
-    libsndfile1-dev \
-    graphicsmagick-libmagick-dev-compat \
-    libtool \
-    libusb-1.0-0-dev \
-    pkg-config \
-    python3-pip \
-    rsync \
-    scons \
-    texinfo \
-    wget
+        autoconf \
+        automake \
+        bison \
+        build-essential \
+        cmake \
+        curl \
+        doxygen \
+        flex \
+        git \
+        gtkwave \
+        libftdi-dev \
+        libftdi1 \
+        libjpeg-dev \
+        libsdl2-dev \
+        libsdl2-ttf-dev \
+        libsndfile1-dev \
+        graphicsmagick-libmagick-dev-compat \
+        libtool \
+        libusb-1.0-0-dev \
+        pkg-config \
+        python3-pip \
+        rsync \
+        scons \
+        texinfo \
+        wget
 
 SDK and some tools are all based on Python3 (version > 3.8), you can use following command to set your default python to python3.
 
