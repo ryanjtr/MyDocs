@@ -1,6 +1,9 @@
 PULP Toolchain and SDK
 -------------------------------
 
+.. contents:: 
+    :depth: 2
+    
 Introduction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
