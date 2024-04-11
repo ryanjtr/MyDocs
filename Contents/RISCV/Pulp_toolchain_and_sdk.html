@@ -172,7 +172,7 @@ pip install prettytable
 git submodule update --init --recursive
 </pre></div>
 </div>
-<p>Edit <code class="docutils literal notranslate"><span class="pre">pulp-sdk/configs/pulp-open.sh</span></code>, below line 32:</p>
+<p>Edit file <code class="docutils literal notranslate"><span class="pre">pulp-sdk/configs/pulp-open.sh</span></code>, put the command below under line 32</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PULP_RISCV_GCC_TOOLCHAIN</span><span class="o">=</span>/opt/riscv
 </pre></div>
 </div>
@@ -188,7 +188,7 @@ make build
 </section>
 <section id="first-simple-test">
 <h2>First simple test<a class="headerlink" href="#first-simple-test" title="Permalink to this heading"></a></h2>
-<p>Chọn board và vào project</p>
+<p>Select board and then go to project</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> pulp-sdk
 <span class="nb">source</span> configs/pulp-open.sh
 <span class="nb">cd</span> tests/hello
@@ -200,7 +200,7 @@ make build
 </div>
 <p>The last line appear with <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">from</span> <span class="pre">FC</span></code> without any error then you success.</p>
 <img alt="../../_images/expulpsdk.png" src="../../_images/expulpsdk.png" />
-<p>Hiện gtkwave</p>
+<p>Follow the command below to have gtkwave</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean all run <span class="nv">runner_args</span><span class="o">=</span><span class="s2">&quot;--vcd&quot;</span>
 </pre></div>
 </div>

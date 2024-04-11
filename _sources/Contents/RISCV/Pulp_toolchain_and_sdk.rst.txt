@@ -97,7 +97,7 @@ Clone pulp SDK and update submodule:
     cd pulp-sdk
     git submodule update --init --recursive
 
-Edit ``pulp-sdk/configs/pulp-open.sh``, below line 32:
+Edit file ``pulp-sdk/configs/pulp-open.sh``, put the command below under line 32
 
 .. code-block:: bash
 
@@ -117,7 +117,7 @@ Build gvsoc
 First simple test
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Chọn board và vào project
+Select board and then go to project
 
 .. code-block:: bash
 
@@ -135,7 +135,7 @@ The last line appear with ``Hello from FC`` without any error then you success.
 
 .. image:: ../image/expulpsdk.png
 
-Hiện gtkwave
+Follow the command below to have gtkwave
 
 .. code-block:: bash 
 
