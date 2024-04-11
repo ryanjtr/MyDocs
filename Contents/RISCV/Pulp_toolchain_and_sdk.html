@@ -188,13 +188,28 @@ make build
 </section>
 <section id="first-simple-test">
 <h2>First simple test<a class="headerlink" href="#first-simple-test" title="Permalink to this heading"></a></h2>
+<p>Chọn board và vào project</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> pulp-sdk
 <span class="nb">source</span> configs/pulp-open.sh
 <span class="nb">cd</span> tests/hello
-
-make clean all run
 </pre></div>
 </div>
+<p>Build project</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean all run
+</pre></div>
+</div>
+<p>The last line appear with <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">from</span> <span class="pre">FC</span></code> without any error then you success.</p>
+<img alt="../../_images/expulpsdk.png" src="../../_images/expulpsdk.png" />
+<p>Hiện gtkwave</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean all run <span class="nv">runner_args</span><span class="o">=</span><span class="s2">&quot;--vcd&quot;</span>
+</pre></div>
+</div>
+<p>This time <code class="docutils literal notranslate"><span class="pre">view.gtkw</span></code> with appear in project, as long as <code class="docutils literal notranslate"><span class="pre">all.vcd</span></code> in <code class="docutils literal notranslate"><span class="pre">BUILD/PULP/GCC_RISCV</span></code> folder.</p>
+<p>Run the code below to see wave</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gtkwave /home/ryan/pulp-sdk/tests/hello/BUILD/PULP/GCC_RISCV/all.vcd /home/ryan/pulp-sdk/tests/hello/view.gtkw
+</pre></div>
+</div>
+<img alt="../../_images/wave.png" src="../../_images/wave.png" />
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>To run other project outside pulp-sdk, just move project folder to path <code class="docutils literal notranslate"><span class="pre">pulp-sdk/tests/</span></code> and then run.</p>

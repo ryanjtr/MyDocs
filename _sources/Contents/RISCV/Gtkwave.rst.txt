@@ -9,7 +9,7 @@ Gtkwave is a viewer for VCD (Value Change Dump) files which are usually created 
 Installation
 ~~~~~~~~~~~~~~~~~~
 
-This gtkwave is on Ubuntu 20.04
+Ubuntu version 22.04.4
 
 Update apt database with apt-get using the following command.
 
@@ -32,6 +32,6 @@ The following command will solve the problem
 
     sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
 
-gtkwave /home/ryan/pulp-sdk/tests/hello/BUILD/PULP/GCC_RISCV/all.vcd /home/ryan/pulp-sdk/tests/hello/view.gtkw
+
 make clean all run DB=1 runner_args="--vcd"
 gtkwave /home/ryan/pulp-sdk/tests/perf/double_buffering/BUILD/PULP/GCC_RISCV/all.vcd /home/ryan/pulp-sdk/tests/perf/double_buffering/view.gtkw
