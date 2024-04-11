@@ -18,6 +18,8 @@ energy-efficient computing in diverse embedded and IoT domains.
 PULP Toolchain installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Ubuntu version: 22.04.4
+
 Open new terminal to create new directory:
 
 .. code-block:: bash
