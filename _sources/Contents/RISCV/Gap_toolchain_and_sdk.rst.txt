@@ -121,8 +121,6 @@ You can either source sourceme.sh in the root sdk folder and then select the rig
 
 or 
 
-Our modules (gapy runner) require a few additional Python packages that you can install with this command from GAP SDK root folder:
-
 .. code-block:: bash
 
     source configs/<the target you want to use>.sh
