@@ -4,7 +4,7 @@ Gap Toolchain and SDK
 Gap Toolchain installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Ubuntu version: 22.04
+Ubuntu version: 22.04.4
 
 Open new terminal to create new directory:
 
