@@ -1,4 +1,4 @@
-Welcome to RyanDank documentation
+Welcome to RyanDank`s document
 ==========================================
 
 .. toctree::
