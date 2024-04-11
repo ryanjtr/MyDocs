@@ -44,7 +44,7 @@ Add
 
 .. Note:: 
 
-    Log out Ubuntu and then log in after edit ``.profile``
+    This will require a logout / login to take effect
 
 Open new terminal to install toolchain:
 

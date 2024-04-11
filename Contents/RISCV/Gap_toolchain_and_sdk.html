@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gap Toolchain and SDK &mdash; RyanDocs 2024 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lab" href="Labcode.html" />
+    <link rel="prev" title="PULP Toolchain and SDK" href="Pulp_toolchain_and_sdk.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> RyanDocs
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Professional_terminology.html">Professional terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../github.html">Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zephyr.html">Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcb.html">Board PCB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internet.html">Internet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fhir.html">Docker</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="riscv.html">RISC-V</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html">Assembly Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Code.html">Examples and Explanations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Assembly_script.html">The RV32I ISA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GVSOC.html">GVSOC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pulp_toolchain_and_sdk.html">PULP Toolchain and SDK</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Gap Toolchain and SDK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gap-toolchain-installation">Gap Toolchain installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gap-sdk-installation">Gap SDK installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Labcode.html">Lab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gtkwave.html">Gtkwave</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RyanDocs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="riscv.html">RISC-V</a> &raquo;</li>
+      <li>Gap Toolchain and SDK</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Contents/RISCV/Gap_toolchain_and_sdk.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gap-toolchain-and-sdk">
+<h1>Gap Toolchain and SDK<a class="headerlink" href="#gap-toolchain-and-sdk" title="Permalink to this heading"></a></h1>
+<section id="gap-toolchain-installation">
+<h2>Gap Toolchain installation<a class="headerlink" href="#gap-toolchain-installation" title="Permalink to this heading"></a></h2>
+<p>Ubuntu version: 22.04</p>
+<p>Download following packages</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y <span class="se">\</span>
+autoconf <span class="se">\</span>
+automake <span class="se">\</span>
+bison <span class="se">\</span>
+build-essential <span class="se">\</span>
+cmake <span class="se">\</span>
+curl <span class="se">\</span>
+doxygen <span class="se">\</span>
+flex <span class="se">\</span>
+git <span class="se">\</span>
+gtkwave <span class="se">\</span>
+libftdi-dev <span class="se">\</span>
+libftdi1 <span class="se">\</span>
+libjpeg-dev <span class="se">\</span>
+libsdl2-dev <span class="se">\</span>
+libsdl2-ttf-dev <span class="se">\</span>
+libsndfile1-dev <span class="se">\</span>
+graphicsmagick-libmagick-dev-compat <span class="se">\</span>
+libtool <span class="se">\</span>
+libusb-1.0-0-dev <span class="se">\</span>
+pkg-config <span class="se">\</span>
+python3-pip <span class="se">\</span>
+rsync <span class="se">\</span>
+scons <span class="se">\</span>
+texinfo <span class="se">\</span>
+wget
+</pre></div>
+</div>
+<p>SDK and some tools are all based on Python3 (version &gt; 3.8), you can use following command to set your default python to python3.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 <span class="m">10</span>
+</pre></div>
+</div>
+<p>Open new terminal to create new directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span>
+<span class="nb">cd</span> /opt
+sudo mkdir riscv_gap
+<span class="nb">cd</span> riscv_gap
+sudo mkdir bin
+</pre></div>
+</div>
+<p>Setup path:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano ~/.profile
+</pre></div>
+</div>
+<p>Add</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;/opt/riscv_gap&quot;</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+    <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/opt/riscv_gap:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This will require a logout / login to take effect</p>
+</div>
+<p>Open new terminal to install toolchain:</p>
+<p>Prerequisite</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev
+</pre></div>
+</div>
+<p>Follow these steps to install toolchain:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/riscv/riscv-gnu-toolchain
+<span class="nb">cd</span> riscv-gnu-toolchain
+git submodule update --init --recursive
+</pre></div>
+</div>
+<p>Cause <code class="docutils literal notranslate"><span class="pre">/opt/riscv_gap/bin</span></code> is in <code class="docutils literal notranslate"><span class="pre">root</span></code>, so must use <code class="docutils literal notranslate"><span class="pre">sudo</span></code> in <code class="docutils literal notranslate"><span class="pre">make</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./configure --prefix<span class="o">=</span>/opt/riscv --with-arch<span class="o">=</span>rv32imc --with-cmodel<span class="o">=</span>medlow --enable-multilib
+sudo make
+</pre></div>
+</div>
+</section>
+<section id="gap-sdk-installation">
+<h2>Gap SDK installation<a class="headerlink" href="#gap-sdk-installation" title="Permalink to this heading"></a></h2>
+<p>Open new terminal to install gap sdk</p>
+<p>Clone gap sdk repository</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/GreenWaves-Technologies/gap_sdk.git
+<span class="nb">cd</span> gap_sdk
+</pre></div>
+</div>
+<p>Our modules (gapy runner) require a few additional Python packages that you can install with this command from GAP SDK root folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3 install -r requirements.txt
+pip3 install -r doc/requirements.txt
+</pre></div>
+</div>
+<p>You can either source sourceme.sh in the root sdk folder and then select the right board from the list, or directly source the board config.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> sourceme.sh
+</pre></div>
+</div>
+<p>or</p>
+<p>Our modules (gapy runner) require a few additional Python packages that you can install with this command from GAP SDK root folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> configs/&lt;the target you want to use&gt;.sh
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Must select board before run any project</p>
+</div>
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-text">Summary of the available boards and their configuration file.</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Board</p></th>
+<th class="head"><p>Chip</p></th>
+<th class="head"><p>Config file</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Gapuino</p></td>
+<td><p>GAP8 v1</p></td>
+<td><p>configs/gapuino.sh</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gapuino</p></td>
+<td><p>GAP8 v2</p></td>
+<td><p>configs/gapuino_v2.sh</p></td>
+</tr>
+<tr class="row-even"><td><p>Gapoc</p></td>
+<td><p>GAP8 v1</p></td>
+<td><p>configs/gapoc_a.sh</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gapoc</p></td>
+<td><p>GAP8 v2</p></td>
+<td><p>configs/gapoc_a_v2.sh</p></td>
+</tr>
+</tbody>
+</table>
+<p>After selecting the right board, run command below to build project</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean all run
+</pre></div>
+</div>
+<p>Run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">help</span></code> to get other commands</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">===================</span> GAP <span class="nv">SDK</span> <span class="o">===================</span>
+
+Main targets:
+- clean       : clean the SDK
+- all         : build the whole SDK with all tools
+- minimal     : get latest sources <span class="k">for</span> all rtos and libs
+- gvsoc       : build GVSOC simulation platform
+- openocd.all : build OpenOCD tools to run simulation on boards
+- nntool      : build nntool
+</pre></div>
+</div>
+<p>Depends on what you need, build the SDK accordingly</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make &lt;target&gt;
+</pre></div>
+</div>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://github.com/GreenWaves-Technologies/gap-riscv-gnu-toolchain" rel="noopener noreferrer" target="_blank">[1]. Gap toolchain installation</a>
+<a class="reference external" href="https://github.com/GreenWaves-Technologies/gap_sdk" rel="noopener noreferrer" target="_blank">[2]. Gap sdk installation</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Pulp_toolchain_and_sdk.html" class="btn btn-neutral float-left" title="PULP Toolchain and SDK" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Labcode.html" class="btn btn-neutral float-right" title="Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, RyanDank.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

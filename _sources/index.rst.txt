@@ -1,4 +1,4 @@
-Welcome to RyanDank`s document
+Welcome to RyanDank`s Note
 ==========================================
 
 .. toctree::

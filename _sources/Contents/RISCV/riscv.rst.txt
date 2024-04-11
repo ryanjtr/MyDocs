@@ -8,9 +8,10 @@ RISC-V
    Code
    Assembly_script
    GVSOC
-   Pulp_toolchain_and_sdk   
+   Pulp_toolchain_and_sdk
+   Gap_toolchain_and_sdk   
    Labcode
-   gtkwave
+   Gtkwave
 
 
 * Arithmetic là một phần của toán học, tập trung vào các phép tính cơ bản như  cộng, trừ, nhân, chia và các quy tắc liên quan đến chúng.
