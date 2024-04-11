@@ -1,6 +1,9 @@
 Gap Toolchain and SDK
 -------------------------------
 
+.. contents:: 
+    :depth: 2
+    
 Gap Toolchain installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

@@ -146,7 +146,7 @@ Follow the command below to have gtkwave
 
 This time ``view.gtkw`` with appear in project, as long as ``all.vcd`` in ``BUILD/PULP/GCC_RISCV`` folder.
 
-.. image:: ../image/gtkwavex.png
+.. image:: ../image/gtkwaveex.png
 
 Run the code below to see wave 
 
