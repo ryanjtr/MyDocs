@@ -70,7 +70,7 @@ SDK and some tools are all based on Python3 (version > 3.8), you can use followi
 .. code-block:: bash
 
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
-    
+
 Open new terminal to install toolchain:
 
 Prerequisite
@@ -188,5 +188,7 @@ References
 ~~~~~~~~~~~~~~
 
 `[1]. Gap toolchain installation <https://github.com/GreenWaves-Technologies/gap-riscv-gnu-toolchain>`_
+
 `[2]. Gap sdk installation <https://github.com/GreenWaves-Technologies/gap_sdk>`_
+
 `[3]. Gap8 manual <https://greenwaves-technologies.com/manuals/BUILD/HOME/html/index.html>`_
