@@ -112,7 +112,7 @@ Build gvsoc
 
 .. Note:: 
 
-    Always run command ``source configs/pulp-open.sh`` before running or doing anything in ``pulp-sdk`` directory
+    Always run command ``source configs/pulp-open.sh`` to select board before running or doing anything in ``pulp-sdk`` directory
 
 First simple test
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
