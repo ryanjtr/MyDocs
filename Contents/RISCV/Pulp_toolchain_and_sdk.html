@@ -98,9 +98,23 @@
            <div itemprop="articleBody">
              
   <section id="pulp-toolchain-and-sdk">
-<h1>PULP Toolchain and SDK<a class="headerlink" href="#pulp-toolchain-and-sdk" title="Permalink to this heading"></a></h1>
+<h1><a class="toc-backref" href="#id1">PULP Toolchain and SDK</a><a class="headerlink" href="#pulp-toolchain-and-sdk" title="Permalink to this heading"></a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#pulp-toolchain-and-sdk" id="id1">PULP Toolchain and SDK</a></p>
+<ul>
+<li><p><a class="reference internal" href="#introduction" id="id2">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#pulp-toolchain-installation" id="id3">PULP Toolchain installation</a></p></li>
+<li><p><a class="reference internal" href="#pulp-sdk-installation" id="id4">PULP SDK installation</a></p></li>
+<li><p><a class="reference internal" href="#first-simple-test" id="id5">First simple test</a></p></li>
+<li><p><a class="reference internal" href="#references" id="id6">References</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id2">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>PULP (Parallel Ultra-Low Power) Platform is a holistic initiative aimed at developing energy-efficient
 parallel computing solutions. It encompasses various hardware and software components tailored for
 embedded and IoT applications, along with a vibrant community promoting collaboration and innovation.
@@ -113,7 +127,7 @@ Overall, the PULP Platform provides a comprehensive ecosystem to foster the adva
 energy-efficient computing in diverse embedded and IoT domains.</p>
 </section>
 <section id="pulp-toolchain-installation">
-<h2>PULP Toolchain installation<a class="headerlink" href="#pulp-toolchain-installation" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id3">PULP Toolchain installation</a><a class="headerlink" href="#pulp-toolchain-installation" title="Permalink to this heading"></a></h2>
 <p>Ubuntu version: 22.04.4</p>
 <p>Open new terminal to create new directory:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span>
@@ -155,7 +169,7 @@ sudo make
 </div>
 </section>
 <section id="pulp-sdk-installation">
-<h2>PULP SDK installation<a class="headerlink" href="#pulp-sdk-installation" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id4">PULP SDK installation</a><a class="headerlink" href="#pulp-sdk-installation" title="Permalink to this heading"></a></h2>
 <p>Open new terminal to install pulp-sdk</p>
 <p>Prerequisite</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y build-essential git libftdi-dev libftdi1 doxygen python3-pip libsdl2-dev curl cmake libusb-1.0-0-dev scons gtkwave libsndfile1-dev rsync autoconf automake texinfo libtool pkg-config libsdl2-ttf-dev
@@ -187,7 +201,7 @@ make build
 </div>
 </section>
 <section id="first-simple-test">
-<h2>First simple test<a class="headerlink" href="#first-simple-test" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id5">First simple test</a><a class="headerlink" href="#first-simple-test" title="Permalink to this heading"></a></h2>
 <p>Select board and then go to project</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> pulp-sdk
 <span class="nb">source</span> configs/pulp-open.sh
@@ -217,7 +231,7 @@ make build
 </div>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id6">References</a><a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://www.pulp-platform.org/docs/pulp_training/NBruschi_gvsoc_tutorial_part1.pdf" rel="noopener noreferrer" target="_blank">[1]. Installation toolchain and sdk</a></p>
 </section>
 </section>
