@@ -172,7 +172,37 @@ Vào ``conf.py`` và thêm extension như dưới đây
 .. code-block::
 
     extensions = ['sphinx_new_tab_link']
-    
+
+4. Logo 
+~~~~~~~~~~~~~~~~~~~
+
+Lưu ảnh logo trong folder ``_static``. Trong ``conf.py`` thêm dòng này vào dưới ``html_theme``
+
+.. code-block:: python
+
+    html_logo = "_static/logo.png"
+
+
+5. Điều chỉnh độ rộng cửa sổ hiển thị
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Trong folder ``_static``, tạo file ``custom.css`` với nội dung như bên dưới (ở đây độ rộng của sổ  được điều chỉnh khớp với màn hình)
+
+.. code-block:: css
+
+    /* make the page width fill the window */
+    .wy-nav-content {
+    max-width: none;
+    }
+
+Trong file ``conf.py``, dưới dòng ``html_static_path`` thêm đoạn code sau: 
+
+.. code-block:: python
+
+    def setup(app):
+    app.add_css_file("custom.css")
+
+
 Deploy lên github
 -----------------
 
