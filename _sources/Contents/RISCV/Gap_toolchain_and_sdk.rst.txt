@@ -6,6 +6,34 @@ Gap Toolchain installation
 
 Ubuntu version: 22.04
 
+Open new terminal to create new directory:
+
+.. code-block:: bash
+
+    cd
+    cd /opt
+    sudo mkdir riscv_gap
+    cd riscv_gap
+    sudo mkdir bin
+
+Setup path:
+
+.. code-block:: bash
+
+    nano ~/.profile
+
+Add
+
+.. code-block:: bash 
+
+    if [ -d "/opt/riscv_gap" ] ; then
+        PATH="/opt/riscv_gap:$PATH"
+    fi
+
+.. Note:: 
+
+    This will require a logout / login to take effect
+
 Download following packages
 
 .. code-block:: bash
@@ -42,35 +70,7 @@ SDK and some tools are all based on Python3 (version > 3.8), you can use followi
 .. code-block:: bash
 
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
-
-Open new terminal to create new directory:
-
-.. code-block:: bash
-
-    cd
-    cd /opt
-    sudo mkdir riscv_gap
-    cd riscv_gap
-    sudo mkdir bin
-
-Setup path:
-
-.. code-block:: bash
-
-    nano ~/.profile
-
-Add
-
-.. code-block:: bash 
-
-    if [ -d "/opt/riscv_gap" ] ; then
-        PATH="/opt/riscv_gap:$PATH"
-    fi
-
-.. Note:: 
-
-    This will require a logout / login to take effect
-
+    
 Open new terminal to install toolchain:
 
 Prerequisite
