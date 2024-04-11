@@ -41,6 +41,7 @@ Sử dụng ``.equ``
 
         * ``.equ``: Hằng số được định nghĩa bằng .equ chỉ có hiệu lực trong phạm vi cụ thể mà nó được định nghĩa, chẳng hạn như trong một tệp mã hợp ngữ.
         * ``.set``: Có thể sử dụng .set để định nghĩa hằng số ở một tệp mã hợp ngữ và sau đó sử dụng lại nó trong các tệp mã hợp ngữ khác. Điều này cho phép chia sẻ hằng số giữa nhiều tệp mã hợp ngữ.
+
 Ví dụ:
 
 .. code-block:: asm

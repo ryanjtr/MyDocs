@@ -8,6 +8,7 @@
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -32,6 +33,7 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
             <a href="../index.html" class="icon icon-home"> RyanDocs
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -52,6 +54,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#theme">1. Theme</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sphinx-copybutton">2. Sphinx_copybutton</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sphinx-new-tab-link">3. Sphinx-new-tab-link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logo">4. Logo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dieu-chinh-do-rong-cua-so-hien-thi">5. Điều chỉnh độ rộng cửa sổ hiển thị</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#deploy-len-github">Deploy lên github</a></li>
@@ -249,6 +253,28 @@ Cài thư viện vào máy</p>
 </div>
 <p>Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm extension như dưới đây</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx_new_tab_link&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="logo">
+<h3>4. Logo<a class="headerlink" href="#logo" title="Permalink to this heading"></a></h3>
+<p>Lưu ảnh logo trong folder <code class="docutils literal notranslate"><span class="pre">_static</span></code>. Trong <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> thêm dòng này vào dưới <code class="docutils literal notranslate"><span class="pre">html_theme</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_logo</span> <span class="o">=</span> <span class="s2">&quot;_static/logo.png&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="dieu-chinh-do-rong-cua-so-hien-thi">
+<h3>5. Điều chỉnh độ rộng cửa sổ hiển thị<a class="headerlink" href="#dieu-chinh-do-rong-cua-so-hien-thi" title="Permalink to this heading"></a></h3>
+<p>Trong folder <code class="docutils literal notranslate"><span class="pre">_static</span></code>, tạo file <code class="docutils literal notranslate"><span class="pre">custom.css</span></code> với nội dung như bên dưới (ở đây độ rộng của sổ  được điều chỉnh khớp với màn hình)</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="c">/* make the page width fill the window */</span><span class="w"></span>
+<span class="p">.</span><span class="nc">wy-nav-content</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Trong file <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>, dưới dòng <code class="docutils literal notranslate"><span class="pre">html_static_path</span></code> thêm đoạn code sau:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+<span class="n">app</span><span class="o">.</span><span class="n">add_css_file</span><span class="p">(</span><span class="s2">&quot;custom.css&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
