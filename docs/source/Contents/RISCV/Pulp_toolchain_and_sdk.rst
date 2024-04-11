@@ -117,13 +117,39 @@ Build gvsoc
 First simple test
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Chọn board và vào project
+
 .. code-block:: bash
 
     cd pulp-sdk
     source configs/pulp-open.sh
     cd tests/hello
 
+Build project
+
+.. code-block:: bash
+
     make clean all run
+
+The last line appear with ``Hello from FC`` without any error then you success.
+
+.. image:: ../image/expulpsdk.png
+
+Hiện gtkwave
+
+.. code-block:: bash 
+
+    make clean all run runner_args="--vcd"
+
+This time ``view.gtkw`` with appear in project, as long as ``all.vcd`` in ``BUILD/PULP/GCC_RISCV`` folder.
+
+Run the code below to see wave 
+
+.. code-block:: bash
+
+    gtkwave /home/ryan/pulp-sdk/tests/hello/BUILD/PULP/GCC_RISCV/all.vcd /home/ryan/pulp-sdk/tests/hello/view.gtkw
+
+.. image:: ../image/wave.png
 
 .. tip::
 
