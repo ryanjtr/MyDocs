@@ -9,3 +9,10 @@ Installation
 
 
 sudo rm -r -f /path/
+
+Remmina
+~~~~~~~~~~~~~~~~~
+
+`Remmina installation https://remmina.org/how-to-install-remmina/`_
+
+https://www.wireguard.com/quickstart/
