@@ -274,7 +274,7 @@ Cài thư viện vào máy</p>
 </div>
 <p>Trong file <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>, dưới dòng <code class="docutils literal notranslate"><span class="pre">html_static_path</span></code> thêm đoạn code sau:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
-<span class="n">app</span><span class="o">.</span><span class="n">add_css_file</span><span class="p">(</span><span class="s2">&quot;custom.css&quot;</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">add_css_file</span><span class="p">(</span><span class="s2">&quot;custom.css&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -319,6 +319,10 @@ jobs:
 </li>
 <li><p>Chọn <code class="docutils literal notranslate"><span class="pre">Setting</span></code>, chọn <code class="docutils literal notranslate"><span class="pre">Pages</span></code>, chọn <code class="docutils literal notranslate"><span class="pre">Deploy</span> <span class="pre">from</span> <span class="pre">branch</span></code>. Ở <code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">branch</span></code> chọn <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code>, sau đó nhấn <code class="docutils literal notranslate"><span class="pre">Save</span></code>.</p></li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Nếu không thấy <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> thì refresh trang lại rồi vô chọn lại</p>
+</div>
 </section>
 <section id="clone-document">
 <h2><a class="toc-backref" href="#id7">Clone document</a><a class="headerlink" href="#clone-document" title="Permalink to this heading"></a></h2>

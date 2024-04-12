@@ -94,8 +94,13 @@ Cause ``/opt/riscv_gap/bin`` is in ``root``, so must use ``sudo`` in ``make``
 
 .. code-block:: bash
 
+    ./configure --prefix=/opt/riscv_gap --enable-multilib
+    sudo make linux
+
     ./configure --prefix=/opt/riscv_gap --with-arch=rv32imc --with-cmodel=medlow --enable-multilib
     sudo make
+
+    ./configure --prefix=/opt/riscv_gap --enable-multilib
 
 Gap SDK installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

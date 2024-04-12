@@ -200,7 +200,7 @@ Trong file ``conf.py``, dưới dòng ``html_static_path`` thêm đoạn code sa
 .. code-block:: python
 
     def setup(app):
-    app.add_css_file("custom.css")
+        app.add_css_file("custom.css")
 
 
 Deploy lên github
@@ -240,7 +240,11 @@ Deploy lên github
                 github_token: ${{ secrets.GITHUB_TOKEN }}
                 publish_dir: docs/build/html
 
-7. Chọn ``Setting``, chọn ``Pages``, chọn ``Deploy from branch``. Ở ``select branch`` chọn ``gh-pages``, sau đó nhấn ``Save``.   
+7. Chọn ``Setting``, chọn ``Pages``, chọn ``Deploy from branch``. Ở ``select branch`` chọn ``gh-pages``, sau đó nhấn ``Save``.
+
+.. note:: 
+
+    Nếu không thấy ``gh-pages`` thì refresh trang lại rồi vô chọn lại
 
 Clone document
 --------------

@@ -179,8 +179,13 @@ git submodule update --init --recursive
 </pre></div>
 </div>
 <p>Cause <code class="docutils literal notranslate"><span class="pre">/opt/riscv_gap/bin</span></code> is in <code class="docutils literal notranslate"><span class="pre">root</span></code>, so must use <code class="docutils literal notranslate"><span class="pre">sudo</span></code> in <code class="docutils literal notranslate"><span class="pre">make</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./configure --prefix<span class="o">=</span>/opt/riscv_gap --with-arch<span class="o">=</span>rv32imc --with-cmodel<span class="o">=</span>medlow --enable-multilib
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./configure --prefix<span class="o">=</span>/opt/riscv_gap --enable-multilib
+sudo make linux
+
+./configure --prefix<span class="o">=</span>/opt/riscv_gap --with-arch<span class="o">=</span>rv32imc --with-cmodel<span class="o">=</span>medlow --enable-multilib
 sudo make
+
+./configure --prefix<span class="o">=</span>/opt/riscv_gap --enable-multilib
 </pre></div>
 </div>
 </section>
