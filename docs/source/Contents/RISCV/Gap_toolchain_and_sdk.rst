@@ -188,7 +188,11 @@ Depends on what you need, build the SDK accordingly
 
     make <target>
 
+Issues
+~~~~~~~~~~~~~~~~~~`
 
+**make: Nothing to be done for 'all'**
+Solution: ``sudo make clean``
 
 References
 ~~~~~~~~~~~~~~
