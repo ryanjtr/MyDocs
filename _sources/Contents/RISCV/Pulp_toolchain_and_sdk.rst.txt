@@ -71,7 +71,7 @@ Cause ``/opt/riscv/bin`` is in ``root``, so must use ``sudo`` in ``make``
 
 .. code-block:: bash
 
-    ./configure --prefix=/opt/riscv --with-arch=rv32imc --with-cmodel=medlow --enable-multilib
+    ./configure --prefix=/opt/riscv --with-arch=rv32imfcxpulpv3 --with-abi=ilp32 --enable-multilib
     sudo make
 
 PULP SDK installation

@@ -81,13 +81,28 @@
 <h1>Wiregaurd<a class="headerlink" href="#wiregaurd" title="Permalink to this heading"></a></h1>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">wg-quick</span> <span class="pre">down</span> <span class="pre">lab209_riscv</span></code> to quit wiregaurd</p>
+<p>This installation for Ubuntu</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install wireguard
+
+sudo apt install openresolv
+</pre></div>
+</div>
+<p>To <strong>open</strong> wiregaurd use the command below</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="sb">``</span>wg-quick up lab209_riscv<span class="sb">``</span> to quit wiregaurd
+</pre></div>
+</div>
+<p>To <strong>quit</strong> wiregaurd use the command below</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="sb">``</span>wg-quick down lab209_riscv<span class="sb">``</span> to quit wiregaurd
+</pre></div>
+</div>
 <p>sudo rm -r -f /path/</p>
 </section>
 <section id="remmina">
 <h2>Remmina<a class="headerlink" href="#remmina" title="Permalink to this heading"></a></h2>
 <p><a href="#id1"><span class="problematic" id="id2">`Remmina installation https://remmina.org/how-to-install-remmina/`_</span></a></p>
 <p><a class="reference external" href="https://www.wireguard.com/quickstart/" rel="noopener noreferrer" target="_blank">https://www.wireguard.com/quickstart/</a></p>
+<p>./configure –prefix=/opt/riscv_pulpissimo –with-arch=rv32imfcxpulpv3 –with-abi=ilp32 –enable-multilib</p>
+<p>make</p>
 </section>
 </section>
 
