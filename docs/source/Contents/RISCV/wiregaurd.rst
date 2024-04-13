@@ -29,6 +29,8 @@ To **quit** wiregaurd use the command below
 Remmina
 ~~~~~~~~~~~~~~~~~
 
+Ubuntu version
+
 .. code-block:: bash
 
     sudo apt-add-repository ppa:remmina-ppa-team/remmina-next
