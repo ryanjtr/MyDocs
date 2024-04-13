@@ -8,6 +8,7 @@ Welcome to RyanDank`s Note
    Contents/github
    Contents/sphinx 
    Contents/zephyr
+   Contents/ubuntu
    Contents/pcb
    Contents/mqtt
    Contents/internet
