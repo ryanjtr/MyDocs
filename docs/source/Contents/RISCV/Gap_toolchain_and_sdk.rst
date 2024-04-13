@@ -9,6 +9,7 @@ Gap Toolchain installation
 
 Ubuntu version: 22.04.4
 
+Download precompile toolchain (for ubuntu 20)
 Open new terminal to create new directory:
 
 Setup path:
@@ -61,7 +62,7 @@ Run this code to take effect
 
 .. code-block:: bash
 
-    source bashrc
+    source .bashrc
 
 Gap SDK installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
