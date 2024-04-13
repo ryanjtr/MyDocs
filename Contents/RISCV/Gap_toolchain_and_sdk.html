@@ -61,6 +61,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Gap Toolchain and SDK</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gap-toolchain-installation">Gap Toolchain installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gap-sdk-installation">Gap SDK installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
@@ -105,7 +106,8 @@
 <ul>
 <li><p><a class="reference internal" href="#gap-toolchain-installation" id="id4">Gap Toolchain installation</a></p></li>
 <li><p><a class="reference internal" href="#gap-sdk-installation" id="id5">Gap SDK installation</a></p></li>
-<li><p><a class="reference internal" href="#references" id="id6">References</a></p></li>
+<li><p><a class="reference internal" href="#example" id="id6">Example</a></p></li>
+<li><p><a class="reference internal" href="#references" id="id7">References</a></p></li>
 </ul>
 </li>
 </ul>
@@ -114,17 +116,11 @@
 <h2><a class="toc-backref" href="#id4">Gap Toolchain installation</a><a class="headerlink" href="#gap-toolchain-installation" title="Permalink to this heading"></a></h2>
 <p>Ubuntu version: 22.04.4</p>
 <p>Open new terminal to create new directory:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span>
-<span class="nb">cd</span> /opt
-sudo mkdir riscv_gap
-<span class="nb">cd</span> riscv_gap
-</pre></div>
-</div>
 <p>Setup path:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano ~/.profile
 </pre></div>
 </div>
-<p>Add</p>
+<p>Add command below to <code class="docutils literal notranslate"><span class="pre">profile</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;/opt/riscv_gap&quot;</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
     <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/opt/riscv_gap:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
 <span class="k">fi</span>
@@ -137,6 +133,23 @@ sudo mkdir riscv_gap
 <p>Open new terminal to install toolchain</p>
 <p>Clone gap toolchain</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/GreenWaves-Technologies/gap_gnu_toolchain.git
+</pre></div>
+</div>
+<p>In folder, delete <code class="docutils literal notranslate"><span class="pre">README.md</span></code> and <code class="docutils literal notranslate"><span class="pre">install.sh</span></code></p>
+<p>Change name folder to <code class="docutils literal notranslate"><span class="pre">riscv_gap</span></code>. Then copy it to <code class="docutils literal notranslate"><span class="pre">/opt/</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo cp -r riscv_gap /opt/
+</pre></div>
+</div>
+<p>Open <code class="docutils literal notranslate"><span class="pre">bashrc</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano .bashrc
+</pre></div>
+</div>
+<p>Add command below to that file</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">GAP_RISCV_GCC_TOOLCHAIN</span><span class="o">=</span><span class="s2">&quot;/opt/riscv_gap&quot;</span>
+</pre></div>
+</div>
+<p>Run this code to take effect</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> bashrc
 </pre></div>
 </div>
 </section>
@@ -153,6 +166,28 @@ sudo mkdir riscv_gap
 pip3 install -r doc/requirements.txt
 </pre></div>
 </div>
+<p>Build gvsoc</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> sourceme.sh
+
+make gvsoc
+</pre></div>
+</div>
+<p>When you’re asked to enter email in the first time, press <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.
+Then fill out your information</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Enter your first name: &lt;your name&gt;
+Enter your last name: &lt;your last name&gt;
+Enter your company name: &lt;your school&gt;
+Enter your country: Viet Nam
+Enter your email address: &lt;your school email address&gt;
+</pre></div>
+</div>
+<p>Then you will receive an email with an <code class="docutils literal notranslate"><span class="pre">url</span></code>. Copy that url to <code class="docutils literal notranslate"><span class="pre">Enter</span> <span class="pre">your</span> <span class="pre">email</span> <span class="pre">url:</span></code></p>
+<p>Press arrow down to read the agreements. Then press <code class="docutils literal notranslate"><span class="pre">y</span></code> to agree and wait …..</p>
+<p>From now then</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Must select board before run any project</p>
+</div>
 <p>You can either source sourceme.sh in the root sdk folder and then select the right board from the list, or directly source the board config.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> sourceme.sh
 </pre></div>
@@ -160,10 +195,6 @@ pip3 install -r doc/requirements.txt
 <p>or</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> configs/&lt;the target you want to use&gt;.sh
 </pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Must select board before run any project</p>
 </div>
 <table class="colwidths-given docutils align-default" id="id2">
 <caption><span class="caption-text">Summary of the available boards and their configuration file.</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
@@ -217,14 +248,24 @@ Main targets:
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make &lt;target&gt;
 </pre></div>
 </div>
+</section>
+<section id="example">
+<h2><a class="toc-backref" href="#id6">Example</a><a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
+<p>Run helloworld  example</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> gap_sdk/examples/gap8/basic/helloworld
+
+make clean all run <span class="nv">platform</span><span class="o">=</span>gvsoc
+</pre></div>
+</div>
+<img alt="Contents/RISCV/image/gaptesthello.png" src="Contents/RISCV/image/gaptesthello.png" />
 <p>Issues
 ~~~~~~~~~~~~~~~~~~`</p>
 <p><strong>make: Nothing to be done for ‘all’</strong>
 Solution: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">make</span> <span class="pre">clean</span></code></p>
 </section>
 <section id="references">
-<h2><a class="toc-backref" href="#id6">References</a><a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
-<p><a href="#id7"><span class="problematic" id="id8">`[1]. Gap toolchain installation precompile ubuntu 20 &lt;&gt;`_</span></a></p>
+<h2><a class="toc-backref" href="#id7">References</a><a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://github.com/GreenWaves-Technologies/gap_gnu_toolchain" rel="noopener noreferrer" target="_blank">[1]. Gap toolchain installation precompile ubuntu 20</a></p>
 <p><a class="reference external" href="https://github.com/GreenWaves-Technologies/gap_sdk" rel="noopener noreferrer" target="_blank">[2]. Gap sdk installation</a></p>
 <p><a class="reference external" href="https://greenwaves-technologies.com/manuals/BUILD/HOME/html/index.html" rel="noopener noreferrer" target="_blank">[3]. Gap8 manual</a></p>
 </section>

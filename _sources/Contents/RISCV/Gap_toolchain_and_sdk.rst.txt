@@ -11,20 +11,13 @@ Ubuntu version: 22.04.4
 
 Open new terminal to create new directory:
 
-.. code-block:: bash
-
-    cd
-    cd /opt
-    sudo mkdir riscv_gap
-    cd riscv_gap
-
 Setup path:
 
 .. code-block:: bash
 
     nano ~/.profile
 
-Add
+Add command below to ``profile``
 
 .. code-block:: bash 
 
@@ -44,6 +37,31 @@ Clone gap toolchain
 
     git clone https://github.com/GreenWaves-Technologies/gap_gnu_toolchain.git
 
+In folder, delete ``README.md`` and ``install.sh``
+
+Change name folder to ``riscv_gap``. Then copy it to ``/opt/``
+
+.. code-block:: bash
+
+    sudo cp -r riscv_gap /opt/
+
+Open ``bashrc`` 
+
+.. code-block:: bash
+
+    nano .bashrc
+
+Add command below to that file
+
+.. code-block:: bash
+
+    export GAP_RISCV_GCC_TOOLCHAIN="/opt/riscv_gap"
+
+Run this code to take effect
+
+.. code-block:: bash
+
+    source bashrc
 
 Gap SDK installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -64,6 +82,35 @@ Our modules (gapy runner) require a few additional Python packages that you can 
     pip3 install -r requirements.txt
     pip3 install -r doc/requirements.txt
 
+Build gvsoc 
+
+.. code-block:: bash
+
+    source sourceme.sh
+
+    make gvsoc
+
+When you're asked to enter email in the first time, press ``Enter``.
+Then fill out your information
+
+.. code-block:: bash
+
+    Enter your first name: <your name>
+    Enter your last name: <your last name>
+    Enter your company name: <your school>
+    Enter your country: Viet Nam
+    Enter your email address: <your school email address>
+
+Then you will receive an email with an ``url``. Copy that url to ``Enter your email url:``
+
+Press arrow down to read the agreements. Then press ``y`` to agree and wait .....
+
+From now then
+
+.. note:: 
+
+    Must select board before run any project
+
 You can either source sourceme.sh in the root sdk folder and then select the right board from the list, or directly source the board config.
 
 .. code-block:: bash
@@ -76,9 +123,6 @@ or
 
     source configs/<the target you want to use>.sh
 
-.. note:: 
-
-    Must select board before run any project
 
 .. list-table:: Summary of the available boards and their configuration file.
     :widths: 15 15 25
@@ -131,6 +175,20 @@ Depends on what you need, build the SDK accordingly
 
     make <target>
 
+
+Example
+~~~~~~~~~~~~~~~~
+
+Run helloworld  example 
+
+.. code-block:: bash
+
+    cd gap_sdk/examples/gap8/basic/helloworld
+
+    make clean all run platform=gvsoc
+
+.. image:: ./image/gaptesthello.png
+    
 Issues
 ~~~~~~~~~~~~~~~~~~`
 
@@ -140,7 +198,7 @@ Solution: ``sudo make clean``
 References
 ~~~~~~~~~~~~~~
 
-`[1]. Gap toolchain installation precompile ubuntu 20 <>`_
+`[1]. Gap toolchain installation precompile ubuntu 20 <https://github.com/GreenWaves-Technologies/gap_gnu_toolchain>`_
 
 `[2]. Gap sdk installation <https://github.com/GreenWaves-Technologies/gap_sdk>`_
 
