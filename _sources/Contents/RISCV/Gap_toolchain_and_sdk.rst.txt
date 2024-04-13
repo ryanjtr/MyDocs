@@ -17,7 +17,6 @@ Open new terminal to create new directory:
     cd /opt
     sudo mkdir riscv_gap
     cd riscv_gap
-    sudo mkdir bin
 
 Setup path:
 
@@ -37,70 +36,14 @@ Add
 
     This will require a logout / login to take effect
 
-Download following packages
+Open new terminal to install toolchain
+
+Clone gap toolchain
 
 .. code-block:: bash
 
-    sudo apt-get install -y \
-        autoconf \
-        automake \
-        bison \
-        build-essential \
-        cmake \
-        curl \
-        doxygen \
-        flex \
-        git \
-        gtkwave \
-        libftdi-dev \
-        libftdi1 \
-        libjpeg-dev \
-        libsdl2-dev \
-        libsdl2-ttf-dev \
-        libsndfile1-dev \
-        graphicsmagick-libmagick-dev-compat \
-        libtool \
-        libusb-1.0-0-dev \
-        pkg-config \
-        python3-pip \
-        rsync \
-        scons \
-        texinfo \
-        wget
+    git clone https://github.com/GreenWaves-Technologies/gap_gnu_toolchain.git
 
-SDK and some tools are all based on Python3 (version > 3.8), you can use following command to set your default python to python3.
-
-.. code-block:: bash
-
-    sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
-
-Open new terminal to install toolchain:
-
-Prerequisite
-
-.. code-block:: bash 
-
-    sudo apt-get install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev
-
-Follow these steps to install toolchain:
-
-.. code-block:: bash
-
-    git clone https://github.com/riscv/riscv-gnu-toolchain
-    cd riscv-gnu-toolchain
-    git submodule update --init --recursive
-
-Cause ``/opt/riscv_gap/bin`` is in ``root``, so must use ``sudo`` in ``make`` 
-
-.. code-block:: bash
-
-    ./configure --prefix=/opt/riscv_gap --enable-multilib
-    sudo make linux
-
-    ./configure --prefix=/opt/riscv_gap --with-arch=rv32imc --with-cmodel=medlow --enable-multilib
-    sudo make
-
-    ./configure --prefix=/opt/riscv_gap --enable-multilib
 
 Gap SDK installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -197,7 +140,7 @@ Solution: ``sudo make clean``
 References
 ~~~~~~~~~~~~~~
 
-`[1]. Gap toolchain installation <https://github.com/GreenWaves-Technologies/gap-riscv-gnu-toolchain>`_
+`[1]. Gap toolchain installation precompile ubuntu 20 <>`_
 
 `[2]. Gap sdk installation <https://github.com/GreenWaves-Technologies/gap_sdk>`_
 

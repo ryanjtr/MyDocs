@@ -47,6 +47,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../github.html">Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zephyr.html">Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ubuntu.html">Ubuntu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pcb.html">Board PCB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../internet.html">Internet</a></li>
@@ -63,6 +64,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Wiregaurd</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#remmina">Remmina</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 </ul>
@@ -104,22 +106,28 @@
 sudo apt install openresolv
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">lab209_riscv</span></code> is a config file</p>
 <p>To <strong>open</strong> wiregaurd use the command below</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="sb">``</span>wg-quick up lab209_riscv<span class="sb">``</span> to quit wiregaurd
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wg-quick up lab209_riscv
 </pre></div>
 </div>
 <p>To <strong>quit</strong> wiregaurd use the command below</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="sb">``</span>wg-quick down lab209_riscv<span class="sb">``</span> to quit wiregaurd
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wg-quick down lab209_riscv
 </pre></div>
 </div>
-<p>sudo rm -r -f /path/</p>
 </section>
 <section id="remmina">
 <h2>Remmina<a class="headerlink" href="#remmina" title="Permalink to this heading"></a></h2>
-<p><a href="#id1"><span class="problematic" id="id2">`Remmina installation https://remmina.org/how-to-install-remmina/`_</span></a></p>
-<p><a class="reference external" href="https://www.wireguard.com/quickstart/" rel="noopener noreferrer" target="_blank">https://www.wireguard.com/quickstart/</a></p>
-<p>./configure –prefix=/opt/riscv_pulpissimo –with-arch=rv32imfcxpulpv3 –with-abi=ilp32 –enable-multilib</p>
-<p>make</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-add-repository ppa:remmina-ppa-team/remmina-next
+
+sudo apt install remmina remmina-plugin-rdp remmina-plugin-secret
+</pre></div>
+</div>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<p><cite>[1]. Wiregaurd&lt;https://www.wireguard.com/quickstart/&gt;_</cite></p>
+<p><a href="#id1"><span class="problematic" id="id2">`[2]. Remmina installation https://remmina.org/how-to-install-remmina/`_</span></a></p>
 </section>
 </section>
 

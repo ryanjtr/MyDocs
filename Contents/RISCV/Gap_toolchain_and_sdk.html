@@ -48,6 +48,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../github.html">Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zephyr.html">Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ubuntu.html">Ubuntu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pcb.html">Board PCB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../internet.html">Internet</a></li>
@@ -97,28 +98,27 @@
            <div itemprop="articleBody">
              
   <section id="gap-toolchain-and-sdk">
-<h1><a class="toc-backref" href="#id4">Gap Toolchain and SDK</a><a class="headerlink" href="#gap-toolchain-and-sdk" title="Permalink to this heading"></a></h1>
+<h1><a class="toc-backref" href="#id3">Gap Toolchain and SDK</a><a class="headerlink" href="#gap-toolchain-and-sdk" title="Permalink to this heading"></a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#gap-toolchain-and-sdk" id="id4">Gap Toolchain and SDK</a></p>
+<li><p><a class="reference internal" href="#gap-toolchain-and-sdk" id="id3">Gap Toolchain and SDK</a></p>
 <ul>
-<li><p><a class="reference internal" href="#gap-toolchain-installation" id="id5">Gap Toolchain installation</a></p></li>
-<li><p><a class="reference internal" href="#gap-sdk-installation" id="id6">Gap SDK installation</a></p></li>
-<li><p><a class="reference internal" href="#references" id="id7">References</a></p></li>
+<li><p><a class="reference internal" href="#gap-toolchain-installation" id="id4">Gap Toolchain installation</a></p></li>
+<li><p><a class="reference internal" href="#gap-sdk-installation" id="id5">Gap SDK installation</a></p></li>
+<li><p><a class="reference internal" href="#references" id="id6">References</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
 <section id="gap-toolchain-installation">
-<h2><a class="toc-backref" href="#id5">Gap Toolchain installation</a><a class="headerlink" href="#gap-toolchain-installation" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id4">Gap Toolchain installation</a><a class="headerlink" href="#gap-toolchain-installation" title="Permalink to this heading"></a></h2>
 <p>Ubuntu version: 22.04.4</p>
 <p>Open new terminal to create new directory:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span>
 <span class="nb">cd</span> /opt
 sudo mkdir riscv_gap
 <span class="nb">cd</span> riscv_gap
-sudo mkdir bin
 </pre></div>
 </div>
 <p>Setup path:</p>
@@ -135,63 +135,14 @@ sudo mkdir bin
 <p class="admonition-title">Note</p>
 <p>This will require a logout / login to take effect</p>
 </div>
-<p>Download following packages</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y <span class="se">\</span>
-    autoconf <span class="se">\</span>
-    automake <span class="se">\</span>
-    bison <span class="se">\</span>
-    build-essential <span class="se">\</span>
-    cmake <span class="se">\</span>
-    curl <span class="se">\</span>
-    doxygen <span class="se">\</span>
-    flex <span class="se">\</span>
-    git <span class="se">\</span>
-    gtkwave <span class="se">\</span>
-    libftdi-dev <span class="se">\</span>
-    libftdi1 <span class="se">\</span>
-    libjpeg-dev <span class="se">\</span>
-    libsdl2-dev <span class="se">\</span>
-    libsdl2-ttf-dev <span class="se">\</span>
-    libsndfile1-dev <span class="se">\</span>
-    graphicsmagick-libmagick-dev-compat <span class="se">\</span>
-    libtool <span class="se">\</span>
-    libusb-1.0-0-dev <span class="se">\</span>
-    pkg-config <span class="se">\</span>
-    python3-pip <span class="se">\</span>
-    rsync <span class="se">\</span>
-    scons <span class="se">\</span>
-    texinfo <span class="se">\</span>
-    wget
-</pre></div>
-</div>
-<p>SDK and some tools are all based on Python3 (version &gt; 3.8), you can use following command to set your default python to python3.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 <span class="m">10</span>
-</pre></div>
-</div>
-<p>Open new terminal to install toolchain:</p>
-<p>Prerequisite</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev
-</pre></div>
-</div>
-<p>Follow these steps to install toolchain:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/riscv/riscv-gnu-toolchain
-<span class="nb">cd</span> riscv-gnu-toolchain
-git submodule update --init --recursive
-</pre></div>
-</div>
-<p>Cause <code class="docutils literal notranslate"><span class="pre">/opt/riscv_gap/bin</span></code> is in <code class="docutils literal notranslate"><span class="pre">root</span></code>, so must use <code class="docutils literal notranslate"><span class="pre">sudo</span></code> in <code class="docutils literal notranslate"><span class="pre">make</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./configure --prefix<span class="o">=</span>/opt/riscv_gap --enable-multilib
-sudo make linux
-
-./configure --prefix<span class="o">=</span>/opt/riscv_gap --with-arch<span class="o">=</span>rv32imc --with-cmodel<span class="o">=</span>medlow --enable-multilib
-sudo make
-
-./configure --prefix<span class="o">=</span>/opt/riscv_gap --enable-multilib
+<p>Open new terminal to install toolchain</p>
+<p>Clone gap toolchain</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/GreenWaves-Technologies/gap_gnu_toolchain.git
 </pre></div>
 </div>
 </section>
 <section id="gap-sdk-installation">
-<h2><a class="toc-backref" href="#id6">Gap SDK installation</a><a class="headerlink" href="#gap-sdk-installation" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id5">Gap SDK installation</a><a class="headerlink" href="#gap-sdk-installation" title="Permalink to this heading"></a></h2>
 <p>Open new terminal to install gap sdk</p>
 <p>Clone gap sdk repository</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/GreenWaves-Technologies/gap_sdk.git
@@ -215,8 +166,8 @@ pip3 install -r doc/requirements.txt
 <p class="admonition-title">Note</p>
 <p>Must select board before run any project</p>
 </div>
-<table class="colwidths-given docutils align-default" id="id3">
-<caption><span class="caption-text">Summary of the available boards and their configuration file.</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">Summary of the available boards and their configuration file.</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 27%" />
 <col style="width: 27%" />
@@ -273,8 +224,8 @@ Main targets:
 Solution: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">make</span> <span class="pre">clean</span></code></p>
 </section>
 <section id="references">
-<h2><a class="toc-backref" href="#id7">References</a><a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
-<p><a class="reference external" href="https://github.com/GreenWaves-Technologies/gap-riscv-gnu-toolchain" rel="noopener noreferrer" target="_blank">[1]. Gap toolchain installation</a></p>
+<h2><a class="toc-backref" href="#id6">References</a><a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<p><a href="#id7"><span class="problematic" id="id8">`[1]. Gap toolchain installation precompile ubuntu 20 &lt;&gt;`_</span></a></p>
 <p><a class="reference external" href="https://github.com/GreenWaves-Technologies/gap_sdk" rel="noopener noreferrer" target="_blank">[2]. Gap sdk installation</a></p>
 <p><a class="reference external" href="https://greenwaves-technologies.com/manuals/BUILD/HOME/html/index.html" rel="noopener noreferrer" target="_blank">[3]. Gap8 manual</a></p>
 </section>

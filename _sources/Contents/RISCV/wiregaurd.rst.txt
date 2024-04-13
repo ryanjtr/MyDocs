@@ -12,28 +12,37 @@ This installation for Ubuntu
 
     sudo apt install openresolv
 
+``lab209_riscv`` is a config file
+
 To **open** wiregaurd use the command below
 
 .. code-block:: bash
 
-    ``wg-quick up lab209_riscv`` to quit wiregaurd
+    wg-quick up lab209_riscv
 
 To **quit** wiregaurd use the command below
 
 .. code-block:: bash
 
-    ``wg-quick down lab209_riscv`` to quit wiregaurd
+    wg-quick down lab209_riscv
 
-sudo rm -r -f /path/
+
+
 
 Remmina
 ~~~~~~~~~~~~~~~~~
 
-`Remmina installation https://remmina.org/how-to-install-remmina/`_
+.. code-block:: bash
+
+    sudo apt-add-repository ppa:remmina-ppa-team/remmina-next
+
+    sudo apt install remmina remmina-plugin-rdp remmina-plugin-secret
 
 
-https://www.wireguard.com/quickstart/
 
-./configure --prefix=/opt/riscv_pulpissimo --with-arch=rv32imfcxpulpv3 --with-abi=ilp32 --enable-multilib
+References
+~~~~~~~~~~~~~~
 
-make
+`[1]. Wiregaurd<https://www.wireguard.com/quickstart/>_`
+
+`[2]. Remmina installation https://remmina.org/how-to-install-remmina/`_
