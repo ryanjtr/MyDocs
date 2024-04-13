@@ -26,9 +26,6 @@ To **quit** wiregaurd use the command below
 
     wg-quick down lab209_riscv
 
-
-
-
 Remmina
 ~~~~~~~~~~~~~~~~~
 
@@ -37,8 +34,6 @@ Remmina
     sudo apt-add-repository ppa:remmina-ppa-team/remmina-next
 
     sudo apt install remmina remmina-plugin-rdp remmina-plugin-secret
-
-
 
 References
 ~~~~~~~~~~~~~~
