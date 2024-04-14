@@ -162,13 +162,18 @@ sudo mkdir bin
 </pre></div>
 </div>
 <p>Follow these steps to install toolchain:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/pulp-platform/pulp-riscv-gnu-toolchain
-<span class="nb">cd</span> pulp-riscv-gnu-toolchain
-git submodule update --init --recursive
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/pulp-platform/riscv-gnu-toolchain.git
+
+<span class="nb">cd</span> riscv-gnu-toolchain
+</pre></div>
+</div>
+<p>Then update submodule</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git submodule update --init --recursive
 </pre></div>
 </div>
 <p>Cause <code class="docutils literal notranslate"><span class="pre">/opt/riscv/bin</span></code> is in <code class="docutils literal notranslate"><span class="pre">root</span></code>, so must use <code class="docutils literal notranslate"><span class="pre">sudo</span></code> in <code class="docutils literal notranslate"><span class="pre">make</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./configure --prefix<span class="o">=</span>/opt/riscv --with-arch<span class="o">=</span>rv32imfcxpulpv3 --with-abi<span class="o">=</span>ilp32 --enable-multilib
+
 sudo make
 </pre></div>
 </div>
@@ -182,13 +187,18 @@ sudo make
 </div>
 <p>Follow these steps:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install argcomplete pyelftools six
+
 pip install prettytable
 </pre></div>
 </div>
-<p>Clone pulp SDK and update submodule:</p>
+<p>Clone pulp SDK :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/pulp-platform/pulp-sdk.git
+
 <span class="nb">cd</span> pulp-sdk
-git submodule update --init --recursive
+</pre></div>
+</div>
+<p>Then update submodule</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git submodule update --init --recursive
 </pre></div>
 </div>
 <p>Edit file <code class="docutils literal notranslate"><span class="pre">pulp-sdk/configs/pulp-open.sh</span></code>, put the command below under line 32</p>
@@ -197,6 +207,7 @@ git submodule update --init --recursive
 </div>
 <p>Build gvsoc</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> configs/pulp-open.sh
+
 make build
 </pre></div>
 </div>
@@ -209,7 +220,9 @@ make build
 <h2><a class="toc-backref" href="#id5">First simple test</a><a class="headerlink" href="#first-simple-test" title="Permalink to this heading"></a></h2>
 <p>Select board and then go to project</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> pulp-sdk
+
 <span class="nb">source</span> configs/pulp-open.sh
+
 <span class="nb">cd</span> tests/hello
 </pre></div>
 </div>
@@ -237,7 +250,8 @@ make build
 </section>
 <section id="references">
 <h2><a class="toc-backref" href="#id6">References</a><a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
-<p><a class="reference external" href="https://www.pulp-platform.org/docs/pulp_training/NBruschi_gvsoc_tutorial_part1.pdf" rel="noopener noreferrer" target="_blank">[1]. Installation toolchain and sdk</a></p>
+<p><a class="reference external" href="https://github.com/pulp-platform/riscv-gnu-toolchain" rel="noopener noreferrer" target="_blank">[1]. Installation pulp toolchain</a></p>
+<p><a class="reference external" href="https://github.com/pulp-platform/pulp-sdk" rel="noopener noreferrer" target="_blank">[2]. Installation pulp sdk</a></p>
 </section>
 </section>
 
