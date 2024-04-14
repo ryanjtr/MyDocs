@@ -355,3 +355,8 @@ Otherwise on Ubuntu, just type the command below to the terminal
 .. code-block:: bash 
 
     google-chrome build/html/index.html
+
+References
+~~~~~~~~~~~~~~~~
+
+`[1]. Sphinx documentation <https://www.sphinx-doc.org/en/master/contents.html>`_
