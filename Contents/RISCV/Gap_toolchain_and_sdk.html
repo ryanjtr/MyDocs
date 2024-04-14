@@ -103,23 +103,23 @@
            <div itemprop="articleBody">
              
   <section id="gap-toolchain-and-sdk">
-<h1><a class="toc-backref" href="#id3">Gap Toolchain and SDK</a><a class="headerlink" href="#gap-toolchain-and-sdk" title="Permalink to this heading"></a></h1>
+<h1><a class="toc-backref" href="#id2">Gap Toolchain and SDK</a><a class="headerlink" href="#gap-toolchain-and-sdk" title="Permalink to this heading"></a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#gap-toolchain-and-sdk" id="id3">Gap Toolchain and SDK</a></p>
+<li><p><a class="reference internal" href="#gap-toolchain-and-sdk" id="id2">Gap Toolchain and SDK</a></p>
 <ul>
-<li><p><a class="reference internal" href="#gap-toolchain-installation" id="id4">Gap Toolchain installation</a></p></li>
-<li><p><a class="reference internal" href="#gap-sdk-installation" id="id5">Gap SDK installation</a></p></li>
-<li><p><a class="reference internal" href="#example" id="id6">Example</a></p></li>
-<li><p><a class="reference internal" href="#issues" id="id7">Issues</a></p></li>
-<li><p><a class="reference internal" href="#references" id="id8">References</a></p></li>
+<li><p><a class="reference internal" href="#gap-toolchain-installation" id="id3">Gap Toolchain installation</a></p></li>
+<li><p><a class="reference internal" href="#gap-sdk-installation" id="id4">Gap SDK installation</a></p></li>
+<li><p><a class="reference internal" href="#example" id="id5">Example</a></p></li>
+<li><p><a class="reference internal" href="#issues" id="id6">Issues</a></p></li>
+<li><p><a class="reference internal" href="#references" id="id7">References</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
 <section id="gap-toolchain-installation">
-<h2><a class="toc-backref" href="#id4">Gap Toolchain installation</a><a class="headerlink" href="#gap-toolchain-installation" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id3">Gap Toolchain installation</a><a class="headerlink" href="#gap-toolchain-installation" title="Permalink to this heading"></a></h2>
 <p>Ubuntu version: 22.04.4</p>
 <p>Download precompile toolchain (for ubuntu 20)
 Open new terminal to create new directory:</p>
@@ -161,7 +161,7 @@ Open new terminal to create new directory:</p>
 </div>
 </section>
 <section id="gap-sdk-installation">
-<h2><a class="toc-backref" href="#id5">Gap SDK installation</a><a class="headerlink" href="#gap-sdk-installation" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id4">Gap SDK installation</a><a class="headerlink" href="#gap-sdk-installation" title="Permalink to this heading"></a></h2>
 <p>Open new terminal to install gap sdk</p>
 <p>Clone gap sdk repository</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/GreenWaves-Technologies/gap_sdk.git
@@ -201,44 +201,9 @@ Enter your email address: &lt;your school email address&gt;
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> sourceme.sh
 </pre></div>
 </div>
-<p>or</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> configs/&lt;the target you want to use&gt;.sh
-</pre></div>
-</div>
-<table class="colwidths-given docutils align-default" id="id2">
-<caption><span class="caption-text">Summary of the available boards and their configuration file.</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
-<colgroup>
-<col style="width: 27%" />
-<col style="width: 27%" />
-<col style="width: 45%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Board</p></th>
-<th class="head"><p>Chip</p></th>
-<th class="head"><p>Config file</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Gapuino</p></td>
-<td><p>GAP8 v1</p></td>
-<td><p>configs/gapuino.sh</p></td>
-</tr>
-<tr class="row-odd"><td><p>Gapuino</p></td>
-<td><p>GAP8 v2</p></td>
-<td><p>configs/gapuino_v2.sh</p></td>
-</tr>
-<tr class="row-even"><td><p>Gapoc</p></td>
-<td><p>GAP8 v1</p></td>
-<td><p>configs/gapoc_a.sh</p></td>
-</tr>
-<tr class="row-odd"><td><p>Gapoc</p></td>
-<td><p>GAP8 v2</p></td>
-<td><p>configs/gapoc_a_v2.sh</p></td>
-</tr>
-</tbody>
-</table>
-<p>After selecting the right board, run command below to build project</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean all run
+<p>Can choose either board <code class="docutils literal notranslate"><span class="pre">3</span></code> or <code class="docutils literal notranslate"><span class="pre">4</span></code></p>
+<p>After selecting the right board, go to project and run command below to build project</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean all run <span class="nv">platform</span><span class="o">=</span>gvsoc
 </pre></div>
 </div>
 <p>Run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">help</span></code> to get other commands</p>
@@ -259,7 +224,7 @@ Main targets:
 </div>
 </section>
 <section id="example">
-<h2><a class="toc-backref" href="#id6">Example</a><a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id5">Example</a><a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
 <p>Run helloworld  example</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> gap_sdk/examples/gap8/basic/helloworld
 
@@ -269,12 +234,12 @@ make clean all run <span class="nv">platform</span><span class="o">=</span>gvsoc
 <img alt="../../_images/gaptesthello.png" src="../../_images/gaptesthello.png" />
 </section>
 <section id="issues">
-<h2><a class="toc-backref" href="#id7">Issues</a><a class="headerlink" href="#issues" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id6">Issues</a><a class="headerlink" href="#issues" title="Permalink to this heading"></a></h2>
 <p><strong>make: Nothing to be done for ‘all’</strong></p>
 <p>Solution: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">make</span> <span class="pre">clean</span></code></p>
 </section>
 <section id="references">
-<h2><a class="toc-backref" href="#id8">References</a><a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id7">References</a><a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://github.com/GreenWaves-Technologies/gap_gnu_toolchain" rel="noopener noreferrer" target="_blank">[1]. Gap toolchain installation precompile ubuntu 20</a></p>
 <p><a class="reference external" href="https://github.com/GreenWaves-Technologies/gap_sdk" rel="noopener noreferrer" target="_blank">[2]. Gap sdk installation</a></p>
 <p><a class="reference external" href="https://greenwaves-technologies.com/manuals/BUILD/HOME/html/index.html" rel="noopener noreferrer" target="_blank">[3]. Gap8 manual</a></p>
