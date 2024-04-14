@@ -30,7 +30,7 @@ release = '2024'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx_copybutton','sphinx_rtd_theme','sphinx_new_tab_link']
+extensions = ['sphinx_copybutton','sphinx_rtd_theme','sphinx_new_tab_link',"sphinx_rtd_dark_mode"]
 
 
 # Add any paths that contain templates here, relative to this directory.
@@ -47,7 +47,7 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_rtd_theme'
+html_theme = "sphinx_rtd_theme" #["sphinx_rtd_theme", "pydata_sphinx_theme"]
 html_logo = "_static/logo.png"
 
 # Add any paths that contain custom static files (such as style sheets) here,

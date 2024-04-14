@@ -188,12 +188,13 @@ Run helloworld  example
 
     make clean all run platform=gvsoc
 
-.. image:: ./image/gaptesthello.png
+.. image:: ../image/gaptesthello.png
     
 Issues
 ~~~~~~~~~~~~~~~~~~
 
 **make: Nothing to be done for 'all'**
+
 Solution: ``sudo make clean``
 
 References
