@@ -34,17 +34,8 @@ extensions = ['sphinx_copybutton','sphinx_rtd_theme','sphinx_new_tab_link',"sphi
 
 favicons = [
    {
-      "sizes": "16x16",
-      "href": "https://secure.example.com/favicon/favicon-16x16.png",
-   },
-   {
       "sizes": "32x32",
-      "href": "https://secure.example.com/favicon/favicon-32x32.png",
-   },
-   {
-      "rel": "apple-touch-icon",
-      "sizes": "180x180",
-      "href": "logoweb.png",  # use a local file in _static
+      "href": "logo.png",
    },
 ]
 # Add any paths that contain templates here, relative to this directory.
@@ -62,7 +53,7 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 html_theme = "sphinx_rtd_theme" #["sphinx_rtd_theme", "pydata_sphinx_theme"]
-html_logo = "_static/logo.png"
+html_logo = "_static/wolf.png"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
