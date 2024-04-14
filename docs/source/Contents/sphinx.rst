@@ -48,7 +48,7 @@ Sau khi hoàn thành thiết lập ta sẽ được thư mục có cấu trúc s
         └── _templates
 
 Tạo requirements
-----------------
+---------------------
 
 Tạo file ``requirements.in`` với nội dung:
 
@@ -158,7 +158,7 @@ Cài thư viện vào máy
 
 Vào ``conf.py`` và thêm dòng dưới vào ``extension``:
 
-.. code-block::
+.. code-block::python
 
     'sphinx_copybutton'
 
@@ -175,7 +175,7 @@ Cài thư viện vào máy
 
 Vào ``conf.py`` và thêm dòng dưới vào ``extension``:
 
-.. code-block::
+.. code-block:: python
 
     'sphinx_new_tab_link'
 
@@ -270,7 +270,7 @@ Deploy lên github
 5. Chọn ``Add file``, chọn tiếp ``Create new file``. Tạo thư mục ``.github/workflows/sphinx.yml``.
 6. File ``sphinx.yml`` có nội dung như phía dưới và nhấn ``Commit change`` 2 lần.
     
-    .. code-block:: 
+    .. code-block:: yaml
 
         name: "Sphinx: Render docs"
 
@@ -308,7 +308,7 @@ Clone document
 
 Xóa folder docs trong máy đi và clone trên github về.
 
-.. code-block::
+.. code-block:: bash
 
     git clone <github-document-url>
 
@@ -319,8 +319,15 @@ Build sphinx
 
 Dưới đây là cách build để xem trên local
 
-.. code-block:: 
+.. code-block:: bash
 
     cd docs
     make html
+
+Vô file ``index.html`` để xem doc trên local
+
+Trên ubuntu chỉ cần dùng lệnh này
+
+.. code-block:: bash 
+
     google-chrome build/html/index.html
