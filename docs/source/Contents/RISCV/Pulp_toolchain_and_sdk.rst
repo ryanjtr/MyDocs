@@ -4,20 +4,6 @@ PULP Toolchain and SDK
 .. contents:: 
     :depth: 2
     
-Introduction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-PULP (Parallel Ultra-Low Power) Platform is a holistic initiative aimed at developing energy-efficient 
-parallel computing solutions. It encompasses various hardware and software components tailored for 
-embedded and IoT applications, along with a vibrant community promoting collaboration and innovation. 
-The hardware components include PULP cores and systems designed for minimal power consumption and 
-optimized performance. On the software side, the platform supports operating systems, compilers, 
-development tools, libraries, middleware, and frameworks to streamline application development. 
-The open-source nature of PULP encourages innovation and knowledge-sharing, while educational 
-resources empower developers to harness parallel computing for energy-efficient solutions. 
-Overall, the PULP Platform provides a comprehensive ecosystem to foster the advancement of 
-energy-efficient computing in diverse embedded and IoT domains.
-
 PULP Toolchain installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

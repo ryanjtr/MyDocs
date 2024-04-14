@@ -120,43 +120,13 @@ You can either source sourceme.sh in the root sdk folder and then select the rig
 
     source sourceme.sh
 
-or 
+Can choose either board ``3`` or ``4``
+
+After selecting the right board, go to project and run command below to build project
 
 .. code-block:: bash
 
-    source configs/<the target you want to use>.sh
-
-
-.. list-table:: Summary of the available boards and their configuration file.
-    :widths: 15 15 25
-    :header-rows: 1
-
-    *
-      - Board
-      - Chip
-      - Config file
-    *
-      - Gapuino	
-      - GAP8 v1
-      - configs/gapuino.sh  
-    *
-      - Gapuino		
-      - GAP8 v2
-      - configs/gapuino_v2.sh
-    * 
-      - Gapoc
-      - GAP8 v1
-      - configs/gapoc_a.sh
-    * 
-      - Gapoc
-      - GAP8 v2	
-      - configs/gapoc_a_v2.sh
-
-After selecting the right board, run command below to build project
-
-.. code-block:: bash
-
-    make clean all run
+    make clean all run platform=gvsoc
 
 Run ``make help`` to get other commands
 
