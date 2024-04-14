@@ -30,9 +30,23 @@ release = '2024'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx_copybutton','sphinx_rtd_theme','sphinx_new_tab_link',"sphinx_rtd_dark_mode"]
+extensions = ['sphinx_copybutton','sphinx_rtd_theme','sphinx_new_tab_link',"sphinx_rtd_dark_mode",'sphinx_favicon']
 
-
+favicons = [
+   {
+      "sizes": "16x16",
+      "href": "https://secure.example.com/favicon/favicon-16x16.png",
+   },
+   {
+      "sizes": "32x32",
+      "href": "https://secure.example.com/favicon/favicon-32x32.png",
+   },
+   {
+      "rel": "apple-touch-icon",
+      "sizes": "180x180",
+      "href": "logoweb.png",  # use a local file in _static
+   },
+]
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 

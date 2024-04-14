@@ -191,10 +191,46 @@ Cài thư viện vào máy Linux/OSX
 
 Vào ``conf.py`` và thêm extension như dưới đây
 
-.. code-block::
+.. code-block:: python
 
     extensions = ['sphinx_rtd_dark_mode']
 
+Sphinx favicon
+~~~~~~~~~~~~~~~~
+
+Thêm ``sphinx-favicon`` vào ``requirements.txt``.
+Cài thư viện vào máy 
+
+.. code-block:: python
+
+    pip install sphinx-favicon
+
+Vào ``conf.py`` và thêm extension như dưới đây
+
+.. code-block:: python
+
+    extensions = ['sphinx_favicon']
+
+Thêm ``favicon`` vào ``conf.py``
+
+.. code-block:: python
+
+    favicons = [
+    {
+        "sizes": "16x16",
+        "href": "https://secure.example.com/favicon/favicon-16x16.png",
+    },
+    {
+        "sizes": "32x32",
+        "href": "https://secure.example.com/favicon/favicon-32x32.png",
+    },
+    {
+        "rel": "apple-touch-icon",
+        "sizes": "180x180",
+        "href": "apple-touch-icon-180x180.png",  # use a local file in _static
+    },
+    ]
+    
 Logo
 ~~~~~~~~~~~~~
 
