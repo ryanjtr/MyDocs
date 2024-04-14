@@ -63,8 +63,15 @@ Follow these steps to install toolchain:
 
 .. code-block:: bash
 
-    git clone https://github.com/pulp-platform/pulp-riscv-gnu-toolchain
-    cd pulp-riscv-gnu-toolchain
+    git clone https://github.com/pulp-platform/riscv-gnu-toolchain.git
+
+    cd riscv-gnu-toolchain
+    
+
+Then update submodule
+
+.. code-block:: bash
+
     git submodule update --init --recursive
 
 Cause ``/opt/riscv/bin`` is in ``root``, so must use ``sudo`` in ``make``
@@ -72,6 +79,7 @@ Cause ``/opt/riscv/bin`` is in ``root``, so must use ``sudo`` in ``make``
 .. code-block:: bash
 
     ./configure --prefix=/opt/riscv --with-arch=rv32imfcxpulpv3 --with-abi=ilp32 --enable-multilib
+
     sudo make
 
 PULP SDK installation
@@ -90,14 +98,22 @@ Follow these steps:
 .. code-block:: bash
 
     pip install argcomplete pyelftools six
+
     pip install prettytable
 
-Clone pulp SDK and update submodule:
+Clone pulp SDK :
 
 .. code-block:: bash
     
     git clone https://github.com/pulp-platform/pulp-sdk.git
+    
     cd pulp-sdk
+
+Then update submodule
+
+.. code-block:: bash
+
+    
     git submodule update --init --recursive
 
 Edit file ``pulp-sdk/configs/pulp-open.sh``, put the command below under line 32
@@ -111,6 +127,7 @@ Build gvsoc
 .. code-block:: bash
 
     source configs/pulp-open.sh
+
     make build
 
 .. Note:: 
@@ -125,7 +142,9 @@ Select board and then go to project
 .. code-block:: bash
 
     cd pulp-sdk
+
     source configs/pulp-open.sh
+    
     cd tests/hello
 
 Build project
@@ -163,7 +182,9 @@ Run the code below to see wave
 References
 ~~~~~~~~~~~~~~~~~~
 
-`[1]. Installation toolchain and sdk <https://www.pulp-platform.org/docs/pulp_training/NBruschi_gvsoc_tutorial_part1.pdf>`_
+`[1]. Installation pulp toolchain <https://github.com/pulp-platform/riscv-gnu-toolchain>`_
+
+`[2]. Installation pulp sdk <https://github.com/pulp-platform/pulp-sdk>`_
 
 
 

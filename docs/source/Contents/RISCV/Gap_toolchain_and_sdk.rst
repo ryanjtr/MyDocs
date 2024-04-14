@@ -74,6 +74,7 @@ Clone gap sdk repository
 .. code-block:: bash
 
     git clone https://github.com/GreenWaves-Technologies/gap_sdk.git
+
     cd gap_sdk
 
 Our modules (gapy runner) require a few additional Python packages that you can install with this command from GAP SDK root folder:
@@ -81,6 +82,7 @@ Our modules (gapy runner) require a few additional Python packages that you can 
 .. code-block:: bash
 
     pip3 install -r requirements.txt
+    
     pip3 install -r doc/requirements.txt
 
 Build gvsoc 
