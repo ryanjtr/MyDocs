@@ -191,7 +191,7 @@ Run helloworld  example
 .. image:: ./image/gaptesthello.png
     
 Issues
-~~~~~~~~~~~~~~~~~~`
+~~~~~~~~~~~~~~~~~~
 
 **make: Nothing to be done for 'all'**
 Solution: ``sudo make clean``
