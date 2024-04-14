@@ -145,6 +145,7 @@ Sphinx_copybutton
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Thêm ``sphinx-copybutton`` vào ``requirements.txt``.
+
 Cài thư viện vào máy 
 
 .. code-block:: python
@@ -161,6 +162,7 @@ Sphinx-new-tab-link
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Thêm ``sphinx-new-tab-link`` vào ``requirements.txt``.
+
 Cài thư viện vào máy
 
 .. code-block:: python
@@ -177,6 +179,7 @@ Sphinx rtd dark mode
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Thêm ``sphinx-rtd-dark-mode`` vào ``requirements.txt``.
+
 Cài thư viện vào máy window
 
 .. code-block:: python
@@ -199,6 +202,7 @@ Sphinx favicon
 ~~~~~~~~~~~~~~~~
 
 Thêm ``sphinx-favicon`` vào ``requirements.txt``.
+
 Cài thư viện vào máy 
 
 .. code-block:: python
