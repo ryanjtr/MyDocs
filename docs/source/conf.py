@@ -53,7 +53,7 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 html_theme = "sphinx_rtd_theme" #["sphinx_rtd_theme", "pydata_sphinx_theme"]
-html_logo = "_static/wolf.png"
+html_logo = "_static/stick.gif"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -61,3 +61,5 @@ html_logo = "_static/wolf.png"
 html_static_path = ['_static']
 # def setup(app):
 #     app.add_css_file("custom.css")
+
+      

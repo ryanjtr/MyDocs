@@ -5,7 +5,7 @@ Sphinx
     :depth: 2
 
 Sphinx installation
---------------
+------------------------
 
 Open a new terminal/command prompt and follow steps below
 
@@ -22,7 +22,7 @@ Open a new terminal/command prompt and follow steps below
     pip install -U sphinx
 
 Create document layout
--------------------
+-------------------------------
 
 Run the command below to create
 
@@ -337,7 +337,7 @@ Delete your ``docs`` folder in your computer, then git clone the repository
     git clone <github-document-url>
 
 Build sphinx
-------------
+----------------
 
 Open the folder cloned from github in Vscode. Then open the terminal and type the commands below
 
