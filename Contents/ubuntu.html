@@ -53,6 +53,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ubuntu</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#remove-folder">Remove folder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uninstall-app">Uninstall app</a></li>
 </ul>
 </li>
 </ul>
@@ -96,6 +97,33 @@
 <h3>Remove folder<a class="headerlink" href="#remove-folder" title="Permalink to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">-f</span> <span class="pre">/path/</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo rm -r -f
+</pre></div>
+</div>
+</section>
+<section id="uninstall-app">
+<h3>Uninstall app<a class="headerlink" href="#uninstall-app" title="Permalink to this heading"></a></h3>
+<p>Update Ubuntu</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update
+</pre></div>
+</div>
+<p>List app</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt list --installed
+</pre></div>
+</div>
+<p>Remove app</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get remove name_app
+</pre></div>
+</div>
+<p>To find the exact package name in the system</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dpkg --list <span class="p">|</span> grep package-name
+</pre></div>
+</div>
+<p>To remove the package and also its config files</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get remove --purge package-name
+</pre></div>
+</div>
+<p>if this didnt work for you . you can remove and purge later in 2 steps</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get remove package-name
 </pre></div>
 </div>
 </section>

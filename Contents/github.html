@@ -49,7 +49,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Professional_terminology.html">Professional terminology</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Github</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#lenh">Lệnh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="zephyr.html">Zephyr</a></li>
@@ -92,39 +92,81 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="#github" id="id1">Github</a></p>
 <ul>
-<li><p><a class="reference internal" href="#lenh" id="id2">Lệnh</a></p></li>
+<li><p><a class="reference internal" href="#commands" id="id2">Commands</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
-<p>Working space: thư mục chưa code trên máy tính bạn
-Stage area và git local</p>
-<section id="lenh">
-<h2><a class="toc-backref" href="#id2">Lệnh</a><a class="headerlink" href="#lenh" title="Permalink to this heading"></a></h2>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code> khởi tạo git local (chỉ dùng lần đầu tiên)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code> thêm toàn bộ file trong workspace vào stage area</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;message&quot;</span></code> commit code lên git local</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">origin</span> <span class="pre">&lt;Url_repo&gt;</span></code> liên kết tới remote repo</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">-u</span> <span class="pre">origin</span> <span class="pre">master</span></code> đẩy code lên remote, “-u” là nhớ git push origin</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span> <span class="pre">master</span></code> cập nhật code từ remote về máy mình, từ lần sau chỉ dùng <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">&lt;commit_id&gt;</span></code> chuyển từ version này sang version khác(verison: các bản code đã commit lên git local)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">branch</span></code> tạo ra branch1 và chuyển sang nhánh branch1, (-b là để tạo mới một branch)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">branch1</span></code> merge branch1 vào master</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-a</span></code> danh sách các branch</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">&lt;id_c2&gt;</span></code> nếu ban đầu có commit c1 c2 c3 c4 c5, nếu dùng lệnh này thì ta quay về code ở c2 và code c3 c4 c5 bị xóa đi và coi như chưa từng tồn tại</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">-f</span></code> ép push lên remote với lịch sử commmit không trùng khớp (hạn chế dùng)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> xem id các commit (dùng :Q để thoát log)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span> <span class="pre">&lt;id_c3&gt;</span></code> nếu ban đầu có commit c1 c2 c3 c4 c5, nếu dùng lệnh này thì ta quay về code ở c2 và code c3 c4 c5 không bị xóa đi và clúc này tạo ra c6. Lấy code của commit trước cái id_commit mà mình nhập</p></li>
-</ul>
-</div></blockquote>
+<p>Working space
+Stage area and git local</p>
+<section id="commands">
+<h2><a class="toc-backref" href="#id2">Commands</a><a class="headerlink" href="#commands" title="Permalink to this heading"></a></h2>
+<p>Initiate git local</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git init
+</pre></div>
+</div>
+<p>Add all file to local</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git add .
+</pre></div>
+</div>
+<p>Commit code to local</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git commit -m <span class="s2">&quot;message&quot;</span>
+</pre></div>
+</div>
+<p>Link to remote repository</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git remote add origin &lt;Url_repo&gt;
+</pre></div>
+</div>
+<p>Push code to branch <code class="docutils literal notranslate"><span class="pre">master</span></code> of remote repository, later then just use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push -u origin master
+</pre></div>
+</div>
+<p>Update code from branch <code class="docutils literal notranslate"><span class="pre">master</span></code> to local</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git pull origin master
+</pre></div>
+</div>
+<p>Change to another version (version: code committed to git remote)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout &lt;commit_id&gt;
+</pre></div>
+</div>
+<p>Create a new branch and move to it (-b: create a new branch)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git git checkout -b &lt;branch_name&gt;
+</pre></div>
+</div>
+<p>Merge a branch to master</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git merge &lt;branch_name&gt;
+</pre></div>
+</div>
+<p>List branch</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git branch -a
+</pre></div>
+</div>
+<p>Assumed you committed c1 c2 c3 c4 c5. If you use the command below, then we will return to c2, code in c3 c4 c5 will be deleted (as never exist)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git reset --hard &lt;id_c2&gt;
+</pre></div>
+</div>
+<p>Force to push code to remote due to difference in commit history (not recommend)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push -f
+</pre></div>
+</div>
+<p>Show id commit</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git log
+</pre></div>
+</div>
+<p>Return to a commit in history</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git revert &lt;id_commit&gt;
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Nếu lần đầu sử dụng git thì phải gõ 2 lệnh sau trước khi commit
-* <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">user.name</span> <span class="pre">&quot;John&quot;</span></code>
-* <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">user.mail</span> <span class="pre">&quot;nguyevana&#64;gmail.com&quot;</span></code>
-* <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">credential.helper</span> <span class="pre">store</span></code> lưu account vào máy, để các lần sau nó không hỏi password nữa</p>
+<p>If first time use github, you must commands below</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config --global user.name <span class="s2">&quot;John&quot;</span>
+
+git config --global user.mail <span class="s2">&quot;nguyevana@gmail.com&quot;</span>
+
+git config credential.helper store <span class="c1"># to store user name and password to your computer</span>
+</pre></div>
 </div>
 </section>
 </section>
