@@ -133,13 +133,17 @@ Cài thư viện vào máy
 
     pip install sphinx-rtd-theme
     
-Vào ``conf.py`` và thêm extension như dưới:
+Vào ``conf.py`` và thêm dòng dưới vào ``extension``:
 
-.. code-block::
+.. code-block:: python
 
-    extensions = ['sphinx_rtd_theme']
+    'sphinx_rtd_theme'
 
-    html_theme = "sphinx_rtd_theme"
+Cũng trong ``conf.py`` và thêm dòng dưới vào ``html_theme``:
+
+.. code-block:: python
+
+    "sphinx_rtd_theme"
 
 Sphinx_copybutton
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -152,11 +156,11 @@ Cài thư viện vào máy
 
     pip install sphinx-copybutton
 
-Vào ``conf.py`` và thêm extension như dưới đây
+Vào ``conf.py`` và thêm dòng dưới vào ``extension``:
 
 .. code-block::
 
-    extensions = ['sphinx_copybutton']
+    'sphinx_copybutton'
 
 Sphinx-new-tab-link
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -169,11 +173,11 @@ Cài thư viện vào máy
 
     pip install sphinx-new-tab-link
 
-Vào ``conf.py`` và thêm extension như dưới đây
+Vào ``conf.py`` và thêm dòng dưới vào ``extension``:
 
 .. code-block::
 
-    extensions = ['sphinx_new_tab_link']
+    'sphinx_new_tab_link'
 
 Sphinx rtd dark mode 
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -192,11 +196,11 @@ Cài thư viện vào máy Linux/OSX
 
     python3 -m pip install sphinx-rtd-dark-mode
 
-Vào ``conf.py`` và thêm extension như dưới đây
+Vào ``conf.py`` và thêm dòng dưới vào ``extension``:
 
 .. code-block:: python
 
-    extensions = ['sphinx_rtd_dark_mode']
+    'sphinx_rtd_dark_mode'
 
 Sphinx favicon
 ~~~~~~~~~~~~~~~~
@@ -209,30 +213,21 @@ Cài thư viện vào máy
 
     pip install sphinx-favicon
 
-Vào ``conf.py`` và thêm extension như dưới đây
+Vào ``conf.py`` và thêm dòng dưới vào ``extension``:
 
 .. code-block:: python
 
-    extensions = ['sphinx_favicon']
+    'sphinx_favicon'
 
-Thêm ``favicon`` vào ``conf.py``
+Cũng trong ``conf.py`` thêm dòng dưới vào:
 
 .. code-block:: python
 
     favicons = [
     {
-        "sizes": "16x16",
-        "href": "https://secure.example.com/favicon/favicon-16x16.png",
-    },
-    {
         "sizes": "32x32",
-        "href": "https://secure.example.com/favicon/favicon-32x32.png",
-    },
-    {
-        "rel": "apple-touch-icon",
-        "sizes": "180x180",
-        "href": "apple-touch-icon-180x180.png",  # use a local file in _static
-    },
+        "href": "favicon.png",
+    }
     ]
     
 Logo

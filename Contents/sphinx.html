@@ -231,10 +231,12 @@ Mở terminal và làm theo hướng dẫn dưới</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">rtd</span><span class="o">-</span><span class="n">theme</span>
 </pre></div>
 </div>
-<p>Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm extension như dưới:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx_rtd_theme&#39;</span><span class="p">]</span>
-
-<span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;sphinx_rtd_theme&quot;</span>
+<p>Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm dòng dưới vào <code class="docutils literal notranslate"><span class="pre">extension</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;sphinx_rtd_theme&#39;</span>
+</pre></div>
+</div>
+<p>Cũng trong <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm dòng dưới vào <code class="docutils literal notranslate"><span class="pre">html_theme</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;sphinx_rtd_theme&quot;</span>
 </pre></div>
 </div>
 </section>
@@ -245,8 +247,8 @@ Mở terminal và làm theo hướng dẫn dưới</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">copybutton</span>
 </pre></div>
 </div>
-<p>Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm extension như dưới đây</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx_copybutton&#39;</span><span class="p">]</span>
+<p>Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm dòng dưới vào <code class="docutils literal notranslate"><span class="pre">extension</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;sphinx_copybutton&#39;</span>
 </pre></div>
 </div>
 </section>
@@ -257,8 +259,8 @@ Mở terminal và làm theo hướng dẫn dưới</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">new</span><span class="o">-</span><span class="n">tab</span><span class="o">-</span><span class="n">link</span>
 </pre></div>
 </div>
-<p>Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm extension như dưới đây</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx_new_tab_link&#39;</span><span class="p">]</span>
+<p>Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm dòng dưới vào <code class="docutils literal notranslate"><span class="pre">extension</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;sphinx_new_tab_link&#39;</span>
 </pre></div>
 </div>
 </section>
@@ -273,8 +275,8 @@ Mở terminal và làm theo hướng dẫn dưới</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">rtd</span><span class="o">-</span><span class="n">dark</span><span class="o">-</span><span class="n">mode</span>
 </pre></div>
 </div>
-<p>Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm extension như dưới đây</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx_rtd_dark_mode&#39;</span><span class="p">]</span>
+<p>Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm dòng dưới vào <code class="docutils literal notranslate"><span class="pre">extension</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;sphinx_rtd_dark_mode&#39;</span>
 </pre></div>
 </div>
 </section>
@@ -285,25 +287,16 @@ Mở terminal và làm theo hướng dẫn dưới</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">favicon</span>
 </pre></div>
 </div>
-<p>Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm extension như dưới đây</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx_favicon&#39;</span><span class="p">]</span>
+<p>Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm dòng dưới vào <code class="docutils literal notranslate"><span class="pre">extension</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;sphinx_favicon&#39;</span>
 </pre></div>
 </div>
-<p>Thêm <code class="docutils literal notranslate"><span class="pre">favicon</span></code> vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code></p>
+<p>Cũng trong <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> thêm dòng dưới vào:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">favicons</span> <span class="o">=</span> <span class="p">[</span>
 <span class="p">{</span>
-    <span class="s2">&quot;sizes&quot;</span><span class="p">:</span> <span class="s2">&quot;16x16&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;https://secure.example.com/favicon/favicon-16x16.png&quot;</span><span class="p">,</span>
-<span class="p">},</span>
-<span class="p">{</span>
     <span class="s2">&quot;sizes&quot;</span><span class="p">:</span> <span class="s2">&quot;32x32&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;https://secure.example.com/favicon/favicon-32x32.png&quot;</span><span class="p">,</span>
-<span class="p">},</span>
-<span class="p">{</span>
-    <span class="s2">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;apple-touch-icon&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;sizes&quot;</span><span class="p">:</span> <span class="s2">&quot;180x180&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;apple-touch-icon-180x180.png&quot;</span><span class="p">,</span>  <span class="c1"># use a local file in _static</span>
-<span class="p">},</span>
+    <span class="s2">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;favicon.png&quot;</span><span class="p">,</span>
+<span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 </div>
