@@ -8,6 +8,8 @@
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/dark_mode_css/dark.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -19,6 +21,8 @@
         <script src="../_static/doctools.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
+        <script src="../_static/dark_mode_js/default_dark.js"></script>
+        <script src="../_static/dark_mode_js/theme_switcher.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -49,12 +53,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#cai-dat-sphinx">Cài đặt sphinx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tao-document-layout">Tạo document layout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tao-requirements">Tạo requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tien-ich-can-thiet">Tiện ích cần thiết</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#theme">1. Theme</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sphinx-copybutton">2. Sphinx_copybutton</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sphinx-new-tab-link">3. Sphinx-new-tab-link</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#logo">4. Logo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dieu-chinh-do-rong-cua-so-hien-thi">5. Điều chỉnh độ rộng cửa sổ hiển thị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tien-ich">Tiện ích</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#theme">Theme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sphinx-copybutton">Sphinx_copybutton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sphinx-new-tab-link">Sphinx-new-tab-link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sphinx-rtd-dark-mode">Sphinx rtd dark mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logo">Logo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dieu-chinh-do-rong-cua-so-hien-thi">Điều chỉnh độ rộng cửa sổ hiển thị</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#deploy-len-github">Deploy lên github</a></li>
@@ -105,7 +110,7 @@
 <li><p><a class="reference internal" href="#cai-dat-sphinx" id="id2">Cài đặt sphinx</a></p></li>
 <li><p><a class="reference internal" href="#tao-document-layout" id="id3">Tạo document layout</a></p></li>
 <li><p><a class="reference internal" href="#tao-requirements" id="id4">Tạo requirements</a></p></li>
-<li><p><a class="reference internal" href="#tien-ich-can-thiet" id="id5">Tiện ích cần thiết</a></p></li>
+<li><p><a class="reference internal" href="#tien-ich" id="id5">Tiện ích</a></p></li>
 <li><p><a class="reference internal" href="#deploy-len-github" id="id6">Deploy lên github</a></p></li>
 <li><p><a class="reference internal" href="#clone-document" id="id7">Clone document</a></p></li>
 <li><p><a class="reference internal" href="#build-sphinx" id="id8">Build sphinx</a></p></li>
@@ -217,10 +222,10 @@ Mở terminal và làm theo hướng dẫn dưới</p>
 </pre></div>
 </div>
 </section>
-<section id="tien-ich-can-thiet">
-<h2><a class="toc-backref" href="#id5">Tiện ích cần thiết</a><a class="headerlink" href="#tien-ich-can-thiet" title="Permalink to this heading"></a></h2>
+<section id="tien-ich">
+<h2><a class="toc-backref" href="#id5">Tiện ích</a><a class="headerlink" href="#tien-ich" title="Permalink to this heading"></a></h2>
 <section id="theme">
-<h3>1. Theme<a class="headerlink" href="#theme" title="Permalink to this heading"></a></h3>
+<h3>Theme<a class="headerlink" href="#theme" title="Permalink to this heading"></a></h3>
 <p>Cài thư viện vào máy</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">rtd</span><span class="o">-</span><span class="n">theme</span>
 </pre></div>
@@ -233,7 +238,7 @@ Mở terminal và làm theo hướng dẫn dưới</p>
 </div>
 </section>
 <section id="sphinx-copybutton">
-<h3>2. Sphinx_copybutton<a class="headerlink" href="#sphinx-copybutton" title="Permalink to this heading"></a></h3>
+<h3>Sphinx_copybutton<a class="headerlink" href="#sphinx-copybutton" title="Permalink to this heading"></a></h3>
 <p>Thêm <code class="docutils literal notranslate"><span class="pre">sphinx-copybutton</span></code> vào <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.
 Cài thư viện vào máy</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">copybutton</span>
@@ -245,7 +250,7 @@ Cài thư viện vào máy</p>
 </div>
 </section>
 <section id="sphinx-new-tab-link">
-<h3>3. Sphinx-new-tab-link<a class="headerlink" href="#sphinx-new-tab-link" title="Permalink to this heading"></a></h3>
+<h3>Sphinx-new-tab-link<a class="headerlink" href="#sphinx-new-tab-link" title="Permalink to this heading"></a></h3>
 <p>Thêm <code class="docutils literal notranslate"><span class="pre">sphinx-new-tab-link</span></code> vào <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.
 Cài thư viện vào máy</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">new</span><span class="o">-</span><span class="n">tab</span><span class="o">-</span><span class="n">link</span>
@@ -256,15 +261,31 @@ Cài thư viện vào máy</p>
 </pre></div>
 </div>
 </section>
+<section id="sphinx-rtd-dark-mode">
+<h3>Sphinx rtd dark mode<a class="headerlink" href="#sphinx-rtd-dark-mode" title="Permalink to this heading"></a></h3>
+<p>Thêm <code class="docutils literal notranslate"><span class="pre">sphinx-rtd-dark-mode</span></code> vào <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.
+Cài thư viện vào máy window</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">py</span> <span class="o">-</span><span class="mi">3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">rtd</span><span class="o">-</span><span class="n">dark</span><span class="o">-</span><span class="n">mode</span>
+</pre></div>
+</div>
+<p>Cài thư viện vào máy Linux/OSX</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">rtd</span><span class="o">-</span><span class="n">dark</span><span class="o">-</span><span class="n">mode</span>
+</pre></div>
+</div>
+<p>Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm extension như dưới đây</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx_rtd_dark_mode&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
 <section id="logo">
-<h3>4. Logo<a class="headerlink" href="#logo" title="Permalink to this heading"></a></h3>
+<h3>Logo<a class="headerlink" href="#logo" title="Permalink to this heading"></a></h3>
 <p>Lưu ảnh logo trong folder <code class="docutils literal notranslate"><span class="pre">_static</span></code>. Trong <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> thêm dòng này vào dưới <code class="docutils literal notranslate"><span class="pre">html_theme</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_logo</span> <span class="o">=</span> <span class="s2">&quot;_static/logo.png&quot;</span>
 </pre></div>
 </div>
 </section>
 <section id="dieu-chinh-do-rong-cua-so-hien-thi">
-<h3>5. Điều chỉnh độ rộng cửa sổ hiển thị<a class="headerlink" href="#dieu-chinh-do-rong-cua-so-hien-thi" title="Permalink to this heading"></a></h3>
+<h3>Điều chỉnh độ rộng cửa sổ hiển thị<a class="headerlink" href="#dieu-chinh-do-rong-cua-so-hien-thi" title="Permalink to this heading"></a></h3>
 <p>Trong folder <code class="docutils literal notranslate"><span class="pre">_static</span></code>, tạo file <code class="docutils literal notranslate"><span class="pre">custom.css</span></code> với nội dung như bên dưới (ở đây độ rộng của sổ  được điều chỉnh khớp với màn hình)</p>
 <div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="c">/* make the page width fill the window */</span><span class="w"></span>
 <span class="p">.</span><span class="nc">wy-nav-content</span><span class="w"> </span><span class="p">{</span><span class="w"></span>

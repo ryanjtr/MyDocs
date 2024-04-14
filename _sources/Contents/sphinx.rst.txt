@@ -121,11 +121,11 @@ Tạo file ``requirements.txt`` với nội dung:
         # via requests
     furo==2021.11.16
 
-Tiện ích cần thiết
+Tiện ích
 ---------------------------
 
-1. Theme
-~~~~~~~~~~~
+Theme
+~~~~~~~~~~~~~~
 
 Cài thư viện vào máy
 
@@ -141,7 +141,7 @@ Vào ``conf.py`` và thêm extension như dưới:
 
     html_theme = "sphinx_rtd_theme"
 
-2. Sphinx_copybutton
+Sphinx_copybutton
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Thêm ``sphinx-copybutton`` vào ``requirements.txt``.
@@ -157,8 +157,8 @@ Vào ``conf.py`` và thêm extension như dưới đây
 
     extensions = ['sphinx_copybutton']
 
-3. Sphinx-new-tab-link
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Sphinx-new-tab-link
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Thêm ``sphinx-new-tab-link`` vào ``requirements.txt``.
 Cài thư viện vào máy
@@ -173,8 +173,30 @@ Vào ``conf.py`` và thêm extension như dưới đây
 
     extensions = ['sphinx_new_tab_link']
 
-4. Logo 
-~~~~~~~~~~~~~~~~~~~
+Sphinx rtd dark mode 
+~~~~~~~~~~~~~~~~~~~~~~
+
+Thêm ``sphinx-rtd-dark-mode`` vào ``requirements.txt``.
+Cài thư viện vào máy window
+
+.. code-block:: python
+
+    py -3 -m pip install sphinx-rtd-dark-mode
+
+Cài thư viện vào máy Linux/OSX
+
+.. code-block:: python
+
+    python3 -m pip install sphinx-rtd-dark-mode
+
+Vào ``conf.py`` và thêm extension như dưới đây
+
+.. code-block::
+
+    extensions = ['sphinx_rtd_dark_mode']
+
+Logo
+~~~~~~~~~~~~~
 
 Lưu ảnh logo trong folder ``_static``. Trong ``conf.py`` thêm dòng này vào dưới ``html_theme``
 
@@ -183,8 +205,8 @@ Lưu ảnh logo trong folder ``_static``. Trong ``conf.py`` thêm dòng này và
     html_logo = "_static/logo.png"
 
 
-5. Điều chỉnh độ rộng cửa sổ hiển thị
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Điều chỉnh độ rộng cửa sổ hiển thị
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Trong folder ``_static``, tạo file ``custom.css`` với nội dung như bên dưới (ở đây độ rộng của sổ  được điều chỉnh khớp với màn hình)
 
