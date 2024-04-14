@@ -2,7 +2,9 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <link sizes="16x16" href="https://secure.example.com/favicon/favicon-16x16.png" rel="icon" type="image/png">
+    <link sizes="32x32" href="https://secure.example.com/favicon/favicon-32x32.png" rel="icon" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../_static/logoweb.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sphinx &mdash; RyanDocs 2024 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -58,6 +60,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#sphinx-copybutton">Sphinx_copybutton</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sphinx-new-tab-link">Sphinx-new-tab-link</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sphinx-rtd-dark-mode">Sphinx rtd dark mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sphinx-favicon">Sphinx favicon</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#logo">Logo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#dieu-chinh-do-rong-cua-so-hien-thi">Điều chỉnh độ rộng cửa sổ hiển thị</a></li>
 </ul>
@@ -273,7 +276,37 @@ Cài thư viện vào máy window</p>
 </pre></div>
 </div>
 <p>Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm extension như dưới đây</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx_rtd_dark_mode&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx_rtd_dark_mode&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="sphinx-favicon">
+<h3>Sphinx favicon<a class="headerlink" href="#sphinx-favicon" title="Permalink to this heading"></a></h3>
+<p>Thêm <code class="docutils literal notranslate"><span class="pre">sphinx-favicon</span></code> vào <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.
+Cài thư viện vào máy</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">favicon</span>
+</pre></div>
+</div>
+<p>Vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> và thêm extension như dưới đây</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx_favicon&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Thêm <code class="docutils literal notranslate"><span class="pre">favicon</span></code> vào <code class="docutils literal notranslate"><span class="pre">conf.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">favicons</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">{</span>
+    <span class="s2">&quot;sizes&quot;</span><span class="p">:</span> <span class="s2">&quot;16x16&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;https://secure.example.com/favicon/favicon-16x16.png&quot;</span><span class="p">,</span>
+<span class="p">},</span>
+<span class="p">{</span>
+    <span class="s2">&quot;sizes&quot;</span><span class="p">:</span> <span class="s2">&quot;32x32&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;https://secure.example.com/favicon/favicon-32x32.png&quot;</span><span class="p">,</span>
+<span class="p">},</span>
+<span class="p">{</span>
+    <span class="s2">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;apple-touch-icon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sizes&quot;</span><span class="p">:</span> <span class="s2">&quot;180x180&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;apple-touch-icon-180x180.png&quot;</span><span class="p">,</span>  <span class="c1"># use a local file in _static</span>
+<span class="p">},</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </section>
