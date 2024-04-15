@@ -43,6 +43,10 @@ Prerequisite
 
 .. code-block:: bash 
 
+    sudo apt-get update
+
+    sudo apt-get upgrade
+    
     sudo apt-get install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev
 
 Follow these steps to install toolchain:
@@ -60,7 +64,7 @@ Then update submodule
 
     git submodule update --init --recursive
 
-Cause ``/opt/riscv/bin`` is in ``root``, so must use ``sudo`` in ``make``
+Cause ``/opt/riscv/bin`` is in ``root``, so must use ``sudo`` when ``make``
 
 .. code-block:: bash
 
