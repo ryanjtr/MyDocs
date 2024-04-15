@@ -59,6 +59,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#sphinx-new-tab-link">Sphinx-new-tab-link</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sphinx-rtd-dark-mode">Sphinx rtd dark mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sphinx-favicon">Sphinx favicon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sphinx-simplepdf">Sphinx SimplePDF</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#logo">Logo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#adjust-window-document">Adjust window document</a></li>
 </ul>
@@ -78,6 +79,7 @@
 <li class="toctree-l1"><a class="reference internal" href="internet.html">Internet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fhir.html">Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="RISCV/riscv.html">RISC-V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
 </ul>
 
         </div>
@@ -277,13 +279,16 @@
 </section>
 <section id="sphinx-rtd-dark-mode">
 <h3>Sphinx rtd dark mode<a class="headerlink" href="#sphinx-rtd-dark-mode" title="Permalink to this heading"></a></h3>
-<p>Thêm <code class="docutils literal notranslate"><span class="pre">sphinx-rtd-dark-mode</span></code> vào <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
 <p>Install the library for Window</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">py</span> <span class="o">-</span><span class="mi">3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">rtd</span><span class="o">-</span><span class="n">dark</span><span class="o">-</span><span class="n">mode</span>
 </pre></div>
 </div>
 <p>Install the library for Linux/OSX</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">rtd</span><span class="o">-</span><span class="n">dark</span><span class="o">-</span><span class="n">mode</span>
+</pre></div>
+</div>
+<p>Then add the line below to <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">-</span><span class="n">rtd</span><span class="o">-</span><span class="n">dark</span><span class="o">-</span><span class="n">mode</span>
 </pre></div>
 </div>
 <p>In <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> add the line below to <code class="docutils literal notranslate"><span class="pre">extension</span></code>:</p>
@@ -293,9 +298,12 @@
 </section>
 <section id="sphinx-favicon">
 <h3>Sphinx favicon<a class="headerlink" href="#sphinx-favicon" title="Permalink to this heading"></a></h3>
-<p>Thêm <code class="docutils literal notranslate"><span class="pre">sphinx-favicon</span></code> vào <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
 <p>Install the library</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">favicon</span>
+</pre></div>
+</div>
+<p>Then add the line below to <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">-</span><span class="n">favicon</span>
 </pre></div>
 </div>
 <p>In <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> add the line below to <code class="docutils literal notranslate"><span class="pre">extension</span></code>:</p>
@@ -309,6 +317,21 @@
     <span class="s2">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;favicon.png&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 <span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="sphinx-simplepdf">
+<h3>Sphinx SimplePDF<a class="headerlink" href="#sphinx-simplepdf" title="Permalink to this heading"></a></h3>
+<p>Install the library</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install sphinx-simplepdf
+</pre></div>
+</div>
+<p>Then add the line below to <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">-</span><span class="n">simplepdf</span>
+</pre></div>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> add the line below to <code class="docutils literal notranslate"><span class="pre">extension</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;sphinx_simplepdf&#39;</span>
 </pre></div>
 </div>
 </section>
