@@ -49,9 +49,9 @@ Follow these steps to install toolchain:
 
 .. code-block:: bash
 
-    git clone https://github.com/pulp-platform/riscv-gnu-toolchain.git
+    git clone https://github.com/pulp-platform/pulp-riscv-gnu-toolchain
 
-    cd riscv-gnu-toolchain
+    cd pulp-riscv-gnu-toolchain
     
 
 Then update submodule
