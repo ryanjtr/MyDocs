@@ -256,27 +256,6 @@ Then in ``conf.py`` file, add the lines below, ``favicon.png`` is an example ima
     }
     ]
 
-Sphinx SimplePDF
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Install the library
-
-.. code-block:: bash 
-
-    pip install sphinx-simplepdf
-
-Then add the line below to ``requirements.txt``
-
-.. code-block::
-
-    sphinx-simplepdf
-
-In ``conf.py`` add the line below to ``extension``:
-
-.. code-block:: python
-
-    'sphinx_simplepdf'
-
 Logo
 ~~~~~~~~~~~~~
 

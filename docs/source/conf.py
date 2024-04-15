@@ -30,7 +30,7 @@ release = '2024'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx_copybutton','sphinx_rtd_theme','sphinx_new_tab_link',"sphinx_rtd_dark_mode",'sphinx_favicon','sphinx_simplepdf']
+extensions = ['sphinx_copybutton','sphinx_rtd_theme','sphinx_new_tab_link',"sphinx_rtd_dark_mode",'sphinx_favicon']
 
 favicons = [
    {
@@ -62,4 +62,4 @@ html_static_path = ['_static']
 # def setup(app):
 #     app.add_css_file("custom.css")
 
-      
+    
