@@ -177,6 +177,6 @@ References
 `[2]. Installation pulp sdk <https://github.com/pulp-platform/pulp-sdk>`_
 
 
-Move Zephyr, riscv_pulp-20240415T133408Z-001, demoproject, Gitwork
+Move Zephyr, squareline, riscv_pulp-20240415T133408Z-001, demoproject, Gitwork
 
 
