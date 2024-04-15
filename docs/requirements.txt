@@ -61,3 +61,4 @@ furo==2021.11.16
 sphinx-new-tab-link
 sphinx-rtd-dark-mode
 sphinx-favicon
+sphinx-simplepdf

@@ -199,8 +199,6 @@ In ``conf.py`` add the line below to ``extension``:
 Sphinx rtd dark mode 
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Thêm ``sphinx-rtd-dark-mode`` vào ``requirements.txt``.
-
 Install the library for Window
 
 .. code-block:: python
@@ -213,6 +211,12 @@ Install the library for Linux/OSX
 
     python3 -m pip install sphinx-rtd-dark-mode
 
+Then add the line below to ``requirements.txt``
+
+.. code-block::
+
+    sphinx-rtd-dark-mode
+
 In ``conf.py`` add the line below to ``extension``:
 
 .. code-block:: python
@@ -222,13 +226,18 @@ In ``conf.py`` add the line below to ``extension``:
 Sphinx favicon
 ~~~~~~~~~~~~~~~~
 
-Thêm ``sphinx-favicon`` vào ``requirements.txt``.
-
 Install the library
 
 .. code-block:: python
 
     pip install sphinx-favicon
+
+
+Then add the line below to ``requirements.txt``
+
+.. code-block::
+
+    sphinx-favicon
 
 In ``conf.py`` add the line below to ``extension``:
 
@@ -246,7 +255,28 @@ Then in ``conf.py`` file, add the lines below, ``favicon.png`` is an example ima
         "href": "favicon.png",
     }
     ]
-    
+
+Sphinx SimplePDF
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Install the library
+
+.. code-block:: bash 
+
+    pip install sphinx-simplepdf
+
+Then add the line below to ``requirements.txt``
+
+.. code-block::
+
+    sphinx-simplepdf
+
+In ``conf.py`` add the line below to ``extension``:
+
+.. code-block:: python
+
+    'sphinx_simplepdf'
+
 Logo
 ~~~~~~~~~~~~~
 
