@@ -143,7 +143,11 @@ sudo mkdir bin
 </div>
 <p>Open new terminal to install toolchain:</p>
 <p>Prerequisite</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
+
+sudo apt-get upgrade
+
+sudo apt-get install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev
 </pre></div>
 </div>
 <p>Follow these steps to install toolchain:</p>
@@ -156,7 +160,7 @@ sudo mkdir bin
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git submodule update --init --recursive
 </pre></div>
 </div>
-<p>Cause <code class="docutils literal notranslate"><span class="pre">/opt/riscv/bin</span></code> is in <code class="docutils literal notranslate"><span class="pre">root</span></code>, so must use <code class="docutils literal notranslate"><span class="pre">sudo</span></code> in <code class="docutils literal notranslate"><span class="pre">make</span></code></p>
+<p>Cause <code class="docutils literal notranslate"><span class="pre">/opt/riscv/bin</span></code> is in <code class="docutils literal notranslate"><span class="pre">root</span></code>, so must use <code class="docutils literal notranslate"><span class="pre">sudo</span></code> when <code class="docutils literal notranslate"><span class="pre">make</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./configure --prefix<span class="o">=</span>/opt/riscv --with-arch<span class="o">=</span>rv32imc --with-cmodel<span class="o">=</span>medlow --enable-multilib
 
 sudo make
