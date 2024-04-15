@@ -4,15 +4,17 @@ Board PCB
 .. contents:: 
     :depth: 2
 
-Làm mạch thủ công
+Hand making PCB
 -----------------
 
-1.Dung dịch làm mạch
+1. Mixture
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Tỉ lệ cồn và axeton: 7:3
 
-2.Quy tắc đi dây
+Aconhol and axeton ratio 7:3
+
+2. Routing rules
 ~~~~~~~~~~~~~~~~~~~
 
 * Không đi dây xuyên qua 2 chân ic

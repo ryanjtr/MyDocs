@@ -14,7 +14,7 @@ This installation for Ubuntu
 
 ``lab209_riscv`` is a config file
 
-Use ``cp`` command to copy ``lab209_riscv.conf`` to ``/etc/wiregaurd`` 
+Use ``cp`` command to copy ``lab209_riscv.conf`` to ``/etc/wiregaurd/`` 
 
 To **open** wiregaurd use the command below
 
@@ -42,6 +42,6 @@ Ubuntu version
 References
 ~~~~~~~~~~~~~~
 
-`[1]. Wiregaurd<https://www.wireguard.com/quickstart/>_`
+`[1]. Wiregaurd <https://www.wireguard.com/quickstart/>_`
 
 `[2]. Remmina installation <https://remmina.org/how-to-install-remmina/>`_

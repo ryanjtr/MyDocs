@@ -2,19 +2,19 @@ Welcome to RyanDank`s Note
 ==========================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    Contents/Professional_terminology
    Contents/github
    Contents/sphinx 
    Contents/zephyr
    Contents/ubuntu
-   Contents/pcb
-   Contents/mqtt
-   Contents/internet
+   
+   
    Contents/docker
    Contents/RISCV/riscv
 
 
 
-   
+   .. Contents/pcb
+   Contents/mqtt
