@@ -176,8 +176,7 @@ References
 
 `[2]. Installation pulp sdk <https://github.com/pulp-platform/pulp-sdk>`_
 
-Ignore this
 
-install riscv-gnu-toolchain
+Move Zephyr, riscv_pulp-20240415T133408Z-001, demoproject, Gitwork
 
 
