@@ -39,7 +39,7 @@ Add
 
 Open new terminal to install toolchain:
 
-Prerequisite
+**Prerequisite**
 
 .. code-block:: bash 
 
@@ -64,7 +64,7 @@ Then update submodule
 
     git submodule update --init --recursive
 
-Cause ``/opt/riscv/bin`` is in ``root``, so must use ``sudo`` when ``make``
+Because ``/opt/riscv/bin`` is in ``root``, so must use ``sudo`` when ``make``
 
 .. code-block:: bash
 
@@ -77,7 +77,7 @@ PULP SDK installation
 
 Open new terminal to install pulp-sdk
 
-Prerequisite
+**Prerequisite**
 
 .. code-block:: bash
 
@@ -169,12 +169,77 @@ Run the code below to see wave
 
     To run other project outside pulp-sdk, just move project folder to path ``pulp-sdk/tests/`` and then run.
 
+Riscv GNU toolchain
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Ubuntu version: 22.04.4
+
+Open new terminal to create new directory:
+
+.. code-block:: bash
+
+    cd
+    cd /opt
+    sudo mkdir riscv_gnu
+    cd riscv_gnu
+    sudo mkdir bin
+
+Setup path:
+
+.. code-block:: bash
+
+    nano ~/.profile
+
+Add
+
+.. code-block:: bash 
+
+    if [ -d "/opt/riscv_gnu" ] ; then
+        PATH="/opt/riscv_gnu:$PATH"
+    fi
+
+.. Note:: 
+
+    This will require a logout / login to take effect
+
+Open new terminal to install toolchain:
+
+**Prerequisite**
+
+.. code-block:: bash
+
+    sudo apt-get install autoconf automake autotools-dev curl python3 libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev
+
+Follow these step to install:
+
+.. code-block:: bash
+
+    git clone https://github.com/pulp-platform/riscv-gnu-toolchain.git
+
+    cd riscv-gnu-toolchain
+      
+Then update submodule
+
+.. code-block:: bash
+
+    git submodule update --init --recursive  
+
+Because ``/opt/riscv_gnu/bin`` is in ``root``, so must use ``sudo`` when ``make``
+
+.. code-block:: bash
+
+    ./configure --prefix=/opt/riscv_gnu --with-arch=rv32imfcxpulpv3 --with-abi=ilp32 --enable-multilib
+
+    sudo make
+
 References
 ~~~~~~~~~~~~~~~~~~
 
-`[1]. Installation pulp toolchain <https://github.com/pulp-platform/riscv-gnu-toolchain>`_
+`[1]. Installation of pulp toolchain <https://github.com/pulp-platform/riscv-gnu-toolchain>`_
 
-`[2]. Installation pulp sdk <https://github.com/pulp-platform/pulp-sdk>`_
+`[2]. Installation of pulp sdk <https://github.com/pulp-platform/pulp-sdk>`_
+
+`[3]. Installation of riscv gnu toolchain <https://github.com/pulp-platform/riscv-gnu-toolchain>`_
 
 
 Move Zephyr, squareline, riscv_pulp-20240415T133408Z-001, demoproject, Gitwork
