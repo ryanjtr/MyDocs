@@ -43,6 +43,19 @@ Uninstallation wiregaurd
     
     sudo apt autoclean && sudo apt autoremove
 
+Change password
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Open remmina and connect to server.
+
+#. Open terminal (Ubuntu/Centos7).
+
+#. Invoke command ``passwd``.
+
+#. Type your current password and new password.
+
+#. Disconnect server, go to edit and type your new passoword, then reconnect to server.
+
 Remmina
 ~~~~~~~~~~~~~~~~~
 
