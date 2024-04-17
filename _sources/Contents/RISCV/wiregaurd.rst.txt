@@ -67,6 +67,11 @@ Ubuntu version
 
     sudo apt install remmina remmina-plugin-rdp remmina-plugin-secret
 
+
+.. tip:: 
+
+    When in set up window, set resolution to client to get the best view.
+    
 References
 ~~~~~~~~~~~~~~
 
