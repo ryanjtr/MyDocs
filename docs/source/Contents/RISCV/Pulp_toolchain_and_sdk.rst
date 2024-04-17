@@ -87,7 +87,7 @@ Follow these steps:
 
 .. code-block:: bash
 
-    pip install argcomplete pyelftools six
+    pip install argcomplete pyelftools
 
     pip install prettytable
 
