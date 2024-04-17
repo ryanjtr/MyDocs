@@ -70,7 +70,7 @@ Ubuntu version
 
 .. tip:: 
 
-    When in set up window, set resolution to client to get the best view.
+    When in ``Remote connection profile``, set resolution to client to get the best view.
     
 References
 ~~~~~~~~~~~~~~
