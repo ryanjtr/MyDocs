@@ -70,7 +70,7 @@ Because ``/opt/riscv/bin`` is in ``root``, so must use ``sudo`` when ``make``
 
 .. code-block:: bash
 
-    ./configure --prefix=/opt/riscv --with-arch=rv32imc --with-cmodel=medlow --enable-multilib
+    ./configure --prefix=/opt/riscv_pulp --with-arch=rv32imc --with-cmodel=medlow --enable-multilib
 
     sudo make
 
