@@ -112,7 +112,7 @@ sudo apt install openresolv
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">lab209_riscv</span></code> is a config file</p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">cp</span> <span class="pre">-r</span></code> command to copy <code class="docutils literal notranslate"><span class="pre">lab209_riscv.conf</span></code> to <code class="docutils literal notranslate"><span class="pre">/etc/wiregaurd</span></code></p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">cp</span> <span class="pre">-r</span></code> command to copy <code class="docutils literal notranslate"><span class="pre">lab209_riscv.conf</span></code> to <code class="docutils literal notranslate"><span class="pre">/etc/wiregaurd/</span></code></p>
 <p>To <strong>open</strong> wiregaurd use the command below</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wg-quick up lab209_riscv
 </pre></div>
@@ -121,15 +121,11 @@ sudo apt install openresolv
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wg-quick down lab209_riscv
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you get error <code class="docutils literal notranslate"><span class="pre">cp:</span> <span class="pre">failed</span> <span class="pre">to</span> <span class="pre">access</span> <span class="pre">'/etc/wiregaurd/':</span> <span class="pre">Not</span> <span class="pre">a</span> <span class="pre">directory</span></code>. Just add <code class="docutils literal notranslate"><span class="pre">.conf</span></code> like this <code class="docutils literal notranslate"><span class="pre">lab209_riscv.conf</span></code>.</p>
-</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <ul class="simple">
 <li><p>If you cannot connect to server, change <code class="docutils literal notranslate"><span class="pre">AllowedIPs</span> <span class="pre">=</span> <span class="pre">192.168.1.178/32</span></code>, then restart wiregaurd. Change domain <code class="docutils literal notranslate"><span class="pre">vlsi.doelab.site</span></code> to <code class="docutils literal notranslate"><span class="pre">192.168.1.178</span></code></p></li>
-<li><p>If you want to go to wiregaurd config file, invoke command <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">-i</span></code>, then you have this <code class="docutils literal notranslate"><span class="pre">root&#64;your-computer:~#</span></code>. After that <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/etc/</span></code>, then <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">wiregaurd</span></code></p></li>
+<li><p>If you accidentally copy wrong config file to <code class="docutils literal notranslate"><span class="pre">/etc/wiregaurd/</span></code>, just uninstall wireguard, then use <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">-i</span></code> to direct to <code class="docutils literal notranslate"><span class="pre">/etc/</span></code> and delete all <code class="docutils literal notranslate"><span class="pre">wiregaurd</span></code> name. After that reinstall wiregaurd and copy config file again.</p></li>
 </ul>
 </div>
 </section>

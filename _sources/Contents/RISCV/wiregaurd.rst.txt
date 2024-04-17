@@ -14,7 +14,7 @@ This installation for Ubuntu
 
 ``lab209_riscv`` is a config file
 
-Use ``sudo cp -r`` command to copy ``lab209_riscv.conf`` to ``/etc/wiregaurd`` 
+Use ``sudo cp -r`` command to copy ``lab209_riscv.conf`` to ``/etc/wiregaurd/`` 
 
 To **open** wiregaurd use the command below
 
@@ -28,15 +28,11 @@ To **quit** wiregaurd use the command below
 
     wg-quick down lab209_riscv
 
-.. note:: 
-
-    If you get error ``cp: failed to access '/etc/wiregaurd/': Not a directory``. Just add ``.conf`` like this ``lab209_riscv.conf``.
-
 .. tip:: 
 
     * If you cannot connect to server, change ``AllowedIPs = 192.168.1.178/32``, then restart wiregaurd. Change domain ``vlsi.doelab.site`` to ``192.168.1.178``
 
-    * If you want to go to wiregaurd config file, invoke command ``sudo -i``, then you have this ``root@your-computer:~#``. After that ``cd /etc/``, then ``nano wiregaurd``
+    * If you accidentally copy wrong config file to ``/etc/wiregaurd/``, just uninstall wireguard, then use ``sudo -i`` to direct to ``/etc/`` and delete all ``wiregaurd`` name. After that reinstall wiregaurd and copy config file again.
 
 Uninstallation wiregaurd
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
