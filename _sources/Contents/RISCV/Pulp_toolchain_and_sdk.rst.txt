@@ -235,7 +235,7 @@ Because ``/opt/riscv_gnu/bin`` is in ``root``, so must use ``sudo`` when ``make`
 References
 ~~~~~~~~~~~~~~~~~~
 
-`[1]. Installation of pulp toolchain <https://github.com/pulp-platform/riscv-gnu-toolchain>`_
+`[1]. Installation of pulp toolchain <https://github.com/pulp-platform/pulp-riscv-gnu-toolchain>`_
 
 `[2]. Installation of pulp sdk <https://github.com/pulp-platform/pulp-sdk>`_
 
