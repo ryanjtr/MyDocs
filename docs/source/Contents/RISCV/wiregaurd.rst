@@ -14,7 +14,7 @@ This installation for Ubuntu
 
 ``lab209_riscv`` is a config file
 
-Use ``cp`` command to copy ``lab209_riscv.conf`` to ``/etc/wiregaurd/`` 
+Use ``sudo cp -r`` command to copy ``lab209_riscv.conf`` to ``/etc/wiregaurd`` 
 
 To **open** wiregaurd use the command below
 
