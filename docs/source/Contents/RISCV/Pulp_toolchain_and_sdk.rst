@@ -33,9 +33,11 @@ Add
         PATH="/opt/riscv_pulp:$PATH"
     fi
 
-.. Note:: 
+Invoke command below to take effect
 
-    This will require a logout / login to take effect
+.. code-block:: bash
+
+    source ~/.profile
 
 Open new terminal to install toolchain:
 
@@ -198,9 +200,11 @@ Add
         PATH="/opt/riscv_gnu:$PATH"
     fi
 
-.. Note:: 
+Invoke command below to take effect
 
-    This will require a logout / login to take effect
+.. code-block:: bash
+
+    source ~/.profile
 
 Open new terminal to install toolchain:
 
@@ -241,7 +245,5 @@ References
 
 `[3]. Installation of riscv gnu toolchain <https://github.com/pulp-platform/riscv-gnu-toolchain>`_
 
-
-Move Zephyr, squareline, riscv_pulp-20240415T133408Z-001, demoproject, Gitwork
 
 
