@@ -66,6 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="Gap_toolchain_and_sdk.html">Gap Toolchain and SDK</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Wiregaurd</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uninstallation-wiregaurd">Uninstallation wiregaurd</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#remmina">Remmina</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
 </ul>
@@ -120,10 +121,24 @@ sudo apt install openresolv
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wg-quick down lab209_riscv
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you get error <code class="docutils literal notranslate"><span class="pre">cp:</span> <span class="pre">failed</span> <span class="pre">to</span> <span class="pre">access</span> <span class="pre">'/etc/wiregaurd/':</span> <span class="pre">Not</span> <span class="pre">a</span> <span class="pre">directory</span></code>. Just add <code class="docutils literal notranslate"><span class="pre">.conf</span></code> like this <code class="docutils literal notranslate"><span class="pre">lab209_riscv.conf</span></code>.</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>if you cannot connect to server, change <code class="docutils literal notranslate"><span class="pre">AllowedIPs</span> <span class="pre">=</span> <span class="pre">192.168.1.178/32</span></code>,
-then restart wiregaurd. Change domain <code class="docutils literal notranslate"><span class="pre">vlsi.doelab.site</span></code> to <code class="docutils literal notranslate"><span class="pre">192.168.1.178</span></code></p>
+<ul class="simple">
+<li><p>If you cannot connect to server, change <code class="docutils literal notranslate"><span class="pre">AllowedIPs</span> <span class="pre">=</span> <span class="pre">192.168.1.178/32</span></code>, then restart wiregaurd. Change domain <code class="docutils literal notranslate"><span class="pre">vlsi.doelab.site</span></code> to <code class="docutils literal notranslate"><span class="pre">192.168.1.178</span></code></p></li>
+<li><p>If you want to go to wiregaurd config file, invoke command <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">-i</span></code>, then you have this <code class="docutils literal notranslate"><span class="pre">root&#64;your-computer:~#</span></code>. After that <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/etc/</span></code>, then <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">wiregaurd</span></code></p></li>
+</ul>
+</div>
+</section>
+<section id="uninstallation-wiregaurd">
+<h2>Uninstallation wiregaurd<a class="headerlink" href="#uninstallation-wiregaurd" title="Permalink to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt remove wireguard
+
+sudo apt autoclean <span class="o">&amp;&amp;</span> sudo apt autoremove
+</pre></div>
 </div>
 </section>
 <section id="remmina">

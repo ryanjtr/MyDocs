@@ -28,11 +28,25 @@ To **quit** wiregaurd use the command below
 
     wg-quick down lab209_riscv
 
+.. note:: 
+
+    If you get error ``cp: failed to access '/etc/wiregaurd/': Not a directory``. Just add ``.conf`` like this ``lab209_riscv.conf``.
+
 .. tip:: 
 
-    if you cannot connect to server, change ``AllowedIPs = 192.168.1.178/32``, 
-    then restart wiregaurd. Change domain ``vlsi.doelab.site`` to ``192.168.1.178``
+    * If you cannot connect to server, change ``AllowedIPs = 192.168.1.178/32``, then restart wiregaurd. Change domain ``vlsi.doelab.site`` to ``192.168.1.178``
+
+    * If you want to go to wiregaurd config file, invoke command ``sudo -i``, then you have this ``root@your-computer:~#``. After that ``cd /etc/``, then ``nano wiregaurd``
+
+Uninstallation wiregaurd
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+    sudo apt remove wireguard
     
+    sudo apt autoclean && sudo apt autoremove
+
 Remmina
 ~~~~~~~~~~~~~~~~~
 
