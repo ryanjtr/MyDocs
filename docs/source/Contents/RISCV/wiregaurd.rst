@@ -47,6 +47,6 @@ Ubuntu version
 References
 ~~~~~~~~~~~~~~
 
-`[1]. Wiregaurd <https://www.wireguard.com/quickstart/>_`
+`[1]. Wiregaurd <https://www.wireguard.com/quickstart/>`_
 
 `[2]. Remmina installation <https://remmina.org/how-to-install-remmina/>`_
