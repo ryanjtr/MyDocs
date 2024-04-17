@@ -1,6 +1,22 @@
 Ubuntu
 ====================
 
+Unikey installation
+------------------------
+
+`Uinikey tutorial <https://tuong.me/huong-dan-cai-dat-bo-go-tieng-viet-cho-ubuntu-ibus-unikey/>`_
+
+Chrome installation
+--------------------------
+
+`Chrome tutorial <https://linuxhint.com/install-google-chrome-on-ubuntu-22-04/>`_
+
+Issues
+-----------
+
+**Could not get lock /var/lib/dpkg/lock Error on Ubuntu 22.04** 
+
+Solution: Check for Software Updates
 
 Commands
 ---------------
@@ -52,4 +68,12 @@ if this didnt work for you . you can remove and purge later in 2 steps
 .. code-block:: bash
 
     sudo apt-get remove package-name
+
+Install .deb package
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+    sudo dpkg -i <pasckage.deb>
+
 

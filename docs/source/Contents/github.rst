@@ -7,6 +7,15 @@ Github
 Working space
 Stage area and git local
 
+Installation
+-------------------
+
+**For Ubuntu**
+
+.. code-block:: bash
+
+    sudo apt install git
+
 Commands
 --------------
 
