@@ -1,4 +1,4 @@
-Board PCB
+PCB
 =========
 
 .. contents:: 
