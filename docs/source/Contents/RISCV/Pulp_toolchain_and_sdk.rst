@@ -15,8 +15,8 @@ Open new terminal to create new directory:
 
     cd
     cd /opt
-    sudo mkdir riscv
-    cd riscv
+    sudo mkdir riscv_pulp
+    cd riscv_pulp
     sudo mkdir bin
 
 Setup path:
@@ -29,8 +29,8 @@ Add
 
 .. code-block:: bash 
 
-    if [ -d "/opt/riscv" ] ; then
-        PATH="/opt/riscv:$PATH"
+    if [ -d "/opt/riscv_pulp" ] ; then
+        PATH="/opt/riscv_pulp:$PATH"
     fi
 
 .. Note:: 
