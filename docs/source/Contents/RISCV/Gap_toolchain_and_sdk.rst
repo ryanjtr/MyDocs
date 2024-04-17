@@ -10,6 +10,7 @@ Gap Toolchain installation
 Ubuntu version: 22.04.4
 
 Download precompile toolchain (for ubuntu 20)
+
 Open new terminal to create new directory:
 
 Setup path:
@@ -85,11 +86,15 @@ Our modules (gapy runner) require a few additional Python packages that you can 
     
     pip3 install -r doc/requirements.txt
 
-Build gvsoc 
+Invoke the command below and select board ``GAPUINO_V3``
 
 .. code-block:: bash
 
     source sourceme.sh
+
+Then build GVSOC
+
+.. code-block:: bash
 
     make gvsoc
 
