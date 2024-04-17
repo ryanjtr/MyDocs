@@ -31,7 +31,7 @@ To **quit** wiregaurd use the command below
 .. tip:: 
 
     if you cannot connect to server, change ``AllowedIPs = 192.168.1.178/32``, 
-    then restart wiregaurd. Change domain `` vlsi.doelab.site`` to ``192.168.1.178``
+    then restart wiregaurd. Change domain ``vlsi.doelab.site`` to ``192.168.1.178``
     
 Remmina
 ~~~~~~~~~~~~~~~~~
