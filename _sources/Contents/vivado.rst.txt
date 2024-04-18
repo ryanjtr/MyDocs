@@ -111,6 +111,8 @@ The GUI for installation will appear. Follow it to complete the installation pro
 .. note::
 
     If your capacity is not much, select Vivado ML Standard.
+    
+    In this instruction, I select ``/home`` to store my installation.
 
 Close the ``Xilinx Information Center`` window to exit.
 
@@ -118,9 +120,10 @@ To run vivado, you can click on it shortcut or invoke commands below
 
 .. code-block:: bash
 
-    source /tools/Xilinx/Vivado/2023.2/settings64.sh
+    source  /home/Vivado/2023.2/settings64.sh
 
     vivado
+
 
 
 References
