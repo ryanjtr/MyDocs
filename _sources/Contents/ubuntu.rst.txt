@@ -1,15 +1,63 @@
 Ubuntu
 ====================
 
-Unikey installation
+App installation
 ------------------------
+
+Unikey installation
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 `Uinikey tutorial <https://tuong.me/huong-dan-cai-dat-bo-go-tieng-viet-cho-ubuntu-ibus-unikey/>`_
 
 Chrome installation
---------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 `Chrome tutorial <https://linuxhint.com/install-google-chrome-on-ubuntu-22-04/>`_
+
+Uninstall Ubuntu(UEFI)
+---------------------------
+
+`Uninstall tutorial <https://youtu.be/T71OKoph3YU>`_
+
+Commands in tutorial
+
+.. code-block:: bash
+
+    bcdedit /enum all
+
+    Copy indentifier of Ubuntu
+
+    bcdedit /delete {indenifier of Ubuntu}
+
+    cls
+
+    bcdedit /enum all
+
+    diskpart
+
+    list disk
+
+    sel disk 0
+
+    list par
+
+    list vol
+
+    sel vol ( partrition 100 mb+ with formatted as fat32)
+
+    assign letter = (any letter not already in use on the computer`disk)
+
+    exit
+
+    rmdir /S (Capital letter chosen above):\EFI\ubuntu # Z:\EFI\ubuntu
+
+    if prompted y/n --> press y --> Enter
+
+    dir /a (chosen letter above):\EFI
+
+    if  a mount of bytes free appear --> Success
+
+    exit
 
 Issues
 -----------

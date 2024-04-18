@@ -27,9 +27,11 @@ Add command below to ``profile``
         PATH="/opt/riscv_gap:$PATH"
     fi
 
-.. Note:: 
+Invoke command below to take effect
 
-    This will require a logout / login to take effect
+.. code-block:: bash
+
+    source ~/.profile
 
 Open new terminal to install toolchain
 

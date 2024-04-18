@@ -52,8 +52,12 @@
 <li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zephyr.html">Zephyr</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ubuntu</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#unikey-installation">Unikey installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#chrome-installation">Chrome installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app-installation">App installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#unikey-installation">Unikey installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chrome-installation">Chrome installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#uninstall-ubuntu-uefi">Uninstall Ubuntu(UEFI)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#issues">Issues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#remove-folder">Remove folder</a></li>
@@ -95,13 +99,58 @@
              
   <section id="ubuntu">
 <h1>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this heading"></a></h1>
+<section id="app-installation">
+<h2>App installation<a class="headerlink" href="#app-installation" title="Permalink to this heading"></a></h2>
 <section id="unikey-installation">
-<h2>Unikey installation<a class="headerlink" href="#unikey-installation" title="Permalink to this heading"></a></h2>
+<h3>Unikey installation<a class="headerlink" href="#unikey-installation" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://tuong.me/huong-dan-cai-dat-bo-go-tieng-viet-cho-ubuntu-ibus-unikey/" rel="noopener noreferrer" target="_blank">Uinikey tutorial</a></p>
 </section>
 <section id="chrome-installation">
-<h2>Chrome installation<a class="headerlink" href="#chrome-installation" title="Permalink to this heading"></a></h2>
+<h3>Chrome installation<a class="headerlink" href="#chrome-installation" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://linuxhint.com/install-google-chrome-on-ubuntu-22-04/" rel="noopener noreferrer" target="_blank">Chrome tutorial</a></p>
+</section>
+</section>
+<section id="uninstall-ubuntu-uefi">
+<h2>Uninstall Ubuntu(UEFI)<a class="headerlink" href="#uninstall-ubuntu-uefi" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://youtu.be/T71OKoph3YU" rel="noopener noreferrer" target="_blank">Uninstall tutorial</a></p>
+<p>Commands in tutorial</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bcdedit /enum all
+
+Copy indentifier of Ubuntu
+
+bcdedit /delete <span class="o">{</span>indenifier of Ubuntu<span class="o">}</span>
+
+cls
+
+bcdedit /enum all
+
+diskpart
+
+list disk
+
+sel disk <span class="m">0</span>
+
+list par
+
+list vol
+
+sel vol <span class="o">(</span> partrition <span class="m">100</span> mb+ with formatted as fat32<span class="o">)</span>
+
+assign <span class="nv">letter</span> <span class="o">=</span> <span class="o">(</span>any letter not already <span class="k">in</span> use on the computer<span class="sb">`</span>disk<span class="o">)</span>
+
+<span class="nb">exit</span>
+
+rmdir /S <span class="o">(</span>Capital letter chosen above<span class="o">)</span>:<span class="se">\E</span>FI<span class="se">\u</span>buntu <span class="c1"># Z:\EFI\ubuntu</span>
+
+<span class="k">if</span> prompted y/n --&gt; press y --&gt; Enter
+
+dir /a <span class="o">(</span>chosen letter above<span class="o">)</span>:<span class="se">\E</span>FI
+
+<span class="k">if</span>  a mount of bytes free appear --&gt; Success
+
+<span class="nb">exit</span>
+</pre></div>
+</div>
 </section>
 <section id="issues">
 <h2>Issues<a class="headerlink" href="#issues" title="Permalink to this heading"></a></h2>

@@ -112,7 +112,7 @@ Edit file ``pulp-sdk/configs/pulp-open.sh``, put the command below under line 32
 
 .. code-block:: bash
 
-    export PULP_RISCV_GCC_TOOLCHAIN=/opt/riscv 
+    export PULP_RISCV_GCC_TOOLCHAIN=/opt/riscv_pulp 
 
 Build gvsoc
 
