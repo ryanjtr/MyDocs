@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <link sizes="32x32" href="../_static/logo.png" rel="icon" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vivado &mdash; RyanDocs 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/dark_mode_js/default_dark.js"></script>
+        <script src="../_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RISC-V" href="RISCV/riscv.html" />
+    <link rel="prev" title="Wiregaurd" href="wiregaurd.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> RyanDocs
+            <img src="../_static/stick.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Professional_terminology.html">Professional terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github.html">Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zephyr.html">Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ubuntu.html">Ubuntu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pcb.html">PCB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mqtt.html">MQTT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wiregaurd.html">Wiregaurd</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vivado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usb-port-access-for-user">USB Port Access for User</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-vivado">Download Vivado</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="RISCV/riscv.html">RISC-V</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RyanDocs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Vivado</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Contents/vivado.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vivado">
+<h1>Vivado<a class="headerlink" href="#vivado" title="Permalink to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>This installation instruction is a shortened version of the full instructions provided by the author referred below</strong></p>
+</div>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<section id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h3>
+<p>If you have not previously installed any versions of Vivado on your machine, be sure to add the 32-bit architecture
+and changing the system shell from dash to bash:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo dpkg-reconfigure dash
+
+sudo dpkg --add-architecture i386
+</pre></div>
+</div>
+<p>It is theoretically possible to install all of these package dependencies at once in a single
+command line of apt-get install. However, I’ve found the best chance of avoid weird issues
+is to use the following sequence:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install gparted xinetd gawk gcc net-tools ncurses-dev openssl libssl-dev flex bison xterm autoconf libtool texinfo zlib1g-dev
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install iproute2 make libncurses5-dev tftpd libselinux1 wget diffstat chrpath socat tar unzip gzip python3 tofrodos lsb libftdi1 libftdi1-2
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install lib32stdc++6 libgtk2.0-0:i386 libfontconfig1:i386 libx11-6:i386 libxext6:i386 libxrender1:i386 libsm6:i386 tree openssh-server
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install debianutils iputils-ping libegl1-mesa libsdl1.2-dev pylint python3 cpio tftpd-hpa gnupg zlib1g:i386 haveged perl xvfb
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install gcc-multilib build-essential automake screen putty pax g++ python3-pip xz-utils python3-git python3-jinja2 python3-pexpect
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install liberror-perl mtd-utils xtrans-dev libxcb-randr0-dev libxcb-xtest0-dev libxcb-xinerama0-dev libxcb-shape0-dev libxcb-xkb-dev
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install util-linux sysvinit-utils google-perftools patch diffutils ocl-icd-libopencl1 opencl-headers ocl-icd-opencl-dev
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install libncurses5 libncurses5-dev libncursesw5:amd64 libncursesw5-dev libncurses5:i386 libtinfo5 libstdc++6:i386 libgtk2.0-0:i386 dpkg-dev:i386
+</pre></div>
+</div>
+<p>Install Cython</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cython
+
+sudo apt update
+sudo apt upgrade
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If prompt show this:</p>
+<blockquote>
+<div><p>Defaulting to user installation because normal site-packages is not writeable</p>
+<p>Requirement already satisfied: cython in ./.local/lib/python3.10/site-packages (3.0.10)</p>
+</div></blockquote>
+<p>The output you provided indicates that Cython is already installed on your system!</p>
+</div>
+</section>
+<section id="usb-port-access-for-user">
+<h3>USB Port Access for User<a class="headerlink" href="#usb-port-access-for-user" title="Permalink to this heading"></a></h3>
+<p>If you have been using USB devices already with your Ubuntu installation this step can be skipped.
+However, a fresh install of Ubuntu needs to have you user added to the dial out group so Vivado can access the USB ports of the machine:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo adduser <span class="nv">$USER</span> dialout
+</pre></div>
+</div>
+</section>
+<section id="download-vivado">
+<h3>Download Vivado<a class="headerlink" href="#download-vivado" title="Permalink to this heading"></a></h3>
+<p>Go to <a class="reference external" href="https://www.xilinx.com/support/download.html" rel="noopener noreferrer" target="_blank">Vivado</a> to get download link</p>
+<p>Select version of the installer below and log in with your AMD website credentials when prompted. Provide you information as necessary and click download.</p>
+<img alt="../_images/vivado.png" src="../_images/vivado.png" />
+<p>Then you have file <code class="docutils literal notranslate"><span class="pre">FPGAs_AdaptiveSoCs_Unified_2023.2_1013_2256_Lin64.bin</span></code></p>
+<p>Invoke commands below</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod x+ FPGAs_AdaptiveSoCs_Unified_2023.2_1013_2256_Lin64.bin
+
+sudo ./FPGAs_AdaptiveSoCs_Unified_2023.2_1013_2256_Lin64.bin
+</pre></div>
+</div>
+<p>The GUI for installation will appear. Follow it to complete the installation process</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your capacity is not much, select Vivado ML Standard.</p>
+</div>
+<p>Close the <code class="docutils literal notranslate"><span class="pre">Xilinx</span> <span class="pre">Information</span> <span class="pre">Center</span></code> window to exit.</p>
+<p>To run vivado, you can click on it shortcut or invoke commands below</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /tools/Xilinx/Vivado/2023.2/settings64.sh
+
+vivado
+</pre></div>
+</div>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://www.hackster.io/whitney-knitter/vivado-vitis-petalinux-2023-2-install-on-ubuntu-2f1b98" rel="noopener noreferrer" target="_blank">[1]. Vivado, Vitis, &amp; PetaLinux 2023.2 Install on Ubuntu by Whitney Knitter</a></p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=QoMBkR5Rheg&amp;ab_channel=TechSimplifiedTV" rel="noopener noreferrer" target="_blank">[2]. Video tutorial</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="wiregaurd.html" class="btn btn-neutral float-left" title="Wiregaurd" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="RISCV/riscv.html" class="btn btn-neutral float-right" title="RISC-V" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, RyanDank.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
