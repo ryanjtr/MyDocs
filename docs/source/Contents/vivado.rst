@@ -128,4 +128,4 @@ References
 
 `[1]. Vivado, Vitis, & PetaLinux 2023.2 Install on Ubuntu by Whitney Knitter <https://www.hackster.io/whitney-knitter/vivado-vitis-petalinux-2023-2-install-on-ubuntu-2f1b98>`_
 
-`[2]. Video tutorial <https://www.youtube.com/watch?v=QoMBkR5Rheg&ab_channel=TechSimplifiedTV>`_
+`[2]. Step-by-Step Guide: Installing Vivado 2022.1 ML Edition on Ubuntu 20.04 Linux and Windows 10 <https://www.youtube.com/watch?v=QoMBkR5Rheg&ab_channel=TechSimplifiedTV>`_
