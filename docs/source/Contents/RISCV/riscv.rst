@@ -12,7 +12,6 @@ RISC-V
    Labcode
    Gtkwave
    Gap_toolchain_and_sdk 
-   wiregaurd
    pulpissimo
 
 
