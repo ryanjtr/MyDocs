@@ -24,21 +24,6 @@ Installation
 `Installation tutorial <https://singularitykchen.github.io/blog/2020/12/20/Tutorial-Configure-and-Run-Pulpissimo/>`_
 
 
-
-Prepare the environments before run any example
-
-.. code-block:: bash
-
-    source ./pulp-runtime/configs/pulpissimo.sh
-    source ./env/pulpissimo.sh
-    source ./pulp-sdk/configs/pulpissimo.sh 
-    source ./pulp-sdk/configs/platform-rtl.sh
-    source ./pulp-sdk/pkg/sdk/dev/sourceme.sh
-    source ./pulp-sdk/sourceme.sh
-    source setup/vsim.sh
-
-
-    
 Error may appear:
 
 **Numpy error**
@@ -68,6 +53,18 @@ Solution: Go to file ``numbers.py`` then edit ``numpy.float = float``
 Implement code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Prepare the environments before run any example
+
+.. code-block:: bash
+
+    source ./pulp-runtime/configs/pulpissimo.sh
+    source ./env/pulpissimo.sh
+    source ./pulp-sdk/configs/pulpissimo.sh 
+    source ./pulp-sdk/configs/platform-rtl.sh
+    source ./pulp-sdk/pkg/sdk/dev/sourceme.sh
+    source ./pulp-sdk/sourceme.sh
+    source setup/vsim.sh
+    
 **Hello example**
 
 .. code-block:: bash
@@ -81,21 +78,15 @@ Implement code
 
     make clean all io=uart
 
-
-    
 Generate ``.vcd`` file to see gtkwave
 
 .. code-block:: bash
 
     make clean all run platform=gvsoc runner_args=--vcd
 
-
-
 Simulation error
 
-Solution: Edit file 
-
-Open ``vp_runner.py`` in path: ``pulpisisimo/pulp_sdk/pkg/sdk/dev/install/ws/python`` copy command in `this vp_runner file <https://github.com/pulp-platform/gvsoc/blob/9443305264a2a1507bf000950bed442ad27a9bbb/engine/python/vp_runner.py>`_ and paste to your ``vp_runner.py``.
+Solution: Open ``vp_runner.py`` in path: ``pulpisisimo/pulp_sdk/pkg/sdk/dev/install/ws/python`` copy command in `this vp_runner file <https://github.com/pulp-platform/gvsoc/blob/9443305264a2a1507bf000950bed442ad27a9bbb/engine/python/vp_runner.py>`_ and paste to your ``vp_runner.py``.
 
 
 

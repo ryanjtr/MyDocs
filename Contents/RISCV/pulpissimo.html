@@ -112,16 +112,6 @@ export toolchain, path to  .bashrc</p>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://singularitykchen.github.io/blog/2020/12/20/Tutorial-Configure-and-Run-Pulpissimo/" rel="noopener noreferrer" target="_blank">Installation tutorial</a></p>
-<p>Prepare the environments before run any example</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ./pulp-runtime/configs/pulpissimo.sh
-<span class="nb">source</span> ./env/pulpissimo.sh
-<span class="nb">source</span> ./pulp-sdk/configs/pulpissimo.sh
-<span class="nb">source</span> ./pulp-sdk/configs/platform-rtl.sh
-<span class="nb">source</span> ./pulp-sdk/pkg/sdk/dev/sourceme.sh
-<span class="nb">source</span> ./pulp-sdk/sourceme.sh
-<span class="nb">source</span> setup/vsim.sh
-</pre></div>
-</div>
 <p>Error may appear:</p>
 <p><strong>Numpy error</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/home/*.*/.local/lib/python3.10/site-packages/openpyxl/compat/numbers.py
@@ -143,6 +133,16 @@ export toolchain, path to  .bashrc</p>
 </section>
 <section id="implement-code">
 <h2>Implement code<a class="headerlink" href="#implement-code" title="Permalink to this heading"></a></h2>
+<p>Prepare the environments before run any example</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ./pulp-runtime/configs/pulpissimo.sh
+<span class="nb">source</span> ./env/pulpissimo.sh
+<span class="nb">source</span> ./pulp-sdk/configs/pulpissimo.sh
+<span class="nb">source</span> ./pulp-sdk/configs/platform-rtl.sh
+<span class="nb">source</span> ./pulp-sdk/pkg/sdk/dev/sourceme.sh
+<span class="nb">source</span> ./pulp-sdk/sourceme.sh
+<span class="nb">source</span> setup/vsim.sh
+</pre></div>
+</div>
 <p><strong>Hello example</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean all run <span class="nv">platform</span><span class="o">=</span>gvsoc
 </pre></div>
@@ -156,8 +156,7 @@ export toolchain, path to  .bashrc</p>
 </pre></div>
 </div>
 <p>Simulation error</p>
-<p>Solution: Edit file</p>
-<p>Open <code class="docutils literal notranslate"><span class="pre">vp_runner.py</span></code> in path: <code class="docutils literal notranslate"><span class="pre">pulpisisimo/pulp_sdk/pkg/sdk/dev/install/ws/python</span></code> copy command in <a class="reference external" href="https://github.com/pulp-platform/gvsoc/blob/9443305264a2a1507bf000950bed442ad27a9bbb/engine/python/vp_runner.py" rel="noopener noreferrer" target="_blank">this vp_runner file</a> and paste to your <code class="docutils literal notranslate"><span class="pre">vp_runner.py</span></code>.</p>
+<p>Solution: Open <code class="docutils literal notranslate"><span class="pre">vp_runner.py</span></code> in path: <code class="docutils literal notranslate"><span class="pre">pulpisisimo/pulp_sdk/pkg/sdk/dev/install/ws/python</span></code> copy command in <a class="reference external" href="https://github.com/pulp-platform/gvsoc/blob/9443305264a2a1507bf000950bed442ad27a9bbb/engine/python/vp_runner.py" rel="noopener noreferrer" target="_blank">this vp_runner file</a> and paste to your <code class="docutils literal notranslate"><span class="pre">vp_runner.py</span></code>.</p>
 </section>
 </section>
 
