@@ -65,7 +65,11 @@
 <li class="toctree-l2"><a class="reference internal" href="Labcode.html">Lab</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Gtkwave.html">Gtkwave</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Gap_toolchain_and_sdk.html">Gap Toolchain and SDK</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Pulpissimo</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Pulpissimo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implement-code">Implement code</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -100,11 +104,61 @@
 <p>Install riscv-gnu-toolchain
 export toolchain, path to  .bashrc</p>
 <p><a class="reference external" href="https://youtu.be/27tndT6cBH0?t=8757" rel="noopener noreferrer" target="_blank">1.  watch video WOSH: Understanding and working with PULP</a></p>
-<p><a class="reference external" href="https://github.com/pulp-platform/pulp/tree/master" rel="noopener noreferrer" target="_blank">2. Go to this link and invode command in Building the RTL simulation platform</a></p>
+<p><a class="reference external" href="https://github.com/pulp-platform/pulp/tree/master" rel="noopener noreferrer" target="_blank">2. Go to this link and invoke command in Building the RTL simulation platform</a></p>
 <p>other link</p>
 <p><a class="reference external" href="https://github.com/hakatu/pulpissimo?tab=readme-ov-file#building-the-rtl-simulation-platform" rel="noopener noreferrer" target="_blank">https://github.com/hakatu/pulpissimo?tab=readme-ov-file#building-the-rtl-simulation-platform</a></p>
 <p><a class="reference external" href="https://github.com/pulp-platform/pulp-runtime/blob/master/README.md" rel="noopener noreferrer" target="_blank">https://github.com/pulp-platform/pulp-runtime/blob/master/README.md</a></p>
 <p><a class="reference external" href="https://github.com/pulp-platform/pulpissimo?tab=readme-ov-file#building-and-using-the-virtual-platform" rel="noopener noreferrer" target="_blank">https://github.com/pulp-platform/pulpissimo?tab=readme-ov-file#building-and-using-the-virtual-platform</a></p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://singularitykchen.github.io/blog/2020/12/20/Tutorial-Configure-and-Run-Pulpissimo/" rel="noopener noreferrer" target="_blank">Installation tutorial</a></p>
+<p>Prepare the environments before run any example</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ./pulp-runtime/configs/pulpissimo.sh
+<span class="nb">source</span> ./env/pulpissimo.sh
+<span class="nb">source</span> ./pulp-sdk/configs/pulpissimo.sh
+<span class="nb">source</span> ./pulp-sdk/configs/platform-rtl.sh
+<span class="nb">source</span> ./pulp-sdk/pkg/sdk/dev/sourceme.sh
+<span class="nb">source</span> ./pulp-sdk/sourceme.sh
+<span class="nb">source</span> setup/vsim.sh
+</pre></div>
+</div>
+<p>Error may appear:</p>
+<p><strong>Numpy error</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/home/*.*/.local/lib/python3.10/site-packages/openpyxl/compat/numbers.py
+</pre></div>
+</div>
+<p>Solution: Go to file <code class="docutils literal notranslate"><span class="pre">numbers.py</span></code> then edit <code class="docutils literal notranslate"><span class="pre">numpy.float</span> <span class="pre">=</span> <span class="pre">float</span></code></p>
+<p><strong>GCC error</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">((</span>vp::trace *<span class="o">)(</span>trace_ptr<span class="o">))</span>-&gt;fatal<span class="o">(</span>msg<span class="o">)</span><span class="p">;</span>  : GCC version error - <span class="k">select</span> gcc <span class="m">9</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://gist.github.com/cobaohieu/ded429cb892b46ae9bfd9919a11e593a" rel="noopener noreferrer" target="_blank">Solution for gcc</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Installing Multiple GCC Versions</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install gcc-9 g++-9 gcc-10 g++-10 gcc-11 g++-11 -y
+</pre></div>
+</div>
+</div>
+</section>
+<section id="implement-code">
+<h2>Implement code<a class="headerlink" href="#implement-code" title="Permalink to this heading"></a></h2>
+<p><strong>Hello example</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean all run <span class="nv">platform</span><span class="o">=</span>gvsoc
+</pre></div>
+</div>
+<p><strong>Uart-send example</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean all <span class="nv">io</span><span class="o">=</span>uart
+</pre></div>
+</div>
+<p>Generate <code class="docutils literal notranslate"><span class="pre">.vcd</span></code> file to see gtkwave</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean all run <span class="nv">platform</span><span class="o">=</span>gvsoc <span class="nv">runner_args</span><span class="o">=</span>--vcd
+</pre></div>
+</div>
+<p>Simulation error</p>
+<p>Solution: Edit file</p>
+<p>Open <code class="docutils literal notranslate"><span class="pre">vp_runner.py</span></code> in path: <code class="docutils literal notranslate"><span class="pre">pulpisisimo/pulp_sdk/pkg/sdk/dev/install/ws/python</span></code> copy command in <a class="reference external" href="https://github.com/pulp-platform/gvsoc/blob/9443305264a2a1507bf000950bed442ad27a9bbb/engine/python/vp_runner.py" rel="noopener noreferrer" target="_blank">this vp_runner file</a> and paste to your <code class="docutils literal notranslate"><span class="pre">vp_runner.py</span></code>.</p>
+</section>
 </section>
 
 
