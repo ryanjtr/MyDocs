@@ -59,7 +59,6 @@
 <li class="toctree-l2"><a class="reference internal" href="Introduction.html">Assembly Language</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Code.html">Examples and Explanations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Assembly_script.html">The RV32I ISA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GVSOC.html">GVSOC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Pulp_toolchain_and_sdk.html">PULP Toolchain and SDK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Labcode.html">Lab</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Gtkwave</a><ul>
@@ -120,8 +119,10 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
 </pre></div>
 </div>
-<p>make clean all run DB=1 runner_args=”–vcd”
-gtkwave /home/ryan/pulp-sdk/tests/perf/double_buffering/BUILD/PULP/GCC_RISCV/all.vcd /home/ryan/pulp-sdk/tests/perf/double_buffering/view.gtkw</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To run gtkview you must have <code class="docutils literal notranslate"><span class="pre">all.vcd</span></code> and <code class="docutils literal notranslate"><span class="pre">view.gtkw</span></code></p>
+</div>
 </section>
 </section>
 
