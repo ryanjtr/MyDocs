@@ -65,6 +65,7 @@
 <li class="toctree-l2"><a class="reference internal" href="Gap_toolchain_and_sdk.html">Gap Toolchain and SDK</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Pulpissimo</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clone-example">Clone example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#implement-code">Implement code</a></li>
 </ul>
 </li>
@@ -99,14 +100,6 @@
              
   <section id="pulpissimo">
 <h1>Pulpissimo<a class="headerlink" href="#pulpissimo" title="Permalink to this heading"></a></h1>
-<p>Install riscv-gnu-toolchain
-export toolchain, path to  .bashrc</p>
-<p><a class="reference external" href="https://youtu.be/27tndT6cBH0?t=8757" rel="noopener noreferrer" target="_blank">1.  watch video WOSH: Understanding and working with PULP</a></p>
-<p><a class="reference external" href="https://github.com/pulp-platform/pulp/tree/master" rel="noopener noreferrer" target="_blank">2. Go to this link and invoke command in Building the RTL simulation platform</a></p>
-<p>other link</p>
-<p><a class="reference external" href="https://github.com/hakatu/pulpissimo?tab=readme-ov-file#building-the-rtl-simulation-platform" rel="noopener noreferrer" target="_blank">https://github.com/hakatu/pulpissimo?tab=readme-ov-file#building-the-rtl-simulation-platform</a></p>
-<p><a class="reference external" href="https://github.com/pulp-platform/pulp-runtime/blob/master/README.md" rel="noopener noreferrer" target="_blank">https://github.com/pulp-platform/pulp-runtime/blob/master/README.md</a></p>
-<p><a class="reference external" href="https://github.com/pulp-platform/pulpissimo?tab=readme-ov-file#building-and-using-the-virtual-platform" rel="noopener noreferrer" target="_blank">https://github.com/pulp-platform/pulpissimo?tab=readme-ov-file#building-and-using-the-virtual-platform</a></p>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://singularitykchen.github.io/blog/2020/12/20/Tutorial-Configure-and-Run-Pulpissimo/" rel="noopener noreferrer" target="_blank">Installation tutorial</a></p>
@@ -127,6 +120,13 @@ export toolchain, path to  .bashrc</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install gcc-9 g++-9 gcc-10 g++-10 gcc-11 g++-11 -y
 </pre></div>
 </div>
+</div>
+</section>
+<section id="clone-example">
+<h2>Clone example<a class="headerlink" href="#clone-example" title="Permalink to this heading"></a></h2>
+<p>Put this example in pulpissimo directory</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/pulp-platform/pulp-rt-examples
+</pre></div>
 </div>
 </section>
 <section id="implement-code">
@@ -159,6 +159,14 @@ export toolchain, path to  .bashrc</p>
 <p>#export GAP_RISCV_GCC_TOOLCHAIN=”/opt/riscv_gap”</p>
 <p>#export PATH=/opt/riscv_pulp/bin:$PATH</p>
 <p>#export PATH=$PATH:/opt/riscv_pulp/bin</p>
+<p>Install riscv-gnu-toolchain
+export toolchain, path to  .bashrc</p>
+<p><a class="reference external" href="https://youtu.be/27tndT6cBH0?t=8757" rel="noopener noreferrer" target="_blank">1.  watch video WOSH: Understanding and working with PULP</a></p>
+<p><a class="reference external" href="https://github.com/pulp-platform/pulp/tree/master" rel="noopener noreferrer" target="_blank">2. Go to this link and invoke command in Building the RTL simulation platform</a></p>
+<p>other link</p>
+<p><a class="reference external" href="https://github.com/hakatu/pulpissimo?tab=readme-ov-file#building-the-rtl-simulation-platform" rel="noopener noreferrer" target="_blank">https://github.com/hakatu/pulpissimo?tab=readme-ov-file#building-the-rtl-simulation-platform</a></p>
+<p><a class="reference external" href="https://github.com/pulp-platform/pulp-runtime/blob/master/README.md" rel="noopener noreferrer" target="_blank">https://github.com/pulp-platform/pulp-runtime/blob/master/README.md</a></p>
+<p><a class="reference external" href="https://github.com/pulp-platform/pulpissimo?tab=readme-ov-file#building-and-using-the-virtual-platform" rel="noopener noreferrer" target="_blank">https://github.com/pulp-platform/pulpissimo?tab=readme-ov-file#building-and-using-the-virtual-platform</a></p>
 </section>
 </section>
 

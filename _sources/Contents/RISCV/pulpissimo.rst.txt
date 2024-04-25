@@ -1,23 +1,6 @@
 Pulpissimo
 --------------------
 
-Install riscv-gnu-toolchain
-export toolchain, path to  .bashrc
-
-`1.  watch video WOSH: Understanding and working with PULP <https://youtu.be/27tndT6cBH0?t=8757>`_
-
-`2. Go to this link and invoke command in Building the RTL simulation platform <https://github.com/pulp-platform/pulp/tree/master>`_
-
-
-other link
-
-https://github.com/hakatu/pulpissimo?tab=readme-ov-file#building-the-rtl-simulation-platform
-
-https://github.com/pulp-platform/pulp-runtime/blob/master/README.md
-
-https://github.com/pulp-platform/pulpissimo?tab=readme-ov-file#building-and-using-the-virtual-platform
-
-
 Installation
 ~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -49,6 +32,16 @@ Solution: Go to file ``numbers.py`` then edit ``numpy.float = float``
     .. code-block:: bash
 
         sudo apt install gcc-9 g++-9 gcc-10 g++-10 gcc-11 g++-11 -y
+
+Clone example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Put this example in pulpissimo directory
+
+.. code-block:: bash
+
+    git clone https://github.com/pulp-platform/pulp-rt-examples
+
 
 Implement code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -96,3 +89,21 @@ Solution: Open ``vp_runner.py`` in path: ``pulpisisimo/pulp_sdk/pkg/sdk/dev/inst
 #export PATH=/opt/riscv_pulp/bin:$PATH
 
 #export PATH=$PATH:/opt/riscv_pulp/bin
+
+
+
+Install riscv-gnu-toolchain
+export toolchain, path to  .bashrc
+
+`1.  watch video WOSH: Understanding and working with PULP <https://youtu.be/27tndT6cBH0?t=8757>`_
+
+`2. Go to this link and invoke command in Building the RTL simulation platform <https://github.com/pulp-platform/pulp/tree/master>`_
+
+
+other link
+
+https://github.com/hakatu/pulpissimo?tab=readme-ov-file#building-the-rtl-simulation-platform
+
+https://github.com/pulp-platform/pulp-runtime/blob/master/README.md
+
+https://github.com/pulp-platform/pulpissimo?tab=readme-ov-file#building-and-using-the-virtual-platform
