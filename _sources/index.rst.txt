@@ -9,8 +9,8 @@ Welcome to RyanDank`s Note
    Contents/sphinx 
    Contents/zephyr
    Contents/ubuntu
-   Contents/pcb
-   Contents/mqtt
+   .. Contents/pcb
+   .. Contents/mqtt
    Contents/docker
    Contents/wiregaurd
    Contents/vivado

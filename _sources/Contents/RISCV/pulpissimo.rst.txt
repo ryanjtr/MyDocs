@@ -91,3 +91,8 @@ Solution: Open ``vp_runner.py`` in path: ``pulpisisimo/pulp_sdk/pkg/sdk/dev/inst
 
 
 
+#export GAP_RISCV_GCC_TOOLCHAIN="/opt/riscv_gap"
+
+#export PATH=/opt/riscv_pulp/bin:$PATH
+
+#export PATH=$PATH:/opt/riscv_pulp/bin
