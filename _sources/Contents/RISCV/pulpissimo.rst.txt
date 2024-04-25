@@ -53,7 +53,7 @@ Solution: Go to file ``numbers.py`` then edit ``numpy.float = float``
 Implement code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Prepare the environments before run any example
+Prepare the environments before running any example
 
 .. code-block:: bash
 
@@ -62,9 +62,10 @@ Prepare the environments before run any example
     source ./pulp-sdk/configs/pulpissimo.sh 
     source ./pulp-sdk/configs/platform-rtl.sh
     source ./pulp-sdk/pkg/sdk/dev/sourceme.sh
+    source ./pulp-sdk/configs/fpgas/pulpissimo/genesys2.sh
     source ./pulp-sdk/sourceme.sh
     source setup/vsim.sh
-    
+
 **Hello example**
 
 .. code-block:: bash
