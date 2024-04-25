@@ -33,5 +33,6 @@ The following command will solve the problem
     sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
 
 
-make clean all run DB=1 runner_args="--vcd"
-gtkwave /home/ryan/pulp-sdk/tests/perf/double_buffering/BUILD/PULP/GCC_RISCV/all.vcd /home/ryan/pulp-sdk/tests/perf/double_buffering/view.gtkw
+.. note::
+    
+    To run gtkview you must have ``all.vcd`` and ``view.gtkw``

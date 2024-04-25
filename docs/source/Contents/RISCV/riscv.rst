@@ -7,7 +7,6 @@ RISC-V
    Introduction
    Code
    Assembly_script
-   GVSOC
    Pulp_toolchain_and_sdk
    Labcode
    Gtkwave
