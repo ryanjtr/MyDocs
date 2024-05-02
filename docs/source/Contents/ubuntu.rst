@@ -66,6 +66,24 @@ Issues
 
 Solution: Check for Software Updates
 
+**what is the "~/.local" and can I delete it?**
+
+``~/.local - or more precisely, ~/.local/share - ``is where XDG-compliant programs store user data (e.g., fonts, mail messages) according to the XDG Base Directory specification.``
+
+The ``~/.local`` folder also contains ``share/Trash``, which is your trash bin. Everything you put in there of course takes up space. I assume this is the most likely cause of disk usage.
+
+Check how much space it takes up with:
+
+.. code-block:: bash
+
+    du -hs ~/.local/share/Trash
+
+If you don't need to keep items in the trash, empty it through your file manager or just delete everything in ``share/Trash`` with:
+
+.. code-block:: bash
+
+    rm -rf ~/.local/share/Trash
+
 Commands
 ---------------
 
@@ -124,4 +142,9 @@ Install .deb package
 
     sudo dpkg -i <pasckage.deb>
 
+
+Minicom
+~~~~~~~~~~~~~~~~~~~~~~~
+
+`Minicom documentation <https://help.ubuntu.com/community/Minicom>`_
 

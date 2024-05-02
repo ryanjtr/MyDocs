@@ -92,17 +92,20 @@ Invoke commands below
 
     sudo ./FPGAs_AdaptiveSoCs_Unified_2023.2_1013_2256_Lin64.bin
 
-The GUI for installation will appear. Follow it to complete the installation process
+The GUI for installation will appear. Follow it to complete the installation process. 
 
 .. note::
 
-    If your capacity is not much, select Vivado ML Standard.
+    #. Select Vivado Enterprise 
+
+    #. If your capacity is not much, just select kintex7 and its stuff
     
-    In this instruction, I select ``/home`` to store my installation.
+    #. In this instruction, I select ``/home`` to store my installation.
+
 
 Close the ``Xilinx Information Center`` window to exit.
 
-To run vivado, you can click on it shortcut or invoke commands below
+To run vivado, just invoke commands below
 
 .. code-block:: bash
 
@@ -110,6 +113,35 @@ To run vivado, you can click on it shortcut or invoke commands below
 
     vivado
 
+
+Add vivado to path
+
+.. code-block:: bash
+
+    export PATH=$PATH:/path/to/vivado/bin
+
+Get trial license
+~~~~~~~~~~~~~~~~~~~
+
+Run vivado then go to ``Help``, select ``Manage license`` and tick ``trial 30 days`` and ``Process now``. 
+A window will appear, just follow steps and get the license.
+
+Uninstall Vivado
+--------------------------
+
+First go to your Xilinx instalation folder, then look for xsetup binaries:
+
+.. code-block:: bash
+
+    <Xilinx_installation_folder>$ find . -name xsetup
+
+Outputs would correspond to all installed Xilinx application and their xsetup binaries.
+
+For the Xilinx application you want to Uninstall, go to the folder where xsetup is located for that application and run:
+
+.. code-block:: bash
+
+    <Xilinx_program_you_want_to_delete_folder>$ sudo ./xsetup -Uninstall
 
 
 References
