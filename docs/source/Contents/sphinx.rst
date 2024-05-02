@@ -223,6 +223,44 @@ In ``conf.py`` add the line below to ``extension``:
 
     'sphinx_rtd_dark_mode'
 
+
+Sphinx Emoji codes 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Install the library
+
+.. code-block:: python
+
+    pip install sphinxemoji
+
+Then add the line below to ``requirements.txt``
+
+.. code-block::
+
+    sphinxemoji
+
+In ``conf.py`` add the line below to ``extension``:
+
+.. code-block:: python
+
+    'sphinxemoji.sphinxemoji'
+
+Then you can use emoji code replacements by writing them between bars:
+
+.. code-block:: 
+
+    This text includes a smiley face |:smile:| and a snake too! |:snake:|
+
+    Don't you love it? |:heart_eyes:|
+
+If you want a consistent emoji style, you can set it in your conf.py file:
+
+.. code-block:: 
+
+    sphinxemoji_style = 'twemoji'
+
+`Reference <https://sphinxemojicodes.readthedocs.io/en/stable/>`_
+
 Sphinx favicon
 ~~~~~~~~~~~~~~~~
 

@@ -30,7 +30,7 @@ release = '2024'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx_copybutton','sphinx_rtd_theme','sphinx_new_tab_link',"sphinx_rtd_dark_mode",'sphinx_favicon']
+extensions = ['sphinx_copybutton','sphinx_rtd_theme','sphinx_new_tab_link',"sphinx_rtd_dark_mode",'sphinx_favicon','sphinxemoji.sphinxemoji']
 
 favicons = [
    {
@@ -54,6 +54,7 @@ exclude_patterns = []
 #
 html_theme = "sphinx_rtd_theme" #["sphinx_rtd_theme", "pydata_sphinx_theme"]
 html_logo = "_static/stick.gif"
+sphinxemoji_style = 'twemoji'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

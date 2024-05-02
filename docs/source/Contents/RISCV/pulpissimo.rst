@@ -245,6 +245,9 @@ Debug with openocd
 
     * ``quit`` to get out of debugging. 
 
+**Congratulations! You have a big codec bug here. Enjoy!**  |:frog:| |:frog:|
+
+
 References 
 ~~~~~~~~~~~~~~~~~~~~~
 
