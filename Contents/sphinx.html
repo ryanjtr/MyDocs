@@ -8,6 +8,7 @@
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/twemoji.css" type="text/css" />
       <link rel="stylesheet" href="../_static/dark_mode_css/general.css" type="text/css" />
       <link rel="stylesheet" href="../_static/dark_mode_css/dark.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -21,6 +22,8 @@
         <script src="../_static/doctools.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
+        <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"></script>
+        <script src="../_static/twemoji.js"></script>
         <script src="../_static/dark_mode_js/default_dark.js"></script>
         <script src="../_static/dark_mode_js/theme_switcher.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -58,6 +61,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#sphinx-copybutton">Sphinx_copybutton</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sphinx-new-tab-link">Sphinx-new-tab-link</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sphinx-rtd-dark-mode">Sphinx rtd dark mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sphinx-emoji-codes">Sphinx Emoji codes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sphinx-favicon">Sphinx favicon</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#logo">Logo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#adjust-window-document">Adjust window document</a></li>
@@ -292,6 +296,32 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;sphinx_rtd_dark_mode&#39;</span>
 </pre></div>
 </div>
+</section>
+<section id="sphinx-emoji-codes">
+<h3>Sphinx Emoji codes<a class="headerlink" href="#sphinx-emoji-codes" title="Permalink to this heading"></a></h3>
+<p>Install the library</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sphinxemoji</span>
+</pre></div>
+</div>
+<p>Then add the line below to <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinxemoji</span>
+</pre></div>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> add the line below to <code class="docutils literal notranslate"><span class="pre">extension</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;sphinxemoji.sphinxemoji&#39;</span>
+</pre></div>
+</div>
+<p>Then you can use emoji code replacements by writing them between bars:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>This text includes a smiley face |:smile:| and a snake too! |:snake:|
+
+Don&#39;t you love it? |:heart_eyes:|
+</pre></div>
+</div>
+<p>If you want a consistent emoji style, you can set it in your conf.py file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinxemoji_style</span> <span class="o">=</span> <span class="s1">&#39;twemoji&#39;</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://sphinxemojicodes.readthedocs.io/en/stable/" rel="noopener noreferrer" target="_blank">Reference</a></p>
 </section>
 <section id="sphinx-favicon">
 <h3>Sphinx favicon<a class="headerlink" href="#sphinx-favicon" title="Permalink to this heading"></a></h3>
