@@ -63,6 +63,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#remove-folder">Remove folder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#uninstall-app">Uninstall app</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#install-deb-package">Install .deb package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minicom">Minicom</a></li>
 </ul>
 </li>
 </ul>
@@ -156,6 +157,17 @@ dir /a <span class="o">(</span>chosen letter above<span class="o">)</span>:<span
 <h2>Issues<a class="headerlink" href="#issues" title="Permalink to this heading"></a></h2>
 <p><strong>Could not get lock /var/lib/dpkg/lock Error on Ubuntu 22.04</strong></p>
 <p>Solution: Check for Software Updates</p>
+<p><strong>what is the “~/.local” and can I delete it?</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">~/.local</span> <span class="pre">-</span> <span class="pre">or</span> <span class="pre">more</span> <span class="pre">precisely,</span> <span class="pre">~/.local/share</span> <span class="pre">-</span> <span class="pre">``is</span> <span class="pre">where</span> <span class="pre">XDG-compliant</span> <span class="pre">programs</span> <span class="pre">store</span> <span class="pre">user</span> <span class="pre">data</span> <span class="pre">(e.g.,</span> <span class="pre">fonts,</span> <span class="pre">mail</span> <span class="pre">messages)</span> <span class="pre">according</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">XDG</span> <span class="pre">Base</span> <span class="pre">Directory</span> <span class="pre">specification.</span></code></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">~/.local</span></code> folder also contains <code class="docutils literal notranslate"><span class="pre">share/Trash</span></code>, which is your trash bin. Everything you put in there of course takes up space. I assume this is the most likely cause of disk usage.</p>
+<p>Check how much space it takes up with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>du -hs ~/.local/share/Trash
+</pre></div>
+</div>
+<p>If you don’t need to keep items in the trash, empty it through your file manager or just delete everything in <code class="docutils literal notranslate"><span class="pre">share/Trash</span></code> with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm -rf ~/.local/share/Trash
+</pre></div>
+</div>
 </section>
 <section id="commands">
 <h2>Commands<a class="headerlink" href="#commands" title="Permalink to this heading"></a></h2>
@@ -198,6 +210,10 @@ dir /a <span class="o">(</span>chosen letter above<span class="o">)</span>:<span
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo dpkg -i &lt;pasckage.deb&gt;
 </pre></div>
 </div>
+</section>
+<section id="minicom">
+<h3>Minicom<a class="headerlink" href="#minicom" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://help.ubuntu.com/community/Minicom" rel="noopener noreferrer" target="_blank">Minicom documentation</a></p>
 </section>
 </section>
 </section>

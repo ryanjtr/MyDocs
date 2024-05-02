@@ -66,6 +66,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#clone-example">Clone example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#implement-code">Implement code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generate-bitstream">Generate bitstream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#program-device">Program device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#debug-with-openocd">Debug with openocd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 </ul>
@@ -124,7 +128,7 @@
 <section id="clone-example">
 <h2>Clone example<a class="headerlink" href="#clone-example" title="Permalink to this heading"></a></h2>
 <p>Put this example in pulpissimo directory</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/pulp-platform/pulp-rt-examples
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/pulp-platform/pulp-runtime-examples.git
 </pre></div>
 </div>
 </section>
@@ -142,30 +146,176 @@
 </pre></div>
 </div>
 <p><strong>Hello example</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean all run <span class="nv">platform</span><span class="o">=</span>gvsoc
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean all run <span class="nv">platform</span><span class="o">=</span>gvsoc <span class="c1"># run code on virtual platform</span>
 </pre></div>
 </div>
 <p><strong>Uart-send example</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean all <span class="nv">io</span><span class="o">=</span>uart
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean all <span class="nv">io</span><span class="o">=</span>uart <span class="c1"># build binary file</span>
 </pre></div>
 </div>
 <p>Generate <code class="docutils literal notranslate"><span class="pre">.vcd</span></code> file to see gtkwave</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean all run <span class="nv">platform</span><span class="o">=</span>gvsoc <span class="nv">runner_args</span><span class="o">=</span>--vcd
 </pre></div>
 </div>
-<p>Simulation error</p>
-<p>Solution: Open <code class="docutils literal notranslate"><span class="pre">vp_runner.py</span></code> in path: <code class="docutils literal notranslate"><span class="pre">pulpisisimo/pulp_sdk/pkg/sdk/dev/install/ws/python</span></code> copy command in <a class="reference external" href="https://github.com/pulp-platform/gvsoc/blob/9443305264a2a1507bf000950bed442ad27a9bbb/engine/python/vp_runner.py" rel="noopener noreferrer" target="_blank">this vp_runner file</a> and paste to your <code class="docutils literal notranslate"><span class="pre">vp_runner.py</span></code>.</p>
-<p>#export GAP_RISCV_GCC_TOOLCHAIN=”/opt/riscv_gap”</p>
-<p>#export PATH=/opt/riscv_pulp/bin:$PATH</p>
-<p>#export PATH=$PATH:/opt/riscv_pulp/bin</p>
-<p>Install riscv-gnu-toolchain
-export toolchain, path to  .bashrc</p>
-<p><a class="reference external" href="https://youtu.be/27tndT6cBH0?t=8757" rel="noopener noreferrer" target="_blank">1.  watch video WOSH: Understanding and working with PULP</a></p>
-<p><a class="reference external" href="https://github.com/pulp-platform/pulp/tree/master" rel="noopener noreferrer" target="_blank">2. Go to this link and invoke command in Building the RTL simulation platform</a></p>
-<p>other link</p>
-<p><a class="reference external" href="https://github.com/hakatu/pulpissimo?tab=readme-ov-file#building-the-rtl-simulation-platform" rel="noopener noreferrer" target="_blank">https://github.com/hakatu/pulpissimo?tab=readme-ov-file#building-the-rtl-simulation-platform</a></p>
-<p><a class="reference external" href="https://github.com/pulp-platform/pulp-runtime/blob/master/README.md" rel="noopener noreferrer" target="_blank">https://github.com/pulp-platform/pulp-runtime/blob/master/README.md</a></p>
-<p><a class="reference external" href="https://github.com/pulp-platform/pulpissimo?tab=readme-ov-file#building-and-using-the-virtual-platform" rel="noopener noreferrer" target="_blank">https://github.com/pulp-platform/pulpissimo?tab=readme-ov-file#building-and-using-the-virtual-platform</a></p>
+<p><strong>Error about runner</strong></p>
+<p>Solution: Open <code class="docutils literal notranslate"><span class="pre">vp_runner.py</span></code> in path: <code class="docutils literal notranslate"><span class="pre">pulpisisimo/pulp_sdk/pkg/sdk/dev/install/ws/python</span></code> copy the whole commands in <a class="reference external" href="https://github.com/pulp-platform/gvsoc/blob/9443305264a2a1507bf000950bed442ad27a9bbb/engine/python/vp_runner.py" rel="noopener noreferrer" target="_blank">this vp_runner file</a> and paste to your <code class="docutils literal notranslate"><span class="pre">vp_runner.py</span></code>.</p>
+</section>
+<section id="generate-bitstream">
+<h2>Generate bitstream<a class="headerlink" href="#generate-bitstream" title="Permalink to this heading"></a></h2>
+<p><strong>Prerequisite</strong></p>
+<p>Vivado 2023.2 Enterprise (You can check vivado instalation instruction in vivado documentation).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you can’t install vivado on your local, go to <code class="docutils literal notranslate"><span class="pre">vlsi.doelab.site</span></code> to do all steps below</p>
+</div>
+<p>Following the steps</p>
+<ol class="arabic">
+<li><p>make scripts in folder pulpissimo</p></li>
+<li><p>Install Genesys2 board (if haven’t done). Open vivado, select <code class="docutils literal notranslate"><span class="pre">Window</span></code> then <code class="docutils literal notranslate"><span class="pre">Tcl</span> <span class="pre">console</span></code>. In the console invoke command</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xhub::refresh_catalog <span class="o">[</span>xhub::get_xstores xilinx_board_store<span class="o">]</span>
+
+xhub::install <span class="o">[</span>xhub::get_xitems<span class="o">]</span>
+</pre></div>
+</div>
+<p>Then install Genesys2 board by going to <code class="docutils literal notranslate"><span class="pre">Tools</span></code> then <code class="docutils literal notranslate"><span class="pre">Vivado</span> <span class="pre">store</span></code>. Search for Genesys2 and install.</p>
+</div></blockquote>
+</li>
+<li><p>Add the line below before:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">line</span> <span class="pre">9</span> <span class="pre">pulpissimo/fpga/pulpissimo-genesys2/tcl/run.tcl</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">line</span> <span class="pre">11</span> <span class="pre">pulpissimo/fpga/pulpissimo-genesys2/tcl/common.tcl</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">line</span>&#160; <span class="pre">21</span> <span class="pre">pulpissimo/fpga/pulpissimo-genesys2/ips/xilinx_clk_mngr/tcl/run.tcl</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">line</span> <span class="pre">16</span> <span class="pre">pulpissimo/fpga/pulpissimo-genesys2/ips/xilinx_slow_clk_mngr/tcl/run.tcl</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>set_param board.repoPaths <span class="o">[</span>get_property LOCAL_ROOT_DIR <span class="o">[</span>xhub::get_xstores xilinx_board_store<span class="o">]]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Invoke command:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make genesys2
+</pre></div>
+</div>
+<p>if you have an error:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ERROR: <span class="o">[</span>Runs <span class="m">36</span>-527<span class="o">]</span> DCP does not exist: /home/ryan/pulpissimo/fpga/pulpissimo-genesys2/ips/xilinx_slow_clk_mngr/xilinx_slow_clk_mngr.gen/sources_1/ip/xilinx_slow_clk_mngr/xilinx_slow_clk_mngr.dcp
+</pre></div>
+</div>
+<p>Then go to <code class="docutils literal notranslate"><span class="pre">pulpissimo/fpga/pulpissimo-genesys2/ips/xilinx_clk_mngr</span></code> and invoke commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean
+
+make all
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All similar errors can use the solution above.</p>
+</div>
+<p>Then <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">genesys2</span></code> again and wait until it shows error:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ERROR: <span class="o">[</span>Synth <span class="m">8</span>-9123<span class="o">]</span> an enum variable may only be assigned the same enum typed variable or one of its values <span class="o">[</span>.../pulpissimo/.bender/git/checkouts/pulp_soc-125142425fefd4e5/rtl/pulp_soc/soc_interconnect.sv:277<span class="o">]</span> at synthesis state.
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Add line below before line 388 in <code class="docutils literal notranslate"><span class="pre">pulpissimo/.bender/git/checkouts/axi-xxx/src/axi_pkg.sv</span></code></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">MY_CUT</span>        <span class="o">=</span> MuxAw <span class="p">|</span> MuxAr <span class="p">|</span> MuxW,
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Change line 277 in <code class="docutils literal notranslate"><span class="pre">pulpissimo/.bender/git/checkouts/pulp_soc-xxx/rtl/pulp_soc/soc_interconnect.sv</span></code> to</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>LatencyMode: axi_pkg::MY_CUT,
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Run again</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make genesys2
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>The bitstream is generated in <code class="docutils literal notranslate"><span class="pre">pulpissimo/fpga</span></code></p></li>
+</ol>
+</section>
+<section id="program-device">
+<h2>Program device<a class="headerlink" href="#program-device" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Create a new project in vivado with board genesys2.</p></li>
+<li><p>On <code class="docutils literal notranslate"><span class="pre">Flow</span> <span class="pre">Navigator</span></code>, look at <code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">and</span> <span class="pre">Debug</span></code> then select <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">target</span></code> to connect to your board (local or remote board).</p></li>
+<li><p>Similarly, select <code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">Device</span></code> to load bitstream file.</p></li>
+</ol>
+</section>
+<section id="debug-with-openocd">
+<h2>Debug with openocd<a class="headerlink" href="#debug-with-openocd" title="Permalink to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">192.168.1.177/32</span></code> to AllowIPs in your wiregaurd configuration file</p></li>
+<li><p>Open remmina and connect to site <code class="docutils literal notranslate"><span class="pre">192.168.1.177</span></code> with user and password allocated in discord</p></li>
+<li><p>Open terminal and change directory to <code class="docutils literal notranslate"><span class="pre">pulpissimo</span></code>, then invoke command:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openocd -f openocd-genesys2.cfg
+</pre></div>
+</div>
+<img alt="../../_images/openocdsuccess.png" src="../../_images/openocdsuccess.png" />
+</div></blockquote>
+</li>
+<li><p>Go to <code class="docutils literal notranslate"><span class="pre">uart/send</span></code> example and build (From now, do on local):</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> pulp-runtime-examples/periph/uart/send
+
+make clean all <span class="nv">io</span><span class="o">=</span>uart
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Start RISC-V GDB pointing to your ELF binary:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>riscv32-unknown-elf-gdb build/test/test
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Then invoke:</p>
+<blockquote>
+<div><p>For remote board</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>target remote <span class="m">192</span>.168.1.177:3333
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>target extended-remote <span class="m">192</span>.168.1.177:3333
+</pre></div>
+</div>
+<p>For local board:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>target remote localhost:3333
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Load the binary into PULPissimo’s main memory and start execution:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>load
+
+<span class="k">continue</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Open site <code class="docutils literal notranslate"><span class="pre">192.168.2.203</span></code> and use hercules to check the UART output for results.</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">C</span></code> to stop <code class="docutils literal notranslate"><span class="pre">continue</span></code> status</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">quit</span></code> to get out of debugging.</p></li>
+</ul>
+</div>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<p>[1]. PULPissimo_Gen2_Setup_Guide</p>
 </section>
 </section>
 

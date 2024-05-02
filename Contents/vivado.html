@@ -59,8 +59,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#usb-port-access-for-user">USB Port Access for User</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#download-vivado">Download Vivado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-trial-license">Get trial license</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#uninstall-vivado">Uninstall Vivado</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
@@ -165,20 +167,44 @@ However, a fresh install of Ubuntu needs to have you user added to the dial out 
 sudo ./FPGAs_AdaptiveSoCs_Unified_2023.2_1013_2256_Lin64.bin
 </pre></div>
 </div>
-<p>The GUI for installation will appear. Follow it to complete the installation process</p>
+<p>The GUI for installation will appear. Follow it to complete the installation process.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If your capacity is not much, select Vivado ML Standard.</p>
-<p>In this instruction, I select <code class="docutils literal notranslate"><span class="pre">/home</span></code> to store my installation.</p>
+<ol class="arabic simple">
+<li><p>Select Vivado Enterprise</p></li>
+<li><p>If your capacity is not much, just select kintex7 and its stuff</p></li>
+<li><p>In this instruction, I select <code class="docutils literal notranslate"><span class="pre">/home</span></code> to store my installation.</p></li>
+</ol>
 </div>
 <p>Close the <code class="docutils literal notranslate"><span class="pre">Xilinx</span> <span class="pre">Information</span> <span class="pre">Center</span></code> window to exit.</p>
-<p>To run vivado, you can click on it shortcut or invoke commands below</p>
+<p>To run vivado, just invoke commands below</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span>  /home/Vivado/2023.2/settings64.sh
 
 vivado
 </pre></div>
 </div>
+<p>Add vivado to path</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/path/to/vivado/bin
+</pre></div>
+</div>
 </section>
+<section id="get-trial-license">
+<h3>Get trial license<a class="headerlink" href="#get-trial-license" title="Permalink to this heading"></a></h3>
+<p>Run vivado then go to <code class="docutils literal notranslate"><span class="pre">Help</span></code>, select <code class="docutils literal notranslate"><span class="pre">Manage</span> <span class="pre">license</span></code> and tick <code class="docutils literal notranslate"><span class="pre">trial</span> <span class="pre">30</span> <span class="pre">days</span></code> and <code class="docutils literal notranslate"><span class="pre">Process</span> <span class="pre">now</span></code>.
+A window will appear, just follow steps and get the license.</p>
+</section>
+</section>
+<section id="uninstall-vivado">
+<h2>Uninstall Vivado<a class="headerlink" href="#uninstall-vivado" title="Permalink to this heading"></a></h2>
+<p>First go to your Xilinx instalation folder, then look for xsetup binaries:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;Xilinx_installation_folder&gt;$ find . -name xsetup
+</pre></div>
+</div>
+<p>Outputs would correspond to all installed Xilinx application and their xsetup binaries.</p>
+<p>For the Xilinx application you want to Uninstall, go to the folder where xsetup is located for that application and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;Xilinx_program_you_want_to_delete_folder&gt;$ sudo ./xsetup -Uninstall
+</pre></div>
+</div>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>

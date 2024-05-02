@@ -40,7 +40,7 @@ Put this example in pulpissimo directory
 
 .. code-block:: bash
 
-    git clone https://github.com/pulp-platform/pulp-rt-examples
+    git clone https://github.com/pulp-platform/pulp-runtime-examples.git
 
 
 Implement code
@@ -63,14 +63,13 @@ Prepare the environments before running any example
 
 .. code-block:: bash
 
-    make clean all run platform=gvsoc
-
+    make clean all run platform=gvsoc # run code on virtual platform
 
 **Uart-send example**
 
 .. code-block:: bash
 
-    make clean all io=uart
+    make clean all io=uart # build binary file
 
 Generate ``.vcd`` file to see gtkwave
 
@@ -78,32 +77,175 @@ Generate ``.vcd`` file to see gtkwave
 
     make clean all run platform=gvsoc runner_args=--vcd
 
-Simulation error
+**Error about runner**
 
-Solution: Open ``vp_runner.py`` in path: ``pulpisisimo/pulp_sdk/pkg/sdk/dev/install/ws/python`` copy command in `this vp_runner file <https://github.com/pulp-platform/gvsoc/blob/9443305264a2a1507bf000950bed442ad27a9bbb/engine/python/vp_runner.py>`_ and paste to your ``vp_runner.py``.
+Solution: Open ``vp_runner.py`` in path: ``pulpisisimo/pulp_sdk/pkg/sdk/dev/install/ws/python`` copy the whole commands in `this vp_runner file <https://github.com/pulp-platform/gvsoc/blob/9443305264a2a1507bf000950bed442ad27a9bbb/engine/python/vp_runner.py>`_ and paste to your ``vp_runner.py``.
 
+Generate bitstream
+~~~~~~~~~~~~~~~~~~~~~~~~
 
+**Prerequisite**
 
-#export GAP_RISCV_GCC_TOOLCHAIN="/opt/riscv_gap"
+Vivado 2023.2 Enterprise (You can check vivado instalation instruction in vivado documentation).
 
-#export PATH=/opt/riscv_pulp/bin:$PATH
+.. note::
 
-#export PATH=$PATH:/opt/riscv_pulp/bin
+    If you can't install vivado on your local, go to ``vlsi.doelab.site`` to do all steps below
 
+Following the steps
 
+#. make scripts in folder pulpissimo
 
-Install riscv-gnu-toolchain
-export toolchain, path to  .bashrc
+#. Install Genesys2 board (if haven't done). Open vivado, select ``Window`` then ``Tcl console``. In the console invoke command
 
-`1.  watch video WOSH: Understanding and working with PULP <https://youtu.be/27tndT6cBH0?t=8757>`_
+    .. code-block:: bash
 
-`2. Go to this link and invoke command in Building the RTL simulation platform <https://github.com/pulp-platform/pulp/tree/master>`_
+        xhub::refresh_catalog [xhub::get_xstores xilinx_board_store]
 
+        xhub::install [xhub::get_xitems]
 
-other link
+    Then install Genesys2 board by going to ``Tools`` then ``Vivado store``. Search for Genesys2 and install.
 
-https://github.com/hakatu/pulpissimo?tab=readme-ov-file#building-the-rtl-simulation-platform
+#. Add the line below before:
 
-https://github.com/pulp-platform/pulp-runtime/blob/master/README.md
+    ``line 9 pulpissimo/fpga/pulpissimo-genesys2/tcl/run.tcl``
 
-https://github.com/pulp-platform/pulpissimo?tab=readme-ov-file#building-and-using-the-virtual-platform
+    ``line 11 pulpissimo/fpga/pulpissimo-genesys2/tcl/common.tcl``
+
+    ``line  21 pulpissimo/fpga/pulpissimo-genesys2/ips/xilinx_clk_mngr/tcl/run.tcl``
+
+    ``line 16 pulpissimo/fpga/pulpissimo-genesys2/ips/xilinx_slow_clk_mngr/tcl/run.tcl``
+
+    .. code-block:: bash
+
+        set_param board.repoPaths [get_property LOCAL_ROOT_DIR [xhub::get_xstores xilinx_board_store]]
+
+#. Invoke command:
+
+    .. code-block:: bash
+
+        make genesys2
+
+    if you have an error:
+
+    .. code-block:: bash
+
+        ERROR: [Runs 36-527] DCP does not exist: /home/ryan/pulpissimo/fpga/pulpissimo-genesys2/ips/xilinx_slow_clk_mngr/xilinx_slow_clk_mngr.gen/sources_1/ip/xilinx_slow_clk_mngr/xilinx_slow_clk_mngr.dcp
+
+    Then go to ``pulpissimo/fpga/pulpissimo-genesys2/ips/xilinx_clk_mngr`` and invoke commands:
+
+    .. code-block:: bash 
+
+        make clean 
+
+        make all
+
+    .. note:: 
+
+        All similar errors can use the solution above.
+    
+    
+    Then ``make genesys2`` again and wait until it shows error:
+    
+    .. code-block:: bash
+        
+        ERROR: [Synth 8-9123] an enum variable may only be assigned the same enum typed variable or one of its values [.../pulpissimo/.bender/git/checkouts/pulp_soc-125142425fefd4e5/rtl/pulp_soc/soc_interconnect.sv:277] at synthesis state.
+
+#. Add line below before line 388 in ``pulpissimo/.bender/git/checkouts/axi-xxx/src/axi_pkg.sv``
+
+    .. code-block:: bash 
+        
+        MY_CUT        = MuxAw | MuxAr | MuxW,
+
+#. Change line 277 in ``pulpissimo/.bender/git/checkouts/pulp_soc-xxx/rtl/pulp_soc/soc_interconnect.sv`` to
+
+    .. code-block:: bash 
+        
+        LatencyMode: axi_pkg::MY_CUT, 
+
+#. Run again
+
+    .. code-block:: bash
+
+        make genesys2
+
+#. The bitstream is generated in ``pulpissimo/fpga``
+
+Program device
+~~~~~~~~~~~~~~~~~~~~
+
+#. Create a new project in vivado with board genesys2.
+
+#. On ``Flow Navigator``, look at ``Program and Debug`` then select ``Open target`` to connect to your board (local or remote board).
+
+#. Similarly, select ``Program Device`` to load bitstream file.
+
+Debug with openocd
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Add ``192.168.1.177/32`` to AllowIPs in your wiregaurd configuration file
+
+#. Open remmina and connect to site ``192.168.1.177`` with user and password allocated in discord
+
+#. Open terminal and change directory to ``pulpissimo``, then invoke command: 
+
+    .. code-block:: bash
+
+        openocd -f openocd-genesys2.cfg 
+
+    .. image:: ../image/openocdsuccess.png
+
+#. Go to ``uart/send`` example and build (From now, do on local):
+
+    .. code-block:: bash 
+        
+        cd pulp-runtime-examples/periph/uart/send
+
+        make clean all io=uart
+
+#. Start RISC-V GDB pointing to your ELF binary:
+
+    .. code-block:: bash
+        
+        riscv32-unknown-elf-gdb build/test/test
+
+#. Then invoke: 
+
+    For remote board 
+
+    .. code-block:: bash
+        
+        target remote 192.168.1.177:3333
+
+    or 
+
+    .. code-block:: bash
+
+        target extended-remote 192.168.1.177:3333
+
+    For local board: 
+
+    .. code-block:: bash 
+
+        target remote localhost:3333
+        
+#. Load the binary into PULPissimo's main memory and start execution:
+
+    .. code-block:: bash
+        
+        load 
+        
+        continue
+
+#. Open site ``192.168.2.203`` and use hercules to check the UART output for results.
+
+.. tip::
+
+    * ``Ctrl + C`` to stop ``continue`` status
+
+    * ``quit`` to get out of debugging. 
+
+References 
+~~~~~~~~~~~~~~~~~~~~~
+
+[1]. PULPissimo_Gen2_Setup_Guide
