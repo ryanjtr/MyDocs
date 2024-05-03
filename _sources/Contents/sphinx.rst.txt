@@ -259,7 +259,7 @@ If you want a consistent emoji style, you can set it in your conf.py file:
 
     sphinxemoji_style = 'twemoji'
 
-`Reference <https://sphinxemojicodes.readthedocs.io/en/stable/>`_
+
 
 Sphinx favicon
 ~~~~~~~~~~~~~~~~
@@ -407,3 +407,5 @@ References
 ~~~~~~~~~~~~~~~~
 
 `[1]. Sphinx documentation <https://www.sphinx-doc.org/en/master/contents.html>`_
+
+`[2]. Sphinx Emoji codes <https://sphinxemojicodes.readthedocs.io/en/stable/>`_

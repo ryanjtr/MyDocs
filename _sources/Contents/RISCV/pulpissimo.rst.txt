@@ -245,7 +245,17 @@ Debug with openocd
 
     * ``quit`` to get out of debugging. 
 
-**Congratulations! You have a big codec bug here. Enjoy!**  |:frog:| |:frog:|
+.. |frog| image:: ../image/frog.gif
+    :height: 20px
+    :width: 24px
+    :alt: frog emoji
+
+.. |rainbowfrog| image:: ../image/rainbowfrog.gif
+    :height: 20px
+    :width: 24px
+    :alt: frog emoji
+
+**Congratulations! You have a big codec bug here. Enjoy!** |rainbowfrog| |frog| 
 
 
 References 
