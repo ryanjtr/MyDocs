@@ -86,7 +86,7 @@ Generate bitstream
 
 **Prerequisite**
 
-Vivado 2023.2 Enterprise (You can check vivado instalation instruction in vivado documentation).
+Vivado 2023.2 Enterprise (You can check vivado installation instruction in vivado documentation).
 
 .. note::
 
@@ -174,7 +174,7 @@ Following the steps
 Program device
 ~~~~~~~~~~~~~~~~~~~~
 
-#. Create a new project in vivado with board genesys2.
+#. Create a new project in vivado with board genesys2. There's no need to run synthesis or to implement it.
 
 #. On ``Flow Navigator``, look at ``Program and Debug`` then select ``Open target`` to connect to your board (local or remote board).
 
