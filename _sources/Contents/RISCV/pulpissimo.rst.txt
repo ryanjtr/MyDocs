@@ -195,7 +195,7 @@ Debug with openocd
 
     .. image:: ../image/openocdsuccess.png
 
-#. Go to ``uart/send`` example and build (From now, do on local):
+#. Go to ``uart/send`` example of pulpissimo folder and build (From now, do on local):
 
     .. code-block:: bash 
         
@@ -256,7 +256,6 @@ Debug with openocd
     :alt: frog emoji
 
 **Congratulations! You have a big codec bug here. Enjoy!** |rainbowfrog| |frog| 
-
 
 References 
 ~~~~~~~~~~~~~~~~~~~~~
