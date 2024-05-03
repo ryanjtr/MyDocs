@@ -9,6 +9,7 @@
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/twemoji.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/dark_mode_css/general.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/dark_mode_css/dark.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -166,7 +167,7 @@
 <section id="generate-bitstream">
 <h2>Generate bitstream<a class="headerlink" href="#generate-bitstream" title="Permalink to this heading"></a></h2>
 <p><strong>Prerequisite</strong></p>
-<p>Vivado 2023.2 Enterprise (You can check vivado instalation instruction in vivado documentation).</p>
+<p>Vivado 2023.2 Enterprise (You can check vivado installation instruction in vivado documentation).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you can’t install vivado on your local, go to <code class="docutils literal notranslate"><span class="pre">vlsi.doelab.site</span></code> to do all steps below</p>
@@ -247,7 +248,7 @@ make all
 <section id="program-device">
 <h2>Program device<a class="headerlink" href="#program-device" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
-<li><p>Create a new project in vivado with board genesys2.</p></li>
+<li><p>Create a new project in vivado with board genesys2. There’s no need to run synthesis or to implement it.</p></li>
 <li><p>On <code class="docutils literal notranslate"><span class="pre">Flow</span> <span class="pre">Navigator</span></code>, look at <code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">and</span> <span class="pre">Debug</span></code> then select <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">target</span></code> to connect to your board (local or remote board).</p></li>
 <li><p>Similarly, select <code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">Device</span></code> to load bitstream file.</p></li>
 </ol>
