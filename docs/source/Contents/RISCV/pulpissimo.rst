@@ -94,7 +94,7 @@ Vivado 2023.2 Enterprise (You can check vivado installation instruction in vivad
 
 Following the steps
 
-#. make scripts in folder pulpissimo
+#. ``make scripts`` in folder pulpissimo
 
 #. Install Genesys2 board (if haven't done). Open vivado, select ``Window`` then ``Tcl console``. In the console invoke command
 
@@ -120,7 +120,7 @@ Following the steps
 
         set_param board.repoPaths [get_property LOCAL_ROOT_DIR [xhub::get_xstores xilinx_board_store]]
 
-#. Invoke command:
+#. Invoke command in folder ``fpga``:
 
     .. code-block:: bash
 
@@ -171,6 +171,11 @@ Following the steps
 
 #. The bitstream is generated in ``pulpissimo/fpga``
 
+Install Cable Drivers (Linux Only)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`Go to here <https://digilent.com/reference/programmable-logic/guides/install-cable-drivers>`_
+
 Program device
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -187,13 +192,24 @@ Debug with openocd
 
 #. Open remmina and connect to site ``192.168.1.177`` with user and password allocated in discord
 
-#. Open terminal and change directory to ``pulpissimo``, then invoke command: 
+#. Open terminal and change directory to ``pulpissimo/fpga/pulpissimo-genesys2/``, then invoke command: 
 
     .. code-block:: bash
 
         openocd -f openocd-genesys2.cfg 
 
     .. image:: ../image/openocdsuccess.png
+
+    if an error appear
+
+    .. code-block:: bash 
+
+        openocd-genesys2.cfg:38: Error: 
+        in procedure 'script' 
+        at file "embedded:startup.tcl", line 28
+        at file "openocd-genesys2.cfg", line 38
+    
+    Solution: Comment line 38 and rerun
 
 #. Go to ``uart/send`` example of pulpissimo folder and build (From now, do on local):
 
@@ -244,6 +260,73 @@ Debug with openocd
     * ``Ctrl + C`` to stop ``continue`` status
 
     * ``quit`` to get out of debugging. 
+
+
+How to find Device Dev Path on Linux
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Open new terminal and invoke commands below
+
+.. code-block:: bash
+
+    for sysdevpath in $(find /sys/bus/usb/devices/usb*/ -name dev); do
+    (
+        syspath="${sysdevpath%/dev}"
+        devname="$(udevadm info -q name -p $syspath)"
+        [[ "$devname" == "bus/"* ]] && exit
+        eval "$(udevadm info -q property --export -p $syspath)"
+        [[ -z "$ID_SERIAL" ]] && exit
+        echo "/dev/$devname - $ID_SERIAL"
+    )
+    done
+
+All dev paths will appear:
+
+.. code-block:: bash
+
+    /dev/ttyACM0 - STMicroelectronics_STM32_STLink_0668FF485157717867163038
+    /dev/sda - MBED_microcontroller_0668FF485157717867163038-0:0
+    /dev/input/event13 - SONIX_M87_keyboard
+    /dev/input/event16 - SONIX_M87_keyboard
+    /dev/input/event14 - SONIX_M87_keyboard
+    /dev/input/event12 - SONIX_M87_keyboard
+    /dev/input/event15 - SONIX_M87_keyboard
+    /dev/input/mouse3 - SONIX_M87_keyboard
+    /dev/input/event11 - SONIX_M87_keyboard
+    /dev/input/event7 - Logitech_USB_Receiver
+    /dev/input/mouse2 - Logitech_USB_Receiver
+    /dev/video3 - Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
+    /dev/video2 - Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
+    /dev/video1 - Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
+    /dev/video0 - Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
+
+Install putty
+~~~~~~~~~~~~~~~~~~~
+
+Active Universe storage on ubuntu system
+
+.. code-block:: bash
+
+    sudo add-apt-repository universe
+
+Install putty
+
+.. code-block:: bash
+
+    sudo apt install putty
+
+Initialize putty
+
+.. code-block:: bash
+
+    putty
+
+Select ``Serial`` to use serial connection. Then set up port and baudrate. Hit ``open`` to run.
+
+.. note:: 
+
+    If a font error appears, just go to 'Fonts' on the left sidebar in PuTTY and configure your font.
+
 
 .. |frog| image:: ../image/frog.gif
     :height: 20px

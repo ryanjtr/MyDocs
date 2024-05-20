@@ -148,3 +148,7 @@ Minicom
 
 `Minicom documentation <https://help.ubuntu.com/community/Minicom>`_
 
+Uninstall openocd
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`Go to here <https://www.thelinuxfaq.com/ubuntu/ubuntu-17-04-zesty-zapus/openocd?type=uninstall>`_
