@@ -71,8 +71,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#clone-example">Clone example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#implement-code">Implement code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#generate-bitstream">Generate bitstream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-cable-drivers-linux-only">Install Cable Drivers (Linux Only)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#program-device">Program device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#debug-with-openocd">Debug with openocd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-find-device-dev-path-on-linux">How to find Device Dev Path on Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-putty">Install putty</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
@@ -97,7 +100,6 @@
           <li><a href="riscv.html">RISC-V</a> &raquo;</li>
       <li>Pulpissimo</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/Contents/RISCV/pulpissimo.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -174,7 +176,7 @@
 </div>
 <p>Following the steps</p>
 <ol class="arabic">
-<li><p>make scripts in folder pulpissimo</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">scripts</span></code> in folder pulpissimo</p></li>
 <li><p>Install Genesys2 board (if haven’t done). Open vivado, select <code class="docutils literal notranslate"><span class="pre">Window</span></code> then <code class="docutils literal notranslate"><span class="pre">Tcl</span> <span class="pre">console</span></code>. In the console invoke command</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xhub::refresh_catalog <span class="o">[</span>xhub::get_xstores xilinx_board_store<span class="o">]</span>
@@ -196,7 +198,7 @@ xhub::install <span class="o">[</span>xhub::get_xitems<span class="o">]</span>
 </div>
 </div></blockquote>
 </li>
-<li><p>Invoke command:</p>
+<li><p>Invoke command in folder <code class="docutils literal notranslate"><span class="pre">fpga</span></code>:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make genesys2
 </pre></div>
@@ -245,6 +247,10 @@ make all
 <li><p>The bitstream is generated in <code class="docutils literal notranslate"><span class="pre">pulpissimo/fpga</span></code></p></li>
 </ol>
 </section>
+<section id="install-cable-drivers-linux-only">
+<h2>Install Cable Drivers (Linux Only)<a class="headerlink" href="#install-cable-drivers-linux-only" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://digilent.com/reference/programmable-logic/guides/install-cable-drivers" rel="noopener noreferrer" target="_blank">Go to here</a></p>
+</section>
 <section id="program-device">
 <h2>Program device<a class="headerlink" href="#program-device" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
@@ -258,12 +264,20 @@ make all
 <ol class="arabic">
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">192.168.1.177/32</span></code> to AllowIPs in your wiregaurd configuration file</p></li>
 <li><p>Open remmina and connect to site <code class="docutils literal notranslate"><span class="pre">192.168.1.177</span></code> with user and password allocated in discord</p></li>
-<li><p>Open terminal and change directory to <code class="docutils literal notranslate"><span class="pre">pulpissimo</span></code>, then invoke command:</p>
+<li><p>Open terminal and change directory to <code class="docutils literal notranslate"><span class="pre">pulpissimo/fpga/pulpissimo-genesys2/</span></code>, then invoke command:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openocd -f openocd-genesys2.cfg
 </pre></div>
 </div>
 <img alt="../../_images/openocdsuccess.png" src="../../_images/openocdsuccess.png" />
+<p>if an error appear</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openocd-genesys2.cfg:38: Error:
+<span class="k">in</span> procedure <span class="s1">&#39;script&#39;</span>
+at file <span class="s2">&quot;embedded:startup.tcl&quot;</span>, line <span class="m">28</span>
+at file <span class="s2">&quot;openocd-genesys2.cfg&quot;</span>, line <span class="m">38</span>
+</pre></div>
+</div>
+<p>Solution: Comment line 38 and rerun</p>
 </div></blockquote>
 </li>
 <li><p>Go to <code class="docutils literal notranslate"><span class="pre">uart/send</span></code> example of pulpissimo folder and build (From now, do on local):</p>
@@ -315,6 +329,60 @@ make clean all <span class="nv">io</span><span class="o">=</span>uart
 <li><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">C</span></code> to stop <code class="docutils literal notranslate"><span class="pre">continue</span></code> status</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">quit</span></code> to get out of debugging.</p></li>
 </ul>
+</div>
+</section>
+<section id="how-to-find-device-dev-path-on-linux">
+<h2>How to find Device Dev Path on Linux<a class="headerlink" href="#how-to-find-device-dev-path-on-linux" title="Permalink to this heading"></a></h2>
+<p>Open new terminal and invoke commands below</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> sysdevpath <span class="k">in</span> <span class="k">$(</span>find /sys/bus/usb/devices/usb*/ -name dev<span class="k">)</span><span class="p">;</span> <span class="k">do</span>
+<span class="o">(</span>
+    <span class="nv">syspath</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">sysdevpath</span><span class="p">%/dev</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nv">devname</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>udevadm info -q name -p <span class="nv">$syspath</span><span class="k">)</span><span class="s2">&quot;</span>
+    <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$devname</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;bus/&quot;</span>* <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span>
+    <span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>udevadm info -q property --export -p <span class="nv">$syspath</span><span class="k">)</span><span class="s2">&quot;</span>
+    <span class="o">[[</span> -z <span class="s2">&quot;</span><span class="nv">$ID_SERIAL</span><span class="s2">&quot;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span>
+    <span class="nb">echo</span> <span class="s2">&quot;/dev/</span><span class="nv">$devname</span><span class="s2"> - </span><span class="nv">$ID_SERIAL</span><span class="s2">&quot;</span>
+<span class="o">)</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>All dev paths will appear:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/dev/ttyACM0 - STMicroelectronics_STM32_STLink_0668FF485157717867163038
+/dev/sda - MBED_microcontroller_0668FF485157717867163038-0:0
+/dev/input/event13 - SONIX_M87_keyboard
+/dev/input/event16 - SONIX_M87_keyboard
+/dev/input/event14 - SONIX_M87_keyboard
+/dev/input/event12 - SONIX_M87_keyboard
+/dev/input/event15 - SONIX_M87_keyboard
+/dev/input/mouse3 - SONIX_M87_keyboard
+/dev/input/event11 - SONIX_M87_keyboard
+/dev/input/event7 - Logitech_USB_Receiver
+/dev/input/mouse2 - Logitech_USB_Receiver
+/dev/video3 - Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
+/dev/video2 - Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
+/dev/video1 - Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
+/dev/video0 - Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
+</pre></div>
+</div>
+</section>
+<section id="install-putty">
+<h2>Install putty<a class="headerlink" href="#install-putty" title="Permalink to this heading"></a></h2>
+<p>Active Universe storage on ubuntu system</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo add-apt-repository universe
+</pre></div>
+</div>
+<p>Install putty</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install putty
+</pre></div>
+</div>
+<p>Initialize putty</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>putty
+</pre></div>
+</div>
+<p>Select <code class="docutils literal notranslate"><span class="pre">Serial</span></code> to use serial connection. Then set up port and baudrate. Hit <code class="docutils literal notranslate"><span class="pre">open</span></code> to run.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a font error appears, just go to ‘Fonts’ on the left sidebar in PuTTY and configure your font.</p>
 </div>
 <p><strong>Congratulations! You have a big codec bug here. Enjoy!</strong> <a class="reference internal" href="../../_images/rainbowfrog.gif"><img alt="frog emoji" src="../../_images/rainbowfrog.gif" style="width: 24px; height: 20px;" /></a> <a class="reference internal" href="../../_images/frog.gif"><img alt="frog emoji" src="../../_images/frog.gif" style="width: 24px; height: 20px;" /></a></p>
 </section>
