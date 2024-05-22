@@ -211,7 +211,7 @@ Debug with openocd
     
     Solution: Comment line 38 and rerun
 
-#. Go to ``uart/send`` example of pulpissimo folder and build (From now, do on local):
+#. Go to ``uart/send`` example of pulpissimo folder and build (From now, do on local machine):
 
     .. code-block:: bash 
         
@@ -228,12 +228,6 @@ Debug with openocd
 #. Then invoke: 
 
     For remote board 
-
-    .. code-block:: bash
-        
-        target remote 192.168.1.177:3333
-
-    or 
 
     .. code-block:: bash
 
@@ -253,13 +247,52 @@ Debug with openocd
         
         continue
 
-#. Open site ``192.168.2.203`` and use hercules to check the UART output for results.
+#. Open site ``192.168.2.203`` and use either ``Hercules`` or ``Putty`` to check the UART output for results.
+
+.. |frog| image:: ../image/frog.gif
+    :height: 20px
+    :width: 24px
+    :alt: frog emoji
+
+.. |rainbowfrog| image:: ../image/rainbowfrog.gif
+    :height: 20px
+    :width: 24px
+    :alt: frog emoji
+
+**Congratulations! You have a big codec bug here. Enjoy!** |rainbowfrog| |frog| 
 
 .. tip::
 
     * ``Ctrl + C`` to stop ``continue`` status
 
     * ``quit`` to get out of debugging. 
+
+Putty installation
+~~~~~~~~~~~~~~~~~~~
+
+Active Universe storage on ubuntu system
+
+.. code-block:: bash
+
+    sudo add-apt-repository universe
+
+Install putty
+
+.. code-block:: bash
+
+    sudo apt install putty
+
+Initialize putty
+
+.. code-block:: bash
+
+    putty
+
+Select ``Serial`` to use serial connection. Then set up ``port`` and ``baudrate``. Hit ``open`` to run.
+
+.. note:: 
+
+    If a font error appears, just go to 'Fonts' on the left sidebar in PuTTY and configure your font.
 
 
 How to find Device Dev Path on Linux
@@ -300,45 +333,6 @@ All dev paths will appear:
     /dev/video1 - Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
     /dev/video0 - Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
 
-Install putty
-~~~~~~~~~~~~~~~~~~~
-
-Active Universe storage on ubuntu system
-
-.. code-block:: bash
-
-    sudo add-apt-repository universe
-
-Install putty
-
-.. code-block:: bash
-
-    sudo apt install putty
-
-Initialize putty
-
-.. code-block:: bash
-
-    putty
-
-Select ``Serial`` to use serial connection. Then set up port and baudrate. Hit ``open`` to run.
-
-.. note:: 
-
-    If a font error appears, just go to 'Fonts' on the left sidebar in PuTTY and configure your font.
-
-
-.. |frog| image:: ../image/frog.gif
-    :height: 20px
-    :width: 24px
-    :alt: frog emoji
-
-.. |rainbowfrog| image:: ../image/rainbowfrog.gif
-    :height: 20px
-    :width: 24px
-    :alt: frog emoji
-
-**Congratulations! You have a big codec bug here. Enjoy!** |rainbowfrog| |frog| 
 
 References 
 ~~~~~~~~~~~~~~~~~~~~~
