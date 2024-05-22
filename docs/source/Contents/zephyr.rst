@@ -8,25 +8,25 @@ Zephyr
 
     Once activated your shell will be prefixed with (.venv). The virtual environment can be deactivated at any time by running: deactivate.
 
-Nạp code
---------
+Upload code
+--------------
 
-Nếu lần đầu chạy code phải chạy lệnh sau trên terminal
+If running the code for the first time, you must execute the following command in the terminal
 
 .. code-block:: python
 
     sudo apt install python3-venv
     python3 -m venv ~/zephyrproject/.venv
 
-Sau đó vô môi trường .venv
+Then enter the ``.venv``environment.
 
 .. code-block:: 
 
     source ~/zephyrproject/.venv/bin/activate
 
-**Nạp blinky code cho board stm32f401**
+**Upload blinky code to the stm32f401 board**
 
-Sử dụng cáp USB, giữ nút ``BOOT0`` và nhấn nút ``Reset``
+Connect board with a USB cable, hold the ``BOOT0`` button, and press the ``Reset`` button
 
 .. code-block:: 
 
@@ -35,9 +35,9 @@ Sử dụng cáp USB, giữ nút ``BOOT0`` và nhấn nút ``Reset``
     west build -p always -b stm32f401_mini samples/basic/blinky
     west flash
 
-**Nạp blinky code cho board stm32f103**
+**Upload blinky code to the stm32f103 board**
 
-Sử dụng st-link, nếu lỗi thì nhấn nút ``Reset`` và flash lại, sau đó flash lại 1 lần nữa.
+Use the ST-Link, if there is an error, press the Reset button and flash again, then flash one more time.
 
 .. code-block::
 
@@ -46,7 +46,7 @@ Sử dụng st-link, nếu lỗi thì nhấn nút ``Reset`` và flash lại, sau
     west build -p always -b stm32_min_dev_blue samples/basic/blinky
     west flash
 
-**Nạp blinky code cho board stm32f407**
+**Upload blinky code to the stm32f407 board**
 
 Blink LED for stm32f407 (LED4 = PD12)
 
