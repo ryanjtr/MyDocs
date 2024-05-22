@@ -30,7 +30,7 @@ Run the command below to create
 
     sphinx-quickstart docs
 
-To config layout, follow steps below
+To configure layout, follow steps below
 
 * Separate source and build directories (y/n) [n]: Write ``y`` (without quotes) and press Enter.
 
