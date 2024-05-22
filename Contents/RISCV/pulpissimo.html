@@ -74,8 +74,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#install-cable-drivers-linux-only">Install Cable Drivers (Linux Only)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#program-device">Program device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#debug-with-openocd">Debug with openocd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#putty-installation">Putty installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#how-to-find-device-dev-path-on-linux">How to find Device Dev Path on Linux</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#install-putty">Install putty</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
@@ -280,7 +280,7 @@ at file <span class="s2">&quot;openocd-genesys2.cfg&quot;</span>, line <span cla
 <p>Solution: Comment line 38 and rerun</p>
 </div></blockquote>
 </li>
-<li><p>Go to <code class="docutils literal notranslate"><span class="pre">uart/send</span></code> example of pulpissimo folder and build (From now, do on local):</p>
+<li><p>Go to <code class="docutils literal notranslate"><span class="pre">uart/send</span></code> example of pulpissimo folder and build (From now, do on local machine):</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> pulp-runtime-examples/periph/uart/send
 
@@ -299,10 +299,6 @@ make clean all <span class="nv">io</span><span class="o">=</span>uart
 <li><p>Then invoke:</p>
 <blockquote>
 <div><p>For remote board</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>target remote <span class="m">192</span>.168.1.177:3333
-</pre></div>
-</div>
-<p>or</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>target extended-remote <span class="m">192</span>.168.1.177:3333
 </pre></div>
 </div>
@@ -321,14 +317,35 @@ make clean all <span class="nv">io</span><span class="o">=</span>uart
 </div>
 </div></blockquote>
 </li>
-<li><p>Open site <code class="docutils literal notranslate"><span class="pre">192.168.2.203</span></code> and use hercules to check the UART output for results.</p></li>
+<li><p>Open site <code class="docutils literal notranslate"><span class="pre">192.168.2.203</span></code> and use either <code class="docutils literal notranslate"><span class="pre">Hercules</span></code> or <code class="docutils literal notranslate"><span class="pre">Putty</span></code> to check the UART output for results.</p></li>
 </ol>
+<p><strong>Congratulations! You have a big codec bug here. Enjoy!</strong> <a class="reference internal" href="../../_images/rainbowfrog.gif"><img alt="frog emoji" src="../../_images/rainbowfrog.gif" style="width: 24px; height: 20px;" /></a> <a class="reference internal" href="../../_images/frog.gif"><img alt="frog emoji" src="../../_images/frog.gif" style="width: 24px; height: 20px;" /></a></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">C</span></code> to stop <code class="docutils literal notranslate"><span class="pre">continue</span></code> status</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">quit</span></code> to get out of debugging.</p></li>
 </ul>
+</div>
+</section>
+<section id="putty-installation">
+<h2>Putty installation<a class="headerlink" href="#putty-installation" title="Permalink to this heading"></a></h2>
+<p>Active Universe storage on ubuntu system</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo add-apt-repository universe
+</pre></div>
+</div>
+<p>Install putty</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install putty
+</pre></div>
+</div>
+<p>Initialize putty</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>putty
+</pre></div>
+</div>
+<p>Select <code class="docutils literal notranslate"><span class="pre">Serial</span></code> to use serial connection. Then set up <code class="docutils literal notranslate"><span class="pre">port</span></code> and <code class="docutils literal notranslate"><span class="pre">baudrate</span></code>. Hit <code class="docutils literal notranslate"><span class="pre">open</span></code> to run.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a font error appears, just go to ‘Fonts’ on the left sidebar in PuTTY and configure your font.</p>
 </div>
 </section>
 <section id="how-to-find-device-dev-path-on-linux">
@@ -364,27 +381,6 @@ make clean all <span class="nv">io</span><span class="o">=</span>uart
 /dev/video0 - Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
 </pre></div>
 </div>
-</section>
-<section id="install-putty">
-<h2>Install putty<a class="headerlink" href="#install-putty" title="Permalink to this heading"></a></h2>
-<p>Active Universe storage on ubuntu system</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo add-apt-repository universe
-</pre></div>
-</div>
-<p>Install putty</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install putty
-</pre></div>
-</div>
-<p>Initialize putty</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>putty
-</pre></div>
-</div>
-<p>Select <code class="docutils literal notranslate"><span class="pre">Serial</span></code> to use serial connection. Then set up port and baudrate. Hit <code class="docutils literal notranslate"><span class="pre">open</span></code> to run.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If a font error appears, just go to ‘Fonts’ on the left sidebar in PuTTY and configure your font.</p>
-</div>
-<p><strong>Congratulations! You have a big codec bug here. Enjoy!</strong> <a class="reference internal" href="../../_images/rainbowfrog.gif"><img alt="frog emoji" src="../../_images/rainbowfrog.gif" style="width: 24px; height: 20px;" /></a> <a class="reference internal" href="../../_images/frog.gif"><img alt="frog emoji" src="../../_images/frog.gif" style="width: 24px; height: 20px;" /></a></p>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
