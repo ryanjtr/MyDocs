@@ -2,7 +2,7 @@ RyanDank`s Documentation
 ==========================================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    Contents/Professional_terminology
    Contents/github
