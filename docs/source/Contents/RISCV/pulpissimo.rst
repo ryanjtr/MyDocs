@@ -86,13 +86,9 @@ Generate bitstream
 
 **Prerequisite**
 
-Vivado 2023.2 Enterprise (You can check vivado installation instruction in vivado documentation).
+Vivado 2023.2 Enterprise (You can check `vivado installation instruction <https://github.com/ryanjtr/MyDocs/blob/416f2d0aa9aced013da7453e0e5db4c67cab5a0e/docs/source/Contents/vivado.rst>`_).
 
-.. note::
-
-    If you can't install vivado on your local, go to ``vlsi.doelab.site`` to do all steps below
-
-Following the steps
+Following these steps below:
 
 #. ``make scripts`` in folder pulpissimo
 
