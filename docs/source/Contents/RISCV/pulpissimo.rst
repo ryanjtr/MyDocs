@@ -86,7 +86,7 @@ Generate bitstream
 
 **Prerequisite**
 
-Vivado 2023.2 Enterprise (You can check `vivado installation instruction <https://ryanjtr.github.io/MyDocs/Contents/vivado.html>`_).
+Vivado 2023.2 Enterprise (You can check vivado installation instruction).
 
 Following these steps below:
 
