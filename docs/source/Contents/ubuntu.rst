@@ -152,3 +152,9 @@ Uninstall openocd
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 `Go to here <https://www.thelinuxfaq.com/ubuntu/ubuntu-17-04-zesty-zapus/openocd?type=uninstall>`_
+
+
+GCC 12 installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`Tutorial <https://www.dedicatedcore.com/blog/install-gcc-compiler-ubuntu/>`_
