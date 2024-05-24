@@ -255,7 +255,7 @@ Debug with openocd
     :width: 24px
     :alt: frog emoji
 
-**Congratulations! You have a big codec bug here. Enjoy!** |rainbowfrog| |frog| 
+**Congratulations!** |rainbowfrog| |frog| 
 
 .. tip::
 
