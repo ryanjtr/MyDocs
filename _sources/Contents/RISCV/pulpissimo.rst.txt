@@ -172,14 +172,14 @@ Install Cable Drivers (Linux Only)
 
 `Go to here <https://digilent.com/reference/programmable-logic/guides/install-cable-drivers>`_
 
-Program device
+Upload bitstream
 ~~~~~~~~~~~~~~~~~~~~
 
-#. Create a new project in vivado with board genesys2. There's no need to run synthesis or to implement it.
+#. Open Vivado, then go to ``Open Hardware Manager`` and open target.
 
-#. On ``Flow Navigator``, look at ``Program and Debug`` then select ``Open target`` to connect to your board (local or remote board).
+#. Click ``Program Device`` and select bitstream file.
 
-#. Similarly, select ``Program Device`` to load bitstream file.
+#. Similarly, select ``Program Device`` to upload bitstream file.
 
 Debug with openocd
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

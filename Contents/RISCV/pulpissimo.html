@@ -72,7 +72,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#implement-code">Implement code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#generate-bitstream">Generate bitstream</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#install-cable-drivers-linux-only">Install Cable Drivers (Linux Only)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#program-device">Program device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upload-bitstream">Upload bitstream</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#debug-with-openocd">Debug with openocd</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#putty-installation">Putty installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#how-to-find-device-dev-path-on-linux">How to find Device Dev Path on Linux</a></li>
@@ -247,12 +247,12 @@ make all
 <h2>Install Cable Drivers (Linux Only)<a class="headerlink" href="#install-cable-drivers-linux-only" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://digilent.com/reference/programmable-logic/guides/install-cable-drivers" rel="noopener noreferrer" target="_blank">Go to here</a></p>
 </section>
-<section id="program-device">
-<h2>Program device<a class="headerlink" href="#program-device" title="Permalink to this heading"></a></h2>
+<section id="upload-bitstream">
+<h2>Upload bitstream<a class="headerlink" href="#upload-bitstream" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
-<li><p>Create a new project in vivado with board genesys2. There’s no need to run synthesis or to implement it.</p></li>
-<li><p>On <code class="docutils literal notranslate"><span class="pre">Flow</span> <span class="pre">Navigator</span></code>, look at <code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">and</span> <span class="pre">Debug</span></code> then select <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">target</span></code> to connect to your board (local or remote board).</p></li>
-<li><p>Similarly, select <code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">Device</span></code> to load bitstream file.</p></li>
+<li><p>Open Vivado, then go to <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">Hardware</span> <span class="pre">Manager</span></code> and open target.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">Device</span></code> and select bitstream file.</p></li>
+<li><p>Similarly, select <code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">Device</span></code> to upload bitstream file.</p></li>
 </ol>
 </section>
 <section id="debug-with-openocd">
