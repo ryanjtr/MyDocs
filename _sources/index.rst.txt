@@ -10,6 +10,8 @@ RyanDank`s Documentation
    Contents/zephyr
    Contents/ubuntu
    Contents/stm32
+   Contents/can
+   Contents/electric_component
    .. Contents/pcb
    .. Contents/mqtt
    Contents/docker

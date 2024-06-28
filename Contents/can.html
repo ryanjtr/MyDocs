@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
     <link sizes="32x32" href="../_static/logo.png" rel="icon" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MQTT &mdash; RyanDocs 2024 documentation</title>
+  <title>CAN &mdash; RyanDocs 2024 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
@@ -29,7 +29,9 @@
         <script src="../_static/dark_mode_js/theme_switcher.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Electric Components" href="electric_component.html" />
+    <link rel="prev" title="STM32" href="stm32.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,14 +50,26 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Professional_terminology.html">Professional terminology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="github.html">Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zephyr.html">Zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ubuntu.html">Ubuntu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stm32.html">STM32</a></li>
-<li class="toctree-l1"><a class="reference internal" href="can.html">CAN</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CAN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-mcp2515">Module MCP2515</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initialize">Initialize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-mode">Configuration mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#normal-mode">Normal mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loopback-mode">LoopBack mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transmission">Transmission</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reception">Reception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interrupt">Interrupt</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="electric_component.html">Electric Components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wiregaurd.html">Wiregaurd</a></li>
@@ -77,7 +91,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>MQTT</li>
+      <li>CAN</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -86,53 +100,54 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="mqtt">
-<h1><a class="toc-backref" href="#id1">MQTT</a><a class="headerlink" href="#mqtt" title="Permalink to this heading"></a></h1>
+  <section id="can">
+<h1><a class="toc-backref" href="#id1">CAN</a><a class="headerlink" href="#can" title="Permalink to this heading"></a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#mqtt" id="id1">MQTT</a></p>
+<li><p><a class="reference internal" href="#can" id="id1">CAN</a></p>
 <ul>
-<li><p><a class="reference internal" href="#gioi-thieu" id="id2">Giới thiệu</a></p></li>
-<li><p><a class="reference internal" href="#cach-thuc-hoat-dong" id="id3">Cách thức hoạt động</a></p></li>
-<li><p><a class="reference internal" href="#thingsboard" id="id4">Thingsboard</a></p></li>
-<li><p><a class="reference internal" href="#dht11" id="id5">DHT11</a></p></li>
+<li><p><a class="reference internal" href="#module-mcp2515" id="id2">Module MCP2515</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
-<p>Viết ví dụ và tutorial giải thích chi tiết cách dùng board STM32F7 giao tiếp với cảm biến DHT11 để lấy nhiệt
-độ, độ ẩm và push lên nền tảng Thingsboard</p>
-<section id="gioi-thieu">
-<h2><a class="toc-backref" href="#id2">Giới thiệu</a><a class="headerlink" href="#gioi-thieu" title="Permalink to this heading"></a></h2>
-<p>MQTT (MQ Telemetry Transport) là giao thức nhắn tin xuất bản/đăng ký nhẹ được tối ưu hóa cho các cảm biến nhỏ và thiết bị di động.</p>
+<section id="module-mcp2515">
+<h2><a class="toc-backref" href="#id2">Module MCP2515</a><a class="headerlink" href="#module-mcp2515" title="Permalink to this heading"></a></h2>
+<p>The MCP2515 is a stand-alone CAN (Controller Area Network) controller developed by
+Microchip Technology. It is widely used in automotive and industrial applications for
+communication between microcontrollers or other devices on a CAN bus.</p>
+<section id="initialize">
+<h3>Initialize<a class="headerlink" href="#initialize" title="Permalink to this heading"></a></h3>
 </section>
-<section id="cach-thuc-hoat-dong">
-<h2><a class="toc-backref" href="#id3">Cách thức hoạt động</a><a class="headerlink" href="#cach-thuc-hoat-dong" title="Permalink to this heading"></a></h2>
-<img alt="../_images/cthd.png" src="../_images/cthd.png" />
-<p>MQTT là một trong những giao thức được sử dụng phổ biến nhất liên quan đến IOT. MQTT cho phép các thiết bị IOT hạn
-chế về tài nguyên gửi hoặc xuất bản thông tin về một chủ đề nhất định tới một máy chủ có chức năng như message broker MQTT.</p>
-<img alt="../_images/hd.png" src="../_images/hd.png" />
+<section id="configuration-mode">
+<h3>Configuration mode<a class="headerlink" href="#configuration-mode" title="Permalink to this heading"></a></h3>
 </section>
-<section id="thingsboard">
-<h2><a class="toc-backref" href="#id4">Thingsboard</a><a class="headerlink" href="#thingsboard" title="Permalink to this heading"></a></h2>
-<p>ThingsBoard là một nền tảng IoT mã nguồn mở để giám sát, xử lý dữ liệu, trực quan hóa dữ liệu cùng với quản lý thiết bị.</p>
-<p>Nó hỗ trợ các giao thức IoT tiêu chuẩn công nghiệp - MQTT, CoAP và HTTP. ThingsBoard kết hợp khả năng mở rộng, khả năng
-chịu lỗi và hiệu suất để thu thập dữ liệu thiết bị để xử lý và giám sát. Nó cung cấp gateway server có thể giao tiếp với
-các thiết bị đính kèm.</p>
+<section id="normal-mode">
+<h3>Normal mode<a class="headerlink" href="#normal-mode" title="Permalink to this heading"></a></h3>
 </section>
-<section id="dht11">
-<h2><a class="toc-backref" href="#id5">DHT11</a><a class="headerlink" href="#dht11" title="Permalink to this heading"></a></h2>
-<p>Request - Response - Data reading</p>
-<p><strong>Request</strong></p>
-<p>Chế độ output,</p>
+<section id="loopback-mode">
+<h3>LoopBack mode<a class="headerlink" href="#loopback-mode" title="Permalink to this heading"></a></h3>
+</section>
+<section id="transmission">
+<h3>Transmission<a class="headerlink" href="#transmission" title="Permalink to this heading"></a></h3>
+</section>
+<section id="reception">
+<h3>Reception<a class="headerlink" href="#reception" title="Permalink to this heading"></a></h3>
+</section>
+<section id="interrupt">
+<h3>Interrupt<a class="headerlink" href="#interrupt" title="Permalink to this heading"></a></h3>
+</section>
 </section>
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="stm32.html" class="btn btn-neutral float-left" title="STM32" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="electric_component.html" class="btn btn-neutral float-right" title="Electric Components" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

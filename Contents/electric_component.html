@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <link sizes="32x32" href="../_static/logo.png" rel="icon" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electric Components &mdash; RyanDocs 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/twemoji.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"></script>
+        <script src="../_static/twemoji.js"></script>
+        <script src="../_static/dark_mode_js/default_dark.js"></script>
+        <script src="../_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Docker" href="docker.html" />
+    <link rel="prev" title="CAN" href="can.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> RyanDocs
+            <img src="../_static/stick.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Professional_terminology.html">Professional terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github.html">Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zephyr.html">Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ubuntu.html">Ubuntu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stm32.html">STM32</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can.html">CAN</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Electric Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#buck-converter">Buck converter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#xl4015">XL4015</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#isolator">Isolator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#iso7721dr">ISO7721DR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compare-iso7721dr-with-opto">Compare ISO7721DR with Opto</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wiregaurd.html">Wiregaurd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vivado.html">Vivado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RISCV/riscv.html">RISC-V</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RyanDocs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Electric Components</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="electric-components">
+<h1><a class="toc-backref" href="#id2">Electric Components</a><a class="headerlink" href="#electric-components" title="Permalink to this heading"></a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#electric-components" id="id2">Electric Components</a></p>
+<ul>
+<li><p><a class="reference internal" href="#buck-converter" id="id3">Buck converter</a></p></li>
+<li><p><a class="reference internal" href="#isolator" id="id4">Isolator</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="buck-converter">
+<h2><a class="toc-backref" href="#id3">Buck converter</a><a class="headerlink" href="#buck-converter" title="Permalink to this heading"></a></h2>
+<section id="xl4015">
+<h3>XL4015<a class="headerlink" href="#xl4015" title="Permalink to this heading"></a></h3>
+<p>XL4015 là một module nguồn xung DC-DC điều chỉnh áp suất (buck converter), sử dụng chip XL4015.
+Module này được thiết kế để giảm điện áp từ đầu vào cao hơn xuống một điện áp đầu ra thấp hơn với
+hiệu suất cao. Một số thông tin chính về module XL4015 bao gồm:</p>
+<ul class="simple">
+<li><p>Điện áp đầu vào: Từ 4V đến 38V.</p></li>
+<li><p>Điện áp đầu ra: Có thể điều chỉnh từ 1,25V đến 36V.</p></li>
+<li><p>Dòng điện đầu ra tối đa: Lên đến 5A.</p></li>
+<li><p>Hiệu suất: Thường lên đến 96%, tùy thuộc vào điện áp và dòng điện.</p></li>
+<li><p>Tần số hoạt động: Khoảng 180kHz.</p></li>
+</ul>
+<p>Module này thường được sử dụng trong các ứng dụng yêu cầu giảm điện áp từ nguồn cấp cao hơn
+xuống mức điện áp thấp hơn, chẳng hạn như trong các dự án điện tử DIY, nguồn cấp cho các thiết
+bị nhạy cảm, và các ứng dụng công nghiệp nhỏ.</p>
+</section>
+</section>
+<section id="isolator">
+<h2><a class="toc-backref" href="#id4">Isolator</a><a class="headerlink" href="#isolator" title="Permalink to this heading"></a></h2>
+<section id="iso7721dr">
+<h3>ISO7721DR<a class="headerlink" href="#iso7721dr" title="Permalink to this heading"></a></h3>
+<p>ISO7721DR là một bộ cách ly kỹ thuật số được sản xuất bởi Texas Instruments. Đây
+là một mạch tích hợp (IC) trong gói SOIC-8 (Small Outline Integrated Circuit với 8 chân). Một
+số thông tin quan trọng về ISO7721DR bao gồm:</p>
+<p>Chức năng chính: Cách ly kỹ thuật số giữa hai mạch điện, cho phép truyền dữ liệu qua
+một rào cản cách ly điện áp cao, ngăn chặn nhiễu và đảm bảo an toàn.</p>
+<ul class="simple">
+<li><p>Số kênh cách ly: 2 kênh.</p></li>
+<li><p>Tốc độ dữ liệu: Lên đến 100 Mbps.</p></li>
+<li><p>Điện áp cách ly: Thường lên đến 3000 Vrms trong 1 phút (theo tiêu chuẩn UL1577).</p></li>
+<li><p>Điện áp nguồn: 3V đến 5.5V.</p></li>
+<li><p>Điện dung cách ly: Thấp, giúp giảm nhiễu và cải thiện hiệu suất.</p></li>
+</ul>
+<p>ISO7721DR thường được sử dụng trong các ứng dụng cần cách ly tín hiệu để bảo vệ các
+thành phần nhạy cảm hoặc để cách ly các phần của hệ thống điện tử có điện áp khác nhau,
+chẳng hạn như trong các thiết bị công nghiệp, y tế, và các hệ thống điều khiển tự động.</p>
+</section>
+<section id="compare-iso7721dr-with-opto">
+<h3>Compare ISO7721DR with Opto<a class="headerlink" href="#compare-iso7721dr-with-opto" title="Permalink to this heading"></a></h3>
+<p>ISO7721DR và opto (optocoupler) đều là các linh kiện dùng để cách ly điện giữa các mạch,
+nhưng chúng có những khác biệt quan trọng. Dưới đây là so sánh giữa ISO7721DR và một opto thông thường:</p>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">So sánh</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>ISO7721DR</p></th>
+<th class="head"><p>Optocoupler</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Công nghệ</p></td>
+<td><p>Sử dụng công nghệ cách ly kỹ thuật số, thường là dựa trên vi mạch CMOS hoặc công nghệ quang học tiên tiến hơn.</p></td>
+<td><p>Sử dụng công nghệ quang học cơ bản, với một đèn LED và một phototransistor để truyền tín hiệu.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hiệu suất</p></td>
+<td><ul class="simple">
+<li><p>Tốc độ cao: Có thể truyền dữ liệu lên đến 100 Mbps.</p></li>
+<li><p>Điện áp cách ly cao: Thường lên đến 3000 Vrms.</p></li>
+<li><p>Độ chính xác và độ tin cậy cao: Ít nhiễu và suy giảm tín hiệu.</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Tốc độ chậm hơn: Thường trong khoảng vài kHz đến vài MHz.</p></li>
+<li><p>Điện áp cách ly cao: Cũng có thể đạt đến mức 5000 Vrms, nhưng hiệu suất cách ly và suy giảm tín hiệu có thể không tốt bằng.</p></li>
+<li><p>Có thể có độ trễ: Do quá trình chuyển đổi quang học.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Ứng dụng</p></td>
+<td><p>Thích hợp cho các ứng dụng đòi hỏi tốc độ truyền dữ liệu cao và độ chính xác cao, như giao tiếp dữ liệu tốc độ cao, hệ thống điều khiển công nghiệp, và các thiết bị y tế.</p></td>
+<td><p>Thường được sử dụng trong các ứng dụng yêu cầu cách ly điện cơ bản và tốc độ truyền dữ liệu không quá cao, như trong các mạch công suất, cách ly tín hiệu điều khiển đơn giản, và bảo vệ mạch.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Độ phức tạp và giá cả</p></td>
+<td><p>Thường phức tạp hơn và có giá cao hơn so với opto vì sử dụng công nghệ tiên tiến hơn.</p></td>
+<td><p>Đơn giản hơn và thường rẻ hơn, phù hợp với các ứng dụng không đòi hỏi hiệu suất cao.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kết luận</strong></p>
+<blockquote>
+<div><p>Nếu bạn cần một linh kiện cho các ứng dụng đòi hỏi tốc độ cao, độ tin cậy và hiệu suất cách
+ly cao, ISO7721DR là lựa chọn tốt hơn. Nếu bạn chỉ cần cách ly cơ bản với chi phí thấp và không
+yêu cầu tốc độ cao, opto có thể là lựa chọn phù hợp.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="can.html" class="btn btn-neutral float-left" title="CAN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="docker.html" class="btn btn-neutral float-right" title="Docker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, RyanDank.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
