@@ -1,6 +1,9 @@
 Wiregaurd
 ----------------
 
+.. contents::
+    :depth: 2
+    
 Installation
 ~~~~~~~~~~~~~~~~~
 
