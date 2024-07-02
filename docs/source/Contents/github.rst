@@ -19,6 +19,18 @@ Installation
 Commands
 --------------
 
+.. note::
+
+    If first time use github, you must commands below
+
+.. code-block:: bash
+
+    git config --global user.name "John"
+
+    git config --global user.mail "nguyevana@gmail.com"
+
+    git config credential.helper store # to store user name and password to your computer
+    
 Initiate git local
 
 .. code-block:: bash
@@ -105,15 +117,5 @@ Return to a commit in history
 
     git revert <id_commit>
 
-.. note::
 
-    If first time use github, you must commands below
-
-.. code-block:: bash
-
-    git config --global user.name "John"
-
-    git config --global user.mail "nguyevana@gmail.com"
-
-    git config credential.helper store # to store user name and password to your computer
 
