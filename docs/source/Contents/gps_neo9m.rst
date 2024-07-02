@@ -2,7 +2,7 @@ GPS NEO-9M
 =========================
 
 .. contents::
-    :depth: 2
+    :depth: 3
 
 Configuration
 -------------------
@@ -44,7 +44,7 @@ Then select ``Send config changes``
 
 .. note:: 
 
-    All steps above can be applied for all your wanted configuration 
+    All steps above will be applied for all your wanted configuration 
 
 To disable others unwanted message, go to ``CFG-MSGOUT``
 
@@ -160,4 +160,4 @@ Then select send sequently and have the result below
 
 .. note:: 
 
-    All steps above can be applied for all your wanted configuration 
+    All steps above will be applied for all your wanted configuration 
