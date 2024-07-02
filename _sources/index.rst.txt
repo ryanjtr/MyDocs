@@ -12,6 +12,7 @@ RyanDank`s Documentation
    Contents/stm32
    Contents/can
    Contents/electric_component
+   Contents/gps_neo9m
    .. Contents/pcb
    .. Contents/mqtt
    Contents/docker
