@@ -129,9 +129,8 @@
 <img alt="../_images/advancedconfig.png" src="../_images/advancedconfig.png" />
 <p>Choose CFG-UART1 -&gt; CFG-UART1-BAUDRATE</p>
 <img alt="../_images/changeuart1baudrate.png" src="../_images/changeuart1baudrate.png" />
-<p>In value field change 38400 to 115200, then select Set in RAM and Set in BBR</p>
-<img alt="../_images/changevalueto115200.png" src="../_images/changevalueto115200.png" />
-<p>Then select <code class="docutils literal notranslate"><span class="pre">Send</span> <span class="pre">config</span> <span class="pre">changes</span></code></p>
+<p>In value field change 38400 to 115200, then select Set in RAM, Set in BBR and Set in Flash. Then
+select <code class="docutils literal notranslate"><span class="pre">Send</span> <span class="pre">config</span> <span class="pre">changes</span></code></p>
 <img alt="../_images/sendconfigchanges.png" src="../_images/sendconfigchanges.png" />
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -167,50 +166,56 @@
 <table class="colwidths-given docutils align-default" id="id1">
 <caption><span class="caption-text">List of commands</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>UBX-CFG_VALSET message</p></th>
-<th class="head"><p>Ram layer config</p></th>
+<th class="head"><p>Flash layer config</p></th>
 <th class="head"><p>BBR layer config</p></th>
+<th class="head"><p>Ram layer config</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Set baudrate 115200</p></td>
+<td><p>b5 62 06 8a 0c 00 00 04 00 00 01 00 52 40 00 c2 01 00 f6 c6</p></td>
 <td><p>b5 62 06 8a 0c 00 00 02 00 00 01 00 52 40 00 c2 01 00 f4 b0</p></td>
 <td><p>b5 62 06 8a 0c 00 00 01 00 00 01 00 52 40 00 c2 01 00 f3 a5</p></td>
 </tr>
-<tr class="row-odd"><td><p>Disable GLL msgout</p></td>
-<td><p>b5 62 06 8a 09 00 00 02 00 00 ca 00 91 20 00 16 1e</p></td>
-<td><p>b5 62 06 8a 09 00 00 01 00 00 ca 00 91 20 00 15 16</p></td>
-</tr>
-<tr class="row-even"><td><p>Enable GLL msgout</p></td>
-<td><p>b5 62 06 8a 09 00 00 02 00 00 ca 00 91 20 01 17 1f</p></td>
-<td><p>b5 62 06 8a 09 00 00 01 00 00 ca 00 91 20 01 16 17</p></td>
-</tr>
 <tr class="row-odd"><td><p>Disable GGA msgout</p></td>
+<td><p>b5 62 06 8a 09 00 00 04 00 00 bb 00 91 20 00 09 e3</p></td>
 <td><p>b5 62 06 8a 09 00 00 02 00 00 bb 00 91 20 00 07 d3</p></td>
 <td><p>b5 62 06 8a 09 00 00 01 00 00 bb 00 91 20 00 06 cb</p></td>
 </tr>
-<tr class="row-even"><td><p>Disable GSV msgout</p></td>
-<td><p>b5 62 06 8a 09 00 00 02 00 00 c5 00 91 20 00 11 05</p></td>
-<td><p>b5 62 06 8a 09 00 00 01 00 00 c5 00 91 20 00 10 fd</p></td>
+<tr class="row-even"><td><p>Disable GSA msgout</p></td>
+<td><p>b5 62 06 8a 09 00 00 04 00 00 c0 00 91 20 00 0e fc</p></td>
+<td><p>b5 62 06 8a 09 00 00 02 00 00 c0 00 91 20 00 0c ec</p></td>
+<td><p>b5 62 06 8a 09 00 00 01 00 00 c0 00 91 20 00 0b e4</p></td>
 </tr>
-<tr class="row-odd"><td><p>Disable RMC msgout</p></td>
+<tr class="row-odd"><td><p>Disable GSV msgout</p></td>
+<td><p>b5 62 06 8a 09 00 00 04 00 00 c5 00 91 20 00 13 15</p></td>
+<td><p>b5 62 06 8a 09 00 00 02 00 00 c5 00 91 20 00 11 05</p></td>
+<td><p>b5 62 06 8a 09 00 00 02 00 00 c5 00 91 20 00 11 05</p></td>
+</tr>
+<tr class="row-even"><td><p>Disable RMC msgout</p></td>
+<td><p>b5 62 06 8a 09 00 00 04 00 00 ac 00 91 20 00 fa 98</p></td>
 <td><p>b5 62 06 8a 09 00 00 02 00 00 ac 00 91 20 00 f8 88</p></td>
 <td><p>b5 62 06 8a 09 00 00 01 00 00 ac 00 91 20 00 f7 80</p></td>
 </tr>
-<tr class="row-even"><td><p>Disable VTG msgout</p></td>
+<tr class="row-odd"><td><p>Disable VTG msgout</p></td>
+<td><p>b5 62 06 8a 09 00 00 04 00 00 b1 00 91 20 00 ff b1</p></td>
 <td><p>b5 62 06 8a 09 00 00 02 00 00 b1 00 91 20 00 fd a1</p></td>
 <td><p>b5 62 06 8a 09 00 00 01 00 00 b1 00 91 20 00 fc 99</p></td>
 </tr>
-<tr class="row-odd"><td><p>Disable CFG-INFMSG-NMEA_UART1</p></td>
+<tr class="row-even"><td><p>Disable CFG-INFMSG-NMEA_UART1</p></td>
+<td><p>b5 62 06 8a 09 00 00 04 00 00 07 00 92 20 00 56 62</p></td>
 <td><p>b5 62 06 8a 09 00 00 02 00 00 07 00 92 20 00 54 52</p></td>
 <td><p>b5 62 06 8a 09 00 00 01 00 00 07 00 92 20 00 53 4a</p></td>
 </tr>
-<tr class="row-even"><td><p>Disable CFG-INFMSG-NMEA_USB</p></td>
+<tr class="row-odd"><td><p>Disable CFG-INFMSG-NMEA_USB</p></td>
+<td><p>b5 62 06 8a 09 00 00 04 00 00 09 00 92 20 00 58 6c</p></td>
 <td><p>b5 62 06 8a 09 00 00 02 00 00 09 00 92 20 00 56 5c</p></td>
 <td><p>b5 62 06 8a 09 00 00 01 00 00 09 00 92 20 00 55 54</p></td>
 </tr>

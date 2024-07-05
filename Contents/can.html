@@ -66,6 +66,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#transmission">Transmission</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reception">Reception</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#interrupt">Interrupt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filter-bank">Filter Bank</a></li>
 </ul>
 </li>
 </ul>
@@ -138,6 +139,33 @@ communication between microcontrollers or other devices on a CAN bus.</p>
 </section>
 <section id="interrupt">
 <h3>Interrupt<a class="headerlink" href="#interrupt" title="Permalink to this heading"></a></h3>
+<p>Can interrupt when</p>
+<ol class="arabic simple">
+<li><p>Transmit request completed</p></li>
+<li><p>Frame is received in RX FIFO0</p></li>
+<li><p>Frame is received in RX FIFO1</p></li>
+<li><p>During CAN status change or Error</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Four interrupt vectors are dedicated to bxcan</p>
+</div>
+</section>
+<section id="filter-bank">
+<h3>Filter Bank<a class="headerlink" href="#filter-bank" title="Permalink to this heading"></a></h3>
+<p>Mask mode</p>
+<img alt="../_images/maskmodediagram.png" src="../_images/maskmodediagram.png" />
+<p>Ex: Accept frame only if first 3 msbs of the standard identifier are 1s</p>
+<img alt="../_images/maskmode.png" src="../_images/maskmode.png" />
+<p>Ex: Accept only Request frames</p>
+<img alt="../_images/maskmodeRequestframe.png" src="../_images/maskmodeRequestframe.png" />
+<p>Ex: Accept only Extended id frames</p>
+<img alt="../_images/maskmodeExtendID.png" src="../_images/maskmodeExtendID.png" />
+<p>Ex: Accept all frames</p>
+<img alt="../_images/acceptallframe.png" src="../_images/acceptallframe.png" />
+<p>List/ID mode</p>
+<p>Ex: Accept fgrame only if standard identifier value exactly = 0x65D or 0x651</p>
+<img alt="../_images/listmode.png" src="../_images/listmode.png" />
 </section>
 </section>
 </section>
