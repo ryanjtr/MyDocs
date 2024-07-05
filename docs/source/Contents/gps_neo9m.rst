@@ -34,11 +34,8 @@ Choose CFG-UART1 -> CFG-UART1-BAUDRATE
 
 .. image:: image/changeuart1baudrate.png
 
-In value field change 38400 to 115200, then select Set in RAM and Set in BBR
-
-.. image:: image/changevalueto115200.png
-
-Then select ``Send config changes``
+In value field change 38400 to 115200, then select Set in RAM, Set in BBR and Set in Flash. Then
+select ``Send config changes``
 
 .. image:: image/sendconfigchanges.png
 
@@ -95,56 +92,60 @@ Use command through Hercules
 Connect Tx pin of module UART(USB to TTL CP2102) with pin Rx of module GPS. Connect pin 3V3 and GND of module UART with pin 3V3 and GND of module GPS.
 
 .. list-table:: List of commands
-    :widths: 2 2 2
+    :widths: 2 2 2 2
     :header-rows: 1
 
     * 
       - UBX-CFG_VALSET message
-      - Ram layer config
+      - Flash layer config
       - BBR layer config
+      - Ram layer config
 
     * 
       - Set baudrate 115200
+      - b5 62 06 8a 0c 00 00 04 00 00 01 00 52 40 00 c2 01 00 f6 c6 
       - b5 62 06 8a 0c 00 00 02 00 00 01 00 52 40 00 c2 01 00 f4 b0
       - b5 62 06 8a 0c 00 00 01 00 00 01 00 52 40 00 c2 01 00 f3 a5
 
     * 
-      - Disable GLL msgout
-      - b5 62 06 8a 09 00 00 02 00 00 ca 00 91 20 00 16 1e
-      - b5 62 06 8a 09 00 00 01 00 00 ca 00 91 20 00 15 16
-
-    * 
-      - Enable GLL msgout
-      - b5 62 06 8a 09 00 00 02 00 00 ca 00 91 20 01 17 1f
-      - b5 62 06 8a 09 00 00 01 00 00 ca 00 91 20 01 16 17
-
-    * 
       - Disable GGA msgout
+      - b5 62 06 8a 09 00 00 04 00 00 bb 00 91 20 00 09 e3
       - b5 62 06 8a 09 00 00 02 00 00 bb 00 91 20 00 07 d3
       - b5 62 06 8a 09 00 00 01 00 00 bb 00 91 20 00 06 cb
 
+    *
+      - Disable GSA msgout
+      - b5 62 06 8a 09 00 00 04 00 00 c0 00 91 20 00 0e fc 
+      - b5 62 06 8a 09 00 00 02 00 00 c0 00 91 20 00 0c ec
+      - b5 62 06 8a 09 00 00 01 00 00 c0 00 91 20 00 0b e4
+
     * 
       - Disable GSV msgout
+      - b5 62 06 8a 09 00 00 04 00 00 c5 00 91 20 00 13 15 
       - b5 62 06 8a 09 00 00 02 00 00 c5 00 91 20 00 11 05
-      - b5 62 06 8a 09 00 00 01 00 00 c5 00 91 20 00 10 fd
+      - b5 62 06 8a 09 00 00 02 00 00 c5 00 91 20 00 11 05
 
     * 
       - Disable RMC msgout
+      - b5 62 06 8a 09 00 00 04 00 00 ac 00 91 20 00 fa 98
       - b5 62 06 8a 09 00 00 02 00 00 ac 00 91 20 00 f8 88
       - b5 62 06 8a 09 00 00 01 00 00 ac 00 91 20 00 f7 80
 
     * 
       - Disable VTG msgout
+      - b5 62 06 8a 09 00 00 04 00 00 b1 00 91 20 00 ff b1
       - b5 62 06 8a 09 00 00 02 00 00 b1 00 91 20 00 fd a1
       - b5 62 06 8a 09 00 00 01 00 00 b1 00 91 20 00 fc 99
 
     * 
       - Disable CFG-INFMSG-NMEA_UART1
+      - b5 62 06 8a 09 00 00 04 00 00 07 00 92 20 00 56 62
       - b5 62 06 8a 09 00 00 02 00 00 07 00 92 20 00 54 52
       - b5 62 06 8a 09 00 00 01 00 00 07 00 92 20 00 53 4a
 
     * 
       - Disable CFG-INFMSG-NMEA_USB
+      - b5 62 06 8a 09 00 00 04 00 00 09 00 92 20 00 58 6c
       - b5 62 06 8a 09 00 00 02 00 00 09 00 92 20 00 56 5c
       - b5 62 06 8a 09 00 00 01 00 00 09 00 92 20 00 55 54
 
