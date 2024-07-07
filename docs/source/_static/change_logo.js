@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function() {
-        var logo = document.querySelector(".wy-side-nav-search .logo img");
+        var logo = document.querySelector("img#logo");
         if (logo) {
             logo.src = "_static/couplestitch.gif"; // Đường dẫn tới logo mới của bạn
         }

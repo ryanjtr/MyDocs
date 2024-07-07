@@ -1,0 +1,7 @@
+{% extends "!layout.html" %}
+
+{% block sidebarlogo %}
+<a href="{{ pathto(master_doc) }}" class="logo">
+    <img id="logo" src="{{ pathto('_static/' + logo_url) }}" alt="{{ project }}">
+</a>
+{% endblock %}
