@@ -303,6 +303,35 @@ Store logo image to ``_static`` folder. In ``conf.py`` file, add the line below:
 
     html_logo = "_static/logo.png"
 
+if you want to auto change logo, you have to put your wanted logo in ``_static`` folder. Then
+create a Java script file ``change_logo.js`` in ``_static`` folder with content:
+
+.. code-block:: Javascript
+
+    document.addEventListener("DOMContentLoaded", function() {
+    var logo = document.querySelector(".wy-side-nav-search .logo");
+    if (logo) {
+        var logos = ['_static/stitch.gif', '_static/c_stitch.gif']; // list of logo
+        var currentIndex = 0; // Index of current logo
+
+        setInterval(function() {
+            currentIndex = (currentIndex + 1) % logos.length;
+            logo.src = logos[currentIndex];
+        }, 5000); // auto change logo after 5s  
+    }
+    });
+
+After that, create a ``layout.html`` in ``_templates`` folder (create your folder if you don`t have one) with content:
+
+.. code-block:: HTML
+
+    {% extends "!layout.html" %}
+
+    {% block sidebarlogo %}
+    <a href="{{ pathto(master_doc) }}" class="logo">
+        <img id="logo" src="{{ pathto('_static/stitch.gif') }}" alt="{{ project }}">
+    </a>
+    {% endblock %}
 
 Adjust window document
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
