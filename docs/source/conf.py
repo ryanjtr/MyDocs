@@ -53,14 +53,17 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 html_theme = "sphinx_rtd_theme" #["sphinx_rtd_theme", "pydata_sphinx_theme"]
-html_logo = "_static/stick.gif"
+
+html_logo = "_static/stitch.gif"
 sphinxemoji_style = 'twemoji'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
 def setup(app):
     app.add_css_file("custom.css")
+    app.add_js_file("change_logo.js")  # Thêm dòng này để nạp file JavaScript
 
     
