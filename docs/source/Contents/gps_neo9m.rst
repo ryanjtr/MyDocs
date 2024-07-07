@@ -4,6 +4,11 @@ GPS NEO-9M
 .. contents::
     :depth: 3
 
+Hookup guide
+----------------
+
+`Direct link <https://learn.sparkfun.com/tutorials/sparkfun-gps-neo-m9n-hookup-guide/all>`_
+
 Configuration
 -------------------
 
