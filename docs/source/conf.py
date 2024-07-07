@@ -55,9 +55,7 @@ exclude_patterns = []
 html_theme = "sphinx_rtd_theme" #["sphinx_rtd_theme", "pydata_sphinx_theme"]
 
 html_logo = "_static/stitch.gif"
-# html_context = {
-#     "logo_url": html_logo
-# }
+
 sphinxemoji_style = 'twemoji'
 
 # Add any paths that contain custom static files (such as style sheets) here,
