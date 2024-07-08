@@ -228,6 +228,16 @@ select <code class="docutils literal notranslate"><span class="pre">Send</span> 
 </tr>
 </tbody>
 </table>
+<p>Follow steps below to change baudrate of UART1 to 112500</p>
+<p>Copy and paste commands to send box of Hercules and tick <code class="docutils literal notranslate"><span class="pre">HEX</span></code> box.</p>
+<img alt="../_images/sendbox.png" src="../_images/sendbox.png" />
+<p>Then select <code class="docutils literal notranslate"><span class="pre">send</span></code> sequently and have the result below</p>
+<img alt="../_images/sendconfigresult.png" src="../_images/sendconfigresult.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you change baudrate first, you will have to change baudrate of Hercules (or Uart of MCU) before do any other changes.</p>
+<p>All steps above will be applied for all your wanted configuration</p>
+</div>
 <p>You can also send 3 layer commands in once</p>
 <ul class="simple">
 <li><p>Set baudrate 115200</p></li>
@@ -256,16 +266,6 @@ select <code class="docutils literal notranslate"><span class="pre">Send</span> 
 <ul class="simple">
 <li><p>Revert to default configuration(this command will write to Flash and BBR)</p></li>
 </ul>
-<p>Follow steps below to change baudrate of UART1 to 112500</p>
-<p>Copy and paste commands to send box of Hercules and tick <code class="docutils literal notranslate"><span class="pre">HEX</span></code> box.</p>
-<img alt="../_images/sendbox.png" src="../_images/sendbox.png" />
-<p>Then select <code class="docutils literal notranslate"><span class="pre">send</span></code> sequently and have the result below</p>
-<img alt="../_images/sendconfigresult.png" src="../_images/sendconfigresult.png" />
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you change baudrate first, you will have to change baudrate of Hercules (or Uart of MCU) before do any other changes.</p>
-<p>All steps above will be applied for all your wanted configuration</p>
-</div>
 </section>
 </section>
 </section>
