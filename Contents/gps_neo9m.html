@@ -186,7 +186,7 @@ select <code class="docutils literal notranslate"><span class="pre">Send</span> 
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Set baudrate 115200</p></td>
+<tr class="row-even"><td><p>Set baudrate to 115200</p></td>
 <td><p>b5 62 06 8a 0c 00 00 04 00 00 01 00 52 40 00 c2 01 00 f6 c6</p></td>
 <td><p>b5 62 06 8a 0c 00 00 02 00 00 01 00 52 40 00 c2 01 00 f4 b0</p></td>
 <td><p>b5 62 06 8a 0c 00 00 01 00 00 01 00 52 40 00 c2 01 00 f3 a5</p></td>
@@ -232,17 +232,34 @@ select <code class="docutils literal notranslate"><span class="pre">Send</span> 
 <ul class="simple">
 <li><p>Set baudrate 115200</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b5</span> <span class="mi">62</span> <span class="mi">06</span> <span class="mi">8</span><span class="n">a</span> <span class="mi">0</span><span class="n">c</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">04</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">01</span> <span class="mi">00</span> <span class="mi">52</span> <span class="mi">40</span> <span class="mi">00</span> <span class="n">c2</span> <span class="mi">01</span> <span class="mi">00</span> <span class="n">f6</span> <span class="n">c6</span> <span class="n">b5</span> <span class="mi">62</span> <span class="mi">06</span> <span class="mi">8</span><span class="n">a</span> <span class="mi">0</span><span class="n">c</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">02</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">01</span> <span class="mi">00</span> <span class="mi">52</span> <span class="mi">40</span> <span class="mi">00</span> <span class="n">c2</span> <span class="mi">01</span> <span class="mi">00</span> <span class="n">f4</span> <span class="n">b0</span> <span class="n">b5</span> <span class="mi">62</span> <span class="mi">06</span> <span class="mi">8</span><span class="n">a</span> <span class="mi">0</span><span class="n">c</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">01</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">01</span> <span class="mi">00</span> <span class="mi">52</span> <span class="mi">40</span> <span class="mi">00</span> <span class="n">c2</span> <span class="mi">01</span> <span class="mi">00</span> <span class="n">f3</span> <span class="n">a5</span>
-</pre></div>
-</div>
-<p>To revert to default configuration, invoke this (this command will write to Flash and BBR)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">B5</span> <span class="mi">62</span> <span class="mi">06</span> <span class="mi">09</span> <span class="mi">0</span><span class="n">D</span> <span class="mi">00</span> <span class="n">FF</span> <span class="n">FF</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="n">FF</span> <span class="n">FF</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">03</span> <span class="mi">1</span><span class="n">B</span> <span class="mi">9</span><span class="n">A</span>
-</pre></div>
-</div>
+<ul class="simple">
+<li><p>Disable GGA msgout</p></li>
+</ul>
+<ul class="simple">
+<li><p>Disable GSA msgout</p></li>
+</ul>
+<ul class="simple">
+<li><p>Disable GSV msgout</p></li>
+</ul>
+<ul class="simple">
+<li><p>Disable RMC msgout</p></li>
+</ul>
+<ul class="simple">
+<li><p>Disable VTG msgout</p></li>
+</ul>
+<ul class="simple">
+<li><p>Disable CFG-INFMSG-NMEA_UART1</p></li>
+</ul>
+<ul class="simple">
+<li><p>Disable CFG-INFMSG-NMEA_USB</p></li>
+</ul>
+<ul class="simple">
+<li><p>Revert to default configuration(this command will write to Flash and BBR)</p></li>
+</ul>
 <p>Follow steps below to change baudrate of UART1 to 112500</p>
 <p>Copy and paste commands to send box of Hercules and tick <code class="docutils literal notranslate"><span class="pre">HEX</span></code> box.</p>
 <img alt="../_images/sendbox.png" src="../_images/sendbox.png" />
-<p>Then select send sequently and have the result below</p>
+<p>Then select <code class="docutils literal notranslate"><span class="pre">send</span></code> sequently and have the result below</p>
 <img alt="../_images/sendconfigresult.png" src="../_images/sendconfigresult.png" />
 <div class="admonition note">
 <p class="admonition-title">Note</p>
