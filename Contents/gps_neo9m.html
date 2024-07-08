@@ -228,6 +228,10 @@ select <code class="docutils literal notranslate"><span class="pre">Send</span> 
 </tr>
 </tbody>
 </table>
+<p>To revert to default configuration, invoke this (this command will write to Flash and BBR)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">B5</span> <span class="mi">62</span> <span class="mi">06</span> <span class="mi">09</span> <span class="mi">0</span><span class="n">D</span> <span class="mi">00</span> <span class="n">FF</span> <span class="n">FF</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="n">FF</span> <span class="n">FF</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">03</span> <span class="mi">1</span><span class="n">B</span> <span class="mi">9</span><span class="n">A</span>
+</pre></div>
+</div>
 <p>Follow steps below to change baudrate of UART1 to 112500</p>
 <p>Copy and paste commands to send box of Hercules and tick <code class="docutils literal notranslate"><span class="pre">HEX</span></code> box.</p>
 <img alt="../_images/sendbox.png" src="../_images/sendbox.png" />
@@ -235,6 +239,7 @@ select <code class="docutils literal notranslate"><span class="pre">Send</span> 
 <img alt="../_images/sendconfigresult.png" src="../_images/sendconfigresult.png" />
 <div class="admonition note">
 <p class="admonition-title">Note</p>
+<p>If you change baudrate first, you will have to change baudrate of Hercules (or Uart of MCU) before do any other changes.</p>
 <p>All steps above will be applied for all your wanted configuration</p>
 </div>
 </section>

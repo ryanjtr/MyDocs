@@ -154,6 +154,13 @@ Connect Tx pin of module UART(USB to TTL CP2102) with pin Rx of module GPS. Conn
       - b5 62 06 8a 09 00 00 02 00 00 09 00 92 20 00 56 5c
       - b5 62 06 8a 09 00 00 01 00 00 09 00 92 20 00 55 54
 
+To revert to default configuration, invoke this (this command will write to Flash and BBR)
+
+.. code-block::
+
+    B5 62 06 09 0D 00 FF FF 00 00 00 00 00 00 FF FF 00 00 03 1B 9A
+
+
 Follow steps below to change baudrate of UART1 to 112500
 
 Copy and paste commands to send box of Hercules and tick ``HEX`` box.
@@ -166,4 +173,6 @@ Then select send sequently and have the result below
 
 .. note:: 
 
-    All steps above will be applied for all your wanted configuration 
+  If you change baudrate first, you will have to change baudrate of Hercules (or Uart of MCU) before do any other changes.
+
+  All steps above will be applied for all your wanted configuration 
