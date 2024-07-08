@@ -154,6 +154,14 @@ Connect Tx pin of module UART(USB to TTL CP2102) with pin Rx of module GPS. Conn
       - b5 62 06 8a 09 00 00 02 00 00 09 00 92 20 00 56 5c
       - b5 62 06 8a 09 00 00 01 00 00 09 00 92 20 00 55 54
 
+You can also send 3 layer commands in once
+
+* Set baudrate 115200
+
+.. code-block::
+
+  b5 62 06 8a 0c 00 00 04 00 00 01 00 52 40 00 c2 01 00 f6 c6 b5 62 06 8a 0c 00 00 02 00 00 01 00 52 40 00 c2 01 00 f4 b0 b5 62 06 8a 0c 00 00 01 00 00 01 00 52 40 00 c2 01 00 f3 a5
+
 To revert to default configuration, invoke this (this command will write to Flash and BBR)
 
 .. code-block::
