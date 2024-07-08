@@ -175,54 +175,54 @@ You can also send 3 layer commands in once
 
 * Set baudrate 115200
 
-.. code-block::bash
+.. code-block:: bash
 
   b5 62 06 8a 0c 00 00 04 00 00 01 00 52 40 00 c2 01 00 f6 c6 b5 62 06 8a 0c 00 00 02 00 00 01 00 52 40 00 c2 01 00 f4 b0 b5 62 06 8a 0c 00 00 01 00 00 01 00 52 40 00 c2 01 00 f3 a5
 
 * Disable GGA msgout
 
-.. code-block::bash
+.. code-block:: bash
 
   b5 62 06 8a 09 00 00 04 00 00 bb 00 91 20 00 09 e3 b5 62 06 8a 09 00 00 02 00 00 bb 00 91 20 00 07 d3 b5 62 06 8a 09 00 00 01 00 00 bb 00 91 20 00 06 cb
 
 * Disable GSA msgout
 
-.. code-block::bash
+.. code-block:: bash
 
   b5 62 06 8a 09 00 00 04 00 00 c0 00 91 20 00 0e fc b5 62 06 8a 09 00 00 02 00 00 c0 00 91 20 00 0c ec b5 62 06 8a 09 00 00 01 00 00 c0 00 91 20 00 0b e4
 
 * Disable GSV msgout
 
-.. code-block::bash
+.. code-block:: bash
 
   b5 62 06 8a 09 00 00 04 00 00 c5 00 91 20 00 13 15 b5 62 06 8a 09 00 00 02 00 00 c5 00 91 20 00 11 05 b5 62 06 8a 09 00 00 02 00 00 c5 00 91 20 00 11 05
 
 * Disable RMC msgout
 
-.. code-block::bash
+.. code-block:: bash
 
   b5 62 06 8a 09 00 00 04 00 00 ac 00 91 20 00 fa 98 b5 62 06 8a 09 00 00 02 00 00 ac 00 91 20 00 f8 88 b5 62 06 8a 09 00 00 01 00 00 ac 00 91 20 00 f7 80
 
 * Disable VTG msgout
 
-.. code-block::bash
+.. code-block:: bash
 
   b5 62 06 8a 09 00 00 04 00 00 b1 00 91 20 00 ff b1 b5 62 06 8a 09 00 00 02 00 00 b1 00 91 20 00 fd a1 b5 62 06 8a 09 00 00 01 00 00 b1 00 91 20 00 fc 99
 
 * Disable CFG-INFMSG-NMEA_UART1
 
-.. code-block::bash
+.. code-block:: bash
 
   b5 62 06 8a 09 00 00 04 00 00 07 00 92 20 00 56 62 b5 62 06 8a 09 00 00 02 00 00 07 00 92 20 00 54 52 b5 62 06 8a 09 00 00 01 00 00 07 00 92 20 00 53 4a
 
 * Disable CFG-INFMSG-NMEA_USB
 
-.. code-block::bash
+.. code-block:: bash
 
   b5 62 06 8a 09 00 00 04 00 00 09 00 92 20 00 58 6c b5 62 06 8a 09 00 00 02 00 00 09 00 92 20 00 56 5c b5 62 06 8a 09 00 00 01 00 00 09 00 92 20 00 55 54
 
 * Revert to default configuration(this command will write to Flash and BBR)
 
-.. code-block::bash
+.. code-block:: bash
 
     B5 62 06 09 0D 00 FF FF 00 00 00 00 00 00 FF FF 00 00 03 1B 9A
