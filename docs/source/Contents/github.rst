@@ -79,7 +79,7 @@ Create a new branch and move to it (-b: create a new branch)
 
 .. code-block:: bash
 
-    git git checkout -b <branch_name>
+    git checkout -b <branch_name>
 
 Merge a branch to master
 
