@@ -73,12 +73,15 @@ Ex: Accept all frames
 .. image:: image/acceptallframe.png
 
 List/ID mode
-
-
-    
+  
 Ex: Accept fgrame only if standard identifier value exactly = 0x65D or 0x651
 
 .. image:: image/listmode.png
+
+
+.. note::
+
+    If filter is disable, there will be no message in FIFO.
 
 
 

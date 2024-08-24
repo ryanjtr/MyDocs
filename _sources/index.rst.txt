@@ -3,6 +3,7 @@ RyanDank`s Documentation
 
 .. toctree::
    :maxdepth: 2
+   
 
    Contents/Professional_terminology
    Contents/github
