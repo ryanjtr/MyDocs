@@ -431,6 +431,16 @@ Otherwise on Ubuntu, just type the command below to the terminal
 
     google-chrome build/html/index.html
 
+How to find layout sphinx_rtd_theme
+
+Invoke command below to find setting location of sphinx_rtd_theme (Window):
+
+.. code-block:: bash
+
+    pip show sphinx-rtd-theme
+
+Then find *layout.html* file.
+
 References
 ~~~~~~~~~~~~~~~~
 

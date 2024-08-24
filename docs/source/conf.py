@@ -63,6 +63,17 @@ sphinxemoji_style = 'twemoji'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+# html_sidebars = {
+#     '**': ['globaltoc.html', 'relations.html', 'sourcelink.html', 'searchbox.html']
+# }
+
+html_css_files = [
+    'custom.css',
+]
+
+source_suffix = ['.rst']
+
+# html_style = "docs\source\_static\custom.css"
 def setup(app):
     app.add_css_file("custom.css")
     app.add_js_file("change_logo.js")  # Thêm dòng này để nạp file JavaScript
