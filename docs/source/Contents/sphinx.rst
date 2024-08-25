@@ -302,6 +302,7 @@ Store logo image to ``_static`` folder. In ``conf.py`` file, add the line below:
 .. code-block:: python
 
     html_logo = "_static/logo.png"
+    
 If you want to auto change logo, you have to put your wanted logo in ``_static`` folder. Then
 create a Java script file ``change_logo.js`` in ``_static`` folder with content:
 

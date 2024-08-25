@@ -18,7 +18,8 @@ If running the code for the first time, you must execute the following command i
     sudo apt install python3-venv
     python3 -m venv ~/zephyrproject/.venv
 
-Then enter the ``.venv``environment.
+
+Then enter the ``.venv`` environment.
 
 .. code-block:: 
 
