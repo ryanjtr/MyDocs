@@ -15,8 +15,7 @@
     
     <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-    
+    <![endif]-->
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
@@ -31,6 +30,26 @@
         <script src="_static/js/theme.js"></script>
         <link rel="index" title="Index" href="#" />
         <link rel="search" title="Search" href="search.html" /> 
+        <style>
+            #logo-container {
+                position: relative;
+                width: 250px;
+                /* Adjust width as needed */
+                height: 200px;
+                /* Adjust height as needed */
+            }
+
+            #logo-image {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                transition: opacity 1s ease-in-out;
+            }
+
+            #logo-image.hidden {
+                opacity: 0;
+            }
+        </style>
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -38,12 +57,14 @@
         <nav data-toggle="wy-nav-shift" class="wy-nav-side">
             <div class="wy-side-scroll">
                 <div class="wy-side-nav-search" >
-
-                    
-                    
                     <a href="index.html"  class="icon icon-home" >
                         RyanDocs
-                        <img src="_static/stitch.gif" class="logo" alt="Logo" />
+                        <div id="logo-container">
+                            <img id="logo-image" src="_static/c_stitch.gif" class="logo"
+                                alt="Logo" />
+                            <img id="logo-image" src="_static/stitch.gif" class="logo hidden"
+                                alt="Logo" />
+                        </div>
                     </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -52,7 +73,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-                </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
+                </div>
+                <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
                     aria-label="Navigation menu">
                     <ul>
 <li class="toctree-l1"><a class="reference internal" href="Contents/Professional_terminology.html">Professional terminology</a></li>
@@ -73,6 +95,56 @@
 </ul>
 
 
+                    <!-- Custom HTML starts here -->
+                    <div style="margin: auto; padding-left:20px; padding-right:20px; width:100%">
+                        <hr>
+                        <div style="margin:auto; text-align: left;">
+                            <p style="font-size: 18px; font-weight: bold; margin-bottom: 20px;">
+                                My social media
+                            </p>
+                            <a href="https://www.facebook.com/quoc.dangkien210/" target="_blank"
+                                style="text-decoration: none;">
+                                <button
+                                    style="width: 150px; height: 35px; background-color: #134B70; 
+                                    color: white; font-size: 16px; border: none; cursor: pointer; 
+                                    border-radius: 30px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 4px 8px rgba(255, 255, 255, 0.1); 
+                                    margin-bottom: 20px; padding: 3px 5px 3px 30px; 
+                                    background-image: url('https://img.icons8.com/?size=100&id=118497&format=png&color=000000'); 
+                                    background-repeat: no-repeat; background-position: 5px center; background-size: 30px 30px;">
+                                    FACEBOOK
+                                </button>
+                            </a>
+                            <a href="https://www.youtube.com/@RyanJrOfficial210" target="_blank"
+                                style="text-decoration: none;">
+                                <button
+                                    style="width: 150px; height: 35px; background-color: #4F1787; 
+                                    color: white; font-size: 16px; border: none; cursor: pointer; 
+                                    border-radius: 30px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 4px 8px rgba(255, 255, 255, 0.1); 
+                                    margin-bottom: 20px; padding: 3px 5px 3px 30px; 
+                                    background-image: url('https://img.icons8.com/?size=100&id=19318&format=png&color=000000'); 
+                                    background-repeat: no-repeat; background-position: 5px center; background-size: 30px 30px;">
+                                    YOUTUBE
+                                </button>
+                            </a>
+                            <a href="https://zenlishtoeic.vn/test-online-new/" target="_blank"
+                                style="text-decoration: none;">
+                                <button style="width: 150px; height: 35px; background-color: #88D66C; 
+                                    color: white; font-size: 16px; border: none; cursor: pointer; 
+                                    border-radius: 30px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 4px 8px rgba(255, 255, 255, 0.1); 
+                                    padding: 3px 5px 3px 30px; 
+                                    background-image: url('https://img.icons8.com/?size=100&id=fmFqQmR0UdsR&format=png&color=000000'); background-repeat: no-repeat; 
+                                    background-position: 5px center; background-size: 30px 30px;">
+                                    GITHUB
+                                </button>
+                            </a>
+                        </div>
+                        <hr>
+                    </div>
+                    <!-- Custom HTML ends here -->
+
+
+
+
 
 
 
@@ -80,11 +152,11 @@
             </div>
         </nav>
 
-        <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+        <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+            <nav class="wy-nav-top" aria-label="Mobile navigation menu" >
                 <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
                 <a href="index.html">RyanDocs</a>
             </nav>
-
             <div class="wy-nav-content">
                     <div class="rst-content">
                         <div role="navigation" aria-label="Page navigation">
@@ -127,12 +199,28 @@
                 </div>
         </section>
     </div>
+    
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-      });
+        });
     </script> 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var images = document.querySelectorAll("#logo-container img");
+            var index = 0;
 
+            function swapImages() {
+                images[index].classList.add("hidden");
+                index = (index + 1) % images.length;
+                images[index].classList.remove("hidden");
+            }
+
+            setInterval(swapImages, 5000); // Swap every 5 seconds
+        });
+    </script>
 </body>
+
+
 
 </html>
