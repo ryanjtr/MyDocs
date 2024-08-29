@@ -234,7 +234,7 @@
 
                     .switch-toggle:checked:before {
                         left: 40px;
-                        background-image: url('https://img.icons8.com/?size=100&id=643&format=png&color=000000');
+                        background-image: url('https://img.icons8.com/?size=100&id=61012&format=png&color=000000');
                     }
 
                     #youtube-player {
@@ -245,43 +245,24 @@
                 </style>
 
                 <div id="wrapper">
-                    <input type="checkbox" name="" class="switch-toggle" id="music">
+                    <input type="checkbox" name="" class="switch-toggle" id="music" checked>
                 </div>
 
-                <div id="youtube-player"></div>
+                <div id="youtube-player">
+                    <iframe id="ytplayer" type="text/html" width="0" height="0"
+                        src="https://www.youtube.com/embed/WJ3-F02-F_Y?autoplay=1&controls=0&loop=1&playlist=WJ3-F02-F_Y"
+                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
 
                 <script>
-                    // Tải YouTube IFrame Player API
-                    var tag = document.createElement('script');
-                    tag.src = "https://www.youtube.com/iframe_api";
-                    var firstScriptTag = document.getElementsByTagName('script')[0];
-                    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                    var player = document.getElementById('ytplayer');
+                    var musicToggle = document.getElementById('music');
 
-                    var player;
-
-                    function onYouTubeIframeAPIReady() {
-                        player = new YT.Player('youtube-player', {
-                            videoId: 'WJ3-F02-F_Y',  // ID của video YouTube
-                            playerVars: {
-                                'autoplay': 0,
-                                'controls': 0,   // Ẩn các nút điều khiển
-                                'showinfo': 0,
-                                'modestbranding': 1,
-                                'loop': 1,        // Lặp lại video
-                                'playlist': 'WJ3-F02-F_Y'  // Để lặp lại cần khai báo video này trong playlist
-                            }
-                        });
-                    }
-
-                    document.getElementById('music').addEventListener('change', function () {
+                    musicToggle.addEventListener('change', function () {
                         if (this.checked) {
-                            setTimeout(() => {
-                                player.playVideo();
-                            }, 100); // Độ trễ 100ms trước khi gọi play
+                            player.src += "&autoplay=1";
                         } else {
-                            setTimeout(() => {
-                                player.pauseVideo();
-                            }, 100); // Độ trễ 100ms trước khi gọi pause
+                            player.src = player.src.replace("&autoplay=1", "");
                         }
                     });
                 </script>
