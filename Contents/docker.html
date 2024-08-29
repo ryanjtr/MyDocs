@@ -220,36 +220,54 @@
                         background-image: url('https://img.icons8.com/?size=100&id=61012&format=png&color=000000');
                     }
 
-                    #audio-player {
-                        display: none;
+                    #youtube-player {
+                        width: 0;
+                        height: 0;
+                        overflow: hidden;
                     }
                 </style>
+                </head>
 
                 <body>
                     <div id="wrapper">
                         <input type="checkbox" name="" class="switch-toggle" id="music">
                     </div>
 
-                    <audio id="audio-player" src="_static/music/mua_xuan_dau_tien.mp3" type="audio/mp3" loop></audio>
-                    <!-- Đường dẫn đến tệp mp3 -->
+                    <div id="youtube-player"></div>
 
                     <script>
-                        const audioPlayer = document.getElementById('audio-player');
-                        const musicToggle = document.getElementById('music');
+                        // Tải YouTube IFrame Player API
+                        var tag = document.createElement('script');
+                        tag.src = "https://www.youtube.com/iframe_api";
+                        var firstScriptTag = document.getElementsByTagName('script')[0];
+                        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-                        // Chuyển đổi giữa phát và dừng khi người dùng nhấn nút chuyển đổi
-                        musicToggle.addEventListener('change', function () {
+                        var player;
+
+                        function onYouTubeIframeAPIReady() {
+                            player = new YT.Player('youtube-player', {
+                                videoId: 'OPv9H3Y4i60',  // ID của video YouTube
+                                playerVars: {
+                                    'autoplay': 1,
+                                    'controls': 0,   // Ẩn các nút điều khiển
+                                    'showinfo': 0,
+                                    'modestbranding': 1,
+                                    'loop': 1,        // Lặp lại video
+                                    'playlist': 'OPv9H3Y4i60'  // Để lặp lại cần khai báo video này trong playlist
+                                }
+                            });
+
+                            // Tự động phát nhạc khi trang web được tải
+                            player.playVideo();
+                        }
+
+                        document.getElementById('music').addEventListener('change', function () {
                             if (this.checked) {
-                                audioPlayer.pause();
+                                player.pauseVideo();
                             } else {
-                                audioPlayer.play();
+                                player.playVideo();
                             }
                         });
-
-                        // Phát nhạc khi người dùng nhấp vào trang web
-                        document.body.addEventListener('click', function () {
-                            audioPlayer.play();
-                        }, { once: true }); // Chỉ kích hoạt sự kiện một lần
                     </script>
                     <!-- my custom music button end -->
                         <div class="rst-content">
