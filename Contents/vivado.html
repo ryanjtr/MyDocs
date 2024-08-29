@@ -172,15 +172,10 @@
             <nav class="wy-nav-top" aria-label="Mobile navigation menu" >
                 <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
                 <a href="../index.html">RyanDocs</a>
-
-
-
-
             </nav>
             <div class="wy-nav-content">
 
                 <!-- my custom music button -->
-
                 <style>
                     :root {
                         --transition-effect: 0.25s cubic-bezier(0.25, -0.59, 0.82, 1.66);
@@ -190,7 +185,7 @@
                         display: flex;
                         justify-content: flex-end;
                         align-items: flex-start;
-                        min-height: 1vh;
+                        min-height: 0vh;
                     }
 
                     .switch-toggle {
@@ -231,57 +226,36 @@
                         background-image: url('https://img.icons8.com/?size=100&id=61012&format=png&color=000000');
                     }
 
-                    #youtube-player {
-                        width: 0;
-                        height: 0;
-                        overflow: hidden;
+                    #audio-player {
+                        display: none;
                     }
                 </style>
-                </head>
 
                 <body>
                     <div id="wrapper">
                         <input type="checkbox" name="" class="switch-toggle" id="music">
                     </div>
 
-                    <div id="youtube-player"></div>
+                    <audio id="audio-player" src="piano.mp3" loop></audio> <!-- Đường dẫn đến tệp mp3 -->
 
                     <script>
-                        // Tải YouTube IFrame Player API
-                        var tag = document.createElement('script');
-                        tag.src = "https://www.youtube.com/iframe_api";
-                        var firstScriptTag = document.getElementsByTagName('script')[0];
-                        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                        const audioPlayer = document.getElementById('audio-player');
+                        const musicToggle = document.getElementById('music');
 
-                        var player;
+                        // Tự động phát nhạc khi trang web được tải
+                        window.onload = function () {
+                            audioPlayer.play();
+                        };
 
-                        function onYouTubeIframeAPIReady() {
-                            player = new YT.Player('youtube-player', {
-                                videoId: 'OPv9H3Y4i60',  // ID của video YouTube
-                                playerVars: {
-                                    'autoplay': 1,
-                                    'controls': 0,   // Ẩn các nút điều khiển
-                                    'showinfo': 0,
-                                    'modestbranding': 1,
-                                    'loop': 1,        // Lặp lại video
-                                    'playlist': 'OPv9H3Y4i60'  // Để lặp lại cần khai báo video này trong playlist
-                                }
-                            });
-
-                            // Tự động phát nhạc khi trang web được tải
-                            player.playVideo();
-                        }
-
-                        document.getElementById('music').addEventListener('change', function () {
+                        // Chuyển đổi giữa phát và dừng khi người dùng nhấn nút chuyển đổi
+                        musicToggle.addEventListener('change', function () {
                             if (this.checked) {
-                                player.pauseVideo();
+                                audioPlayer.pause();
                             } else {
-                                player.playVideo();
+                                audioPlayer.play();
                             }
                         });
                     </script>
-
-
                     <!-- my custom music button end -->
                         <div class="rst-content">
                             <div role="navigation" aria-label="Page navigation">
