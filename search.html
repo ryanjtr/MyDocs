@@ -225,17 +225,12 @@
                         <input type="checkbox" name="" class="switch-toggle" id="music">
                     </div>
 
-                    <audio id="audio-player" src="docs\source\_static\piano.mp3" loop></audio>
+                    <audio id="audio-player" src="_static/music/mua_xuan_dau_tien.mp3" type="audio/mp3" loop></audio>
                     <!-- Đường dẫn đến tệp mp3 -->
 
                     <script>
                         const audioPlayer = document.getElementById('audio-player');
                         const musicToggle = document.getElementById('music');
-
-                        // Tự động phát nhạc khi trang web được tải
-                        window.onload = function () {
-                            audioPlayer.play();
-                        };
 
                         // Chuyển đổi giữa phát và dừng khi người dùng nhấn nút chuyển đổi
                         musicToggle.addEventListener('change', function () {
@@ -245,6 +240,11 @@
                                 audioPlayer.play();
                             }
                         });
+
+                        // Phát nhạc khi người dùng nhấp vào trang web
+                        document.body.addEventListener('click', function () {
+                            audioPlayer.play();
+                        }, { once: true }); // Chỉ kích hoạt sự kiện một lần
                     </script>
                     <!-- my custom music button end -->
                         <div class="rst-content">
