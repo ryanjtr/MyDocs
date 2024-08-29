@@ -166,6 +166,7 @@
             <div class="wy-nav-content">
 
                 <!-- my custom music button -->
+
                 <style>
                     :root {
                         --transition-effect: 0.25s cubic-bezier(0.25, -0.59, 0.82, 1.66);
@@ -222,32 +223,54 @@
                         overflow: hidden;
                     }
                 </style>
+                </head>
 
-                <div id="wrapper">
-                    <input type="checkbox" name="" class="switch-toggle" id="music" checked>
-                </div>
+                <body>
+                    <div id="wrapper">
+                        <input type="checkbox" name="" class="switch-toggle" id="music">
+                    </div>
 
-                <div id="youtube-player">
-                    <iframe id="ytplayer" type="text/html" width="0" height="0"
-                        src="https://www.youtube.com/embed/WJ3-F02-F_Y?autoplay=1&controls=0&loop=1&playlist=WJ3-F02-F_Y"
-                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
+                    <div id="youtube-player"></div>
 
-                <script>
-                    var player = document.getElementById('ytplayer');
-                    var musicToggle = document.getElementById('music');
+                    <script>
+                        // Tải YouTube IFrame Player API
+                        var tag = document.createElement('script');
+                        tag.src = "https://www.youtube.com/iframe_api";
+                        var firstScriptTag = document.getElementsByTagName('script')[0];
+                        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-                    musicToggle.addEventListener('change', function () {
-                        if (this.checked) {
-                            player.src += "&autoplay=1";
-                        } else {
-                            player.src = player.src.replace("&autoplay=1", "");
+                        var player;
+
+                        function onYouTubeIframeAPIReady() {
+                            player = new YT.Player('youtube-player', {
+                                videoId: 'WJ3-F02-F_Y',  // ID của video YouTube
+                                playerVars: {
+                                    'autoplay': 0,
+                                    'controls': 0,   // Ẩn các nút điều khiển
+                                    'showinfo': 0,
+                                    'modestbranding': 1,
+                                    'loop': 1,        // Lặp lại video
+                                    'playlist': 'WJ3-F02-F_Y'  // Để lặp lại cần khai báo video này trong playlist
+                                }
+                            });
+
+                            // Tự động phát nhạc khi trang web được tải
+                            player.playVideo();
                         }
-                    });
-                </script>
-                <!-- my custom music button end -->
-                    <div class="rst-content">
-                        <div role="navigation" aria-label="Page navigation">
+
+                        document.getElementById('music').addEventListener('change', function () {
+                            if (this.checked) {
+                                player.pauseVideo();
+                            } else {
+                                player.playVideo();
+                            }
+                        });
+                    </script>
+
+
+                    <!-- my custom music button end -->
+                        <div class="rst-content">
+                            <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Index</li>
@@ -256,9 +279,10 @@
   </ul>
   <hr/>
 </div>
-                        <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-                            <div itemprop="articleBody">
-                                
+                            <div role="main" class="document" itemscope="itemscope"
+                                itemtype="http://schema.org/Article">
+                                <div itemprop="articleBody">
+                                    
 
 <h1 id="index">Index</h1>
 
@@ -267,13 +291,13 @@
 </div>
 
 
+                                </div>
                             </div>
-                        </div>
 
 
 
 
-                        <footer>
+                            <footer>
 
   <hr/>
 
@@ -287,8 +311,8 @@
    
 
 </footer>
+                        </div>
                     </div>
-                </div>
         </section>
     </div>
     
