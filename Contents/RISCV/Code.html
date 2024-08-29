@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/twemoji.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/general.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/dark.css" />
 
@@ -56,6 +57,9 @@
 </head>
 
 <body class="wy-body-for-nav"> 
+
+
+
     <div class="wy-grid-for-nav">
         <nav data-toggle="wy-nav-shift" class="wy-nav-side">
             <div class="wy-side-scroll">
@@ -144,8 +148,7 @@
                                     YOUTUBE
                                 </button>
                             </a>
-                            <a href="https://zenlishtoeic.vn/test-online-new/" target="_blank"
-                                style="text-decoration: none;">
+                            <a href="https://github.com/ryanjtr" target="_blank" style="text-decoration: none;">
                                 <button style="width: 150px; height: 35px; background-color: #88D66C; 
                                     color: white; font-size: 16px; border: none; cursor: pointer; 
                                     border-radius: 30px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 4px 8px rgba(255, 255, 255, 0.1); 
@@ -164,18 +167,122 @@
 
 
 
-
-
                 </div>
             </div>
         </nav>
+
 
         <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
             <nav class="wy-nav-top" aria-label="Mobile navigation menu" >
                 <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
                 <a href="../../index.html">RyanDocs</a>
+
+
+
+
             </nav>
             <div class="wy-nav-content">
+
+                <!-- my custom music button -->
+                <style>
+                    :root {
+                        --transition-effect: 0.25s cubic-bezier(0.25, -0.59, 0.82, 1.66);
+                    }
+
+                    #wrapper {
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: flex-start;
+                        min-height: 1vh;
+                    }
+
+                    .switch-toggle {
+                        width: 90px;
+                        height: 50px;
+                        appearance: none;
+                        background: #55679C;
+                        border-radius: 26px;
+                        position: relative;
+                        cursor: pointer;
+                        box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.3);
+                        transition: var(--transition-effect);
+                    }
+
+                    .switch-toggle::before {
+                        content: "";
+                        width: 44px;
+                        height: 44px;
+                        position: absolute;
+                        top: 3px;
+                        left: 3px;
+                        background: #efe2bf;
+                        border-radius: 50%;
+                        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+                        transition: var(--transition-effect);
+                        background-image: url('https://img.icons8.com/?size=100&id=59845&format=png&color=000000');
+                        background-size: 30px 30px;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+
+                    .switch-toggle:checked {
+                        background: #749dd6;
+                    }
+
+                    .switch-toggle:checked:before {
+                        left: 40px;
+                        background-image: url('https://img.icons8.com/?size=100&id=643&format=png&color=000000');
+                    }
+
+                    #youtube-player {
+                        width: 0;
+                        height: 0;
+                        overflow: hidden;
+                    }
+                </style>
+
+                <div id="wrapper">
+                    <input type="checkbox" name="" class="switch-toggle" id="music">
+                </div>
+
+                <div id="youtube-player"></div>
+
+                <script>
+                    // Tải YouTube IFrame Player API
+                    var tag = document.createElement('script');
+                    tag.src = "https://www.youtube.com/iframe_api";
+                    var firstScriptTag = document.getElementsByTagName('script')[0];
+                    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                    var player;
+
+                    function onYouTubeIframeAPIReady() {
+                        player = new YT.Player('youtube-player', {
+                            videoId: 'WJ3-F02-F_Y',  // ID của video YouTube
+                            playerVars: {
+                                'autoplay': 0,
+                                'controls': 0,   // Ẩn các nút điều khiển
+                                'showinfo': 0,
+                                'modestbranding': 1,
+                                'loop': 1,        // Lặp lại video
+                                'playlist': 'WJ3-F02-F_Y'  // Để lặp lại cần khai báo video này trong playlist
+                            }
+                        });
+                    }
+
+                    document.getElementById('music').addEventListener('change', function () {
+                        if (this.checked) {
+                            setTimeout(() => {
+                                player.playVideo();
+                            }, 100); // Độ trễ 100ms trước khi gọi play
+                        } else {
+                            setTimeout(() => {
+                                player.pauseVideo();
+                            }, 100); // Độ trễ 100ms trước khi gọi pause
+                        }
+                    });
+                </script>
+                <!-- my custom music button end -->
                     <div class="rst-content">
                         <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
@@ -345,6 +452,10 @@ And unsigned version <code class="docutils literal notranslate"><span class="pre
 
                             </div>
                         </div>
+
+
+
+
                         <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Introduction.html" class="btn btn-neutral float-left" title="Assembly Language" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="Assembly_script.html" class="btn btn-neutral float-right" title="The RV32I ISA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
@@ -367,6 +478,10 @@ And unsigned version <code class="docutils literal notranslate"><span class="pre
         </section>
     </div>
     
+
+
+
+
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
