@@ -134,9 +134,13 @@ content_root }}"{% endif %}>
                 opacity: 0;
             }
         </style>
+
 </head>
 
 <body class="wy-body-for-nav">
+
+
+
     {%- block extrabody %} {% endblock %}
 
 
@@ -236,13 +240,11 @@ content_root }}"{% endif %}>
                     <!-- Custom HTML ends here -->
 
 
-
-
-
                 </div>
                 {%- endblock %}
             </div>
         </nav>
+
 
 
         <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -256,138 +258,39 @@ content_root }}"{% endif %}>
             </nav>
             <div class="wy-nav-content">
 
-                <!-- my custom music button -->
-                <style>
-                    :root {
-                        --transition-effect: 0.25s cubic-bezier(0.25, -0.59, 0.82, 1.66);
-                    }
-
-                    #wrapper {
-                        display: flex;
-                        justify-content: flex-end;
-                        align-items: flex-start;
-                        min-height: 0vh;
-                    }
-
-                    .switch-toggle {
-                        width: 62px;
-                        height: 30px;
-                        appearance: none;
-                        background: #55679C;
-                        border-radius: 26px;
-                        position: relative;
-                        cursor: pointer;
-                        box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.3);
-                        transition: var(--transition-effect);
-                    }
-
-                    .switch-toggle::before {
-                        content: "";
-                        width: 26px;
-                        height: 26px;
-                        position: absolute;
-                        top: 2px;
-                        left: 3px;
-                        background: #efe2bf;
-                        border-radius: 50%;
-                        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
-                        transition: var(--transition-effect);
-                        background-image: url('https://img.icons8.com/?size=100&id=59845&format=png&color=000000');
-                        background-size: 20px 20px;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                    }
-
-                    .switch-toggle:checked {
-                        background: #749dd6;
-                    }
-
-                    .switch-toggle:checked:before {
-                        left: 33px;
-                        background-image: url('https://img.icons8.com/?size=100&id=61012&format=png&color=000000');
-                    }
-
-                    #youtube-player {
-                        width: 0;
-                        height: 0;
-                        overflow: hidden;
-                    }
-                </style>
-                </head>
-
-                <body>
-                    <div id="wrapper">
-                        <input type="checkbox" name="" class="switch-toggle" id="music">
-                    </div>
-
-                    <div id="youtube-player"></div>
-
-                    <script>
-                        // Tải YouTube IFrame Player API
-                        var tag = document.createElement('script');
-                        tag.src = "https://www.youtube.com/iframe_api";
-                        var firstScriptTag = document.getElementsByTagName('script')[0];
-                        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-                        var player;
-
-                        function onYouTubeIframeAPIReady() {
-                            player = new YT.Player('youtube-player', {
-                                videoId: 'OPv9H3Y4i60',  // ID của video YouTube
-                                playerVars: {
-                                    'autoplay': 1,
-                                    'controls': 0,   // Ẩn các nút điều khiển
-                                    'showinfo': 0,
-                                    'modestbranding': 1,
-                                    'loop': 1,        // Lặp lại video
-                                    'playlist': 'OPv9H3Y4i60'  // Để lặp lại cần khai báo video này trong playlist
-                                }
-                            });
-
-                            // Tự động phát nhạc khi trang web được tải
-                            player.playVideo();
-                        }
-
-                        document.getElementById('music').addEventListener('change', function () {
-                            if (this.checked) {
-                                player.pauseVideo();
-                            } else {
-                                player.playVideo();
-                            }
-                        });
-                    </script>
-                    <!-- my custom music button end -->
 
 
 
-                    {%- block content %}
-                    {%- if theme_style_external_links|tobool %}
-                    <div class="rst-content style-external-links">
-                        {%- else %}
-                        <div class="rst-content">
-                            {%- endif %}
-                            {% include "breadcrumbs.html" %}
-                            <div role="main" class="document" itemscope="itemscope"
-                                itemtype="http://schema.org/Article">
-                                {%- block document %}
-                                <div itemprop="articleBody">
-                                    {% block body %}{% endblock %}
-                                </div>
-                                {%- if self.comments()|trim %}
-                                <div class="articleComments">
-                                    {%- block comments %}{% endblock %}
-                                </div>
-                                {%- endif%}
+
+
+
+                {%- block content %}
+                {%- if theme_style_external_links|tobool %}
+                <div class=" rst-content style-external-links">
+                    {%- else %}
+                    <div class="rst-content">
+                        {%- endif %}
+                        {% include "breadcrumbs.html" %}
+                        <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                            {%- block document %}
+                            <div itemprop="articleBody">
+                                {% block body %}{% endblock %}
                             </div>
-                            {%- endblock %}
-
-
-
-
-                            {% include "footer.html" %}
+                            {%- if self.comments()|trim %}
+                            <div class="articleComments">
+                                {%- block comments %}{% endblock %}
+                            </div>
+                            {%- endif%}
                         </div>
                         {%- endblock %}
+
+
+
+
+                        {% include "footer.html" %}
                     </div>
+                    {%- endblock %}
+                </div>
         </section>
     </div>
     {% include "versions.html" %}
