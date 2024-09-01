@@ -27,6 +27,7 @@
         <script src="../../_static/copybutton.js"></script>
         <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"></script>
         <script src="../../_static/twemoji.js"></script>
+        <script src="../../_static/scripts.js"></script>
         <script src="../../_static/dark_mode_js/default_dark.js"></script>
         <script src="../../_static/dark_mode_js/theme_switcher.js"></script>
         <script src="../../_static/js/theme.js"></script>
@@ -54,6 +55,7 @@
                 opacity: 0;
             }
         </style>
+
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -164,12 +166,10 @@
                     <!-- Custom HTML ends here -->
 
 
-
-
-
                 </div>
             </div>
         </nav>
+
 
 
         <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -178,110 +178,8 @@
                 <a href="../../index.html">RyanDocs</a>
             </nav>
             <div class="wy-nav-content">
-
-                <!-- my custom music button -->
-                <style>
-                    :root {
-                        --transition-effect: 0.25s cubic-bezier(0.25, -0.59, 0.82, 1.66);
-                    }
-
-                    #wrapper {
-                        display: flex;
-                        justify-content: flex-end;
-                        align-items: flex-start;
-                        min-height: 0vh;
-                    }
-
-                    .switch-toggle {
-                        width: 62px;
-                        height: 30px;
-                        appearance: none;
-                        background: #55679C;
-                        border-radius: 26px;
-                        position: relative;
-                        cursor: pointer;
-                        box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.3);
-                        transition: var(--transition-effect);
-                    }
-
-                    .switch-toggle::before {
-                        content: "";
-                        width: 26px;
-                        height: 26px;
-                        position: absolute;
-                        top: 2px;
-                        left: 3px;
-                        background: #efe2bf;
-                        border-radius: 50%;
-                        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
-                        transition: var(--transition-effect);
-                        background-image: url('https://img.icons8.com/?size=100&id=59845&format=png&color=000000');
-                        background-size: 20px 20px;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                    }
-
-                    .switch-toggle:checked {
-                        background: #749dd6;
-                    }
-
-                    .switch-toggle:checked:before {
-                        left: 33px;
-                        background-image: url('https://img.icons8.com/?size=100&id=61012&format=png&color=000000');
-                    }
-
-                    #youtube-player {
-                        width: 0;
-                        height: 0;
-                        overflow: hidden;
-                    }
-                </style>
-                </head>
-
-                <body>
-                    <div id="wrapper">
-                        <input type="checkbox" name="" class="switch-toggle" id="music">
-                    </div>
-
-                    <div id="youtube-player"></div>
-
-                    <script>
-                        // Tải YouTube IFrame Player API
-                        var tag = document.createElement('script');
-                        tag.src = "https://www.youtube.com/iframe_api";
-                        var firstScriptTag = document.getElementsByTagName('script')[0];
-                        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-                        var player;
-
-                        function onYouTubeIframeAPIReady() {
-                            player = new YT.Player('youtube-player', {
-                                videoId: 'OPv9H3Y4i60',  // ID của video YouTube
-                                playerVars: {
-                                    'autoplay': 1,
-                                    'controls': 0,   // Ẩn các nút điều khiển
-                                    'showinfo': 0,
-                                    'modestbranding': 1,
-                                    'loop': 1,        // Lặp lại video
-                                    'playlist': 'OPv9H3Y4i60'  // Để lặp lại cần khai báo video này trong playlist
-                                }
-                            });
-
-                            // Tự động phát nhạc khi trang web được tải
-                            player.playVideo();
-                        }
-
-                        document.getElementById('music').addEventListener('change', function () {
-                            if (this.checked) {
-                                player.pauseVideo();
-                            } else {
-                                player.playVideo();
-                            }
-                        });
-                    </script>
-                    <!-- my custom music button end -->
-                        <div class="rst-content">
-                            <div role="navigation" aria-label="Page navigation">
+                    <div class="rst-content">
+                        <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="riscv.html">RISC-V</a> &raquo;</li>
@@ -291,10 +189,9 @@
   </ul>
   <hr/>
 </div>
-                            <div role="main" class="document" itemscope="itemscope"
-                                itemtype="http://schema.org/Article">
-                                <div itemprop="articleBody">
-                                    
+                        <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                            <div itemprop="articleBody">
+                                
   <section id="assembly-language">
 <h1>Assembly Language<a class="headerlink" href="#assembly-language" title="Permalink to this heading"></a></h1>
 <section id="the-set-and-equ-directives">
@@ -422,13 +319,13 @@ các địa chỉ bội số của các giá trị phù hợp (2, 4 hoặc 8 tư
 </section>
 
 
-                                </div>
                             </div>
+                        </div>
 
 
 
 
-                            <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+                        <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="riscv.html" class="btn btn-neutral float-left" title="RISC-V" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="Code.html" class="btn btn-neutral float-right" title="Examples and Explanations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -445,8 +342,8 @@ các địa chỉ bội số của các giá trị phù hợp (2, 4 hoặc 8 tư
    
 
 </footer>
-                        </div>
                     </div>
+                </div>
         </section>
     </div>
     
