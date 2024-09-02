@@ -183,8 +183,6 @@
 
         </nav>
 
-
-
         <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
             <nav class="wy-nav-top" aria-label="Mobile navigation menu" >
                 <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
@@ -193,23 +191,34 @@
             <div class="wy-nav-content">
 
 
+
+
+
                 <!-- my custom music button -->
                 <div id="wrapper">
                     <input type="checkbox" name="" class="switch-toggle" id="music">
                 </div>
 
-                <audio id="audio-player" type="audio/mp3" loop></audio>
+                <audio id="audio-player" loop>
+                    <source src="../../_static/music_folder/bao_tien_mot_mo.mp3" type="audio/mpeg">
+                </audio>
 
+                <!-- script music control -->
                 <script>
                     const audioPlayer = document.getElementById('audio-player');
                     const musicToggle = document.getElementById('music');
 
-                    // Đặt nguồn cho audioPlayer
-                    audioPlayer.src = "../../_static/music_folder/bao_tien_mot_mo.mp3";
+                    // Khôi phục trạng thái nhạc từ sessionStorage
+                    const musicStatus = sessionStorage.getItem('musicStatus');
+                    const musicTime = sessionStorage.getItem('musicTime');
 
-                    // Khôi phục trạng thái nhạc từ localStorage
-                    const musicStatus = localStorage.getItem('musicStatus');
-                    const musicPlayed = localStorage.getItem('musicPlayed');
+                    // Thiết lập toggle button theo trạng thái nhạc
+                    musicToggle.checked = (musicStatus === 'playing');
+
+                    // Phát nhạc từ vị trí lưu trữ
+                    if (musicTime) {
+                        audioPlayer.currentTime = parseFloat(musicTime);
+                    }
 
                     // Nếu nhạc đang phát, hãy phát nhạc ngay lập tức
                     if (musicStatus === 'playing') {
@@ -219,26 +228,25 @@
                     // Chuyển đổi giữa phát và dừng khi người dùng nhấn nút chuyển đổi
                     musicToggle.addEventListener('change', function () {
                         if (this.checked) {
-                            audioPlayer.pause();
-                            localStorage.setItem('musicStatus', 'paused');
-                        } else {
                             audioPlayer.play();
-                            localStorage.setItem('musicStatus', 'playing');
+                            sessionStorage.setItem('musicStatus', 'playing');
+                        } else {
+                            audioPlayer.pause();
+                            sessionStorage.setItem('musicStatus', 'paused');
                         }
                     });
 
-                    // Phát nhạc khi trang được tải lần đầu tiên và chưa được bật trước đó
-                    if (!musicPlayed) {
-                        document.addEventListener('DOMContentLoaded', function () {
-                            // Phát nhạc và cập nhật trạng thái nếu chưa bật trước đó
-                            if (musicToggle.checked) {
-                                audioPlayer.play();
-                                localStorage.setItem('musicStatus', 'playing');
-                                localStorage.setItem('musicPlayed', 'true');
-                            }
-                        });
-                    }
+                    // Lưu vị trí hiện tại của bài hát khi phát nhạc
+                    audioPlayer.addEventListener('timeupdate', function () {
+                        sessionStorage.setItem('musicTime', audioPlayer.currentTime);
+                    });
+
+                    // Lưu thời gian phát nhạc khi trang bị rời bỏ
+                    window.addEventListener('beforeunload', function () {
+                        sessionStorage.setItem('musicTime', audioPlayer.currentTime);
+                    });
                 </script>
+                <!-- end script music control -->
                 <!-- my custom music button end -->
                     <div class="rst-content">
                         <div role="navigation" aria-label="Page navigation">
@@ -580,6 +588,8 @@ biệt là cho các biến cục bộ và các frame của các hàm trong chư�
 
 
     <!-- end change logo  -->
+
+
 </body>
 
 
