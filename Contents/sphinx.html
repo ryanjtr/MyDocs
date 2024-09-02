@@ -152,51 +152,7 @@
 
 
                 <!-- my custom music button -->
-                <div id="wrapper">
-                    <input type="checkbox" name="" class="switch-toggle" id="music">
-                </div>
 
-                <audio id="audio-player" type="audio/mp3" loop></audio>
-
-                <script>
-                    const audioPlayer = document.getElementById('audio-player');
-                    const musicToggle = document.getElementById('music');
-
-                    // Đặt nguồn cho audioPlayer
-                    audioPlayer.src = "../_static/music_folder/bao_tien_mot_mo.mp3";
-
-                    // Khôi phục trạng thái nhạc từ localStorage
-                    const musicStatus = localStorage.getItem('musicStatus');
-                    const musicPlayed = localStorage.getItem('musicPlayed');
-
-                    // Nếu nhạc đang phát, hãy phát nhạc ngay lập tức
-                    if (musicStatus === 'playing') {
-                        audioPlayer.play();
-                    }
-
-                    // Chuyển đổi giữa phát và dừng khi người dùng nhấn nút chuyển đổi
-                    musicToggle.addEventListener('change', function () {
-                        if (this.checked) {
-                            audioPlayer.pause();
-                            localStorage.setItem('musicStatus', 'paused');
-                        } else {
-                            audioPlayer.play();
-                            localStorage.setItem('musicStatus', 'playing');
-                        }
-                    });
-
-                    // Phát nhạc khi trang được tải lần đầu tiên và chưa được bật trước đó
-                    if (!musicPlayed) {
-                        document.addEventListener('DOMContentLoaded', function () {
-                            // Phát nhạc và cập nhật trạng thái nếu chưa bật trước đó
-                            if (musicToggle.checked) {
-                                audioPlayer.play();
-                                localStorage.setItem('musicStatus', 'playing');
-                                localStorage.setItem('musicPlayed', 'true');
-                            }
-                        });
-                    }
-                </script>
                 <!-- my custom music button end -->
                     <div class="rst-content">
                         <div role="navigation" aria-label="Page navigation">
