@@ -7,15 +7,7 @@ PCB
 Hand making PCB
 -----------------
 
-1. Mixture
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. PCB making mixture
 
-Tỉ lệ cồn và axeton: 7:3
+Ratio alcohol and axeton 1:1
 
-Aconhol and axeton ratio 7:3
-
-2. Routing rules
-~~~~~~~~~~~~~~~~~~~
-
-* Không đi dây xuyên qua 2 chân ic
-* Không đi dây dưới ic để tránh nhiễu
