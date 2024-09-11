@@ -1,6 +1,67 @@
 Ubuntu
 ====================
 
+.. contents:: 
+    :depth: 2
+
+Ubuntu partition
+----------------------------
+
+.. note::
+
+    If your hard drive size is less than 60GB, 
+    just ignore partitioning and use entire drive to install Ubuntu. 
+    
+#. EFI System Partition
+
+    This partition is mandatory if your laptop/computer is booting using UEFI instead of Legacy. 
+    It is usually allocated 200 MB of space.
+
+    * Mount point: Not required
+    * Type: efi
+    * Size: 200 MB
+
+#. Swap Partition
+
+    This partition is used when the RAM is insufficient to run applications. 
+    Its function is similar to paging in Windows. 
+    You should allocate at least as much space for this partition as your RAM.
+
+    * Mount point: Not required
+    * Type: swap
+    * Size: 8 GB (if RAM is 8 GB)
+
+#. Root Partition
+
+    This is a mandatory partition. It will be mounted at ``/``. 
+    I usually allocate 30 GB to it, but you can assign more if you wish.
+
+    * Mount point: /
+    * Type: ext4
+    * Size: 30 GB
+
+#. Home Partition
+
+    This partition stores personal files. 
+    Each user will have a folder here. 
+    I create a separate partition for it so that if Ubuntu is reinstalled or upgraded, 
+    all user files will be preserved.
+
+    * Mount point: /home
+    * Type: ext4
+    * Size: 100 GB (can be more if needed for extensive use)
+
+#. Data Partition
+
+    This partition is used to store data shared with Windows. 
+    That's why it has the NTFS file system. Later, if I plan to return to Windows, 
+    I won't format or delete this partition. Since it uses NTFS, Windows can easily read it.
+
+    * Mount point: Not required
+    * Type: ntfs
+    * Size: The remaining space on the hard drive
+
+
 App installation
 ------------------------
 

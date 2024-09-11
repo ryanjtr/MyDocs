@@ -88,6 +88,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zephyr.html">Zephyr</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ubuntu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ubuntu-partition">Ubuntu partition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#app-installation">App installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#unikey-installation">Unikey installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#chrome-installation">Chrome installation</a></li>
@@ -273,9 +274,92 @@
                             <div itemprop="articleBody">
                                 
   <section id="ubuntu">
-<h1>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this heading"></a></h1>
+<h1><a class="toc-backref" href="#id1">Ubuntu</a><a class="headerlink" href="#ubuntu" title="Permalink to this heading"></a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#ubuntu" id="id1">Ubuntu</a></p>
+<ul>
+<li><p><a class="reference internal" href="#ubuntu-partition" id="id2">Ubuntu partition</a></p></li>
+<li><p><a class="reference internal" href="#app-installation" id="id3">App installation</a></p></li>
+<li><p><a class="reference internal" href="#uninstall-ubuntu-uefi" id="id4">Uninstall Ubuntu(UEFI)</a></p></li>
+<li><p><a class="reference internal" href="#issues" id="id5">Issues</a></p></li>
+<li><p><a class="reference internal" href="#commands" id="id6">Commands</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="ubuntu-partition">
+<h2><a class="toc-backref" href="#id2">Ubuntu partition</a><a class="headerlink" href="#ubuntu-partition" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your hard drive size is less than 60GB,
+just ignore partitioning and use entire drive to install Ubuntu.</p>
+</div>
+<ol class="arabic">
+<li><p>EFI System Partition</p>
+<blockquote>
+<div><p>This partition is mandatory if your laptop/computer is booting using UEFI instead of Legacy.
+It is usually allocated 200 MB of space.</p>
+<ul class="simple">
+<li><p>Mount point: Not required</p></li>
+<li><p>Type: efi</p></li>
+<li><p>Size: 200 MB</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Swap Partition</p>
+<blockquote>
+<div><p>This partition is used when the RAM is insufficient to run applications.
+Its function is similar to paging in Windows.
+You should allocate at least as much space for this partition as your RAM.</p>
+<ul class="simple">
+<li><p>Mount point: Not required</p></li>
+<li><p>Type: swap</p></li>
+<li><p>Size: 8 GB (if RAM is 8 GB)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Root Partition</p>
+<blockquote>
+<div><p>This is a mandatory partition. It will be mounted at <code class="docutils literal notranslate"><span class="pre">/</span></code>.
+I usually allocate 30 GB to it, but you can assign more if you wish.</p>
+<ul class="simple">
+<li><p>Mount point: /</p></li>
+<li><p>Type: ext4</p></li>
+<li><p>Size: 30 GB</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Home Partition</p>
+<blockquote>
+<div><p>This partition stores personal files.
+Each user will have a folder here.
+I create a separate partition for it so that if Ubuntu is reinstalled or upgraded,
+all user files will be preserved.</p>
+<ul class="simple">
+<li><p>Mount point: /home</p></li>
+<li><p>Type: ext4</p></li>
+<li><p>Size: 100 GB (can be more if needed for extensive use)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Data Partition</p>
+<blockquote>
+<div><p>This partition is used to store data shared with Windows.
+That’s why it has the NTFS file system. Later, if I plan to return to Windows,
+I won’t format or delete this partition. Since it uses NTFS, Windows can easily read it.</p>
+<ul class="simple">
+<li><p>Mount point: Not required</p></li>
+<li><p>Type: ntfs</p></li>
+<li><p>Size: The remaining space on the hard drive</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</section>
 <section id="app-installation">
-<h2>App installation<a class="headerlink" href="#app-installation" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id3">App installation</a><a class="headerlink" href="#app-installation" title="Permalink to this heading"></a></h2>
 <section id="unikey-installation">
 <h3>Unikey installation<a class="headerlink" href="#unikey-installation" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://tuong.me/huong-dan-cai-dat-bo-go-tieng-viet-cho-ubuntu-ibus-unikey/" rel="noopener noreferrer" target="_blank">Uinikey tutorial</a></p>
@@ -286,7 +370,7 @@
 </section>
 </section>
 <section id="uninstall-ubuntu-uefi">
-<h2>Uninstall Ubuntu(UEFI)<a class="headerlink" href="#uninstall-ubuntu-uefi" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id4">Uninstall Ubuntu(UEFI)</a><a class="headerlink" href="#uninstall-ubuntu-uefi" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://youtu.be/T71OKoph3YU" rel="noopener noreferrer" target="_blank">Uninstall tutorial</a></p>
 <p>Commands in tutorial</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bcdedit /enum all
@@ -328,7 +412,7 @@ dir /a <span class="o">(</span>chosen letter above<span class="o">)</span>:<span
 </div>
 </section>
 <section id="issues">
-<h2>Issues<a class="headerlink" href="#issues" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id5">Issues</a><a class="headerlink" href="#issues" title="Permalink to this heading"></a></h2>
 <p><strong>Could not get lock /var/lib/dpkg/lock Error on Ubuntu 22.04</strong></p>
 <p>Solution: Check for Software Updates</p>
 <p><strong>what is the “~/.local” and can I delete it?</strong></p>
@@ -344,7 +428,7 @@ dir /a <span class="o">(</span>chosen letter above<span class="o">)</span>:<span
 </div>
 </section>
 <section id="commands">
-<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id6">Commands</a><a class="headerlink" href="#commands" title="Permalink to this heading"></a></h2>
 <section id="remove-folder">
 <h3>Remove folder<a class="headerlink" href="#remove-folder" title="Permalink to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">-f</span> <span class="pre">/path/</span></code></p>
