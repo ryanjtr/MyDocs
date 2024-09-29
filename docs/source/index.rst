@@ -20,5 +20,7 @@ RyanDank`s Documentation
    Contents/wiregaurd
    Contents/vivado
    Contents/RISCV/riscv
+   Contents/STM32/freertos.rst
+   Contents/ContikiOS/contikios.rst
 
 
