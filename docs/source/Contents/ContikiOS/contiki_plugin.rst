@@ -1,9 +1,9 @@
-ContikiOS Plugin
+Cooja Plugin
 =====================
 
 .. contents:: 
     :depth: 2
-    
+
 Mobility Plugin
 ------------------
 
