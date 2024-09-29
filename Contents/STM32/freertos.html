@@ -5,7 +5,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
     <link sizes="32x32" href="../../_static/logo.png" rel="icon" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gtkwave &mdash; RyanDocs 2024 documentation</title>
+    <title>FreeRTOS &mdash; RyanDocs 2024 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -30,8 +30,8 @@
         <script src="../../_static/js/theme.js"></script>
         <link rel="index" title="Index" href="../../genindex.html" />
         <link rel="search" title="Search" href="../../search.html" />
-        <link rel="next" title="Gap Toolchain and SDK" href="Gap_toolchain_and_sdk.html" />
-        <link rel="prev" title="Lab" href="Labcode.html" /> 
+        <link rel="next" title="ContikiOS" href="../ContikiOS/contikios.html" />
+        <link rel="prev" title="Pulpissimo" href="../RISCV/pulpissimo.html" /> 
         <style>
             #logo-container {
                 position: relative;
@@ -97,22 +97,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../docker.html">Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wiregaurd.html">Wiregaurd</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vivado.html">Vivado</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="riscv.html">RISC-V</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Introduction.html">Assembly Language</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Code.html">Examples and Explanations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Assembly_script.html">The RV32I ISA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Pulp_toolchain_and_sdk.html">PULP Toolchain and SDK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Labcode.html">Lab</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Gtkwave</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RISCV/riscv.html">RISC-V</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FreeRTOS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#add-freertos-library">Add FreeRTOS library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notes-in-freertosconfig-h">Notes in FreeRTOSConfig.h</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="Gap_toolchain_and_sdk.html">Gap Toolchain and SDK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pulpissimo.html">Pulpissimo</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../STM32/freertos.html">FreeRTOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ContikiOS/contikios.html">ContikiOS</a></li>
 </ul>
 
@@ -265,8 +255,7 @@
                         <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="riscv.html">RISC-V</a> &raquo;</li>
-      <li>Gtkwave</li>
+      <li>FreeRTOS</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -275,31 +264,160 @@
                         <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
                             <div itemprop="articleBody">
                                 
-  <section id="gtkwave">
-<h1>Gtkwave<a class="headerlink" href="#gtkwave" title="Permalink to this heading"></a></h1>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
-<p>Gtkwave is a viewer for VCD (Value Change Dump) files which are usually created by digital circuit simulators.</p>
+  <section id="freertos">
+<h1><a class="toc-backref" href="#id1">FreeRTOS</a><a class="headerlink" href="#freertos" title="Permalink to this heading"></a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#freertos" id="id1">FreeRTOS</a></p>
+<ul>
+<li><p><a class="reference internal" href="#add-freertos-library" id="id2">Add FreeRTOS library</a></p></li>
+<li><p><a class="reference internal" href="#notes-in-freertosconfig-h" id="id3">Notes in FreeRTOSConfig.h</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="add-freertos-library">
+<h2><a class="toc-backref" href="#id2">Add FreeRTOS library</a><a class="headerlink" href="#add-freertos-library" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Download FreeRTOS <code class="docutils literal notranslate"><span class="pre">source-code.zip</span></code> <a class="reference external" href="https://github.com/FreeRTOS/FreeRTOS-Kernel/releases/tag/V11.1.0" rel="noopener noreferrer" target="_blank">here</a></p></li>
+<li><p>Create a FreeRTOS folder then add all file with a <code class="docutils literal notranslate"><span class="pre">.c</span></code> extention and the <em>include</em> folder from the above directory to this folder.</p></li>
+<li><p>Copy <code class="docutils literal notranslate"><span class="pre">portable/GCC/ARM_CM3</span></code> to your folder. Use ARM_CM3 for Cortex-M3, or choose another option that matches your microcontroller.</p></li>
+<li><p>Copy <code class="docutils literal notranslate"><span class="pre">portable/MemMang/heap4.c</span></code> to your folder.</p></li>
+</ul>
+<img alt="../../_images/freertos_lib.png" src="../../_images/freertos_lib.png" />
+<ul class="simple">
+<li><p>Create <code class="docutils literal notranslate"><span class="pre">FreeRTOSConfig.h</span></code> file in <code class="docutils literal notranslate"><span class="pre">Core/Inc/</span></code> and add these line</p></li>
+</ul>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">* FreeRTOS V202212.01</span>
+<span class="cm">* Copyright (C) 2020 Amazon.com, Inc. or its affiliates.  All Rights Reserved.</span>
+<span class="cm">*</span>
+<span class="cm">* Permission is hereby granted, free of charge, to any person obtaining a copy of</span>
+<span class="cm">* this software and associated documentation files (the &quot;Software&quot;), to deal in</span>
+<span class="cm">* the Software without restriction, including without limitation the rights to</span>
+<span class="cm">* use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of</span>
+<span class="cm">* the Software, and to permit persons to whom the Software is furnished to do so,</span>
+<span class="cm">* subject to the following conditions:</span>
+<span class="cm">*</span>
+<span class="cm">* The above copyright notice and this permission notice shall be included in all</span>
+<span class="cm">* copies or substantial portions of the Software.</span>
+<span class="cm">*</span>
+<span class="cm">* THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="cm">* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS</span>
+<span class="cm">* FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR</span>
+<span class="cm">* COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER</span>
+<span class="cm">* IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN</span>
+<span class="cm">* CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</span>
+<span class="cm">*</span>
+<span class="cm">* https://www.FreeRTOS.org</span>
+<span class="cm">* https://github.com/FreeRTOS</span>
+<span class="cm">*</span>
+<span class="cm">*/</span><span class="w"></span>
+
+<span class="cp">#ifndef FREERTOS_CONFIG_H</span>
+<span class="cp">#define FREERTOS_CONFIG_H</span>
+
+<span class="cm">/* Library includes. */</span><span class="w"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;stm32f1xx.h&quot;</span><span class="cp"></span>
+
+<span class="cm">/*-----------------------------------------------------------</span>
+<span class="cm">* Application specific definitions.</span>
+<span class="cm">*</span>
+<span class="cm">* These definitions should be adjusted for your particular hardware and</span>
+<span class="cm">* application requirements.</span>
+<span class="cm">*</span>
+<span class="cm">* THESE PARAMETERS ARE DESCRIBED WITHIN THE &#39;CONFIGURATION&#39; SECTION OF THE</span>
+<span class="cm">* FreeRTOS API DOCUMENTATION AVAILABLE ON THE FreeRTOS.org WEB SITE.</span>
+<span class="cm">*</span>
+<span class="cm">* See http://www.freertos.org/a00110.html</span>
+<span class="cm">*----------------------------------------------------------*/</span><span class="w"></span>
+
+<span class="cp">#define configUSE_PREEMPTION                1</span>
+<span class="cp">#define configUSE_IDLE_HOOK                 0</span>
+<span class="cp">#define configUSE_TICK_HOOK                 0</span>
+<span class="cp">#define configCPU_CLOCK_HZ                  ( ( unsigned long ) 8000000 )</span>
+<span class="cp">#define configTICK_RATE_HZ                  ( ( TickType_t ) 1000 )</span>
+<span class="cp">#define configMAX_PRIORITIES                ( 5 )</span>
+<span class="cp">#define configMINIMAL_STACK_SIZE    ( ( unsigned short ) 128 )</span>
+<span class="cp">#define configTOTAL_HEAP_SIZE               ( ( size_t ) ( 17 * 1024 ) )</span>
+<span class="cp">#define configMAX_TASK_NAME_LEN             ( 16 )</span>
+<span class="cp">#define configUSE_TRACE_FACILITY    0</span>
+<span class="cp">#define configUSE_16_BIT_TICKS              0</span>
+<span class="cp">#define configIDLE_SHOULD_YIELD             1</span>
+<span class="cp">#define configUSE_MUTEXES                   1</span>
+
+
+<span class="cm">/* Set the following definitions to 1 to include the API function, or zero</span>
+<span class="cm">to exclude the API function. */</span><span class="w"></span>
+
+<span class="cp">#define INCLUDE_vTaskPrioritySet            1</span>
+<span class="cp">#define INCLUDE_uxTaskPriorityGet           1</span>
+<span class="cp">#define INCLUDE_vTaskDelete                         1</span>
+<span class="cp">#define INCLUDE_vTaskCleanUpResources       0</span>
+<span class="cp">#define INCLUDE_vTaskSuspend                        1</span>
+<span class="cp">#define INCLUDE_vTaskDelayUntil                     1</span>
+<span class="cp">#define INCLUDE_vTaskDelay                          1</span>
+
+<span class="cm">/* This is the raw value as per the Cortex-M3 NVIC.  Values can be 255</span>
+<span class="cm">(lowest) to 0 (1?) (highest). */</span><span class="w"></span>
+<span class="cp">#define configKERNEL_INTERRUPT_PRIORITY             255</span>
+<span class="cm">/* !!!! configMAX_SYSCALL_INTERRUPT_PRIORITY must not be set to zero !!!!</span>
+<span class="cm">See http://www.FreeRTOS.org/RTOS-Cortex-M3-M4.html. */</span><span class="w"></span>
+<span class="cp">#define configMAX_SYSCALL_INTERRUPT_PRIORITY        (5&lt;&lt;4) </span><span class="cm">/* equivalent to 0xb0, or priority 11. */</span><span class="cp"></span>
+
+
+<span class="cm">/* This is the value being used as per the ST library which permits 16</span>
+<span class="cm">priority values, 0 to 15.  This must correspond to the</span>
+<span class="cm">configKERNEL_INTERRUPT_PRIORITY setting.  Here 15 corresponds to the lowest</span>
+<span class="cm">NVIC value of 255. */</span><span class="w"></span>
+<span class="cp">#define configLIBRARY_KERNEL_INTERRUPT_PRIORITY     15</span>
+
+<span class="cp">#endif </span><span class="cm">/* FREERTOS_CONFIG_H */</span><span class="cp"></span>
+</pre></div>
+</div>
+<ul>
+<li><p>Here, I use the STM32F1 series, so I include <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;stm32f1xx.h&quot;</span></code>. You need to change this to the header file relevant to your microcontroller.</p></li>
+<li><p>Then open <em>startup</em> file in <code class="docutils literal notranslate"><span class="pre">Core/Src/Startup</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Add these code below <em>.global  Default_Handler</em></p></li>
+</ul>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="k">extern</span><span class="w"> </span><span class="n">xPortPendSVHandler</span><span class="w"></span>
+<span class="p">.</span><span class="k">extern</span><span class="w"> </span><span class="n">xPortSysTickHandler</span><span class="w"></span>
+<span class="p">.</span><span class="k">extern</span><span class="w"> </span><span class="n">vPortSVCHandler</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Then replace 3 handler below to RTOS`s handler</p></li>
+</ul>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="n">word</span><span class="w">  </span><span class="n">vPortSVCHandler</span><span class="w"> </span><span class="c1">//SVC_Handler</span>
+<span class="p">.</span><span class="n">word</span><span class="w">  </span><span class="n">DebugMon_Handler</span><span class="w"></span>
+<span class="p">.</span><span class="n">word</span><span class="w">  </span><span class="mi">0</span><span class="w"></span>
+<span class="p">.</span><span class="n">word</span><span class="w">  </span><span class="n">xPortPendSVHandler</span><span class="w"> </span><span class="c1">//PendSV_Handler</span>
+<span class="p">.</span><span class="n">word</span><span class="w">  </span><span class="n">xPortSysTickHandler</span><span class="w"> </span><span class="c1">//SysTick_Handler</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
 </section>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
-<p>Ubuntu version 22.04.4</p>
-<p>Update apt database with apt-get using the following command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
+<section id="notes-in-freertosconfig-h">
+<h2><a class="toc-backref" href="#id3">Notes in FreeRTOSConfig.h</a><a class="headerlink" href="#notes-in-freertosconfig-h" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>configMAX_SYSCALL_INTERRUPT_PRIORITY</p></li>
+</ol>
+<p>In <em>FreeRTOSConfig.h</em> file, there is a line</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#define configMAX_SYSCALL_INTERRUPT_PRIORITY        (5&lt;&lt;4)</span>
 </pre></div>
 </div>
-<p>After updating apt database, We can install gtkwave using apt-get by running the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get -y install gtkwave
+<p>Stm32 uses 4 MSB bytes to present the priority of priority`s register.</p>
+<p>This line means that your ISR function can use the FreeRTOS API only if the function’s priority is between 5 and 15.</p>
+<p>For example: the USART2 ISR</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cm">/* USART2 interrupt Init */</span><span class="w"></span>
+<span class="n">NVIC_SetPriority</span><span class="p">(</span><span class="n">USART2_IRQn</span><span class="p">,</span><span class="w"> </span><span class="n">NVIC_EncodePriority</span><span class="p">(</span><span class="n">NVIC_GetPriorityGrouping</span><span class="p">(),</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span><span class="w"></span>
+<span class="n">NVIC_EnableIRQ</span><span class="p">(</span><span class="n">USART2_IRQn</span><span class="p">);</span><span class="w"></span>
 </pre></div>
-</div>
-<p>if you have this error <code class="docutils literal notranslate"><span class="pre">Failed</span> <span class="pre">to</span> <span class="pre">load</span> <span class="pre">module</span> <span class="pre">&quot;canberra-gtk-module&quot;</span></code></p>
-<p>The following command will solve the problem</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To run gtkview you must have <code class="docutils literal notranslate"><span class="pre">all.vcd</span></code> and <code class="docutils literal notranslate"><span class="pre">view.gtkw</span></code></p>
 </div>
 </section>
 </section>
@@ -312,8 +430,8 @@
 
 
                         <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Labcode.html" class="btn btn-neutral float-left" title="Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Gap_toolchain_and_sdk.html" class="btn btn-neutral float-right" title="Gap Toolchain and SDK" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../RISCV/pulpissimo.html" class="btn btn-neutral float-left" title="Pulpissimo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../ContikiOS/contikios.html" class="btn btn-neutral float-right" title="ContikiOS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
