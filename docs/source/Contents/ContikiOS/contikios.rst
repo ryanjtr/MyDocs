@@ -11,7 +11,7 @@ Mobility Plugin
 Installation
 ~~~~~~~~~~~~~~~~~
 
-You can download mobility plugin from this `URL <https://sourceforge.net/p/contikiprojects/code/HEAD/tree/sics.se/mobility/>`_
+You can download mobility plugin from this `URL <https://github.com/ryanjtr/MyDocs/tree/main/docs/source/Contents/ContikiOS/mobility>`_
 
 Open your terminal and invoke command below to create ``mobility`` directory.
 
@@ -57,3 +57,11 @@ Go to the end of this field and add ``;``, then add your ``mobility`` path to it
 Then close and reopen Cooja again. Go to ``Settings`` and ``Cooja Extensions``. Find your mobility path, click it and click ``Apply for session``.
 
 Now go to ``Tools`` and you can find ``mobility`` plugin in it.
+
+Usage
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+First, you have to open cooja and create a new simulation. 
+
+Then go to ``Tools`` and choose ``mobility``. It will appear an window to parsing ``position.dat``. 
+You can change content ``position.dat`` for more nodes.
