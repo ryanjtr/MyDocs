@@ -22,6 +22,19 @@ Open your terminal and invoke command below to create ``mobility`` directory.
 
 Download all file from above URL and move them to ``mobility`` directory.
 
+.. note:: 
+
+    Add ``includeantruntime="false"`` next to ``debug="on"`` 
+
+    .. code-block:: 
+
+        <javac srcdir="${src}" destdir="${build}" debug="on" >
+        <classpath>
+            <pathelement path="."/>
+            <pathelement location="${cooja_jar}"/>
+        </classpath>
+        </javac>
+
 
 Buid plugin
 ~~~~~~~~~~~~~
