@@ -30,6 +30,7 @@
         <script src="../../_static/js/theme.js"></script>
         <link rel="index" title="Index" href="../../genindex.html" />
         <link rel="search" title="Search" href="../../search.html" />
+        <link rel="next" title="Networking" href="networking.html" />
         <link rel="prev" title="ContikiOS" href="contikios.html" /> 
         <style>
             #logo-container {
@@ -109,6 +110,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
 </ul>
 </li>
 </ul>
@@ -296,6 +298,18 @@ mkdir mobility
 </pre></div>
 </div>
 <p>Download all file from above URL and move them to <code class="docutils literal notranslate"><span class="pre">mobility</span></code> directory.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Add <code class="docutils literal notranslate"><span class="pre">includeantruntime=&quot;false&quot;</span></code> next to <code class="docutils literal notranslate"><span class="pre">debug=&quot;on&quot;</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">javac</span> <span class="n">srcdir</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{src}</span><span class="s2">&quot;</span> <span class="n">destdir</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{build}</span><span class="s2">&quot;</span> <span class="n">debug</span><span class="o">=</span><span class="s2">&quot;on&quot;</span> <span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">classpath</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">pathelement</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">pathelement</span> <span class="n">location</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{cooja_jar}</span><span class="s2">&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">classpath</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">javac</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
 </section>
 <section id="buid-plugin">
 <h3>Buid plugin<a class="headerlink" href="#buid-plugin" title="Permalink to this heading"></a></h3>
@@ -341,6 +355,7 @@ You can change content <code class="docutils literal notranslate"><span class="p
 
                         <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="contikios.html" class="btn btn-neutral float-left" title="ContikiOS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="networking.html" class="btn btn-neutral float-right" title="Networking" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
