@@ -95,7 +95,7 @@ Porting library to STM32F746GDISCOVERY project
 Run lvgl example
 -------------------
 
-.. code:: c
+.. code:: C
 
     /* USER CODE BEGIN Includes */
     #include "lvgl/lvgl.h"
@@ -106,7 +106,7 @@ Run lvgl example
 
     /* USER CODE END Includes */
 
-        int main(void)
+    int main(void)
     {
 
     /* USER CODE BEGIN 1 */
