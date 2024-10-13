@@ -35,7 +35,7 @@ requests>=2.28.1
     # via sphinx
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==7.1.2
+sphinx==7.0.0
     # via
     #   -r docs/requirements.in
     #   sphinx-rtd-theme
@@ -51,7 +51,8 @@ sphinxcontrib-jsmath==1.0.1
     # via sphinx
 sphinxcontrib-qthelp==1.0.3
     # via sphinx
-sphinxcontrib-serializinghtml>=1.1.0
+sphinxcontrib-serializinghtml>=pip-compile docs/requirements.in
+1.1.0
     # via sphinx
 urllib3>=1.26.9
     # via requests
