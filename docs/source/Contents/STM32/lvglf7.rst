@@ -92,8 +92,8 @@ Porting library to STM32F746GDISCOVERY project
 
     #. I recommend using LVGL version 8.2 for enhanced stability. Because cannot use macro rotation display in version 9.3.0
 
-Run example
---------------
+Run lvgl example
+-------------------
 
 .. code:: c
 
