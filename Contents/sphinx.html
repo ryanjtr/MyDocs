@@ -575,15 +575,15 @@ create a Java script file <code class="docutils literal notranslate"><span class
 </section>
 <section id="deploy-to-github">
 <h2><a class="toc-backref" href="#id7" role="doc-backlink">Deploy to github</a><a class="headerlink" href="#deploy-to-github" title="Permalink to this heading"></a></h2>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p>Create a <code class="docutils literal notranslate"><span class="pre">repository</span></code>, set up in <code class="docutils literal notranslate"><span class="pre">public</span></code>.</p></li>
 <li><p>Press <code class="docutils literal notranslate"><span class="pre">creating</span> <span class="pre">a</span> <span class="pre">new</span> <span class="pre">file</span></code> to create <code class="docutils literal notranslate"><span class="pre">readme.txt</span></code> file, then press <code class="docutils literal notranslate"><span class="pre">commit</span> <span class="pre">change</span></code>.</p></li>
 <li><p>Press <code class="docutils literal notranslate"><span class="pre">&lt;&gt;Code</span></code>. Choose <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">file</span></code>, then choose <code class="docutils literal notranslate"><span class="pre">Upload</span> <span class="pre">file</span></code>. Pull folder <code class="docutils literal notranslate"><span class="pre">docs</span></code> to the repository.</p></li>
 <li><p>Then <code class="docutils literal notranslate"><span class="pre">Commit</span> <span class="pre">changes</span></code>.</p></li>
 <li><p>Choose <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">file</span></code>, then choose <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">new</span> <span class="pre">file</span></code>. Copy this <code class="docutils literal notranslate"><span class="pre">.github/workflows/sphinx.yml</span></code> then paste to make <code class="docutils literal notranslate"><span class="pre">sphinx.yml</span></code> file in <code class="docutils literal notranslate"><span class="pre">.github</span></code> folder.</p></li>
-<li><p>In <code class="docutils literal notranslate"><span class="pre">sphinx.yml</span></code> file,add the contents below then press <code class="docutils literal notranslate"><span class="pre">Commit</span> <span class="pre">change</span></code> twice.</p></li>
-</ol>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and Deploy Docs</span>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">sphinx.yml</span></code> file,add the contents below then press <code class="docutils literal notranslate"><span class="pre">Commit</span> <span class="pre">change</span></code> twice.</p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and Deploy Docs</span>
 
 <span class="nt">on</span><span class="p">:</span>
 <span class="nt">push</span><span class="p">:</span>
@@ -628,7 +628,8 @@ create a Java script file <code class="docutils literal notranslate"><span class
 <span class="w">        </span><span class="nt">publish_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docs/build/html</span>
 </pre></div>
 </div>
-<ol class="arabic simple">
+</div></blockquote>
+</li>
 <li><p>Press <code class="docutils literal notranslate"><span class="pre">Settings</span></code>, then choose <code class="docutils literal notranslate"><span class="pre">Pages</span></code>. Choose <code class="docutils literal notranslate"><span class="pre">Deploy</span> <span class="pre">from</span> <span class="pre">branch</span></code>. In <code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">branch</span></code> choose <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code>, then press <code class="docutils literal notranslate"><span class="pre">Save</span></code>.</p></li>
 <li><p>Refresh page and wait for 5 minutes to generate a web link.</p></li>
 </ol>
