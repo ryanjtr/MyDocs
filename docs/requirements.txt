@@ -11,7 +11,7 @@ certifi==2022.6.15
     # via requests
 charset-normalizer==2.1.0
     # via requests
-docutils<0.20 and >=0.18.1
+docutils<0.20, >=0.18.1
     # via
     #   sphinx
     #   sphinx-rtd-theme
