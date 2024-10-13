@@ -368,32 +368,51 @@ Deploy to github
 
 #. In ``sphinx.yml`` file,add the contents below then press ``Commit change`` twice.
     
-    .. code-block:: yaml
+.. code-block:: yaml
 
-        name: "Sphinx: Render docs"
+    name: Build and Deploy Docs
 
-        on: push
+    on:
+    push:
+        branches:
+        - main
+    pull_request:
 
-        jobs:
-          build:
-            runs-on: ubuntu-latest
-            permissions:
-                contents: write
-            steps:
-            - uses: actions/checkout@v4
-            - name: Build HTML
-              uses: ammaraskar/sphinx-action@master
-            - name: Upload artifacts
-              uses: actions/upload-artifact@v4
-              with:
-                name: html-docs
-                path: docs/build/html/
-            - name: Deploy
-              uses: peaceiris/actions-gh-pages@v3
-              if: github.ref == 'refs/heads/main'
-              with:
-                github_token: ${{ secrets.GITHUB_TOKEN }}
-                publish_dir: docs/build/html
+    jobs:
+    build:
+        runs-on: ubuntu-latest
+        permissions:
+        contents: write  # Necessary for deploying to GitHub Pages
+        steps:
+        - name: Checkout code
+            uses: actions/checkout@v4
+
+        - name: Set up Python
+            uses: actions/setup-python@v2
+            with:
+            python-version: '3.10'  # Specify the desired Python version
+
+        - name: Upgrade pip
+            run: python -m pip install --upgrade pip
+
+        - name: Install dependencies
+            run: pip install -r docs/requirements.txt
+
+        - name: Build the documentation
+            run: sphinx-build -b html docs/source docs/build/html
+
+        - name: Upload artifacts
+            uses: actions/upload-artifact@v4
+            with:
+            name: html-docs
+            path: docs/build/html/
+
+        - name: Deploy to GitHub Pages
+            uses: peaceiris/actions-gh-pages@v3
+            if: github.ref == 'refs/heads/main'
+            with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: docs/build/html
 
 #. Press ``Settings``, then choose ``Pages``. Choose ``Deploy from branch``. In ``select branch`` choose ``gh-pages``, then press ``Save``. 
 
