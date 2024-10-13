@@ -51,9 +51,6 @@ sphinxcontrib-jsmath==1.0.1
     # via sphinx
 sphinxcontrib-qthelp==1.0.3
     # via sphinx
-sphinxcontrib-serializinghtml>=pip-compile docs/requirements.in
-1.1.0
-    # via sphinx
 urllib3>=1.26.9
     # via requests
 sphinx-copybutton
