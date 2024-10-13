@@ -2,7 +2,7 @@
 <html class="writer-html5" lang="en" >
 
 <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link sizes="32x32" href="../_static/logo.png" rel="icon" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zephyr &mdash; RyanDocs 2024 documentation</title>
@@ -17,11 +17,11 @@
     <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
     <![endif]-->
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script src="../_static/scripts.js"></script>
@@ -74,7 +74,7 @@
                     </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -103,6 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="RISCV/riscv.html">RISC-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="STM32/freertos.html">FreeRTOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ContikiOS/contikios.html">ContikiOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STM32/lvglf7.html">LVGL</a></li>
 </ul>
 
 
@@ -253,8 +254,8 @@
                     <div class="rst-content">
                         <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Zephyr</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Zephyr</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -264,8 +265,8 @@
                             <div itemprop="articleBody">
                                 
   <section id="zephyr">
-<h1><a class="toc-backref" href="#id1">Zephyr</a><a class="headerlink" href="#zephyr" title="Permalink to this heading"></a></h1>
-<div class="contents topic" id="contents">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Zephyr</a><a class="headerlink" href="#zephyr" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#zephyr" id="id1">Zephyr</a></p>
@@ -274,13 +275,13 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Once activated your shell will be prefixed with (.venv). The virtual environment can be deactivated at any time by running: deactivate.</p>
 </div>
 <section id="upload-code">
-<h2><a class="toc-backref" href="#id2">Upload code</a><a class="headerlink" href="#upload-code" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Upload code</a><a class="headerlink" href="#upload-code" title="Permalink to this heading"></a></h2>
 <p>If running the code for the first time, you must execute the following command in the terminal</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">venv</span>
 <span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">~/</span><span class="n">zephyrproject</span><span class="o">/.</span><span class="n">venv</span>

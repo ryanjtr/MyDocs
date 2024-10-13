@@ -2,7 +2,7 @@
 <html class="writer-html5" lang="en" >
 
 <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link sizes="32x32" href="../_static/logo.png" rel="icon" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MQTT &mdash; RyanDocs 2024 documentation</title>
@@ -17,11 +17,11 @@
     <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
     <![endif]-->
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script src="../_static/scripts.js"></script>
@@ -74,7 +74,7 @@
                     </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -106,6 +106,7 @@
 <li class="toctree-l1"><a class="reference internal" href="RISCV/riscv.html">RISC-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="STM32/freertos.html">FreeRTOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ContikiOS/contikios.html">ContikiOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STM32/lvglf7.html">LVGL</a></li>
 </ul>
 
 
@@ -256,8 +257,8 @@
                     <div class="rst-content">
                         <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>MQTT</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">MQTT</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -267,8 +268,8 @@
                             <div itemprop="articleBody">
                                 
   <section id="mqtt">
-<h1><a class="toc-backref" href="#id1">MQTT</a><a class="headerlink" href="#mqtt" title="Permalink to this heading"></a></h1>
-<div class="contents topic" id="contents">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">MQTT</a><a class="headerlink" href="#mqtt" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#mqtt" id="id1">MQTT</a></p>
@@ -280,29 +281,29 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <p>Viết ví dụ và tutorial giải thích chi tiết cách dùng board STM32F7 giao tiếp với cảm biến DHT11 để lấy nhiệt
 độ, độ ẩm và push lên nền tảng Thingsboard</p>
 <section id="gioi-thieu">
-<h2><a class="toc-backref" href="#id2">Giới thiệu</a><a class="headerlink" href="#gioi-thieu" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Giới thiệu</a><a class="headerlink" href="#gioi-thieu" title="Permalink to this heading"></a></h2>
 <p>MQTT (MQ Telemetry Transport) là giao thức nhắn tin xuất bản/đăng ký nhẹ được tối ưu hóa cho các cảm biến nhỏ và thiết bị di động.</p>
 </section>
 <section id="cach-thuc-hoat-dong">
-<h2><a class="toc-backref" href="#id3">Cách thức hoạt động</a><a class="headerlink" href="#cach-thuc-hoat-dong" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Cách thức hoạt động</a><a class="headerlink" href="#cach-thuc-hoat-dong" title="Permalink to this heading"></a></h2>
 <img alt="../_images/cthd.png" src="../_images/cthd.png" />
 <p>MQTT là một trong những giao thức được sử dụng phổ biến nhất liên quan đến IOT. MQTT cho phép các thiết bị IOT hạn
 chế về tài nguyên gửi hoặc xuất bản thông tin về một chủ đề nhất định tới một máy chủ có chức năng như message broker MQTT.</p>
 <img alt="../_images/hd.png" src="../_images/hd.png" />
 </section>
 <section id="thingsboard">
-<h2><a class="toc-backref" href="#id4">Thingsboard</a><a class="headerlink" href="#thingsboard" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Thingsboard</a><a class="headerlink" href="#thingsboard" title="Permalink to this heading"></a></h2>
 <p>ThingsBoard là một nền tảng IoT mã nguồn mở để giám sát, xử lý dữ liệu, trực quan hóa dữ liệu cùng với quản lý thiết bị.</p>
 <p>Nó hỗ trợ các giao thức IoT tiêu chuẩn công nghiệp - MQTT, CoAP và HTTP. ThingsBoard kết hợp khả năng mở rộng, khả năng
 chịu lỗi và hiệu suất để thu thập dữ liệu thiết bị để xử lý và giám sát. Nó cung cấp gateway server có thể giao tiếp với
 các thiết bị đính kèm.</p>
 </section>
 <section id="dht11">
-<h2><a class="toc-backref" href="#id5">DHT11</a><a class="headerlink" href="#dht11" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">DHT11</a><a class="headerlink" href="#dht11" title="Permalink to this heading"></a></h2>
 <p>Request - Response - Data reading</p>
 <p><strong>Request</strong></p>
 <p>Chế độ output,</p>

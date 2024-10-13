@@ -2,7 +2,7 @@
 <html class="writer-html5" lang="en" >
 
 <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link sizes="32x32" href="../../_static/logo.png" rel="icon" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The RV32I ISA &mdash; RyanDocs 2024 documentation</title>
@@ -17,11 +17,11 @@
     <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
     <![endif]-->
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/scripts.js"></script>
@@ -74,7 +74,7 @@
                     </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -126,6 +126,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../STM32/freertos.html">FreeRTOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ContikiOS/contikios.html">ContikiOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../STM32/lvglf7.html">LVGL</a></li>
 </ul>
 
 
@@ -276,9 +277,9 @@
                     <div class="rst-content">
                         <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="riscv.html">RISC-V</a> &raquo;</li>
-      <li>The RV32I ISA</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="riscv.html">RISC-V</a></li>
+      <li class="breadcrumb-item active">The RV32I ISA</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -340,9 +341,9 @@ bộ nhớ, phần mềm phải thực thi một lệnh tải/lưu trữ.</p>
 liệu được lưu trữ trong bộ nhớ, nó yêu cầu dữ liệu phải được trước tiên lấy từ bộ nhớ vào một thanh ghi bằng
 cách thực thi một lệnh tải.</p>
 <p>ví dụ:</p>
-<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">lw</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">a0</span><span class="p">)</span><span class="w"></span>
-<span class="nf">add</span><span class="w"> </span><span class="no">a6</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="w"></span>
-<span class="nf">sw</span><span class="w"> </span><span class="no">a6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">a0</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">lw</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">a0</span><span class="p">)</span>
+<span class="nf">add</span><span class="w"> </span><span class="no">a6</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span>
+<span class="nf">sw</span><span class="w"> </span><span class="no">a6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">a0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Lệnh đầu tiên, gọi là lệnh tải từ (load word) và được chỉ định bằng ký hiệu lw, là một lệnh tải.
@@ -385,10 +386,10 @@ lệnh này bao gồm ba phần: một thanh ghi đích, và hai toán hạng ng
 <p>Toán hạng nguồn thứ hai (rs2 hoặc imm): Đây là thanh ghi thứ hai hoặc một giá trị ngay lập tức. Nó chứa dữ
 liệu thứ hai mà lệnh sẽ sử dụng trong phép tính.</p>
 <p>Cú pháp của các lệnh logic, dịch và toán học có thể là:</p>
-<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">MNM</span><span class="w"> </span><span class="no">rd</span><span class="p">,</span><span class="w"> </span><span class="no">rs1</span><span class="p">,</span><span class="w"> </span><span class="no">rs2</span><span class="w"></span>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">MNM</span><span class="w"> </span><span class="no">rd</span><span class="p">,</span><span class="w"> </span><span class="no">rs1</span><span class="p">,</span><span class="w"> </span><span class="no">rs2</span>
 </pre></div>
 </div>
-<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">MNM</span><span class="w"> </span><span class="no">rd</span><span class="p">,</span><span class="w"> </span><span class="no">rs1</span><span class="p">,</span><span class="w"> </span><span class="no">imm</span><span class="w"></span>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">MNM</span><span class="w"> </span><span class="no">rd</span><span class="p">,</span><span class="w"> </span><span class="no">rs1</span><span class="p">,</span><span class="w"> </span><span class="no">imm</span>
 </pre></div>
 </div>
 <p>Ở đây, “MNM” là mã lệnh, “rd” là thanh ghi đích, “rs1” là toán hạng nguồn thứ nhất và “rs2” (hoặc “imm”) là toán hạng thứ hai.</p>
@@ -405,7 +406,7 @@ nếu <code class="docutils literal notranslate"><span class="pre">x0</span></co
 cách sử dụng pseudo-lệnh “load immediate”, hoặc li. Pseudo-lệnh này sẽ tự động được chuyển
 đổi bởi trình biên dịch thành chuỗi lệnh máy tốt nhất để tạo ra giá trị mong muốn. Cú pháp
 của lệnh load immediate là:</p>
-<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">li</span><span class="w"> </span><span class="no">rd</span><span class="p">,</span><span class="w"> </span><span class="no">imm</span><span class="w"></span>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">li</span><span class="w"> </span><span class="no">rd</span><span class="p">,</span><span class="w"> </span><span class="no">imm</span>
 </pre></div>
 </div>
 <p>ở đó, rd chỉ ra thanh ghi đích và imm là giá trị ngay lập tức mong muốn.</p>
@@ -417,9 +418,9 @@ hóa các giá trị ngay lập tức có thể được biểu diễn dưới d
 hệ số nhị phân bù hai. Nói cách khác, các giá trị ngay lập tức được sử dụng như các toán
 hạng trên các lệnh này phải lớn hơn hoặc bằng -2048 và nhỏ hơn hoặc bằng 2047.</p>
 <p>Ví dụ, các lệnh sau đây là không hợp lệ:</p>
-<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">add</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="mi">2048</span><span class="w"></span>
-<span class="nf">add</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="mi">10000</span><span class="w"></span>
-<span class="nf">add</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="mi">-3000</span><span class="w"></span>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">add</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="mi">2048</span>
+<span class="nf">add</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="mi">10000</span>
+<span class="nf">add</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="mi">-3000</span>
 </pre></div>
 </div>
 <p>Chúng không hợp lệ vì trình biên dịch không thể mã hóa các giá trị ngay lập tức vào lệnh

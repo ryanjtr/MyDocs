@@ -2,7 +2,7 @@
 <html class="writer-html5" lang="en" >
 
 <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link sizes="32x32" href="../../_static/logo.png" rel="icon" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pulpissimo &mdash; RyanDocs 2024 documentation</title>
@@ -17,11 +17,11 @@
     <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
     <![endif]-->
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/scripts.js"></script>
@@ -74,7 +74,7 @@
                     </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -122,6 +122,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../STM32/freertos.html">FreeRTOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ContikiOS/contikios.html">ContikiOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../STM32/lvglf7.html">LVGL</a></li>
 </ul>
 
 
@@ -272,9 +273,9 @@
                     <div class="rst-content">
                         <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="riscv.html">RISC-V</a> &raquo;</li>
-      <li>Pulpissimo</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="riscv.html">RISC-V</a></li>
+      <li class="breadcrumb-item active">Pulpissimo</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -295,14 +296,14 @@
 </div>
 <p>Solution: Go to file <code class="docutils literal notranslate"><span class="pre">numbers.py</span></code> then edit <code class="docutils literal notranslate"><span class="pre">numpy.float</span> <span class="pre">=</span> <span class="pre">float</span></code></p>
 <p><strong>GCC error</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">((</span>vp::trace *<span class="o">)(</span>trace_ptr<span class="o">))</span>-&gt;fatal<span class="o">(</span>msg<span class="o">)</span><span class="p">;</span>  : GCC version error - <span class="k">select</span> gcc <span class="m">9</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">((</span>vp::trace<span class="w"> </span>*<span class="o">)(</span>trace_ptr<span class="o">))</span>-&gt;fatal<span class="o">(</span>msg<span class="o">)</span><span class="p">;</span><span class="w">  </span>:<span class="w"> </span>GCC<span class="w"> </span>version<span class="w"> </span>error<span class="w"> </span>-<span class="w"> </span><span class="k">select</span><span class="w"> </span>gcc<span class="w"> </span><span class="m">9</span>
 </pre></div>
 </div>
 <p><a class="reference external" href="https://gist.github.com/cobaohieu/ded429cb892b46ae9bfd9919a11e593a" rel="noopener noreferrer" target="_blank">Solution for gcc</a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Installing Multiple GCC Versions</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install gcc-9 g++-9 gcc-10 g++-10 gcc-11 g++-11 -y
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gcc-9<span class="w"> </span>g++-9<span class="w"> </span>gcc-10<span class="w"> </span>g++-10<span class="w"> </span>gcc-11<span class="w"> </span>g++-11<span class="w"> </span>-y
 </pre></div>
 </div>
 </div>
@@ -310,33 +311,33 @@
 <section id="clone-example">
 <h2>Clone example<a class="headerlink" href="#clone-example" title="Permalink to this heading"></a></h2>
 <p>Put this example in pulpissimo directory</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/pulp-platform/pulp-runtime-examples.git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/pulp-platform/pulp-runtime-examples.git
 </pre></div>
 </div>
 </section>
 <section id="implement-code">
 <h2>Implement code<a class="headerlink" href="#implement-code" title="Permalink to this heading"></a></h2>
 <p>Prepare the environments before running any example</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ./pulp-runtime/configs/pulpissimo.sh
-<span class="nb">source</span> ./env/pulpissimo.sh
-<span class="nb">source</span> ./pulp-sdk/configs/pulpissimo.sh
-<span class="nb">source</span> ./pulp-sdk/configs/platform-rtl.sh
-<span class="nb">source</span> ./pulp-sdk/pkg/sdk/dev/sourceme.sh
-<span class="nb">source</span> ./pulp-sdk/configs/fpgas/pulpissimo/genesys2.sh
-<span class="nb">source</span> ./pulp-sdk/sourceme.sh
-<span class="nb">source</span> setup/vsim.sh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>./pulp-runtime/configs/pulpissimo.sh
+<span class="nb">source</span><span class="w"> </span>./env/pulpissimo.sh
+<span class="nb">source</span><span class="w"> </span>./pulp-sdk/configs/pulpissimo.sh
+<span class="nb">source</span><span class="w"> </span>./pulp-sdk/configs/platform-rtl.sh
+<span class="nb">source</span><span class="w"> </span>./pulp-sdk/pkg/sdk/dev/sourceme.sh
+<span class="nb">source</span><span class="w"> </span>./pulp-sdk/configs/fpgas/pulpissimo/genesys2.sh
+<span class="nb">source</span><span class="w"> </span>./pulp-sdk/sourceme.sh
+<span class="nb">source</span><span class="w"> </span>setup/vsim.sh
 </pre></div>
 </div>
 <p><strong>Hello example</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean all run <span class="nv">platform</span><span class="o">=</span>gvsoc <span class="c1"># run code on virtual platform</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>clean<span class="w"> </span>all<span class="w"> </span>run<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>gvsoc<span class="w"> </span><span class="c1"># run code on virtual platform</span>
 </pre></div>
 </div>
 <p><strong>Uart-send example</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean all <span class="nv">io</span><span class="o">=</span>uart <span class="c1"># build binary file</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>clean<span class="w"> </span>all<span class="w"> </span><span class="nv">io</span><span class="o">=</span>uart<span class="w"> </span><span class="c1"># build binary file</span>
 </pre></div>
 </div>
 <p>Generate <code class="docutils literal notranslate"><span class="pre">.vcd</span></code> file to see gtkwave</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean all run <span class="nv">platform</span><span class="o">=</span>gvsoc <span class="nv">runner_args</span><span class="o">=</span>--vcd
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>clean<span class="w"> </span>all<span class="w"> </span>run<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>gvsoc<span class="w"> </span><span class="nv">runner_args</span><span class="o">=</span>--vcd
 </pre></div>
 </div>
 <p><strong>Error about runner</strong></p>
@@ -351,9 +352,9 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">scripts</span></code> in folder pulpissimo</p></li>
 <li><p>Install Genesys2 board (if haven’t done). Open vivado, select <code class="docutils literal notranslate"><span class="pre">Window</span></code> then <code class="docutils literal notranslate"><span class="pre">Tcl</span> <span class="pre">console</span></code>. In the console invoke command</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xhub::refresh_catalog <span class="o">[</span>xhub::get_xstores xilinx_board_store<span class="o">]</span>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xhub::refresh_catalog<span class="w"> </span><span class="o">[</span>xhub::get_xstores<span class="w"> </span>xilinx_board_store<span class="o">]</span>
 
-xhub::install <span class="o">[</span>xhub::get_xitems<span class="o">]</span>
+xhub::install<span class="w"> </span><span class="o">[</span>xhub::get_xitems<span class="o">]</span>
 </pre></div>
 </div>
 <p>Then install Genesys2 board by going to <code class="docutils literal notranslate"><span class="pre">Tools</span></code> then <code class="docutils literal notranslate"><span class="pre">Vivado</span> <span class="pre">store</span></code>. Search for Genesys2 and install.</p>
@@ -365,24 +366,24 @@ xhub::install <span class="o">[</span>xhub::get_xitems<span class="o">]</span>
 <p><code class="docutils literal notranslate"><span class="pre">line</span> <span class="pre">11</span> <span class="pre">pulpissimo/fpga/pulpissimo-genesys2/tcl/common.tcl</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">line</span>&#160; <span class="pre">21</span> <span class="pre">pulpissimo/fpga/pulpissimo-genesys2/ips/xilinx_clk_mngr/tcl/run.tcl</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">line</span> <span class="pre">16</span> <span class="pre">pulpissimo/fpga/pulpissimo-genesys2/ips/xilinx_slow_clk_mngr/tcl/run.tcl</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>set_param board.repoPaths <span class="o">[</span>get_property LOCAL_ROOT_DIR <span class="o">[</span>xhub::get_xstores xilinx_board_store<span class="o">]]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>set_param<span class="w"> </span>board.repoPaths<span class="w"> </span><span class="o">[</span>get_property<span class="w"> </span>LOCAL_ROOT_DIR<span class="w"> </span><span class="o">[</span>xhub::get_xstores<span class="w"> </span>xilinx_board_store<span class="o">]]</span>
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p>Invoke command in folder <code class="docutils literal notranslate"><span class="pre">fpga</span></code>:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make genesys2
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>genesys2
 </pre></div>
 </div>
 <p>if you have an error:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ERROR: <span class="o">[</span>Runs <span class="m">36</span>-527<span class="o">]</span> DCP does not exist: /home/ryan/pulpissimo/fpga/pulpissimo-genesys2/ips/xilinx_slow_clk_mngr/xilinx_slow_clk_mngr.gen/sources_1/ip/xilinx_slow_clk_mngr/xilinx_slow_clk_mngr.dcp
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ERROR:<span class="w"> </span><span class="o">[</span>Runs<span class="w"> </span><span class="m">36</span>-527<span class="o">]</span><span class="w"> </span>DCP<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist:<span class="w"> </span>/home/ryan/pulpissimo/fpga/pulpissimo-genesys2/ips/xilinx_slow_clk_mngr/xilinx_slow_clk_mngr.gen/sources_1/ip/xilinx_slow_clk_mngr/xilinx_slow_clk_mngr.dcp
 </pre></div>
 </div>
 <p>Then go to <code class="docutils literal notranslate"><span class="pre">pulpissimo/fpga/pulpissimo-genesys2/ips/xilinx_clk_mngr</span></code> and invoke commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>clean
 
-make all
+make<span class="w"> </span>all
 </pre></div>
 </div>
 <div class="admonition note">
@@ -390,28 +391,28 @@ make all
 <p>All similar errors can use the solution above.</p>
 </div>
 <p>Then <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">genesys2</span></code> again and wait until it shows error:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ERROR: <span class="o">[</span>Synth <span class="m">8</span>-9123<span class="o">]</span> an enum variable may only be assigned the same enum typed variable or one of its values <span class="o">[</span>.../pulpissimo/.bender/git/checkouts/pulp_soc-125142425fefd4e5/rtl/pulp_soc/soc_interconnect.sv:277<span class="o">]</span> at synthesis state.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ERROR:<span class="w"> </span><span class="o">[</span>Synth<span class="w"> </span><span class="m">8</span>-9123<span class="o">]</span><span class="w"> </span>an<span class="w"> </span>enum<span class="w"> </span>variable<span class="w"> </span>may<span class="w"> </span>only<span class="w"> </span>be<span class="w"> </span>assigned<span class="w"> </span>the<span class="w"> </span>same<span class="w"> </span>enum<span class="w"> </span>typed<span class="w"> </span>variable<span class="w"> </span>or<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>its<span class="w"> </span>values<span class="w"> </span><span class="o">[</span>.../pulpissimo/.bender/git/checkouts/pulp_soc-125142425fefd4e5/rtl/pulp_soc/soc_interconnect.sv:277<span class="o">]</span><span class="w"> </span>at<span class="w"> </span>synthesis<span class="w"> </span>state.
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p>Add line below before line 388 in <code class="docutils literal notranslate"><span class="pre">pulpissimo/.bender/git/checkouts/axi-xxx/src/axi_pkg.sv</span></code></p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">MY_CUT</span>        <span class="o">=</span> MuxAw <span class="p">|</span> MuxAr <span class="p">|</span> MuxW,
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">MY_CUT</span><span class="w">        </span><span class="o">=</span><span class="w"> </span>MuxAw<span class="w"> </span><span class="p">|</span><span class="w"> </span>MuxAr<span class="w"> </span><span class="p">|</span><span class="w"> </span>MuxW,
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p>Change line 277 in <code class="docutils literal notranslate"><span class="pre">pulpissimo/.bender/git/checkouts/pulp_soc-xxx/rtl/pulp_soc/soc_interconnect.sv</span></code> to</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>LatencyMode: axi_pkg::MY_CUT,
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>LatencyMode:<span class="w"> </span>axi_pkg::MY_CUT,
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p>Run again</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make genesys2
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>genesys2
 </pre></div>
 </div>
 </div></blockquote>
@@ -438,15 +439,15 @@ make all
 <li><p>Open remmina and connect to site <code class="docutils literal notranslate"><span class="pre">192.168.1.177</span></code> with user and password allocated in discord</p></li>
 <li><p>Open terminal and change directory to <code class="docutils literal notranslate"><span class="pre">pulpissimo/fpga/pulpissimo-genesys2/</span></code>, then invoke command:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openocd -f openocd-genesys2.cfg
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openocd<span class="w"> </span>-f<span class="w"> </span>openocd-genesys2.cfg
 </pre></div>
 </div>
 <img alt="../../_images/openocdsuccess.png" src="../../_images/openocdsuccess.png" />
 <p>if an error appear</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openocd-genesys2.cfg:38: Error:
-<span class="k">in</span> procedure <span class="s1">&#39;script&#39;</span>
-at file <span class="s2">&quot;embedded:startup.tcl&quot;</span>, line <span class="m">28</span>
-at file <span class="s2">&quot;openocd-genesys2.cfg&quot;</span>, line <span class="m">38</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openocd-genesys2.cfg:38:<span class="w"> </span>Error:
+<span class="k">in</span><span class="w"> </span>procedure<span class="w"> </span><span class="s1">&#39;script&#39;</span>
+at<span class="w"> </span>file<span class="w"> </span><span class="s2">&quot;embedded:startup.tcl&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">28</span>
+at<span class="w"> </span>file<span class="w"> </span><span class="s2">&quot;openocd-genesys2.cfg&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">38</span>
 </pre></div>
 </div>
 <p>Solution: Comment line 38 and rerun</p>
@@ -454,16 +455,16 @@ at file <span class="s2">&quot;openocd-genesys2.cfg&quot;</span>, line <span cla
 </li>
 <li><p>Go to <code class="docutils literal notranslate"><span class="pre">uart/send</span></code> example of pulpissimo folder and build (From now, do on local machine):</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> pulp-runtime-examples/periph/uart/send
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>pulp-runtime-examples/periph/uart/send
 
-make clean all <span class="nv">io</span><span class="o">=</span>uart
+make<span class="w"> </span>clean<span class="w"> </span>all<span class="w"> </span><span class="nv">io</span><span class="o">=</span>uart
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p>Start RISC-V GDB pointing to your ELF binary:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>riscv32-unknown-elf-gdb build/test/test
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>riscv32-unknown-elf-gdb<span class="w"> </span>build/test/test
 </pre></div>
 </div>
 </div></blockquote>
@@ -471,11 +472,11 @@ make clean all <span class="nv">io</span><span class="o">=</span>uart
 <li><p>Then invoke:</p>
 <blockquote>
 <div><p>For remote board</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>target extended-remote <span class="m">192</span>.168.1.177:3333
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>target<span class="w"> </span>extended-remote<span class="w"> </span><span class="m">192</span>.168.1.177:3333
 </pre></div>
 </div>
 <p>For local board:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>target remote localhost:3333
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>target<span class="w"> </span>remote<span class="w"> </span>localhost:3333
 </pre></div>
 </div>
 </div></blockquote>
@@ -503,11 +504,11 @@ make clean all <span class="nv">io</span><span class="o">=</span>uart
 <section id="putty-installation">
 <h2>Putty installation<a class="headerlink" href="#putty-installation" title="Permalink to this heading"></a></h2>
 <p>Active Universe storage on ubuntu system</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo add-apt-repository universe
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>add-apt-repository<span class="w"> </span>universe
 </pre></div>
 </div>
 <p>Install putty</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install putty
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>putty
 </pre></div>
 </div>
 <p>Initialize putty</p>
@@ -523,34 +524,34 @@ make clean all <span class="nv">io</span><span class="o">=</span>uart
 <section id="how-to-find-device-dev-path-on-linux">
 <h2>How to find Device Dev Path on Linux<a class="headerlink" href="#how-to-find-device-dev-path-on-linux" title="Permalink to this heading"></a></h2>
 <p>Open new terminal and invoke commands below</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> sysdevpath <span class="k">in</span> <span class="k">$(</span>find /sys/bus/usb/devices/usb*/ -name dev<span class="k">)</span><span class="p">;</span> <span class="k">do</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>sysdevpath<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>find<span class="w"> </span>/sys/bus/usb/devices/usb*/<span class="w"> </span>-name<span class="w"> </span>dev<span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="o">(</span>
-    <span class="nv">syspath</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">sysdevpath</span><span class="p">%/dev</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="nv">devname</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>udevadm info -q name -p <span class="nv">$syspath</span><span class="k">)</span><span class="s2">&quot;</span>
-    <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$devname</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;bus/&quot;</span>* <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span>
-    <span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>udevadm info -q property --export -p <span class="nv">$syspath</span><span class="k">)</span><span class="s2">&quot;</span>
-    <span class="o">[[</span> -z <span class="s2">&quot;</span><span class="nv">$ID_SERIAL</span><span class="s2">&quot;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span>
-    <span class="nb">echo</span> <span class="s2">&quot;/dev/</span><span class="nv">$devname</span><span class="s2"> - </span><span class="nv">$ID_SERIAL</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nv">syspath</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">sysdevpath</span><span class="p">%/dev</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nv">devname</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>udevadm<span class="w"> </span>info<span class="w"> </span>-q<span class="w"> </span>name<span class="w"> </span>-p<span class="w"> </span><span class="nv">$syspath</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$devname</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;bus/&quot;</span>*<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span>
+<span class="w">    </span><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>udevadm<span class="w"> </span>info<span class="w"> </span>-q<span class="w"> </span>property<span class="w"> </span>--export<span class="w"> </span>-p<span class="w"> </span><span class="nv">$syspath</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ID_SERIAL</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;/dev/</span><span class="nv">$devname</span><span class="s2"> - </span><span class="nv">$ID_SERIAL</span><span class="s2">&quot;</span>
 <span class="o">)</span>
 <span class="k">done</span>
 </pre></div>
 </div>
 <p>All dev paths will appear:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/dev/ttyACM0 - STMicroelectronics_STM32_STLink_0668FF485157717867163038
-/dev/sda - MBED_microcontroller_0668FF485157717867163038-0:0
-/dev/input/event13 - SONIX_M87_keyboard
-/dev/input/event16 - SONIX_M87_keyboard
-/dev/input/event14 - SONIX_M87_keyboard
-/dev/input/event12 - SONIX_M87_keyboard
-/dev/input/event15 - SONIX_M87_keyboard
-/dev/input/mouse3 - SONIX_M87_keyboard
-/dev/input/event11 - SONIX_M87_keyboard
-/dev/input/event7 - Logitech_USB_Receiver
-/dev/input/mouse2 - Logitech_USB_Receiver
-/dev/video3 - Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
-/dev/video2 - Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
-/dev/video1 - Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
-/dev/video0 - Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/dev/ttyACM0<span class="w"> </span>-<span class="w"> </span>STMicroelectronics_STM32_STLink_0668FF485157717867163038
+/dev/sda<span class="w"> </span>-<span class="w"> </span>MBED_microcontroller_0668FF485157717867163038-0:0
+/dev/input/event13<span class="w"> </span>-<span class="w"> </span>SONIX_M87_keyboard
+/dev/input/event16<span class="w"> </span>-<span class="w"> </span>SONIX_M87_keyboard
+/dev/input/event14<span class="w"> </span>-<span class="w"> </span>SONIX_M87_keyboard
+/dev/input/event12<span class="w"> </span>-<span class="w"> </span>SONIX_M87_keyboard
+/dev/input/event15<span class="w"> </span>-<span class="w"> </span>SONIX_M87_keyboard
+/dev/input/mouse3<span class="w"> </span>-<span class="w"> </span>SONIX_M87_keyboard
+/dev/input/event11<span class="w"> </span>-<span class="w"> </span>SONIX_M87_keyboard
+/dev/input/event7<span class="w"> </span>-<span class="w"> </span>Logitech_USB_Receiver
+/dev/input/mouse2<span class="w"> </span>-<span class="w"> </span>Logitech_USB_Receiver
+/dev/video3<span class="w"> </span>-<span class="w"> </span>Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
+/dev/video2<span class="w"> </span>-<span class="w"> </span>Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
+/dev/video1<span class="w"> </span>-<span class="w"> </span>Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
+/dev/video0<span class="w"> </span>-<span class="w"> </span>Azurewave_USB2.0_HD_IR_UVC_WebCam_200901010001
 </pre></div>
 </div>
 </section>

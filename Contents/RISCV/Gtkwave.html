@@ -2,7 +2,7 @@
 <html class="writer-html5" lang="en" >
 
 <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link sizes="32x32" href="../../_static/logo.png" rel="icon" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gtkwave &mdash; RyanDocs 2024 documentation</title>
@@ -17,11 +17,11 @@
     <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
     <![endif]-->
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/scripts.js"></script>
@@ -74,7 +74,7 @@
                     </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -114,6 +114,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../STM32/freertos.html">FreeRTOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ContikiOS/contikios.html">ContikiOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../STM32/lvglf7.html">LVGL</a></li>
 </ul>
 
 
@@ -264,9 +265,9 @@
                     <div class="rst-content">
                         <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="riscv.html">RISC-V</a> &raquo;</li>
-      <li>Gtkwave</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="riscv.html">RISC-V</a></li>
+      <li class="breadcrumb-item active">Gtkwave</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -285,16 +286,16 @@
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <p>Ubuntu version 22.04.4</p>
 <p>Update apt database with apt-get using the following command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
 </pre></div>
 </div>
 <p>After updating apt database, We can install gtkwave using apt-get by running the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get -y install gtkwave
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>gtkwave
 </pre></div>
 </div>
 <p>if you have this error <code class="docutils literal notranslate"><span class="pre">Failed</span> <span class="pre">to</span> <span class="pre">load</span> <span class="pre">module</span> <span class="pre">&quot;canberra-gtk-module&quot;</span></code></p>
 <p>The following command will solve the problem</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libcanberra-gtk-module<span class="w"> </span>libcanberra-gtk3-module
 </pre></div>
 </div>
 <div class="admonition note">

@@ -2,7 +2,7 @@
 <html class="writer-html5" lang="en" >
 
 <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link sizes="32x32" href="../../_static/logo.png" rel="icon" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lab &mdash; RyanDocs 2024 documentation</title>
@@ -17,11 +17,11 @@
     <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
     <![endif]-->
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/scripts.js"></script>
@@ -74,7 +74,7 @@
                     </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -117,6 +117,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../STM32/freertos.html">FreeRTOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ContikiOS/contikios.html">ContikiOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../STM32/lvglf7.html">LVGL</a></li>
 </ul>
 
 
@@ -267,9 +268,9 @@
                     <div class="rst-content">
                         <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="riscv.html">RISC-V</a> &raquo;</li>
-      <li>Lab</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="riscv.html">RISC-V</a></li>
+      <li class="breadcrumb-item active">Lab</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -279,8 +280,8 @@
                             <div itemprop="articleBody">
                                 
   <section id="lab">
-<h1><a class="toc-backref" href="#id2">Lab</a><a class="headerlink" href="#lab" title="Permalink to this heading"></a></h1>
-<div class="contents topic" id="contents">
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">Lab</a><a class="headerlink" href="#lab" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#lab" id="id2">Lab</a></p>
@@ -289,9 +290,9 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <section id="lab3">
-<h2><a class="toc-backref" href="#id3">LAB3</a><a class="headerlink" href="#lab3" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">LAB3</a><a class="headerlink" href="#lab3" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://github.com/EEESlab/APAI23-LAB03-PULP-Embedded-Programming/blob/f862501580a95426f8a420779cf88869e134b596/docs/slides.pdf" rel="noopener noreferrer" target="_blank">Slide and assignemnts</a></p>
 <section id="task-1">
 <h3>Task 1<a class="headerlink" href="#task-1" title="Permalink to this heading"></a></h3>
@@ -306,63 +307,63 @@ So we must change the data type of array to <code class="docutils literal notran
 <span class="cm">*</span>
 <span class="cm">* Authors: Manuele Rusci      UniBO (manuele.rusci@unibo.it)</span>
 <span class="cm">*                   Lorenzo Lamberti  UniBO (lorenzo.lamberti@unibo.it)</span>
-<span class="cm">*/</span><span class="w"></span>
+<span class="cm">*/</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pmsis.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pmsis.h&quot;</span>
 
 <span class="cp">#define N 350                        </span><span class="c1">// array size</span>
 <span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">array_1</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"> </span><span class="c1">// define array of size N.         [important note]: &quot;char&quot; data type means its elements are 8 bit! (range from 0 to 255)</span>
 
 <span class="c1">// intialize an array A_ar with _size_ number of elements</span>
 <span class="c1">// and precompute the result (we use this as a checksum)</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">init_array</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A_ar</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">init_array</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A_ar</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 <span class="w">        </span><span class="n">A_ar</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// this can be changed to whatever pattern</span>
 
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// this computes the sum as the vector_sum() function. only needed as a checksum.</span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 
 <span class="c1">// print array elements</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">print_array</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A_ar</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print_array</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A_ar</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 <span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">A_ar</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"> </span><span class="c1">// print array element</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 
 <span class="c1">// return the index of the item==element of the array A_ar with size number of elements</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">vector_sum</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A_ar</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">vector_sum</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A_ar</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span>
+<span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// initialize accumulator to 0</span>
 
 <span class="w">    </span><span class="c1">// perform the sum</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">A_ar</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">A_ar</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;This example program computes the sum of %d integer numbers!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;This example program computes the sum of %d integer numbers!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span>
 
 <span class="w">    </span><span class="c1">// initialize the array and get the expected result</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">expected_result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_array</span><span class="p">(</span><span class="n">array_1</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">expected_result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_array</span><span class="p">(</span><span class="n">array_1</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span>
 
 <span class="w">    </span><span class="c1">// inspect the array. let&#39;s print its values !</span>
-<span class="w">    </span><span class="n">print_array</span><span class="p">(</span><span class="n">array_1</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">print_array</span><span class="p">(</span><span class="n">array_1</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span>
 
 <span class="w">    </span><span class="c1">// call the vector_sum function</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">computed_result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vector_sum</span><span class="p">(</span><span class="n">array_1</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">computed_result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vector_sum</span><span class="p">(</span><span class="n">array_1</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span>
 
 <span class="w">    </span><span class="c1">// check if the results is correct</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">computed_result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">expected_result</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Result is correct. Got %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">computed_result</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">else</span><span class="w"></span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Result is not correct. Got %d instead of %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">computed_result</span><span class="p">,</span><span class="w"> </span><span class="n">expected_result</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">computed_result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">expected_result</span><span class="p">)</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Result is correct. Got %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">computed_result</span><span class="p">);</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Result is not correct. Got %d instead of %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">computed_result</span><span class="p">,</span><span class="w"> </span><span class="n">expected_result</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
@@ -379,44 +380,44 @@ on the PULP platform.</p>
 <span class="cm">*</span>
 <span class="cm">* Authors: Manuele Rusci      UniBO (manuele.rusci@unibo.it)</span>
 <span class="cm">*                   Lorenzo Lamberti  UniBO (lorenzo.lamberti@unibo.it)</span>
-<span class="cm">*/</span><span class="w"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pmsis.h&quot;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;stdbool.h&quot;</span><span class="c1"> // to use &quot;bool&quot; data type</span><span class="cp"></span>
+<span class="cm">*/</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pmsis.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;stdbool.h&quot;</span><span class="c1"> // to use &quot;bool&quot; data type</span>
 
-<span class="cm">/*  defines */</span><span class="w"></span>
+<span class="cm">/*  defines */</span>
 <span class="cp">#define N 50 </span><span class="c1">// the matrix size is NxM, and the vector size is M.</span>
 <span class="cp">#define M 50</span>
 <span class="cp">#define MAT_EL (2) </span><span class="c1">// matrix constant values</span>
 <span class="cp">#define VEC_EL (4) </span><span class="c1">// vector constant values</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">mac_counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">mac_counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-<span class="cm">/* Allocation of IO variables into L2 memory */</span><span class="w"></span>
+<span class="cm">/* Allocation of IO variables into L2 memory */</span>
 <span class="c1">// input variables</span>
 <span class="n">PI_L2</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">matrix</span><span class="p">[</span><span class="n">N</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M</span><span class="p">];</span><span class="w"> </span><span class="c1">// the matrix as an array of size N*M</span>
 <span class="n">PI_L2</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">vector</span><span class="p">[</span><span class="n">M</span><span class="p">];</span><span class="w">         </span><span class="c1">// the vector as an array of size M</span>
 <span class="c1">// output variable</span>
 <span class="n">PI_L2</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">output_vec</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"> </span><span class="c1">// N*M x M*1 -&gt; N*1</span>
 <span class="cm">/*  Note: PI_L2 is an attribute for &quot;forcing&quot; allocation in L2 memory.</span>
-<span class="cm">    Ref: /pulp/pulp-sdk/rtos/pulpos/common/include/pos/data/data.h:54: */</span><span class="w"></span>
+<span class="cm">    Ref: /pulp/pulp-sdk/rtos/pulpos/common/include/pos/data/data.h:54: */</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">start_perf_counter</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">start_perf_counter</span><span class="p">()</span>
+<span class="p">{</span>
 <span class="w">    </span><span class="c1">// enable the perf counter of interest</span>
 <span class="w">    </span><span class="n">pi_perf_conf</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">PI_PERF_CYCLES</span><span class="w"> </span><span class="cm">/*YOUR_CODE_HERE*/</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c1">// count cycles</span>
 <span class="w">                </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">PI_PERF_INSTR</span><span class="w"> </span><span class="cm">/*YOUR_CODE_HERE*/</span><span class="p">);</span><span class="w">  </span><span class="c1">// count instructions</span>
 <span class="w">    </span><span class="c1">// reset the perf counters</span>
-<span class="w">    </span><span class="n">pi_perf_reset</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">pi_perf_reset</span><span class="p">();</span>
 <span class="w">    </span><span class="c1">//  start the perf counter</span>
-<span class="w">    </span><span class="n">pi_perf_start</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">pi_perf_start</span><span class="p">();</span>
+<span class="p">}</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">stop_perf_counter</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">stop_perf_counter</span><span class="p">()</span>
+<span class="p">{</span>
 <span class="w">    </span><span class="c1">// stop the perf counter</span>
-<span class="w">    </span><span class="n">pi_perf_stop</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">pi_perf_stop</span><span class="p">();</span>
 <span class="w">    </span><span class="c1">// collect and print statistics</span>
-<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">cycles_counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pi_perf_read</span><span class="p">(</span><span class="n">PI_PERF_CYCLES</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">instr_counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pi_perf_read</span><span class="p">(</span><span class="n">PI_PERF_INSTR</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">cycles_counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pi_perf_read</span><span class="p">(</span><span class="n">PI_PERF_CYCLES</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">instr_counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pi_perf_read</span><span class="p">(</span><span class="n">PI_PERF_INSTR</span><span class="p">);</span>
 
 <span class="w">    </span><span class="cm">/*</span>
 <span class="cm">        TASK 2.2</span>
@@ -427,109 +428,109 @@ on the PULP platform.</p>
 <span class="cm">            - MACs/Cycles</span>
 <span class="cm">            - Instructions/Cycles</span>
 <span class="cm">            - Instructions/ MACs</span>
-<span class="cm">    */</span><span class="w"></span>
+<span class="cm">    */</span>
 
 <span class="w">    </span><span class="c1">// N° Multiply Accumulate Operations (MACs)</span>
-<span class="w">    </span><span class="cm">/* already done with task 2.1. use the mac_counter global variable */</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/* already done with task 2.1. use the mac_counter global variable */</span>
 <span class="w">    </span><span class="c1">// CPI = cycles / n°instructions_executed</span>
-<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">cpi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cycles_counter</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">instr_counter</span><span class="p">;</span><span class="w"> </span><span class="cm">/* YOUR CODE HERE*/</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">cpi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cycles_counter</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">instr_counter</span><span class="p">;</span><span class="w"> </span><span class="cm">/* YOUR CODE HERE*/</span>
 <span class="w">    </span><span class="c1">// MAC/Cycles</span>
-<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">mac_on_cycles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">cycles_counter</span><span class="p">;</span><span class="w"> </span><span class="cm">/* YOUR CODE HERE*/</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">mac_on_cycles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">cycles_counter</span><span class="p">;</span><span class="w"> </span><span class="cm">/* YOUR CODE HERE*/</span>
 <span class="w">    </span><span class="c1">// Instructions/Cycles</span>
-<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">instructions_on_cycles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">instr_counter</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">cycles_counter</span><span class="p">;</span><span class="w"> </span><span class="cm">/* YOUR CODE HERE*/</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">instructions_on_cycles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">instr_counter</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">cycles_counter</span><span class="p">;</span><span class="w"> </span><span class="cm">/* YOUR CODE HERE*/</span>
 <span class="w">    </span><span class="c1">// Instructions/MAC</span>
-<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">instructions_on_mac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">instr_counter</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M</span><span class="p">);</span><span class="w"> </span><span class="cm">/* YOUR CODE HERE*/</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">instructions_on_mac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">instr_counter</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M</span><span class="p">);</span><span class="w"> </span><span class="cm">/* YOUR CODE HERE*/</span>
 
 <span class="w">    </span><span class="c1">// print results</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;--- Performances ---------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;--- Performances ---------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Cycles: %d </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cycles_counter</span><span class="p">);</span><span class="w">                                          </span><span class="c1">// this comes from the performance counter</span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;N° of Intructions: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">instr_counter</span><span class="p">);</span><span class="w">                         </span><span class="c1">// this comes from the performance counter</span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;mac: %d </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mac_counter</span><span class="p">);</span><span class="w">                                                        </span><span class="c1">// you must measure this</span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;CPI: %f </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cpi</span><span class="p">);</span><span class="w">                                                                        </span><span class="c1">// calculate it</span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Instructions/Cycles: %f </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">instructions_on_cycles</span><span class="p">);</span><span class="w"> </span><span class="c1">// calculate it</span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Instructions/MAC: %f </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">instructions_on_mac</span><span class="p">);</span><span class="w">           </span><span class="c1">// calculate it</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;-------------------------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;-------------------------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 
 <span class="c1">// print array elements</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">print_array</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A_ar</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print_array</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A_ar</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 <span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">A_ar</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"> </span><span class="c1">// print array element</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 
-<span class="cm">/* generic matrix-vector multiplication */</span><span class="w"></span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">__attribute__</span><span class="p">((</span><span class="n">noinline</span><span class="p">))</span><span class="w"> </span><span class="n">gemv</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size_N</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size_M</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">mat_i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">vec_i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">vec_o</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
+<span class="cm">/* generic matrix-vector multiplication */</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">__attribute__</span><span class="p">((</span><span class="n">noinline</span><span class="p">))</span><span class="w"> </span><span class="n">gemv</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size_N</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size_M</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">mat_i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">vec_i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">vec_o</span><span class="p">)</span>
+<span class="p">{</span>
 <span class="w">    </span><span class="cm">/*</span>
 <span class="cm">    TASK 2.1</span>
 <span class="cm">    - you must count the MAC by increasing a counter in the inner loop of the gemv.</span>
 <span class="cm">    - use the &quot;mac_counter&quot; global variable</span>
-<span class="cm">    */</span><span class="w"></span>
-<span class="w">    </span><span class="n">mac_counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="cm">    */</span>
+<span class="w">    </span><span class="n">mac_counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size_N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="c1">// outer looop of the gemv</span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size_M</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="c1">// inner loop of the gemv</span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="c1">// multiply accumulate operation (MAC)</span>
-<span class="w">            </span><span class="n">vec_o</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">mat_i</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">size_M</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vec_i</span><span class="p">[</span><span class="n">j</span><span class="p">];</span><span class="w"></span>
+<span class="w">            </span><span class="n">vec_o</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">mat_i</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">size_M</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vec_i</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
 <span class="w">            </span><span class="c1">// *(vec_o + i) += *(mat_i + i * M + j) * (*(vec_i + j)); // try to uncomment this and comment the above line. You will notice a speedup in cycles</span>
-<span class="w">            </span><span class="o">++</span><span class="n">mac_counter</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="o">++</span><span class="n">mac_counter</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">start_perf_counter</span><span class="p">();</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">start_perf_counter</span><span class="p">();</span>
 <span class="w">    </span><span class="c1">// Initialization of operands: matrix</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MAT_EL</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MAT_EL</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="c1">// Initialization of operands: vector</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">M</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">vector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VEC_EL</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">M</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">vector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VEC_EL</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="c1">// Initialization of the output to 0</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">output_vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">output_vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 
-<span class="w">    </span><span class="cm">/* call the GEneric Matrix-Vector (gemv) function */</span><span class="w"></span>
-<span class="w">    </span><span class="n">gemv</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="n">matrix</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="p">,</span><span class="w"> </span><span class="n">output_vec</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/* call the GEneric Matrix-Vector (gemv) function */</span>
+<span class="w">    </span><span class="n">gemv</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="n">matrix</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="p">,</span><span class="w"> </span><span class="n">output_vec</span><span class="p">);</span>
 
 <span class="w">    </span><span class="c1">// print and check the results</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">The %d output elements are: </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">print_array</span><span class="p">(</span><span class="n">output_vec</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">The %d output elements are: </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span>
+<span class="w">    </span><span class="n">print_array</span><span class="p">(</span><span class="n">output_vec</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span>
 
 <span class="w">    </span><span class="c1">// check here the results</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">correctness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">output_vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="p">(</span><span class="n">M</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">MAT_EL</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">VEC_EL</span><span class="p">))</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">correctness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="n">correctness</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">RESULTS MATCHING: correct</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;RESULTS NOT MATCHING: not correct</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">correctness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">output_vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="p">(</span><span class="n">M</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">MAT_EL</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">VEC_EL</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">correctness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="n">correctness</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">RESULTS MATCHING: correct</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;RESULTS NOT MATCHING: not correct</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 
-<span class="w">    </span><span class="n">stop_perf_counter</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">stop_perf_counter</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<table class="colwidths-given docutils align-default" id="id1">
+<table class="docutils align-default" id="id1">
 <caption><span class="caption-text">Performance</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"></th>

@@ -2,7 +2,7 @@
 <html class="writer-html5" lang="en" >
 
 <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link sizes="32x32" href="../_static/logo.png" rel="icon" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sphinx &mdash; RyanDocs 2024 documentation</title>
@@ -17,11 +17,11 @@
     <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
     <![endif]-->
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script src="../_static/scripts.js"></script>
@@ -74,7 +74,7 @@
                     </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -123,6 +123,7 @@
 <li class="toctree-l1"><a class="reference internal" href="RISCV/riscv.html">RISC-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="STM32/freertos.html">FreeRTOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ContikiOS/contikios.html">ContikiOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STM32/lvglf7.html">LVGL</a></li>
 </ul>
 
 
@@ -273,8 +274,8 @@
                     <div class="rst-content">
                         <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Sphinx</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Sphinx</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -284,8 +285,8 @@
                             <div itemprop="articleBody">
                                 
   <section id="sphinx">
-<h1><a class="toc-backref" href="#id2">Sphinx</a><a class="headerlink" href="#sphinx" title="Permalink to this heading"></a></h1>
-<div class="contents topic" id="contents">
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">Sphinx</a><a class="headerlink" href="#sphinx" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#sphinx" id="id2">Sphinx</a></p>
@@ -301,23 +302,23 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <section id="sphinx-installation">
-<h2><a class="toc-backref" href="#id3">Sphinx installation</a><a class="headerlink" href="#sphinx-installation" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Sphinx installation</a><a class="headerlink" href="#sphinx-installation" title="Permalink to this heading"></a></h2>
 <p>Open a new terminal/command prompt and follow steps below</p>
 <p><strong>Install sphinx for Ubuntu</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install python3-sphinx
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-sphinx
 </pre></div>
 </div>
 <p><strong>Install sphinx for Window</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -U sphinx
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>sphinx
 </pre></div>
 </div>
 </section>
 <section id="create-document-layout">
-<h2><a class="toc-backref" href="#id4">Create document layout</a><a class="headerlink" href="#create-document-layout" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Create document layout</a><a class="headerlink" href="#create-document-layout" title="Permalink to this heading"></a></h2>
 <p>Run the command below to create</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-quickstart docs
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-quickstart<span class="w"> </span>docs
 </pre></div>
 </div>
 <p>To configure layout, follow steps below</p>
@@ -342,7 +343,7 @@
 </div>
 </section>
 <section id="create-requirements">
-<h2><a class="toc-backref" href="#id5">Create requirements</a><a class="headerlink" href="#create-requirements" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Create requirements</a><a class="headerlink" href="#create-requirements" title="Permalink to this heading"></a></h2>
 <p>Create a <code class="docutils literal notranslate"><span class="pre">requirements.in</span></code> file with content:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sphinx</span><span class="o">&gt;=</span><span class="mi">5</span><span class="p">,</span><span class="o">&lt;</span><span class="mi">6</span>
 <span class="n">sphinx_rtd_theme</span>
@@ -412,7 +413,7 @@
 </div>
 </section>
 <section id="extensions">
-<h2><a class="toc-backref" href="#id6">Extensions</a><a class="headerlink" href="#extensions" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Extensions</a><a class="headerlink" href="#extensions" title="Permalink to this heading"></a></h2>
 <section id="theme">
 <h3>Theme<a class="headerlink" href="#theme" title="Permalink to this heading"></a></h3>
 <p>Install the library</p>
@@ -531,18 +532,18 @@ Don&#39;t you love it? |:heart_eyes:|
 </div>
 <p>If you want to auto change logo, you have to put your wanted logo in <code class="docutils literal notranslate"><span class="pre">_static</span></code> folder. Then
 create a Java script file <code class="docutils literal notranslate"><span class="pre">change_logo.js</span></code> in <code class="docutils literal notranslate"><span class="pre">_static</span></code> folder with content:</p>
-<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;DOMContentLoaded&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">logo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.wy-side-nav-search .logo&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">logo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">logos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;_static/stitch.gif&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;_static/c_stitch.gif&#39;</span><span class="p">];</span><span class="w"> </span><span class="c1">// list of logo</span><span class="w"></span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">currentIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Index of current logo</span><span class="w"></span>
+<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;DOMContentLoaded&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">logo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.wy-side-nav-search .logo&quot;</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">logo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">logos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;_static/stitch.gif&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;_static/c_stitch.gif&#39;</span><span class="p">];</span><span class="w"> </span><span class="c1">// list of logo</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">currentIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Index of current logo</span>
 
-<span class="w">    </span><span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">currentIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">currentIndex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nx">logos</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="nx">logo</span><span class="p">.</span><span class="nx">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">logos</span><span class="p">[</span><span class="nx">currentIndex</span><span class="p">];</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="mf">5000</span><span class="p">);</span><span class="w"> </span><span class="c1">// auto change logo after 5s</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">currentIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">currentIndex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nx">logos</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">logo</span><span class="p">.</span><span class="nx">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">logos</span><span class="p">[</span><span class="nx">currentIndex</span><span class="p">];</span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="mf">5000</span><span class="p">);</span><span class="w"> </span><span class="c1">// auto change logo after 5s</span>
+<span class="p">}</span>
+<span class="p">});</span>
 </pre></div>
 </div>
 <p>After that, create a <code class="docutils literal notranslate"><span class="pre">layout.html</span></code> in <code class="docutils literal notranslate"><span class="pre">_templates</span></code> folder (create your folder if you don`t have one) with content:</p>
@@ -559,10 +560,10 @@ create a Java script file <code class="docutils literal notranslate"><span class
 <section id="adjust-window-document">
 <h3>Adjust window document<a class="headerlink" href="#adjust-window-document" title="Permalink to this heading"></a></h3>
 <p>In <code class="docutils literal notranslate"><span class="pre">_static</span></code> folder, create <code class="docutils literal notranslate"><span class="pre">custom.css</span></code> file with content (width below is fullscreen):</p>
-<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="c">/* make the page width fill the window */</span><span class="w"></span>
-<span class="p">.</span><span class="nc">wy-nav-content</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="c">/* make the page width fill the window */</span>
+<span class="p">.</span><span class="nc">wy-nav-content</span><span class="w"> </span><span class="p">{</span>
+<span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>In <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file, below line <code class="docutils literal notranslate"><span class="pre">html_static_path</span></code> , add lines below:</p>
@@ -573,7 +574,7 @@ create a Java script file <code class="docutils literal notranslate"><span class
 </section>
 </section>
 <section id="deploy-to-github">
-<h2><a class="toc-backref" href="#id7">Deploy to github</a><a class="headerlink" href="#deploy-to-github" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Deploy to github</a><a class="headerlink" href="#deploy-to-github" title="Permalink to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Create a <code class="docutils literal notranslate"><span class="pre">repository</span></code>, set up in <code class="docutils literal notranslate"><span class="pre">public</span></code>.</p></li>
 <li><p>Press <code class="docutils literal notranslate"><span class="pre">creating</span> <span class="pre">a</span> <span class="pre">new</span> <span class="pre">file</span></code> to create <code class="docutils literal notranslate"><span class="pre">readme.txt</span></code> file, then press <code class="docutils literal notranslate"><span class="pre">commit</span> <span class="pre">change</span></code>.</p></li>
@@ -582,30 +583,30 @@ create a Java script file <code class="docutils literal notranslate"><span class
 <li><p>Choose <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">file</span></code>, then choose <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">new</span> <span class="pre">file</span></code>. Copy this <code class="docutils literal notranslate"><span class="pre">.github/workflows/sphinx.yml</span></code> then paste to make <code class="docutils literal notranslate"><span class="pre">sphinx.yml</span></code> file in <code class="docutils literal notranslate"><span class="pre">.github</span></code> folder.</p></li>
 <li><p>In <code class="docutils literal notranslate"><span class="pre">sphinx.yml</span></code> file,add the contents below then press <code class="docutils literal notranslate"><span class="pre">Commit</span> <span class="pre">change</span></code> twice.</p>
 <blockquote>
-<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Sphinx:</span><span class="nv"> </span><span class="s">Render</span><span class="nv"> </span><span class="s">docs&quot;</span><span class="w"></span>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Sphinx:</span><span class="nv"> </span><span class="s">Render</span><span class="nv"> </span><span class="s">docs&quot;</span>
 
-<span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">push</span><span class="w"></span>
+<span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">push</span>
 
-<span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
-<span class="w">    </span><span class="nt">permissions</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">write</span><span class="w"></span>
-<span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build HTML</span><span class="w"></span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ammaraskar/sphinx-action@master</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload artifacts</span><span class="w"></span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span><span class="w"></span>
-<span class="w">      </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">html-docs</span><span class="w"></span>
-<span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docs/build/html/</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy</span><span class="w"></span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">peaceiris/actions-gh-pages@v3</span><span class="w"></span>
-<span class="w">      </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.ref == &#39;refs/heads/main&#39;</span><span class="w"></span>
-<span class="w">      </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">github_token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span><span class="w"></span>
-<span class="w">        </span><span class="nt">publish_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docs/build/html</span><span class="w"></span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">permissions</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">write</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build HTML</span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ammaraskar/sphinx-action@master</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload artifacts</span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">html-docs</span>
+<span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docs/build/html/</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy</span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">peaceiris/actions-gh-pages@v3</span>
+<span class="w">      </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.ref == &#39;refs/heads/main&#39;</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">github_token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
+<span class="w">        </span><span class="nt">publish_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docs/build/html</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -619,30 +620,30 @@ create a Java script file <code class="docutils literal notranslate"><span class
 </div>
 </section>
 <section id="clone-document">
-<h2><a class="toc-backref" href="#id8">Clone document</a><a class="headerlink" href="#clone-document" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Clone document</a><a class="headerlink" href="#clone-document" title="Permalink to this heading"></a></h2>
 <p>Delete your <code class="docutils literal notranslate"><span class="pre">docs</span></code> folder in your computer, then git clone the repository</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone &lt;github-document-url&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>&lt;github-document-url&gt;
 </pre></div>
 </div>
 </section>
 <section id="build-sphinx">
-<h2><a class="toc-backref" href="#id9">Build sphinx</a><a class="headerlink" href="#build-sphinx" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Build sphinx</a><a class="headerlink" href="#build-sphinx" title="Permalink to this heading"></a></h2>
 <p>Open the folder cloned from github in Vscode. Then open the terminal and type the commands below</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> docs
-make html
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>docs
+make<span class="w"> </span>html
 </pre></div>
 </div>
 <p>Add <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file to <code class="docutils literal notranslate"><span class="pre">docs</span></code> folder, then put <code class="docutils literal notranslate"><span class="pre">build</span></code> to that file</p>
 <p>Go to <code class="docutils literal notranslate"><span class="pre">build/html/</span></code>, copy the path of <code class="docutils literal notranslate"><span class="pre">index.html</span></code> file and paste to google-chrome</p>
 <p>Otherwise on Ubuntu, just type the command below to the terminal</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>google-chrome build/html/index.html
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>google-chrome<span class="w"> </span>build/html/index.html
 </pre></div>
 </div>
 </section>
 <section id="find-layout-sphinx-rtd-theme">
-<h2><a class="toc-backref" href="#id10">Find layout sphinx_rtd_theme</a><a class="headerlink" href="#find-layout-sphinx-rtd-theme" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Find layout sphinx_rtd_theme</a><a class="headerlink" href="#find-layout-sphinx-rtd-theme" title="Permalink to this heading"></a></h2>
 <p>Invoke command below to find setting location of sphinx_rtd_theme (Window):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip show sphinx-rtd-theme
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>show<span class="w"> </span>sphinx-rtd-theme
 </pre></div>
 </div>
 <p>Then find <em>layout.html</em> file.</p>

@@ -2,7 +2,7 @@
 <html class="writer-html5" lang="en" >
 
 <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link sizes="32x32" href="../_static/logo.png" rel="icon" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vivado &mdash; RyanDocs 2024 documentation</title>
@@ -17,11 +17,11 @@
     <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
     <![endif]-->
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script src="../_static/scripts.js"></script>
@@ -74,7 +74,7 @@
                     </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -111,6 +111,7 @@
 <li class="toctree-l1"><a class="reference internal" href="RISCV/riscv.html">RISC-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="STM32/freertos.html">FreeRTOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ContikiOS/contikios.html">ContikiOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STM32/lvglf7.html">LVGL</a></li>
 </ul>
 
 
@@ -261,8 +262,8 @@
                     <div class="rst-content">
                         <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Vivado</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Vivado</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -283,36 +284,36 @@
 <h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h3>
 <p>If you have not previously installed any versions of Vivado on your machine, be sure to add the 32-bit architecture
 and changing the system shell from dash to bash:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo dpkg-reconfigure dash
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dpkg-reconfigure<span class="w"> </span>dash
 
-sudo dpkg --add-architecture i386
+sudo<span class="w"> </span>dpkg<span class="w"> </span>--add-architecture<span class="w"> </span>i386
 </pre></div>
 </div>
 <p>It is theoretically possible to install all of these package dependencies at once in a single
 command line of apt-get install. However, I’ve found the best chance of avoid weird issues
 is to use the following sequence:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install gparted xinetd gawk gcc net-tools ncurses-dev openssl libssl-dev flex bison xterm autoconf libtool texinfo zlib1g-dev
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>gparted<span class="w"> </span>xinetd<span class="w"> </span>gawk<span class="w"> </span>gcc<span class="w"> </span>net-tools<span class="w"> </span>ncurses-dev<span class="w"> </span>openssl<span class="w"> </span>libssl-dev<span class="w"> </span>flex<span class="w"> </span>bison<span class="w"> </span>xterm<span class="w"> </span>autoconf<span class="w"> </span>libtool<span class="w"> </span>texinfo<span class="w"> </span>zlib1g-dev
 
-sudo apt-get install iproute2 make libncurses5-dev tftpd libselinux1 wget diffstat chrpath socat tar unzip gzip python3 tofrodos lsb libftdi1 libftdi1-2
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>iproute2<span class="w"> </span>make<span class="w"> </span>libncurses5-dev<span class="w"> </span>tftpd<span class="w"> </span>libselinux1<span class="w"> </span>wget<span class="w"> </span>diffstat<span class="w"> </span>chrpath<span class="w"> </span>socat<span class="w"> </span>tar<span class="w"> </span>unzip<span class="w"> </span>gzip<span class="w"> </span>python3<span class="w"> </span>tofrodos<span class="w"> </span>lsb<span class="w"> </span>libftdi1<span class="w"> </span>libftdi1-2
 
-sudo apt-get install lib32stdc++6 libgtk2.0-0:i386 libfontconfig1:i386 libx11-6:i386 libxext6:i386 libxrender1:i386 libsm6:i386 tree openssh-server
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>lib32stdc++6<span class="w"> </span>libgtk2.0-0:i386<span class="w"> </span>libfontconfig1:i386<span class="w"> </span>libx11-6:i386<span class="w"> </span>libxext6:i386<span class="w"> </span>libxrender1:i386<span class="w"> </span>libsm6:i386<span class="w"> </span>tree<span class="w"> </span>openssh-server
 
-sudo apt-get install debianutils iputils-ping libegl1-mesa libsdl1.2-dev pylint python3 cpio tftpd-hpa gnupg zlib1g:i386 haveged perl xvfb
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>debianutils<span class="w"> </span>iputils-ping<span class="w"> </span>libegl1-mesa<span class="w"> </span>libsdl1.2-dev<span class="w"> </span>pylint<span class="w"> </span>python3<span class="w"> </span>cpio<span class="w"> </span>tftpd-hpa<span class="w"> </span>gnupg<span class="w"> </span>zlib1g:i386<span class="w"> </span>haveged<span class="w"> </span>perl<span class="w"> </span>xvfb
 
-sudo apt-get install gcc-multilib build-essential automake screen putty pax g++ python3-pip xz-utils python3-git python3-jinja2 python3-pexpect
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>gcc-multilib<span class="w"> </span>build-essential<span class="w"> </span>automake<span class="w"> </span>screen<span class="w"> </span>putty<span class="w"> </span>pax<span class="w"> </span>g++<span class="w"> </span>python3-pip<span class="w"> </span>xz-utils<span class="w"> </span>python3-git<span class="w"> </span>python3-jinja2<span class="w"> </span>python3-pexpect
 
-sudo apt-get install liberror-perl mtd-utils xtrans-dev libxcb-randr0-dev libxcb-xtest0-dev libxcb-xinerama0-dev libxcb-shape0-dev libxcb-xkb-dev
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>liberror-perl<span class="w"> </span>mtd-utils<span class="w"> </span>xtrans-dev<span class="w"> </span>libxcb-randr0-dev<span class="w"> </span>libxcb-xtest0-dev<span class="w"> </span>libxcb-xinerama0-dev<span class="w"> </span>libxcb-shape0-dev<span class="w"> </span>libxcb-xkb-dev
 
-sudo apt-get install util-linux sysvinit-utils google-perftools patch diffutils ocl-icd-libopencl1 opencl-headers ocl-icd-opencl-dev
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>util-linux<span class="w"> </span>sysvinit-utils<span class="w"> </span>google-perftools<span class="w"> </span>patch<span class="w"> </span>diffutils<span class="w"> </span>ocl-icd-libopencl1<span class="w"> </span>opencl-headers<span class="w"> </span>ocl-icd-opencl-dev
 
-sudo apt-get install libncurses5 libncurses5-dev libncursesw5:amd64 libncursesw5-dev libncurses5:i386 libtinfo5 libstdc++6:i386 libgtk2.0-0:i386 dpkg-dev:i386
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libncurses5<span class="w"> </span>libncurses5-dev<span class="w"> </span>libncursesw5:amd64<span class="w"> </span>libncursesw5-dev<span class="w"> </span>libncurses5:i386<span class="w"> </span>libtinfo5<span class="w"> </span>libstdc++6:i386<span class="w"> </span>libgtk2.0-0:i386<span class="w"> </span>dpkg-dev:i386
 </pre></div>
 </div>
 <p>Install Cython</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cython
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>cython
 
-sudo apt update
-sudo apt upgrade
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
 </pre></div>
 </div>
 <div class="admonition note">
@@ -329,7 +330,7 @@ sudo apt upgrade
 <h3>USB Port Access for User<a class="headerlink" href="#usb-port-access-for-user" title="Permalink to this heading"></a></h3>
 <p>If you have been using USB devices already with your Ubuntu installation this step can be skipped.
 However, a fresh install of Ubuntu needs to have you user added to the dial out group so Vivado can access the USB ports of the machine:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo adduser <span class="nv">$USER</span> dialout
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>adduser<span class="w"> </span><span class="nv">$USER</span><span class="w"> </span>dialout
 </pre></div>
 </div>
 </section>
@@ -340,9 +341,9 @@ However, a fresh install of Ubuntu needs to have you user added to the dial out 
 <img alt="../_images/vivado.png" src="../_images/vivado.png" />
 <p>Then you have file <code class="docutils literal notranslate"><span class="pre">FPGAs_AdaptiveSoCs_Unified_2023.2_1013_2256_Lin64.bin</span></code></p>
 <p>Invoke commands below</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod +x FPGAs_AdaptiveSoCs_Unified_2023.2_1013_2256_Lin64.bin
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span>+x<span class="w"> </span>FPGAs_AdaptiveSoCs_Unified_2023.2_1013_2256_Lin64.bin
 
-sudo ./FPGAs_AdaptiveSoCs_Unified_2023.2_1013_2256_Lin64.bin
+sudo<span class="w"> </span>./FPGAs_AdaptiveSoCs_Unified_2023.2_1013_2256_Lin64.bin
 </pre></div>
 </div>
 <p>The GUI for installation will appear. Follow it to complete the installation process.</p>
@@ -356,13 +357,13 @@ sudo ./FPGAs_AdaptiveSoCs_Unified_2023.2_1013_2256_Lin64.bin
 </div>
 <p>Close the <code class="docutils literal notranslate"><span class="pre">Xilinx</span> <span class="pre">Information</span> <span class="pre">Center</span></code> window to exit.</p>
 <p>To run vivado, just invoke commands below</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span>  /home/Vivado/2023.2/settings64.sh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w">  </span>/home/Vivado/2023.2/settings64.sh
 
 vivado
 </pre></div>
 </div>
 <p>Add vivado to path</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/path/to/vivado/bin
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/path/to/vivado/bin
 </pre></div>
 </div>
 </section>
@@ -375,12 +376,12 @@ A window will appear, just follow steps and get the license.</p>
 <section id="uninstall-vivado">
 <h2>Uninstall Vivado<a class="headerlink" href="#uninstall-vivado" title="Permalink to this heading"></a></h2>
 <p>First go to your Xilinx instalation folder, then look for xsetup binaries:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;Xilinx_installation_folder&gt;$ find . -name xsetup
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;Xilinx_installation_folder&gt;$<span class="w"> </span>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span>xsetup
 </pre></div>
 </div>
 <p>Outputs would correspond to all installed Xilinx application and their xsetup binaries.</p>
 <p>For the Xilinx application you want to Uninstall, go to the folder where xsetup is located for that application and run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;Xilinx_program_you_want_to_delete_folder&gt;$ sudo ./xsetup -Uninstall
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;Xilinx_program_you_want_to_delete_folder&gt;$<span class="w"> </span>sudo<span class="w"> </span>./xsetup<span class="w"> </span>-Uninstall
 </pre></div>
 </div>
 </section>

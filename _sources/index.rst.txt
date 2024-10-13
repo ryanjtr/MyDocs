@@ -22,5 +22,6 @@ RyanDank`s Documentation
    Contents/RISCV/riscv
    Contents/STM32/freertos.rst
    Contents/ContikiOS/contikios.rst
+   Contents/STM32/lvglf7.rst
 
 

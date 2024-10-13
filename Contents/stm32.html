@@ -2,7 +2,7 @@
 <html class="writer-html5" lang="en" >
 
 <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link sizes="32x32" href="../_static/logo.png" rel="icon" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>STM32 &mdash; RyanDocs 2024 documentation</title>
@@ -17,11 +17,11 @@
     <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
     <![endif]-->
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script src="../_static/scripts.js"></script>
@@ -74,7 +74,7 @@
                     </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -103,6 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="RISCV/riscv.html">RISC-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="STM32/freertos.html">FreeRTOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ContikiOS/contikios.html">ContikiOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STM32/lvglf7.html">LVGL</a></li>
 </ul>
 
 
@@ -253,8 +254,8 @@
                     <div class="rst-content">
                         <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>STM32</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">STM32</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -285,15 +286,15 @@ ví dụ: stm32f4xx_hal_conf.h).</p>
 Bạn cũng cần cung cấp định nghĩa của hàm <code class="docutils literal notranslate"><span class="pre">assert_failed</span></code>. Hàm
 này sẽ được gọi khi <code class="docutils literal notranslate"><span class="pre">assert_param</span></code> phát hiện ra một lỗi. Thêm
 định nghĩa này vào tệp mã nguồn chính của bạn:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">assert_failed</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">line</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="cm">/* User can add his own implementation to report the HAL error return state */</span><span class="w"></span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Wrong parameters value: file %s on line %d</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">assert_failed</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">line</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="cm">/* User can add his own implementation to report the HAL error return state */</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Wrong parameters value: file %s on line %d</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">);</span>
 <span class="c1">// Infinite loop</span>
-<span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>3. Sử dụng <em>assert_param</em>
@@ -301,67 +302,67 @@ này sẽ được gọi khi <code class="docutils literal notranslate"><span cl
 trong các hàm của bạn. Ví dụ, nếu bạn có một hàm nhận
 một tham số mà phải nằm trong khoảng từ 0 đến 10, bạn
 có thể sử dụng <code class="docutils literal notranslate"><span class="pre">assert_param</span></code> để kiểm tra điều này:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">MyFunction</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">param</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">MyFunction</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">param</span><span class="p">)</span>
+<span class="p">{</span>
 <span class="c1">// Kiểm tra tham số đầu vào phải nằm trong khoảng từ 0 đến 10</span>
-<span class="n">assert_param</span><span class="p">(</span><span class="n">param</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">param</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="n">assert_param</span><span class="p">(</span><span class="n">param</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">param</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
 
 <span class="c1">// Phần còn lại của hàm</span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Ví dụ đầy đủ
 Dưới đây là một ví dụ đầy đủ về việc sử dụng <code class="docutils literal notranslate"><span class="pre">assert_param</span></code> trong một chương trình STM32:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;main.h&quot;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;main.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
 <span class="cp">#ifdef USE_FULL_ASSERT</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">assert_failed</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">line</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Wrong parameters value: file %s on line %d</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">);</span><span class="w"></span>
-<span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="cp">#endif </span><span class="cm">/* USE_FULL_ASSERT */</span><span class="cp"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">assert_failed</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">line</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Wrong parameters value: file %s on line %d</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">);</span>
+<span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+<span class="p">}</span>
+<span class="cp">#endif </span><span class="cm">/* USE_FULL_ASSERT */</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">MyFunction</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">param</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="n">assert_param</span><span class="p">(</span><span class="n">param</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">param</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">MyFunction</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">param</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">assert_param</span><span class="p">(</span><span class="n">param</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">param</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
 
 <span class="c1">// Phần còn lại của hàm</span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
 <span class="c1">// Khởi tạo hệ thống</span>
-<span class="n">HAL_Init</span><span class="p">();</span><span class="w"></span>
-<span class="n">SystemClock_Config</span><span class="p">();</span><span class="w"></span>
+<span class="n">HAL_Init</span><span class="p">();</span>
+<span class="n">SystemClock_Config</span><span class="p">();</span>
 
 <span class="c1">// Sử dụng hàm với tham số hợp lệ</span>
-<span class="n">MyFunction</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="n">MyFunction</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 
 <span class="c1">// Sử dụng hàm với tham số không hợp lệ</span>
-<span class="n">MyFunction</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span><span class="w"></span>
+<span class="n">MyFunction</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
 
-<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Tệp <em>stm32fxx_hal_conf.h</em></p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef __STM32FXX_HAL_CONF_H</span>
 <span class="cp">#define __STM32FXX_HAL_CONF_H</span>
 
-<span class="cm">/* ... các định nghĩa và cấu hình khác ... */</span><span class="w"></span>
+<span class="cm">/* ... các định nghĩa và cấu hình khác ... */</span>
 
-<span class="cm">/* Định nghĩa USE_FULL_ASSERT để kích hoạt assert_param */</span><span class="w"></span>
+<span class="cm">/* Định nghĩa USE_FULL_ASSERT để kích hoạt assert_param */</span>
 <span class="cp">#define USE_FULL_ASSERT</span>
 
-<span class="cm">/* ... các định nghĩa và cấu hình khác ... */</span><span class="w"></span>
+<span class="cm">/* ... các định nghĩa và cấu hình khác ... */</span>
 
-<span class="cp">#endif </span><span class="cm">/* __STM32FXX_HAL_CONF_H */</span><span class="cp"></span>
+<span class="cp">#endif </span><span class="cm">/* __STM32FXX_HAL_CONF_H */</span>
 </pre></div>
 </div>
 <p><strong>Tổng kết</strong></p>

@@ -2,7 +2,7 @@
 <html class="writer-html5" lang="en" >
 
 <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link sizes="32x32" href="../_static/logo.png" rel="icon" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Github &mdash; RyanDocs 2024 documentation</title>
@@ -17,11 +17,11 @@
     <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
     <![endif]-->
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script src="../_static/scripts.js"></script>
@@ -74,7 +74,7 @@
                     </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -104,6 +104,7 @@
 <li class="toctree-l1"><a class="reference internal" href="RISCV/riscv.html">RISC-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="STM32/freertos.html">FreeRTOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ContikiOS/contikios.html">ContikiOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STM32/lvglf7.html">LVGL</a></li>
 </ul>
 
 
@@ -254,8 +255,8 @@
                     <div class="rst-content">
                         <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Github</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Github</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -265,8 +266,8 @@
                             <div itemprop="articleBody">
                                 
   <section id="github">
-<h1><a class="toc-backref" href="#id1">Github</a><a class="headerlink" href="#github" title="Permalink to this heading"></a></h1>
-<div class="contents topic" id="contents">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Github</a><a class="headerlink" href="#github" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#github" id="id1">Github</a></p>
@@ -276,83 +277,83 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <p>Working space
 Stage area and git local</p>
 <section id="installation">
-<h2><a class="toc-backref" href="#id2">Installation</a><a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Installation</a><a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <p><strong>For Ubuntu</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git
 </pre></div>
 </div>
 </section>
 <section id="commands">
-<h2><a class="toc-backref" href="#id3">Commands</a><a class="headerlink" href="#commands" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Commands</a><a class="headerlink" href="#commands" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If first time use github, you must commands below</p>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config --global user.name <span class="s2">&quot;John&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;John&quot;</span>
 
-git config --global user.mail <span class="s2">&quot;nguyevana@gmail.com&quot;</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.mail<span class="w"> </span><span class="s2">&quot;nguyevana@gmail.com&quot;</span>
 
-git config credential.helper store <span class="c1"># to store user name and password to your computer</span>
+git<span class="w"> </span>config<span class="w"> </span>credential.helper<span class="w"> </span>store<span class="w"> </span><span class="c1"># to store user name and password to your computer</span>
 </pre></div>
 </div>
 <p>Initiate git local</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git init
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>init
 </pre></div>
 </div>
 <p>Add all file to local</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git add .
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
 </pre></div>
 </div>
 <p>Commit code to local</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git commit -m <span class="s2">&quot;message&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;message&quot;</span>
 </pre></div>
 </div>
 <p>Link to remote repository</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git remote add origin &lt;Url_repo&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>&lt;Url_repo&gt;
 </pre></div>
 </div>
 <p>Push code to branch <code class="docutils literal notranslate"><span class="pre">master</span></code> of remote repository, later then just use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push -u origin master
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>master
 </pre></div>
 </div>
 <p>Update code from branch <code class="docutils literal notranslate"><span class="pre">master</span></code> to local</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git pull origin master
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>master
 </pre></div>
 </div>
 <p>Change to another version (version: code committed to git remote)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout &lt;commit_id&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>&lt;commit_id&gt;
 </pre></div>
 </div>
 <p>Create a new branch and move to it (-b: create a new branch)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout -b &lt;branch_name&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>&lt;branch_name&gt;
 </pre></div>
 </div>
 <p>Merge a branch to master</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git merge &lt;branch_name&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>merge<span class="w"> </span>&lt;branch_name&gt;
 </pre></div>
 </div>
 <p>List branch</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git branch -a
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>-a
 </pre></div>
 </div>
 <p>Assumed you committed c1 c2 c3 c4 c5. If you use the command below, then we will return to c2, code in c3 c4 c5 will be deleted (as never exist)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git reset --hard &lt;id_c2&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>&lt;id_c2&gt;
 </pre></div>
 </div>
 <p>Force to push code to remote due to difference in commit history (not recommend)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push -f
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>-f
 </pre></div>
 </div>
 <p>Show id commit</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git log
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>log
 </pre></div>
 </div>
 <p>Return to a commit in history</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git revert &lt;id_commit&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>revert<span class="w"> </span>&lt;id_commit&gt;
 </pre></div>
 </div>
 </section>
