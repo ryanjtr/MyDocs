@@ -68,7 +68,7 @@ Porting library to STM32F746GDISCOVERY project
 
 #. Add path to all folder above.
 
-#. Clone `LVGL github <https://github.com/lvgl/lvgl>`_
+#. Clone `LVGL github <https://github.com/lvgl/lvgl>`_.
 
 #. Copy ``lvgl`` cloned folder to your project.
 
