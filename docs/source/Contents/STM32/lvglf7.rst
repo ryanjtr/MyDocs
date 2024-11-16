@@ -91,6 +91,7 @@ Porting library to STM32F746GDISCOVERY project
         You have to call this function in ``void SysTick_Handler(void)`` of the ``stm32f7xx_it.c`` file.
 
     #. I recommend using LVGL version 8.2 for enhanced stability. Because cannot use macro rotation display in version 9.3.0
+        If you use lvgl version 8.2, then you should use ``hal_stm_lvgl`` in `here <https://github.com/niekiran/EmbeddedGraphicsLVGL-MCU3/tree/main/Projects/002_LVGL_sample/2_32F746GDISCOVERY>`_
 
 Run lvgl example
 -------------------

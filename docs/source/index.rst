@@ -23,5 +23,6 @@ RyanDank`s Documentation
    Contents/STM32/freertos.rst
    Contents/ContikiOS/contikios.rst
    Contents/STM32/lvglf7.rst
+   Contents/STM32/i2c_bitbang.rst
 
 
