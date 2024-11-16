@@ -30,6 +30,7 @@
         <script src="../../_static/js/theme.js"></script>
         <link rel="index" title="Index" href="../../genindex.html" />
         <link rel="search" title="Search" href="../../search.html" />
+        <link rel="next" title="I2C BITBANGING" href="i2c_bitbang.html" />
         <link rel="prev" title="Networking" href="../ContikiOS/networking.html" /> 
         <style>
             #logo-container {
@@ -108,6 +109,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#run-lvgl-example">Run lvgl example</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="i2c_bitbang.html">I2C BITBANGING</a></li>
 </ul>
 
 
@@ -355,7 +357,11 @@ on board external flash: 128Mb, on board LCD-TFT: 480x272</p>
 </dd>
 </dl>
 </li>
-<li><p>I recommend using LVGL version 8.2 for enhanced stability. Because cannot use macro rotation display in version 9.3.0</p></li>
+<li><dl class="simple">
+<dt>I recommend using LVGL version 8.2 for enhanced stability. Because cannot use macro rotation display in version 9.3.0</dt><dd><p>If you use lvgl version 8.2, then you should use <code class="docutils literal notranslate"><span class="pre">hal_stm_lvgl</span></code> in <a class="reference external" href="https://github.com/niekiran/EmbeddedGraphicsLVGL-MCU3/tree/main/Projects/002_LVGL_sample/2_32F746GDISCOVERY" rel="noopener noreferrer" target="_blank">here</a></p>
+</dd>
+</dl>
+</li>
 </ol>
 </div>
 </section>
@@ -435,6 +441,7 @@ on board external flash: 128Mb, on board LCD-TFT: 480x272</p>
 
                         <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../ContikiOS/networking.html" class="btn btn-neutral float-left" title="Networking" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="i2c_bitbang.html" class="btn btn-neutral float-right" title="I2C BITBANGING" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

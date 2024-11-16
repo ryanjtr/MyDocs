@@ -460,7 +460,7 @@ Invoke command below to find setting location of sphinx_rtd_theme (Window):
 
     pip show sphinx-rtd-theme
 
-Then find *layout.html* file.
+Then find ``layout.html`` file.
 
 References
 ~~~~~~~~~~~~~~~~

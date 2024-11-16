@@ -86,7 +86,24 @@
 <li class="toctree-l1"><a class="reference internal" href="Professional_terminology.html">Professional terminology</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Github</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initiate-git-local">Initiate git local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-all-file-to-local">Add all file to local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commit-code-to-local">Commit code to local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#link-to-remote-repository">Link to remote repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#push-code-to-branch">Push code to branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-code-from-branch-to-local">Update code from branch to local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#change-to-another-version-version-code-committed-to-git-remote">Change to another version (version: code committed to git remote)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-new-branch-and-move-to-it-b-create-a-new-branch">Create a new branch and move to it (-b: create a new branch)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#merge-a-branch-to-master">Merge a branch to master</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-branch">List branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assumed-you-committed-c1-c2-c3-c4-c5-if-you-use-the-command-below-then-we-will-return-to-c2-code-in-c3-c4-c5-will-be-deleted-as-never-exist">Assumed you committed c1 c2 c3 c4 c5. If you use the command below, then we will return to c2, code in c3 c4 c5 will be deleted (as never exist)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#force-to-push-code-to-remote-due-to-difference-in-commit-history-not-recommend">Force to push code to remote due to difference in commit history (not recommend)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#show-id-commit">Show id commit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#return-to-a-commit-in-history">Return to a commit in history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#git-clone">Git clone</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
@@ -105,6 +122,7 @@
 <li class="toctree-l1"><a class="reference internal" href="STM32/freertos.html">FreeRTOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ContikiOS/contikios.html">ContikiOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="STM32/lvglf7.html">LVGL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STM32/i2c_bitbang.html">I2C BITBANGING</a></li>
 </ul>
 
 
@@ -300,62 +318,110 @@ git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"
 git<span class="w"> </span>config<span class="w"> </span>credential.helper<span class="w"> </span>store<span class="w"> </span><span class="c1"># to store user name and password to your computer</span>
 </pre></div>
 </div>
-<p>Initiate git local</p>
+<section id="initiate-git-local">
+<h3>Initiate git local<a class="headerlink" href="#initiate-git-local" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>init
 </pre></div>
 </div>
-<p>Add all file to local</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you mistakenly use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code> in wrong the folder, then on Windows, you can invoke</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dir<span class="w"> </span>/a
+</pre></div>
+</div>
+<p>to find <code class="docutils literal notranslate"><span class="pre">.git</span></code> file. Then delete it with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rmdir<span class="w"> </span>/s<span class="w"> </span>/q<span class="w"> </span>.git
+</pre></div>
+</div>
+</div>
+</section>
+<section id="add-all-file-to-local">
+<h3>Add all file to local<a class="headerlink" href="#add-all-file-to-local" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
 </pre></div>
 </div>
-<p>Commit code to local</p>
+</section>
+<section id="commit-code-to-local">
+<h3>Commit code to local<a class="headerlink" href="#commit-code-to-local" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;message&quot;</span>
 </pre></div>
 </div>
-<p>Link to remote repository</p>
+</section>
+<section id="link-to-remote-repository">
+<h3>Link to remote repository<a class="headerlink" href="#link-to-remote-repository" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>&lt;Url_repo&gt;
 </pre></div>
 </div>
+</section>
+<section id="push-code-to-branch">
+<h3>Push code to branch<a class="headerlink" href="#push-code-to-branch" title="Permalink to this heading"></a></h3>
 <p>Push code to branch <code class="docutils literal notranslate"><span class="pre">master</span></code> of remote repository, later then just use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>master
 </pre></div>
 </div>
+</section>
+<section id="update-code-from-branch-to-local">
+<h3>Update code from branch to local<a class="headerlink" href="#update-code-from-branch-to-local" title="Permalink to this heading"></a></h3>
 <p>Update code from branch <code class="docutils literal notranslate"><span class="pre">master</span></code> to local</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>master
 </pre></div>
 </div>
-<p>Change to another version (version: code committed to git remote)</p>
+</section>
+<section id="change-to-another-version-version-code-committed-to-git-remote">
+<h3>Change to another version (version: code committed to git remote)<a class="headerlink" href="#change-to-another-version-version-code-committed-to-git-remote" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>&lt;commit_id&gt;
 </pre></div>
 </div>
-<p>Create a new branch and move to it (-b: create a new branch)</p>
+</section>
+<section id="create-a-new-branch-and-move-to-it-b-create-a-new-branch">
+<h3>Create a new branch and move to it (-b: create a new branch)<a class="headerlink" href="#create-a-new-branch-and-move-to-it-b-create-a-new-branch" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>&lt;branch_name&gt;
 </pre></div>
 </div>
-<p>Merge a branch to master</p>
+</section>
+<section id="merge-a-branch-to-master">
+<h3>Merge a branch to master<a class="headerlink" href="#merge-a-branch-to-master" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>merge<span class="w"> </span>&lt;branch_name&gt;
 </pre></div>
 </div>
-<p>List branch</p>
+</section>
+<section id="list-branch">
+<h3>List branch<a class="headerlink" href="#list-branch" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>-a
 </pre></div>
 </div>
-<p>Assumed you committed c1 c2 c3 c4 c5. If you use the command below, then we will return to c2, code in c3 c4 c5 will be deleted (as never exist)</p>
+</section>
+<section id="assumed-you-committed-c1-c2-c3-c4-c5-if-you-use-the-command-below-then-we-will-return-to-c2-code-in-c3-c4-c5-will-be-deleted-as-never-exist">
+<h3>Assumed you committed c1 c2 c3 c4 c5. If you use the command below, then we will return to c2, code in c3 c4 c5 will be deleted (as never exist)<a class="headerlink" href="#assumed-you-committed-c1-c2-c3-c4-c5-if-you-use-the-command-below-then-we-will-return-to-c2-code-in-c3-c4-c5-will-be-deleted-as-never-exist" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>&lt;id_c2&gt;
 </pre></div>
 </div>
-<p>Force to push code to remote due to difference in commit history (not recommend)</p>
+</section>
+<section id="force-to-push-code-to-remote-due-to-difference-in-commit-history-not-recommend">
+<h3>Force to push code to remote due to difference in commit history (not recommend)<a class="headerlink" href="#force-to-push-code-to-remote-due-to-difference-in-commit-history-not-recommend" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>-f
 </pre></div>
 </div>
-<p>Show id commit</p>
+</section>
+<section id="show-id-commit">
+<h3>Show id commit<a class="headerlink" href="#show-id-commit" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>log
 </pre></div>
 </div>
-<p>Return to a commit in history</p>
+</section>
+<section id="return-to-a-commit-in-history">
+<h3>Return to a commit in history<a class="headerlink" href="#return-to-a-commit-in-history" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>revert<span class="w"> </span>&lt;id_commit&gt;
 </pre></div>
 </div>
+</section>
+<section id="git-clone">
+<h3>Git clone<a class="headerlink" href="#git-clone" title="Permalink to this heading"></a></h3>
+<p>If you don’t need the entire commit history, you can perform a shallow clone, which only fetches the latest state of the repository. Use the –depth option:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--recurse-submodules<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span><span class="w"> </span>https://github.com/cetic/6lbr.git
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
