@@ -52,6 +52,19 @@ Initiate git local
 
         rmdir /s /q .git
 
+Git ignore
+~~~~~~~~~~~~~~~~~~~~~~
+
+Git will not ignore files/folders that have already been tracked, even if they have been added to ``.gitignore``
+
+You have to remove files/folders from Git's tracking status, here i will remove folder ``Debug``:
+
+.. code-block:: bash
+
+    git rm -r --cached Debug
+
+Then, commit the changes, and Git will ignore the Debug folder according to the ``.gitignore``.
+
 Add all file to local
 ~~~~~~~~~~~~~~~~~~~~~~
 
