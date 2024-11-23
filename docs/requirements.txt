@@ -53,6 +53,7 @@ sphinxcontrib-qthelp==1.0.3
     # via sphinx
 urllib3>=1.26.9
     # via requests
+furo
 sphinx-copybutton
 sphinx-new-tab-link
 sphinx-rtd-dark-mode
