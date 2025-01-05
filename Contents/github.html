@@ -103,6 +103,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#show-id-commit">Show id commit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#return-to-a-commit-in-history">Return to a commit in history</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#git-clone">Git clone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recover-it-from-git-repository">Recover it from git repository</a></li>
 </ul>
 </li>
 </ul>
@@ -450,6 +451,16 @@ git<span class="w"> </span>config<span class="w"> </span>credential.helper<span 
 <h3>Git clone<a class="headerlink" href="#git-clone" title="Permalink to this heading"></a></h3>
 <p>If you don’t need the entire commit history, you can perform a shallow clone, which only fetches the latest state of the repository. Use the –depth option:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--recurse-submodules<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span><span class="w"> </span>https://github.com/cetic/6lbr.git
+</pre></div>
+</div>
+</section>
+<section id="recover-it-from-git-repository">
+<h3>Recover it from git repository<a class="headerlink" href="#recover-it-from-git-repository" title="Permalink to this heading"></a></h3>
+<p>If you want to change current code and recover it from git repository</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>--all
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>origin/&lt;branch-name&gt;
 </pre></div>
 </div>
 </section>
