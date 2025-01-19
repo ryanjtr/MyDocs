@@ -171,8 +171,8 @@ If you don't need the entire commit history, you can perform a shallow clone, wh
 
     git clone --recurse-submodules --depth 1 https://github.com/cetic/6lbr.git
 
-Recover it from git repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Recover code from git repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you want to change current code and recover it from git repository
 
