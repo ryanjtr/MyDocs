@@ -277,3 +277,66 @@ while the server doesn't need to have a GUI.
 
     * This method allows you to avoid installing a GUI on the server, yet still enjoy the full functionality of VS Code for development and remote work.
 
+Add priority for Wi-Fi networks
+-----------------------------------
+
+#. Open the ``wpa_supplicant.conf`` file
+
+    If the ``wpa_supplicant.conf`` file does not exist, you can create it. To edit the file, use the following command:
+
+    .. code-block:: bash
+
+        sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+
+#. Add Wi-Fi Network Configurations with Priority
+
+    In the ``wpa_supplicant.conf`` file, add the configurations for the Wi-Fi networks, specifying the priority for each network. A lower priority number indicates higher priority.
+
+    Example configuration:
+
+    .. code-block:: bash
+
+        network={
+            ssid="namchau3"
+            psk="your_password_here"
+            priority=1
+        }
+
+        network={
+            ssid="wifi_moi"
+            psk="password_moi"
+            priority=2
+        }
+
+    In this case:
+
+        * The network namchau3 has a priority of 1 (higher priority).
+        * The network wifi_moi has a priority of 2 (lower priority).
+
+#. Save and Exit
+
+#. Apply the Network Configuration
+
+    #. To apply the changes with netplan
+
+        .. code-block:: bash
+
+            sudo netplan apply
+
+
+    #. Alternatively, restart the wpa_supplicant service:
+
+        .. code-block:: bash
+
+            sudo systemctl restart wpa_supplicant
+
+
+#. Check the Connection Status
+
+    To verify the Wi-Fi network connection and the priority settings, use the following command:
+
+    .. code-block:: bash
+
+        sudo snap install network-manager
+
+        nmcli device status
