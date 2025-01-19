@@ -7,14 +7,14 @@ Raspberry Pi
 Install Raspberry Pi OS without monitor or keyboard
 -------------------------------------------------------
 
-#. First, visit this `link <https://www.raspberrypi.com/software/>`_ to download Raspberry Pi Imager.
+#. First, visit this `link Raspberry Pi Imager <https://www.raspberrypi.com/software/>`_ to download Raspberry Pi Imager.
 
 #. Insert your microSD card into a card reader and connect it to your computer. Then, launch the Raspberry Pi Imager application.
 
 #. Configure the following settings in the Raspberry Pi Imager:
 
     * Raspberry Pi Device: Select the device model you are using.
-    * Raspberry Pi Device: Select the device model you are using.
+    * Raspberry Pi OS: Select Raspberry Pi OS 64 bit
     * Storage: Select your microSD card.
 
 #. Click Next, then proceed to Edit Settings. In the settings window:
@@ -77,7 +77,7 @@ Enable VNC and use VNCTiger
         * Choose Desktop Auto login and press Enter.
 #. Navigate to Finish and confirm with Yes to reboot the Raspberry Pi and close terminal.
 
-#. Visit this link to download TigerVNC.
+#. Visit this `link <https://sourceforge.net/projects/tigervnc/>`_ to download TigerVNC.
 #. Install and launch the application.
 #. Enter the VNC server address (e.g., the IP address of your Raspberry Pi) and proceed.
 #. Confirm any prompts with Yes until the VNC authentication window appears.
@@ -98,7 +98,7 @@ Changing Wi-Fi When in a New Location
 #. Connect Your Laptop to the Hotspot:
 
     * On your laptop, connect to the newly created hotspot.
-    * Open TigerVNC and scan for the Raspberry Pi’s Wi-Fi IP address.
+    * Open TigerVNC and scan for the Raspberry Pi's Wi-Fi IP address.
     * Connect to the Raspberry Pi using the same method as before.
 
 #. Connect to a Hidden Wireless Network:
@@ -121,4 +121,159 @@ Changing Wi-Fi When in a New Location
 
 
 
+Command for ubuntu sever terminal
+------------------------------------
+
+Shut down command
+~~~~~~~~~~~~~~~~~~~~~
+
+* Shut down now
+    .. code-block:: bash
+        
+        sudo shutdown now 
+
+* shut down after 5 minutes
+
+    .. code-block:: bash
+        
+        sudo shutdown +5 
+
+* shut down at specific time
+
+    .. code-block:: bash
+
+        sudo shutdown 23:00
+
+
+
+Reboot Command
+~~~~~~~~~~~~~~~~~
+
+    .. code-block:: bash
+
+        sudo reboot
+
+Power off command
+~~~~~~~~~~~~~~~~~~~~
+
+    .. code-block:: bash
+
+        sudo poweroff   
+
+
+Add new Wifi
+~~~~~~~~~~~~~~~~
+
+#. Check the current network configuration: Ubuntu uses Netplan or wpa_supplicant to manage Wi-Fi, depending on the version. Open the Netplan configuration file (usually located in the /etc/netplan/ directory):
+
+    .. code-block:: bash
+
+        sudo nano /etc/netplan/*.yaml
+
+#. Add a new Wi-Fi network configuration: If you are using Netplan: In the YAML configuration file, you will see a section like the following:
+
+    .. code-block:: bash
+
+        network:
+            version: 2
+            renderer: networkd
+            wifis:
+                wlan0:
+                access-points:
+                    "namchau3":
+                    password: "your_password_here"
+                    "wifi_moi":
+                    password: "password_moi"
+                dhcp4: true
+
+#. Save the file (Ctrl + O, Enter) and exit (Ctrl + X).
+#. Apply the new configuration:
+
+    .. code-block:: bash
+
+        sudo netplan apply
+
+Install gpiozero library for ubuntu sever OS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+    sudo apt install python3-gpiozero
+
+Display SSID of Wifi
+~~~~~~~~~~~~~~~~~~~~~
+
+#. Install wireless-tool
+
+    .. code-block:: bash
+
+        sudo apt install wireless-tools
+
+#. Display SSID
+
+    .. code-block:: bash
+
+        iwgetid
+
+Install Visual Studio Code on an Ubuntu Server without a GUI
+---------------------------------------------------------------
+
+You can use VS Code Remote Development by connecting to your server via SSH from another machine that has the VS Code GUI. Here's a step-by-step guide:
+
+#. Install Visual Studio Code on Your Personal Computer
+
+#. Install the Remote Development Extension in VS Code
+
+    * Open VS Code on your personal computer
+    * Open the Extensions Marketplace (press Ctrl+Shift+X or click the Extensions icon in the sidebar).
+    * Search for and install the Remote - SSH extension.
+    * After installation, you'll see a ``><`` icon in the sidebar. Click on this icon.
+
+#. Install VS Code Tools on Ubuntu Server via SSH
+
+    * SSH into your Ubuntu Server from your personal computer:
+
+        .. code-block:: bash
+
+            ssh username@your_server_ip
+    
+    * Install OpenSSH on the server (if it's not already installed) to enable SSH connections:
+
+        .. code-block:: bash
+
+            sudo apt update
+            sudo apt install openssh-server
+
+
+    * Check the SSH service status:
+
+        .. code-block:: bash
+
+            sudo systemctl status ssh
+
+    * Make sure the SSH service is running. If it's not, start it:
+
+        .. code-block:: bash
+
+            sudo systemctl start ssh
+
+
+#. Use VS Code to Connect to Ubuntu Server via SSH
+
+    * In VS Code on your personal computer, open the Remote Explorer.
+    * Click the + button to add a new SSH connection.
+    * Enter the Ubuntu server's username and IP address.
+    * Provide the password when prompted, or configure the connection with an SSH key.
+
+#. Edit and Work Remotely on the Server
+
+Once connected, you can edit files on the server as if you're working locally. 
+VS Code on your personal computer will interact with the files on your Ubuntu Server through SSH, 
+while the server doesn't need to have a GUI.
+
+.. note:: 
+
+    * Visual Studio Code runs on your personal computer but interacts with the code and files on the Ubuntu Server.
+
+    * This method allows you to avoid installing a GUI on the server, yet still enjoy the full functionality of VS Code for development and remote work.
 
