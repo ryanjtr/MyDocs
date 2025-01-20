@@ -117,6 +117,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#install-visual-studio-code-on-an-ubuntu-server-without-a-gui">Install Visual Studio Code on an Ubuntu Server without a GUI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#add-priority-for-wi-fi-networks">Add priority for Wi-Fi networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-hotspot-for-raspberry-pi">Add Hotspot for Raspberry Pi</a></li>
 </ul>
 </li>
 </ul>
@@ -315,6 +316,7 @@
 <li><p><a class="reference internal" href="#command-for-ubuntu-sever-terminal" id="id7">Command for ubuntu sever terminal</a></p></li>
 <li><p><a class="reference internal" href="#install-visual-studio-code-on-an-ubuntu-server-without-a-gui" id="id8">Install Visual Studio Code on an Ubuntu Server without a GUI</a></p></li>
 <li><p><a class="reference internal" href="#add-priority-for-wi-fi-networks" id="id9">Add priority for Wi-Fi networks</a></p></li>
+<li><p><a class="reference internal" href="#add-hotspot-for-raspberry-pi" id="id10">Add Hotspot for Raspberry Pi</a></p></li>
 </ul>
 </li>
 </ul>
@@ -727,6 +729,34 @@ while the server doesn’t need to have a GUI.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>snap<span class="w"> </span>install<span class="w"> </span>network-manager
 
 nmcli<span class="w"> </span>device<span class="w"> </span>status
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="add-hotspot-for-raspberry-pi">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Add Hotspot for Raspberry Pi</a><a class="headerlink" href="#add-hotspot-for-raspberry-pi" title="Permalink to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Use following command to open <code class="docutils literal notranslate"><span class="pre">50-cloud-init.yaml</span></code>.</p></li>
+<li><p>Edit file like below</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>network:
+<span class="w">    </span>version:<span class="w"> </span><span class="m">2</span>
+<span class="w">    </span>renderer:<span class="w"> </span>networkd
+<span class="w">    </span>wifis:
+<span class="w">        </span>wlan0:
+<span class="w">            </span>access-points:
+<span class="w">                </span><span class="s2">&quot;Nam Chau 3&quot;</span>:
+<span class="w">                    </span>hidden:<span class="w"> </span><span class="nb">true</span>
+<span class="w">                    </span>password:<span class="w"> </span><span class="s2">&quot;password&quot;</span>
+<span class="w">                </span><span class="s2">&quot;RaspberryPi-Hotspot&quot;</span>:
+<span class="w">                    </span>mode:<span class="w"> </span>ap
+<span class="w">                    </span>password:<span class="w"> </span><span class="s2">&quot;HotspotPassword&quot;</span>
+<span class="w">            </span>dhcp4:<span class="w"> </span><span class="nb">true</span>
+<span class="w">            </span>addresses:
+<span class="w">                </span>-<span class="w"> </span><span class="m">192</span>.168.4.1/24
+<span class="w">            </span>optional:<span class="w"> </span><span class="nb">true</span>
 </pre></div>
 </div>
 </div></blockquote>
