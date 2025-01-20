@@ -160,9 +160,15 @@ Power off command
 
         sudo poweroff   
 
+Install gpiozero library for ubuntu sever OS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+    sudo apt install python3-gpiozero
 
 Add new Wifi
-~~~~~~~~~~~~~~~~
+----------------
 
 #. Check the current network configuration: Ubuntu uses Netplan or wpa_supplicant to manage Wi-Fi, depending on the version. Open the Netplan configuration file (usually located in the /etc/netplan/ directory):
 
@@ -193,15 +199,10 @@ Add new Wifi
 
         sudo netplan apply
 
-Install gpiozero library for ubuntu sever OS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: bash
-
-    sudo apt install python3-gpiozero
 
 Display SSID of Wifi
-~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 #. Install wireless-tool
 
@@ -366,4 +367,17 @@ Add Hotspot for Raspberry Pi
                     addresses:
                         - 192.168.4.1/24
                     optional: true
+
+Observe RAM/ROM resources of system
+--------------------------------------
+
+#. Use the following command to observe status
+
+    .. code-block:: bash
+
+        htop
+
+    .. image:: image/raspberry/ram_and_rom_resources.png 
+
+
 
