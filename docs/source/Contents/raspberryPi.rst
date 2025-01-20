@@ -120,7 +120,60 @@ Changing Wi-Fi When in a New Location
     * Repeat this process whenever you move to a new location with a different network.
 
 
+Configure static IP for Raspberry Pi
+----------------------------------------
 
+#. Install ``dhcpcd``
+
+    .. code-block:: bash
+
+        sudo apt install dhcpcd5
+
+#. Enable and active service
+
+    .. code-block::bash
+
+        sudo systemctl enable dhcpcd
+        sudo systemctl start dhcpcd
+
+#. Confirm status
+
+    .. code-block:: bash
+
+        sudo systemctl status dhcpcd
+
+#. Open configuration network file
+
+    .. code-block:: bash
+
+        sudo nano /etc/dhcpcd.conf
+
+#. Add this configuration to the end of the file
+
+    .. code-block:: bash
+
+        interface wlan0
+        static ip_address=192.168.137.2/24
+        static routers=192.168.137.1
+        static domain_name_servers=8.8.8.8 8.8.4.4
+
+Change the router and ip-address settings to match those of your laptop
+
+You can use ``ipconfig`` to observe
+
+#. Save file and restart the service
+
+    .. code-block:: bash
+
+        sudo systemctl restart dhcpcd
+
+#. Verify raspberry pi'ip-address
+
+    .. code-block:: bash
+
+        ip addr show wlan0
+
+        
 Command for ubuntu sever terminal
 ------------------------------------
 
@@ -380,4 +433,6 @@ Observe RAM/ROM resources of system
     .. image:: image/raspberry/ram_and_rom_resources.png 
 
 
+
+    
 
