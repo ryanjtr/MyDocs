@@ -340,3 +340,30 @@ Add priority for Wi-Fi networks
         sudo snap install network-manager
 
         nmcli device status
+
+
+Add Hotspot for Raspberry Pi
+--------------------------------
+
+#. Use following command to open ``50-cloud-init.yaml``.
+#. Edit file like below
+
+    .. code-block:: bash
+
+        network:
+            version: 2
+            renderer: networkd
+            wifis:
+                wlan0:
+                    access-points:
+                        "Nam Chau 3":
+                            hidden: true
+                            password: "password"
+                        "RaspberryPi-Hotspot":
+                            mode: ap
+                            password: "HotspotPassword"
+                    dhcp4: true
+                    addresses:
+                        - 192.168.4.1/24
+                    optional: true
+
