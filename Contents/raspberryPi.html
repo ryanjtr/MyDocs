@@ -110,14 +110,15 @@
 <li class="toctree-l3"><a class="reference internal" href="#shut-down-command">Shut down command</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reboot-command">Reboot Command</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#power-off-command">Power off command</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#add-new-wifi">Add new Wifi</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#install-gpiozero-library-for-ubuntu-sever-os">Install gpiozero library for ubuntu sever OS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#display-ssid-of-wifi">Display SSID of Wifi</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#add-new-wifi">Add new Wifi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#display-ssid-of-wifi">Display SSID of Wifi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-visual-studio-code-on-an-ubuntu-server-without-a-gui">Install Visual Studio Code on an Ubuntu Server without a GUI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#add-priority-for-wi-fi-networks">Add priority for Wi-Fi networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#add-hotspot-for-raspberry-pi">Add Hotspot for Raspberry Pi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#observe-ram-rom-resources-of-system">Observe RAM/ROM resources of system</a></li>
 </ul>
 </li>
 </ul>
@@ -314,9 +315,12 @@
 <li><p><a class="reference internal" href="#enable-vnc-and-use-vnctiger" id="id5">Enable VNC and use VNCTiger</a></p></li>
 <li><p><a class="reference internal" href="#changing-wi-fi-when-in-a-new-location" id="id6">Changing Wi-Fi When in a New Location</a></p></li>
 <li><p><a class="reference internal" href="#command-for-ubuntu-sever-terminal" id="id7">Command for ubuntu sever terminal</a></p></li>
-<li><p><a class="reference internal" href="#install-visual-studio-code-on-an-ubuntu-server-without-a-gui" id="id8">Install Visual Studio Code on an Ubuntu Server without a GUI</a></p></li>
-<li><p><a class="reference internal" href="#add-priority-for-wi-fi-networks" id="id9">Add priority for Wi-Fi networks</a></p></li>
-<li><p><a class="reference internal" href="#add-hotspot-for-raspberry-pi" id="id10">Add Hotspot for Raspberry Pi</a></p></li>
+<li><p><a class="reference internal" href="#add-new-wifi" id="id8">Add new Wifi</a></p></li>
+<li><p><a class="reference internal" href="#display-ssid-of-wifi" id="id9">Display SSID of Wifi</a></p></li>
+<li><p><a class="reference internal" href="#install-visual-studio-code-on-an-ubuntu-server-without-a-gui" id="id10">Install Visual Studio Code on an Ubuntu Server without a GUI</a></p></li>
+<li><p><a class="reference internal" href="#add-priority-for-wi-fi-networks" id="id11">Add priority for Wi-Fi networks</a></p></li>
+<li><p><a class="reference internal" href="#add-hotspot-for-raspberry-pi" id="id12">Add Hotspot for Raspberry Pi</a></p></li>
+<li><p><a class="reference internal" href="#observe-ram-rom-resources-of-system" id="id13">Observe RAM/ROM resources of system</a></p></li>
 </ul>
 </li>
 </ul>
@@ -529,8 +533,15 @@ Example:<span class="w"> </span>ssh<span class="w"> </span>Pi@192.168.1.9
 </div>
 </div></blockquote>
 </section>
+<section id="install-gpiozero-library-for-ubuntu-sever-os">
+<h3>Install gpiozero library for ubuntu sever OS<a class="headerlink" href="#install-gpiozero-library-for-ubuntu-sever-os" title="Permalink to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-gpiozero
+</pre></div>
+</div>
+</section>
+</section>
 <section id="add-new-wifi">
-<h3>Add new Wifi<a class="headerlink" href="#add-new-wifi" title="Permalink to this heading"></a></h3>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Add new Wifi</a><a class="headerlink" href="#add-new-wifi" title="Permalink to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Check the current network configuration: Ubuntu uses Netplan or wpa_supplicant to manage Wi-Fi, depending on the version. Open the Netplan configuration file (usually located in the /etc/netplan/ directory):</p>
 <blockquote>
@@ -566,14 +577,8 @@ Example:<span class="w"> </span>ssh<span class="w"> </span>Pi@192.168.1.9
 </li>
 </ol>
 </section>
-<section id="install-gpiozero-library-for-ubuntu-sever-os">
-<h3>Install gpiozero library for ubuntu sever OS<a class="headerlink" href="#install-gpiozero-library-for-ubuntu-sever-os" title="Permalink to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-gpiozero
-</pre></div>
-</div>
-</section>
 <section id="display-ssid-of-wifi">
-<h3>Display SSID of Wifi<a class="headerlink" href="#display-ssid-of-wifi" title="Permalink to this heading"></a></h3>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Display SSID of Wifi</a><a class="headerlink" href="#display-ssid-of-wifi" title="Permalink to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Install wireless-tool</p>
 <blockquote>
@@ -591,9 +596,8 @@ Example:<span class="w"> </span>ssh<span class="w"> </span>Pi@192.168.1.9
 </li>
 </ol>
 </section>
-</section>
 <section id="install-visual-studio-code-on-an-ubuntu-server-without-a-gui">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">Install Visual Studio Code on an Ubuntu Server without a GUI</a><a class="headerlink" href="#install-visual-studio-code-on-an-ubuntu-server-without-a-gui" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Install Visual Studio Code on an Ubuntu Server without a GUI</a><a class="headerlink" href="#install-visual-studio-code-on-an-ubuntu-server-without-a-gui" title="Permalink to this heading"></a></h2>
 <p>You can use VS Code Remote Development by connecting to your server via SSH from another machine that has the VS Code GUI. Here’s a step-by-step guide:</p>
 <ol class="arabic">
 <li><p>Install Visual Studio Code on Your Personal Computer</p></li>
@@ -666,7 +670,7 @@ while the server doesn’t need to have a GUI.</p>
 </div>
 </section>
 <section id="add-priority-for-wi-fi-networks">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">Add priority for Wi-Fi networks</a><a class="headerlink" href="#add-priority-for-wi-fi-networks" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Add priority for Wi-Fi networks</a><a class="headerlink" href="#add-priority-for-wi-fi-networks" title="Permalink to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Open the <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code> file</p>
 <blockquote>
@@ -736,7 +740,7 @@ nmcli<span class="w"> </span>device<span class="w"> </span>status
 </ol>
 </section>
 <section id="add-hotspot-for-raspberry-pi">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">Add Hotspot for Raspberry Pi</a><a class="headerlink" href="#add-hotspot-for-raspberry-pi" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Add Hotspot for Raspberry Pi</a><a class="headerlink" href="#add-hotspot-for-raspberry-pi" title="Permalink to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Use following command to open <code class="docutils literal notranslate"><span class="pre">50-cloud-init.yaml</span></code>.</p></li>
 <li><p>Edit file like below</p>
@@ -759,6 +763,19 @@ nmcli<span class="w"> </span>device<span class="w"> </span>status
 <span class="w">            </span>optional:<span class="w"> </span><span class="nb">true</span>
 </pre></div>
 </div>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="observe-ram-rom-resources-of-system">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Observe RAM/ROM resources of system</a><a class="headerlink" href="#observe-ram-rom-resources-of-system" title="Permalink to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Use the following command to observe status</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>htop
+</pre></div>
+</div>
+<img alt="../_images/ram_and_rom_resources.png" src="../_images/ram_and_rom_resources.png" />
 </div></blockquote>
 </li>
 </ol>
