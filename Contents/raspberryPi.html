@@ -106,6 +106,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#find-raspberry-pi-address-and-use-ssh">Find Raspberry Pi address and use SSH</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#enable-vnc-and-use-vnctiger">Enable VNC and use VNCTiger</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changing-wi-fi-when-in-a-new-location">Changing Wi-Fi When in a New Location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-static-ip-for-raspberry-pi">Configure static IP for Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#command-for-ubuntu-sever-terminal">Command for ubuntu sever terminal</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#shut-down-command">Shut down command</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reboot-command">Reboot Command</a></li>
@@ -314,13 +315,14 @@
 <li><p><a class="reference internal" href="#find-raspberry-pi-address-and-use-ssh" id="id4">Find Raspberry Pi address and use SSH</a></p></li>
 <li><p><a class="reference internal" href="#enable-vnc-and-use-vnctiger" id="id5">Enable VNC and use VNCTiger</a></p></li>
 <li><p><a class="reference internal" href="#changing-wi-fi-when-in-a-new-location" id="id6">Changing Wi-Fi When in a New Location</a></p></li>
-<li><p><a class="reference internal" href="#command-for-ubuntu-sever-terminal" id="id7">Command for ubuntu sever terminal</a></p></li>
-<li><p><a class="reference internal" href="#add-new-wifi" id="id8">Add new Wifi</a></p></li>
-<li><p><a class="reference internal" href="#display-ssid-of-wifi" id="id9">Display SSID of Wifi</a></p></li>
-<li><p><a class="reference internal" href="#install-visual-studio-code-on-an-ubuntu-server-without-a-gui" id="id10">Install Visual Studio Code on an Ubuntu Server without a GUI</a></p></li>
-<li><p><a class="reference internal" href="#add-priority-for-wi-fi-networks" id="id11">Add priority for Wi-Fi networks</a></p></li>
-<li><p><a class="reference internal" href="#add-hotspot-for-raspberry-pi" id="id12">Add Hotspot for Raspberry Pi</a></p></li>
-<li><p><a class="reference internal" href="#observe-ram-rom-resources-of-system" id="id13">Observe RAM/ROM resources of system</a></p></li>
+<li><p><a class="reference internal" href="#configure-static-ip-for-raspberry-pi" id="id7">Configure static IP for Raspberry Pi</a></p></li>
+<li><p><a class="reference internal" href="#command-for-ubuntu-sever-terminal" id="id8">Command for ubuntu sever terminal</a></p></li>
+<li><p><a class="reference internal" href="#add-new-wifi" id="id9">Add new Wifi</a></p></li>
+<li><p><a class="reference internal" href="#display-ssid-of-wifi" id="id10">Display SSID of Wifi</a></p></li>
+<li><p><a class="reference internal" href="#install-visual-studio-code-on-an-ubuntu-server-without-a-gui" id="id11">Install Visual Studio Code on an Ubuntu Server without a GUI</a></p></li>
+<li><p><a class="reference internal" href="#add-priority-for-wi-fi-networks" id="id12">Add priority for Wi-Fi networks</a></p></li>
+<li><p><a class="reference internal" href="#add-hotspot-for-raspberry-pi" id="id13">Add Hotspot for Raspberry Pi</a></p></li>
+<li><p><a class="reference internal" href="#observe-ram-rom-resources-of-system" id="id14">Observe RAM/ROM resources of system</a></p></li>
 </ul>
 </li>
 </ul>
@@ -489,8 +491,66 @@ Example:<span class="w"> </span>ssh<span class="w"> </span>Pi@192.168.1.9
 </li>
 </ol>
 </section>
+<section id="configure-static-ip-for-raspberry-pi">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Configure static IP for Raspberry Pi</a><a class="headerlink" href="#configure-static-ip-for-raspberry-pi" title="Permalink to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">dhcpcd</span></code></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>dhcpcd5
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Enable and active service</p>
+<blockquote>
+<div></div></blockquote>
+</li>
+<li><p>Confirm status</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>dhcpcd
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Open configuration network file</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/dhcpcd.conf
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Add this configuration to the end of the file</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>interface<span class="w"> </span>wlan0
+static<span class="w"> </span><span class="nv">ip_address</span><span class="o">=</span><span class="m">192</span>.168.137.2/24
+static<span class="w"> </span><span class="nv">routers</span><span class="o">=</span><span class="m">192</span>.168.137.1
+static<span class="w"> </span><span class="nv">domain_name_servers</span><span class="o">=</span><span class="m">8</span>.8.8.8<span class="w"> </span><span class="m">8</span>.8.4.4
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<p>Change the router and ip-address settings to match those of your laptop</p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">ipconfig</span></code> to observe</p>
+<ol class="arabic">
+<li><p>Save file and restart the service</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>dhcpcd
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Verify raspberry pi’ip-address</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>wlan0
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</section>
 <section id="command-for-ubuntu-sever-terminal">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">Command for ubuntu sever terminal</a><a class="headerlink" href="#command-for-ubuntu-sever-terminal" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Command for ubuntu sever terminal</a><a class="headerlink" href="#command-for-ubuntu-sever-terminal" title="Permalink to this heading"></a></h2>
 <section id="shut-down-command">
 <h3>Shut down command<a class="headerlink" href="#shut-down-command" title="Permalink to this heading"></a></h3>
 <ul>
@@ -541,7 +601,7 @@ Example:<span class="w"> </span>ssh<span class="w"> </span>Pi@192.168.1.9
 </section>
 </section>
 <section id="add-new-wifi">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">Add new Wifi</a><a class="headerlink" href="#add-new-wifi" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Add new Wifi</a><a class="headerlink" href="#add-new-wifi" title="Permalink to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Check the current network configuration: Ubuntu uses Netplan or wpa_supplicant to manage Wi-Fi, depending on the version. Open the Netplan configuration file (usually located in the /etc/netplan/ directory):</p>
 <blockquote>
@@ -578,7 +638,7 @@ Example:<span class="w"> </span>ssh<span class="w"> </span>Pi@192.168.1.9
 </ol>
 </section>
 <section id="display-ssid-of-wifi">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">Display SSID of Wifi</a><a class="headerlink" href="#display-ssid-of-wifi" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Display SSID of Wifi</a><a class="headerlink" href="#display-ssid-of-wifi" title="Permalink to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Install wireless-tool</p>
 <blockquote>
@@ -597,7 +657,7 @@ Example:<span class="w"> </span>ssh<span class="w"> </span>Pi@192.168.1.9
 </ol>
 </section>
 <section id="install-visual-studio-code-on-an-ubuntu-server-without-a-gui">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">Install Visual Studio Code on an Ubuntu Server without a GUI</a><a class="headerlink" href="#install-visual-studio-code-on-an-ubuntu-server-without-a-gui" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Install Visual Studio Code on an Ubuntu Server without a GUI</a><a class="headerlink" href="#install-visual-studio-code-on-an-ubuntu-server-without-a-gui" title="Permalink to this heading"></a></h2>
 <p>You can use VS Code Remote Development by connecting to your server via SSH from another machine that has the VS Code GUI. Here’s a step-by-step guide:</p>
 <ol class="arabic">
 <li><p>Install Visual Studio Code on Your Personal Computer</p></li>
@@ -670,7 +730,7 @@ while the server doesn’t need to have a GUI.</p>
 </div>
 </section>
 <section id="add-priority-for-wi-fi-networks">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink">Add priority for Wi-Fi networks</a><a class="headerlink" href="#add-priority-for-wi-fi-networks" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Add priority for Wi-Fi networks</a><a class="headerlink" href="#add-priority-for-wi-fi-networks" title="Permalink to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Open the <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code> file</p>
 <blockquote>
@@ -740,7 +800,7 @@ nmcli<span class="w"> </span>device<span class="w"> </span>status
 </ol>
 </section>
 <section id="add-hotspot-for-raspberry-pi">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">Add Hotspot for Raspberry Pi</a><a class="headerlink" href="#add-hotspot-for-raspberry-pi" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Add Hotspot for Raspberry Pi</a><a class="headerlink" href="#add-hotspot-for-raspberry-pi" title="Permalink to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Use following command to open <code class="docutils literal notranslate"><span class="pre">50-cloud-init.yaml</span></code>.</p></li>
 <li><p>Edit file like below</p>
@@ -768,7 +828,7 @@ nmcli<span class="w"> </span>device<span class="w"> </span>status
 </ol>
 </section>
 <section id="observe-ram-rom-resources-of-system">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">Observe RAM/ROM resources of system</a><a class="headerlink" href="#observe-ram-rom-resources-of-system" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Observe RAM/ROM resources of system</a><a class="headerlink" href="#observe-ram-rom-resources-of-system" title="Permalink to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Use the following command to observe status</p>
 <blockquote>
