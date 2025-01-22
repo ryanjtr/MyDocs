@@ -220,6 +220,122 @@ Install gpiozero library for ubuntu sever OS
 
     sudo apt install python3-gpiozero
 
+Install i2c-tools
+~~~~~~~~~~~~~~~~~~
+
+#. Install i2c-tools
+
+    .. code-block:: bash
+
+        sudo apt install -y i2c-tools python3-smbus
+
+#. Enable I2C in system
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    .. code-block:: bash
+
+        sudo nano /boot/firmware/config.txt
+
+    Add this line at the end of file (if not exist)
+
+    .. code-block:: bash
+
+        dtparam=i2c_arm=on
+
+    Save and exit file.
+
+#. Check I2C status
+
+    .. code-block:: bash
+
+        sudo nano /etc/modules
+
+    Add these lines below to it if not exist yet
+
+    .. code-block:: bash
+
+        i2c-bcm2835
+        i2c-dev
+
+#. Reboot Raspberry Pi
+#. Check I2C 
+
+    Check I2C is active or not 
+
+    .. code-block:: bash
+
+        ls /dev/i2c-*
+
+    Scan I2C slave
+
+    .. code-block:: bash
+
+        sudo i2cdetect -y 1
+
+Install LCD for Raspberry Pi
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Using Virtual Environment
+
+#. Install Python3-venv: If you haven't installed python3-venv, you need to install this package first:
+
+    .. code-block:: bash
+
+        sudo apt-get install python3-venv
+
+
+#. Create a Virtual Environment: Create a directory for your virtual environment and create the virtual environment using the following command:
+
+    .. code-block:: bash
+
+        python3 -m venv myenv
+
+    Replace myenv with the name of the directory you want to create.
+
+#. Activate the Virtual Environment: After creating the virtual environment, you can activate it:
+
+    .. code-block:: bash
+
+        source myenv/bin/activate
+
+#. Install RPLCD library: Once the virtual environment is activated, you can install RPLCD without encountering any errors:
+
+    .. code-block::bash
+
+        pip install RPLCD
+
+#. Install ``smbus`` and ``smbus2`` library
+
+    .. code-block:: bash 
+
+        pip install smbus
+        pip install smbus2
+
+Use the virtual environment: All Python package installations will be done within 
+this virtual environment without affecting the main system of the Raspberry Pi.
+
+#. Demonstration code
+
+    .. code-blcok:: bash
+
+        from RPLCD.i2c import CharLCD
+        import time
+
+        # Init LCD
+        lcd = CharLCD('PCF8574', 0x27)
+
+        # Clear display
+        lcd.clear()
+ 
+        lcd.write_string("Hello, World!")
+
+        time.sleep(5)
+
+        lcd.clear()
+        lcd.write_string("Raspberry Pi I2C")
+
+
+
 Add new Wifi
 ----------------
 

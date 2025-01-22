@@ -112,6 +112,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#reboot-command">Reboot Command</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#power-off-command">Power off command</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#install-gpiozero-library-for-ubuntu-sever-os">Install gpiozero library for ubuntu sever OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-i2c-tools">Install i2c-tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enable-i2c-in-system">#. Enable I2C in system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-lcd-for-raspberry-pi">Install LCD for Raspberry Pi</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#add-new-wifi">Add new Wifi</a></li>
@@ -598,6 +601,106 @@ static<span class="w"> </span><span class="nv">domain_name_servers</span><span c
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-gpiozero
 </pre></div>
 </div>
+</section>
+<section id="install-i2c-tools">
+<h3>Install i2c-tools<a class="headerlink" href="#install-i2c-tools" title="Permalink to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Install i2c-tools</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>i2c-tools<span class="w"> </span>python3-smbus
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="enable-i2c-in-system">
+<h3>#. Enable I2C in system<a class="headerlink" href="#enable-i2c-in-system" title="Permalink to this heading"></a></h3>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>/boot/firmware/config.txt
+</pre></div>
+</div>
+<p>Add this line at the end of file (if not exist)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">dtparam</span><span class="o">=</span><span class="nv">i2c_arm</span><span class="o">=</span>on
+</pre></div>
+</div>
+<p>Save and exit file.</p>
+</div></blockquote>
+<ol class="arabic">
+<li><p>Check I2C status</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/modules
+</pre></div>
+</div>
+<p>Add these lines below to it if not exist yet</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>i2c-bcm2835
+i2c-dev
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Reboot Raspberry Pi</p></li>
+<li><p>Check I2C</p>
+<blockquote>
+<div><p>Check I2C is active or not</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>/dev/i2c-*
+</pre></div>
+</div>
+<p>Scan I2C slave</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>i2cdetect<span class="w"> </span>-y<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="install-lcd-for-raspberry-pi">
+<h3>Install LCD for Raspberry Pi<a class="headerlink" href="#install-lcd-for-raspberry-pi" title="Permalink to this heading"></a></h3>
+<p>Using Virtual Environment</p>
+<ol class="arabic">
+<li><p>Install Python3-venv: If you haven’t installed python3-venv, you need to install this package first:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-venv
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Create a Virtual Environment: Create a directory for your virtual environment and create the virtual environment using the following command:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>myenv
+</pre></div>
+</div>
+<p>Replace myenv with the name of the directory you want to create.</p>
+</div></blockquote>
+</li>
+<li><p>Activate the Virtual Environment: After creating the virtual environment, you can activate it:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>myenv/bin/activate
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Install RPLCD library: Once the virtual environment is activated, you can install RPLCD without encountering any errors:</p>
+<blockquote>
+<div></div></blockquote>
+</li>
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">smbus</span></code> and <code class="docutils literal notranslate"><span class="pre">smbus2</span></code> library</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>smbus
+pip<span class="w"> </span>install<span class="w"> </span>smbus2
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<p>Use the virtual environment: All Python package installations will be done within
+this virtual environment without affecting the main system of the Raspberry Pi.</p>
+<ol class="arabic">
+<li><p>Demonstration code</p>
+<blockquote>
+<div></div></blockquote>
+</li>
+</ol>
 </section>
 </section>
 <section id="add-new-wifi">
