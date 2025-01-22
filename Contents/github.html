@@ -86,8 +86,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Professional_terminology.html">Professional terminology</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Github</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#initiate-git-local">Initiate git local</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#write-access-to-repository-not-granted-fatal-unable-to-access">Write access to repository not granted. fatal: unable to access</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#git-ignore">Git ignore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#add-all-file-to-local">Add all file to local</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commit-code-to-local">Commit code to local</a></li>
@@ -315,6 +315,7 @@
 <ul>
 <li><p><a class="reference internal" href="#installation" id="id2">Installation</a></p></li>
 <li><p><a class="reference internal" href="#commands" id="id3">Commands</a></p></li>
+<li><p><a class="reference internal" href="#write-access-to-repository-not-granted-fatal-unable-to-access" id="id4">Write access to repository not granted. fatal: unable to access</a></p></li>
 </ul>
 </li>
 </ul>
@@ -341,8 +342,12 @@ git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"
 git<span class="w"> </span>config<span class="w"> </span>credential.helper<span class="w"> </span>store<span class="w"> </span><span class="c1"># to store user name and password to your computer</span>
 </pre></div>
 </div>
-<section id="initiate-git-local">
-<h3>Initiate git local<a class="headerlink" href="#initiate-git-local" title="Permalink to this heading"></a></h3>
+</section>
+<section id="write-access-to-repository-not-granted-fatal-unable-to-access">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Write access to repository not granted. fatal: unable to access</a><a class="headerlink" href="#write-access-to-repository-not-granted-fatal-unable-to-access" title="Permalink to this heading"></a></h2>
+<p>Visit this <a class="reference external" href="https://stackoverflow.com/questions/70538793/remote-write-access-to-repository-not-granted-fatal-unable-to-access" rel="noopener noreferrer" target="_blank">link stackoverflow</a>
+Initiate git local
+~~~~~~~~~~~~~~~~~~~</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>init
 </pre></div>
 </div>
@@ -357,7 +362,6 @@ git<span class="w"> </span>config<span class="w"> </span>credential.helper<span 
 </pre></div>
 </div>
 </div>
-</section>
 <section id="git-ignore">
 <h3>Git ignore<a class="headerlink" href="#git-ignore" title="Permalink to this heading"></a></h3>
 <p>Git will not ignore files/folders that have already been tracked, even if they have been added to <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code></p>
