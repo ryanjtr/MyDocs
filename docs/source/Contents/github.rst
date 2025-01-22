@@ -30,7 +30,12 @@ Commands
     git config --global user.mail "nguyevana@gmail.com"
 
     git config credential.helper store # to store user name and password to your computer
-    
+
+
+Write access to repository not granted. fatal: unable to access
+---------------------------------------------------------------------------
+
+Visit this `link stackoverflow <https://stackoverflow.com/questions/70538793/remote-write-access-to-repository-not-granted-fatal-unable-to-access>`_
 Initiate git local
 ~~~~~~~~~~~~~~~~~~~
 
