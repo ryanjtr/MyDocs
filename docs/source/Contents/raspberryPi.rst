@@ -118,63 +118,8 @@ Changing Wi-Fi When in a New Location
 #. Repeat as Needed:
 
     * Repeat this process whenever you move to a new location with a different network.
-
-
-Configure static IP for Raspberry Pi
-----------------------------------------
-
-#. Install ``dhcpcd``
-
-    .. code-block:: bash
-
-        sudo apt install dhcpcd5
-
-#. Enable and active service
-
-    .. code-block::bash
-
-        sudo systemctl enable dhcpcd
-        sudo systemctl start dhcpcd
-
-#. Confirm status
-
-    .. code-block:: bash
-
-        sudo systemctl status dhcpcd
-
-#. Open configuration network file
-
-    .. code-block:: bash
-
-        sudo nano /etc/dhcpcd.conf
-
-#. Add this configuration to the end of the file
-
-    .. code-block:: bash
-
-        interface wlan0
-        static ip_address=192.168.137.2/24
-        static routers=192.168.137.1
-        static domain_name_servers=8.8.8.8 8.8.4.4
-
-Change the router and ip-address settings to match those of your laptop
-
-You can use ``ipconfig`` to observe
-
-#. Save file and restart the service
-
-    .. code-block:: bash
-
-        sudo systemctl restart dhcpcd
-
-#. Verify raspberry pi'ip-address
-
-    .. code-block:: bash
-
-        ip addr show wlan0
-
-        
-Command for ubuntu sever terminal
+   
+Command for terminal
 ------------------------------------
 
 Shut down command
@@ -273,7 +218,7 @@ Install i2c-tools
         sudo i2cdetect -y 1
 
 Install LCD for Raspberry Pi
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------
 
 #. Install RPLCD library
 
@@ -302,55 +247,59 @@ Install LCD for Raspberry Pi
         lcd.write_string("Raspberry Pi I2C")
 
 
+Connect Raspberry Pi and Laptop via UART
+---------------------------------------------
 
-Add new Wifi
-----------------
-
-#. Check the current network configuration: Ubuntu uses Netplan or wpa_supplicant to manage Wi-Fi, depending on the version. Open the Netplan configuration file (usually located in the /etc/netplan/ directory):
-
-    .. code-block:: bash
-
-        sudo nano /etc/netplan/*.yaml
-
-#. Add a new Wi-Fi network configuration: If you are using Netplan: In the YAML configuration file, you will see a section like the following:
+#. Open ``config.txt`` file.
 
     .. code-block:: bash
 
-        network:
-            version: 2
-            renderer: networkd
-            wifis:
-                wlan0:
-                access-points:
-                    "namchau3":
-                    password: "your_password_here"
-                    "wifi_moi":
-                    password: "password_moi"
-                dhcp4: true
+        sudo nano /boot/firmware/config.txt
 
-#. Save the file (Ctrl + O, Enter) and exit (Ctrl + X).
-#. Apply the new configuration:
+    Add line below to the file.
 
     .. code-block:: bash
 
-        sudo netplan apply
+        enable_uart=1
 
+    Save and exit file.
 
-
-Display SSID of Wifi
----------------------------
-
-#. Install wireless-tool
+#. Open ``cmdline.txt`` file.
 
     .. code-block:: bash
 
-        sudo apt install wireless-tools
+        sudo nano /boot/firmware/cmdline.txt
 
-#. Display SSID
+console=tty1 console=serial0,115200 root=PARTUUID=bc53a8f8-02 rootfstype=ext4 fsck.repair=yes rootwait cfg80211.ieee80211_regdom=VN
+
+
+Observe wifi list connection
+---------------------------------
+
+* Check connection
 
     .. code-block:: bash
 
-        iwgetid
+        nmcli connection show
+
+* List of available Wifi
+
+    .. code-block:: bash
+
+        nmcli device wifi list
+
+* Connect to one wifi 
+
+    .. code-block:: bash
+
+        sudo nmcli device wifi connect "my_wifi_network" password "my_password"
+
+* Delete wifi out of list
+
+    .. code-block:: bash
+
+        sudo nmcli connection delete uuid <uuid here>
+
 
 Install Visual Studio Code on an Ubuntu Server without a GUI
 ---------------------------------------------------------------
@@ -414,95 +363,6 @@ while the server doesn't need to have a GUI.
 
     * This method allows you to avoid installing a GUI on the server, yet still enjoy the full functionality of VS Code for development and remote work.
 
-Add priority for Wi-Fi networks
------------------------------------
-
-#. Open the ``wpa_supplicant.conf`` file
-
-    If the ``wpa_supplicant.conf`` file does not exist, you can create it. To edit the file, use the following command:
-
-    .. code-block:: bash
-
-        sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
-
-#. Add Wi-Fi Network Configurations with Priority
-
-    In the ``wpa_supplicant.conf`` file, add the configurations for the Wi-Fi networks, specifying the priority for each network. A lower priority number indicates higher priority.
-
-    Example configuration:
-
-    .. code-block:: bash
-
-        network={
-            ssid="namchau3"
-            psk="your_password_here"
-            priority=1
-        }
-
-        network={
-            ssid="wifi_moi"
-            psk="password_moi"
-            priority=2
-        }
-
-    In this case:
-
-        * The network namchau3 has a priority of 1 (higher priority).
-        * The network wifi_moi has a priority of 2 (lower priority).
-
-#. Save and Exit
-
-#. Apply the Network Configuration
-
-    #. To apply the changes with netplan
-
-        .. code-block:: bash
-
-            sudo netplan apply
-
-
-    #. Alternatively, restart the wpa_supplicant service:
-
-        .. code-block:: bash
-
-            sudo systemctl restart wpa_supplicant
-
-
-#. Check the Connection Status
-
-    To verify the Wi-Fi network connection and the priority settings, use the following command:
-
-    .. code-block:: bash
-
-        sudo snap install network-manager
-
-        nmcli device status
-
-
-Add Hotspot for Raspberry Pi
---------------------------------
-
-#. Use following command to open ``50-cloud-init.yaml``.
-#. Edit file like below
-
-    .. code-block:: bash
-
-        network:
-            version: 2
-            renderer: networkd
-            wifis:
-                wlan0:
-                    access-points:
-                        "Nam Chau 3":
-                            hidden: true
-                            password: "password"
-                        "RaspberryPi-Hotspot":
-                            mode: ap
-                            password: "HotspotPassword"
-                    dhcp4: true
-                    addresses:
-                        - 192.168.4.1/24
-                    optional: true
 
 Observe RAM/ROM resources of system
 --------------------------------------
