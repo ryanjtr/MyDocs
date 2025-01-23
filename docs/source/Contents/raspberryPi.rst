@@ -248,7 +248,7 @@ Install LCD for Raspberry Pi
 
 
 Connect Raspberry Pi 3 B+ and Laptop via UART (Debian GNU/Linux 12 (bookworm))
-----------------------------------------------------------------------------
+---------------------------------------------------------------------------------
 
 #. Update your system's package
 
@@ -321,9 +321,13 @@ Connect Raspberry Pi 3 B+ and Laptop via UART (Debian GNU/Linux 12 (bookworm))
 
         sudo nano /boot/firmware/cmdline.txt
 
-Reference link `How to setup the UART on Raspberry Pi 3<https://www.circuits.dk/setup-raspberry-pi-3-gpio-uart/>`_
+Reference:
 
-Observe wifi list connection
+Link 1 `How to setup the UART on Raspberry Pi 3 <https://www.circuits.dk/setup-raspberry-pi-3-gpio-uart/>`_
+Link 2 `Serial communication over UART Raspberry Pi 4<https://forums.raspberrypi.com/viewtopic.php?t=307094>`_
+Link 3 `Serial Console to Raspberry Pi <https://cloudchirp.medium.com/serial-to-raspberry-pi-da635122b4d0>`_
+
+Connect to new available wifi
 ---------------------------------
 
 * Check connection
