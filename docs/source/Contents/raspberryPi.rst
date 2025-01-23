@@ -247,8 +247,16 @@ Install LCD for Raspberry Pi
         lcd.write_string("Raspberry Pi I2C")
 
 
-Connect Raspberry Pi and Laptop via UART
----------------------------------------------
+Connect Raspberry Pi 3 B+ and Laptop via UART (Debian GNU/Linux 12 (bookworm))
+----------------------------------------------------------------------------
+
+#. Update your system's package
+
+    .. code-block:: bash 
+
+        sudo apt-get update
+
+#. Connect usb UART between laptop and Raspberry Pi and open putty with baudrate = 115200
 
 #. Open ``config.txt`` file.
 
@@ -256,22 +264,64 @@ Connect Raspberry Pi and Laptop via UART
 
         sudo nano /boot/firmware/config.txt
 
-    Add line below to the file.
+    Add line below to the end of file.
 
     .. code-block:: bash
 
         enable_uart=1
+        dtoverlay=disable-bt
+        init_uart_baud=115200 #Very important to configure baudrate
 
     Save and exit file.
+
+#. Reboot Raspberry Pi
+
+    .. code-block:: bash
+
+        sudo reboot
+
+#. Check port ``dev/tty``
+
+    .. code-block:: bash
+
+        ls /dev/tty*
+
+    UART0 = /dev/ttyS0
+
+#. Disable the console
+
+    .. code-block:: bash
+
+        sudo systemctl stop serial-getty@ttyS0.service
+        sudo systemctl disable serial-getty@ttyS0.service
 
 #. Open ``cmdline.txt`` file.
 
     .. code-block:: bash
 
         sudo nano /boot/firmware/cmdline.txt
+    
+    You will see something like this
 
-console=tty1 console=serial0,115200 root=PARTUUID=bc53a8f8-02 rootfstype=ext4 fsck.repair=yes rootwait cfg80211.ieee80211_regdom=VN
+    .. code-block:: bash
 
+        console=serial0,115200 console=tty1 root=PARTUUID=faa9906f-02 rootfstype=ext4 fsck.repair=yes rootwait cfg80211.ieee80211_regdom=VN
+
+    remove the line:
+
+    .. code-block:: bash
+
+        console=serial0,115200
+
+        Save and reboot Raspberry Pi
+
+#. Enable the Serial Console edit the file using
+
+    .. code-block:: bash
+
+        sudo nano /boot/firmware/cmdline.txt
+
+Reference link `How to setup the UART on Raspberry Pi 3<https://www.circuits.dk/setup-raspberry-pi-3-gpio-uart/>`_
 
 Observe wifi list connection
 ---------------------------------
