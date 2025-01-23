@@ -115,7 +115,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#install-lcd-for-raspberry-pi">Install LCD for Raspberry Pi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#connect-raspberry-pi-and-laptop-via-uart">Connect Raspberry Pi and Laptop via UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connect-raspberry-pi-3-b-and-laptop-via-uart-debian-gnu-linux-12-bookworm">Connect Raspberry Pi 3 B+ and Laptop via UART (Debian GNU/Linux 12 (bookworm))</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#observe-wifi-list-connection">Observe wifi list connection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-visual-studio-code-on-an-ubuntu-server-without-a-gui">Install Visual Studio Code on an Ubuntu Server without a GUI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#observe-ram-rom-resources-of-system">Observe RAM/ROM resources of system</a></li>
@@ -316,7 +316,7 @@
 <li><p><a class="reference internal" href="#changing-wi-fi-when-in-a-new-location" id="id6">Changing Wi-Fi When in a New Location</a></p></li>
 <li><p><a class="reference internal" href="#command-for-terminal" id="id7">Command for terminal</a></p></li>
 <li><p><a class="reference internal" href="#install-lcd-for-raspberry-pi" id="id8">Install LCD for Raspberry Pi</a></p></li>
-<li><p><a class="reference internal" href="#connect-raspberry-pi-and-laptop-via-uart" id="id9">Connect Raspberry Pi and Laptop via UART</a></p></li>
+<li><p><a class="reference internal" href="#connect-raspberry-pi-3-b-and-laptop-via-uart-debian-gnu-linux-12-bookworm" id="id9">Connect Raspberry Pi 3 B+ and Laptop via UART (Debian GNU/Linux 12 (bookworm))</a></p></li>
 <li><p><a class="reference internal" href="#observe-wifi-list-connection" id="id10">Observe wifi list connection</a></p></li>
 <li><p><a class="reference internal" href="#install-visual-studio-code-on-an-ubuntu-server-without-a-gui" id="id11">Install Visual Studio Code on an Ubuntu Server without a GUI</a></p></li>
 <li><p><a class="reference internal" href="#observe-ram-rom-resources-of-system" id="id12">Observe RAM/ROM resources of system</a></p></li>
@@ -601,19 +601,52 @@ i2c-dev
 </li>
 </ol>
 </section>
-<section id="connect-raspberry-pi-and-laptop-via-uart">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">Connect Raspberry Pi and Laptop via UART</a><a class="headerlink" href="#connect-raspberry-pi-and-laptop-via-uart" title="Permalink to this heading"></a></h2>
+<section id="connect-raspberry-pi-3-b-and-laptop-via-uart-debian-gnu-linux-12-bookworm">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Connect Raspberry Pi 3 B+ and Laptop via UART (Debian GNU/Linux 12 (bookworm))</a><a class="headerlink" href="#connect-raspberry-pi-3-b-and-laptop-via-uart-debian-gnu-linux-12-bookworm" title="Permalink to this heading"></a></h2>
 <ol class="arabic">
+<li><p>Update your system’s package</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Connect usb UART between laptop and Raspberry Pi and open putty with baudrate = 115200</p></li>
 <li><p>Open <code class="docutils literal notranslate"><span class="pre">config.txt</span></code> file.</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>/boot/firmware/config.txt
 </pre></div>
 </div>
-<p>Add line below to the file.</p>
+<p>Add line below to the end of file.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">enable_uart</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">dtoverlay</span><span class="o">=</span>disable-bt
+<span class="nv">init_uart_baud</span><span class="o">=</span><span class="m">115200</span><span class="w"> </span><span class="c1">#Very important to configure baudrate</span>
 </pre></div>
 </div>
 <p>Save and exit file.</p>
+</div></blockquote>
+</li>
+<li><p>Reboot Raspberry Pi</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>reboot
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Check port <code class="docutils literal notranslate"><span class="pre">dev/tty</span></code></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>/dev/tty*
+</pre></div>
+</div>
+<p>UART0 = /dev/ttyS0</p>
+</div></blockquote>
+</li>
+<li><p>Disable the console</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>serial-getty@ttyS0.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>serial-getty@ttyS0.service
+</pre></div>
+</div>
 </div></blockquote>
 </li>
 <li><p>Open <code class="docutils literal notranslate"><span class="pre">cmdline.txt</span></code> file.</p>
@@ -621,10 +654,27 @@ i2c-dev
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>/boot/firmware/cmdline.txt
 </pre></div>
 </div>
+<p>You will see something like this</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">console</span><span class="o">=</span>serial0,115200<span class="w"> </span><span class="nv">console</span><span class="o">=</span>tty1<span class="w"> </span><span class="nv">root</span><span class="o">=</span><span class="nv">PARTUUID</span><span class="o">=</span>faa9906f-02<span class="w"> </span><span class="nv">rootfstype</span><span class="o">=</span>ext4<span class="w"> </span>fsck.repair<span class="o">=</span>yes<span class="w"> </span>rootwait<span class="w"> </span>cfg80211.ieee80211_regdom<span class="o">=</span>VN
+</pre></div>
+</div>
+<p>remove the line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">console</span><span class="o">=</span>serial0,115200
+
+Save<span class="w"> </span>and<span class="w"> </span>reboot<span class="w"> </span>Raspberry<span class="w"> </span>Pi
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Enable the Serial Console edit the file using</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>/boot/firmware/cmdline.txt
+</pre></div>
+</div>
 </div></blockquote>
 </li>
 </ol>
-<p>console=tty1 console=serial0,115200 root=PARTUUID=bc53a8f8-02 rootfstype=ext4 fsck.repair=yes rootwait cfg80211.ieee80211_regdom=VN</p>
+<p>Reference link <a href="#id13"><span class="problematic" id="id14">`How to setup the UART on Raspberry Pi 3&lt;https://www.circuits.dk/setup-raspberry-pi-3-gpio-uart/&gt;`_</span></a></p>
 </section>
 <section id="observe-wifi-list-connection">
 <h2><a class="toc-backref" href="#id10" role="doc-backlink">Observe wifi list connection</a><a class="headerlink" href="#observe-wifi-list-connection" title="Permalink to this heading"></a></h2>
