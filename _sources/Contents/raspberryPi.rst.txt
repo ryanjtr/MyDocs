@@ -175,7 +175,7 @@ Install i2c-tools
         sudo apt install -y i2c-tools python3-smbus
 
 #. Enable I2C in system
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
     .. code-block:: bash
 
