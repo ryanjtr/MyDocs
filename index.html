@@ -30,7 +30,7 @@
         <script src="_static/js/theme.js"></script>
         <link rel="index" title="Index" href="genindex.html" />
         <link rel="search" title="Search" href="search.html" />
-        <link rel="next" title="Professional terminology" href="Contents/Professional_terminology.html" /> 
+        <link rel="next" title="Raspberry Pi" href="Contents/raspberryPi.html" /> 
         <style>
             #logo-container {
                 position: relative;
@@ -82,7 +82,7 @@
                 <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
                     aria-label="Navigation menu">
                     <ul>
-<li class="toctree-l1"><a class="reference internal" href="Contents/Professional_terminology.html">Professional terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contents/raspberryPi.html">Raspberry Pi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contents/github.html">Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contents/sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contents/zephyr.html">Zephyr</a></li>
@@ -100,7 +100,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Contents/STM32/freertos.html">FreeRTOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contents/ContikiOS/contikios.html">ContikiOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contents/STM32/lvglf7.html">LVGL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Contents/raspberryPi.html">Raspberry Pi</a></li>
 </ul>
 
 
@@ -286,9 +285,18 @@
 <h1>RyanDank`s Documentation<a class="headerlink" href="#ryandank-s-documentation" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Contents/Professional_terminology.html">Professional terminology</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Contents/Professional_terminology.html#profiling-tool">Profiling tool</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Contents/Professional_terminology.html#sdk">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contents/raspberryPi.html">Raspberry Pi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#install-raspberry-pi-os-without-monitor-or-keyboard">Install Raspberry Pi OS without monitor or keyboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#boot-raspberry-pi">Boot Raspberry Pi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#find-raspberry-pi-address-and-use-ssh">Find Raspberry Pi address and use SSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#enable-vnc-and-use-vnctiger">Enable VNC and use VNCTiger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#changing-wi-fi-when-in-a-new-location">Changing Wi-Fi When in a New Location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#command-for-terminal">Command for terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#install-lcd-for-raspberry-pi">Install LCD for Raspberry Pi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#connect-raspberry-pi-3-b-and-laptop-via-uart-debian-gnu-linux-12-bookworm">Connect Raspberry Pi 3 B+ and Laptop via UART (Debian GNU/Linux 12 (bookworm))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#connect-to-new-available-wifi">Connect to new available wifi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#install-visual-studio-code-on-an-ubuntu-server-without-a-gui">Install Visual Studio Code on an Ubuntu Server without a GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#observe-ram-rom-resources-of-system">Observe RAM/ROM resources of system</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Contents/github.html">Github</a><ul>
@@ -399,20 +407,6 @@
 <li class="toctree-l2"><a class="reference internal" href="Contents/STM32/lvglf7.html#run-lvgl-example">Run lvgl example</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Contents/raspberryPi.html">Raspberry Pi</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#install-raspberry-pi-os-without-monitor-or-keyboard">Install Raspberry Pi OS without monitor or keyboard</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#boot-raspberry-pi">Boot Raspberry Pi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#find-raspberry-pi-address-and-use-ssh">Find Raspberry Pi address and use SSH</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#enable-vnc-and-use-vnctiger">Enable VNC and use VNCTiger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#changing-wi-fi-when-in-a-new-location">Changing Wi-Fi When in a New Location</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#command-for-terminal">Command for terminal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#install-lcd-for-raspberry-pi">Install LCD for Raspberry Pi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#connect-raspberry-pi-3-b-and-laptop-via-uart-debian-gnu-linux-12-bookworm">Connect Raspberry Pi 3 B+ and Laptop via UART (Debian GNU/Linux 12 (bookworm))</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#connect-to-new-available-wifi">Connect to new available wifi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#install-visual-studio-code-on-an-ubuntu-server-without-a-gui">Install Visual Studio Code on an Ubuntu Server without a GUI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Contents/raspberryPi.html#observe-ram-rom-resources-of-system">Observe RAM/ROM resources of system</a></li>
-</ul>
-</li>
 </ul>
 </div>
 </section>
@@ -425,7 +419,7 @@
 
 
                         <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Contents/Professional_terminology.html" class="btn btn-neutral float-right" title="Professional terminology" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Contents/raspberryPi.html" class="btn btn-neutral float-right" title="Raspberry Pi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
