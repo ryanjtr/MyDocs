@@ -58,8 +58,13 @@ Find Raspberry Pi address and use SSH
 
 #. Then type **Yes** and type your password and terminal change to Pi user
 
-Enable VNC and use VNCTiger
+Enable VNC and use VNCTiger 
 ------------------------------
+
+.. note:: 
+
+    This instruction is for operating systems with a GUI. If your operating system 
+    does not have a GUI, please refer to the serial communication instructions.
 
 #. When you are logged in as pi@raspberrypi, run the following command to open the Raspberry Pi configuration tool:
 
@@ -85,6 +90,11 @@ Enable VNC and use VNCTiger
 
 Changing Wi-Fi When in a New Location
 -----------------------------------------
+
+.. note:: 
+
+    This instruction is for operating systems with a GUI. If your operating system 
+    does not have a GUI, please refer to the connecting to available wifi instructions.
 
 #. Create a Wireless Hotspot:
 
