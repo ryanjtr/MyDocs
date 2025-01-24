@@ -4,8 +4,7 @@ RyanDank`s Documentation
 .. toctree::
    :maxdepth: 2
    
-
-   Contents/Professional_terminology
+   Contents/raspberryPi
    Contents/github
    Contents/sphinx 
    Contents/zephyr
@@ -23,6 +22,6 @@ RyanDank`s Documentation
    Contents/STM32/freertos.rst
    Contents/ContikiOS/contikios.rst
    Contents/STM32/lvglf7.rst
-   Contents/raspberryPi
+   
 
 
