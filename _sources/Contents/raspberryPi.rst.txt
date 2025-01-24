@@ -238,7 +238,7 @@ Install LCD for Raspberry Pi
 
 #. Demonstration code
 
-    .. code-blcok:: bash
+    .. code-block:: bash
 
         from RPLCD.i2c import CharLCD
         import time

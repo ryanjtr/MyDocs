@@ -607,7 +607,24 @@ i2c-dev
 </li>
 <li><p>Demonstration code</p>
 <blockquote>
-<div></div></blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>from<span class="w"> </span>RPLCD.i2c<span class="w"> </span>import<span class="w"> </span>CharLCD
+import<span class="w"> </span><span class="nb">time</span>
+
+<span class="c1"># Init LCD</span>
+<span class="nv">lcd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>CharLCD<span class="o">(</span><span class="s1">&#39;PCF8574&#39;</span>,<span class="w"> </span>0x27<span class="o">)</span>
+
+<span class="c1"># Clear display</span>
+lcd.clear<span class="o">()</span>
+
+lcd.write_string<span class="o">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="o">)</span>
+
+time.sleep<span class="o">(</span><span class="m">5</span><span class="o">)</span>
+
+lcd.clear<span class="o">()</span>
+lcd.write_string<span class="o">(</span><span class="s2">&quot;Raspberry Pi I2C&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+</div></blockquote>
 </li>
 </ol>
 </section>
