@@ -88,46 +88,6 @@ Enable VNC and use VNCTiger
 #. Confirm any prompts with Yes until the VNC authentication window appears.
 #. Enter the username and password you set for your Raspberry Pi to connect to the server.
 
-Changing Wi-Fi When in a New Location
------------------------------------------
-
-.. note:: 
-
-    This instruction is for operating systems with a GUI. If your operating system 
-    does not have a GUI, please refer to the connecting to available wifi instructions.
-
-#. Create a Wireless Hotspot:
-
-    * Click the Wi-Fi symbol on the top-right of the Raspberry Pi desktop.
-    * Select Advanced Options → Create Wireless Hotspot.
-    * Enter the following details:
-        * Network Name: Provide a name for the hotspot.
-        * Wi-Fi Security: Choose WPA & WPA2 Personal.
-        * Password: Set a secure password for the hotspot.
-
-#. Connect Your Laptop to the Hotspot:
-
-    * On your laptop, connect to the newly created hotspot.
-    * Open TigerVNC and scan for the Raspberry Pi's Wi-Fi IP address.
-    * Connect to the Raspberry Pi using the same method as before.
-
-#. Connect to a Hidden Wireless Network:
-
-    * On the Raspberry Pi, click the Wi-Fi symbol again.
-    * Select Connect to Hidden Wireless Network.
-    * Enter the following details:
-
-        * Network Name: Provide the name of the hidden network.
-        * Wi-Fi Security: Choose WPA & WPA2 Personal.
-        * Password: Enter the network password.
-
-#. Scan and Connect via TigerVNC:
-
-    * Scan for the Raspberry Pi's IP address again and connect via TigerVNC as before.
-
-#. Repeat as Needed:
-
-    * Repeat this process whenever you move to a new location with a different network.
    
 Command for terminal
 ------------------------------------
