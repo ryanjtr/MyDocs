@@ -295,6 +295,9 @@ Connect Raspberry Pi 3 B+ and Laptop via UART (Debian GNU/Linux 12 (bookworm))
 
         console=serial0,115200 console=tty1 root=PARTUUID=faa9906f-02 rootfstype=ext4 fsck.repair=yes rootwait cfg80211.ieee80211_regdom=VN
 
+    Exit and save your changes.
+    Reboot for the changes to take effect.
+    
 Reference:
 
 Link 1 `How to setup the UART on Raspberry Pi 3 <https://www.circuits.dk/setup-raspberry-pi-3-gpio-uart/>`_
