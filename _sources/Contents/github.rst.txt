@@ -33,7 +33,7 @@ Commands
 
 
 Write access to repository not granted. fatal: unable to access
----------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Visit this `link stackoverflow <https://stackoverflow.com/questions/70538793/remote-write-access-to-repository-not-granted-fatal-unable-to-access>`_
 
