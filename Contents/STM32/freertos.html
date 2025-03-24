@@ -105,6 +105,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../ContikiOS/contikios.html">ContikiOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lvglf7.html">LVGL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../esp32.html">ESP32</a></li>
 </ul>
 
 
@@ -358,7 +359,7 @@
 <span class="cp">#define configUSE_PREEMPTION                1</span>
 <span class="cp">#define configUSE_IDLE_HOOK                 0</span>
 <span class="cp">#define configUSE_TICK_HOOK                 0</span>
-<span class="cp">#define configCPU_CLOCK_HZ                  ( ( unsigned long ) 8000000 )</span>
+<span class="cp">#define configCPU_CLOCK_HZ                  ( ( unsigned long ) 8000000 ) </span><span class="c1">//Change this if you use another system clock</span>
 <span class="cp">#define configTICK_RATE_HZ                  ( ( TickType_t ) 1000 )</span>
 <span class="cp">#define configMAX_PRIORITIES                ( 5 )</span>
 <span class="cp">#define configMINIMAL_STACK_SIZE    ( ( unsigned short ) 128 )</span>
