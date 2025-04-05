@@ -177,14 +177,14 @@ If you don't need the entire commit history, you can perform a shallow clone, wh
 
     git clone --recurse-submodules --depth 1 https://github.com/cetic/6lbr.git
 
-Recover code from git repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reset code local to and get code from git repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you want to change current code and recover it from git repository
 
 .. code-block:: bash
 
-    git fetch --all
+    git fetch origin
 
 .. code-block:: bash
 

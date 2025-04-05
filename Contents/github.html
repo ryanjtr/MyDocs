@@ -104,7 +104,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#show-id-commit">Show id commit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#return-to-a-commit-in-history">Return to a commit in history</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#git-clone">Git clone</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#recover-code-from-git-repository">Recover code from git repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reset-code-local-to-and-get-code-from-git-repository">Reset code local to and get code from git repository</a></li>
 </ul>
 </li>
 </ul>
@@ -334,7 +334,7 @@
 <li><p><a class="reference internal" href="#show-id-commit" id="id18">Show id commit</a></p></li>
 <li><p><a class="reference internal" href="#return-to-a-commit-in-history" id="id19">Return to a commit in history</a></p></li>
 <li><p><a class="reference internal" href="#git-clone" id="id20">Git clone</a></p></li>
-<li><p><a class="reference internal" href="#recover-code-from-git-repository" id="id21">Recover code from git repository</a></p></li>
+<li><p><a class="reference internal" href="#reset-code-local-to-and-get-code-from-git-repository" id="id21">Reset code local to and get code from git repository</a></p></li>
 </ul>
 </li>
 </ul>
@@ -480,10 +480,10 @@ git<span class="w"> </span>config<span class="w"> </span>credential.helper<span 
 </pre></div>
 </div>
 </section>
-<section id="recover-code-from-git-repository">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink">Recover code from git repository</a><a class="headerlink" href="#recover-code-from-git-repository" title="Permalink to this heading"></a></h3>
+<section id="reset-code-local-to-and-get-code-from-git-repository">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Reset code local to and get code from git repository</a><a class="headerlink" href="#reset-code-local-to-and-get-code-from-git-repository" title="Permalink to this heading"></a></h3>
 <p>If you want to change current code and recover it from git repository</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>--all
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>origin
 </pre></div>
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>origin/&lt;branch-name&gt;
