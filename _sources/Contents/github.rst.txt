@@ -140,6 +140,21 @@ List branch
 
     git branch -a
 
+Delete branch
+~~~~~~~~~~~~~~~~~
+
+#. Delete local branch
+
+    .. code-block:: bash
+
+        git branch -d <nbranch_name>
+
+#. Delete remote branch
+
+    .. code-block:: bash
+
+        git push origin --delete <nbranch_name>
+
 Assumed you committed c1 c2 c3 c4 c5. If you use the command below, then we will return to c2, code in c3 c4 c5 will be deleted (as never exist)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
