@@ -89,7 +89,7 @@
 <li class="toctree-l1"><a class="reference internal" href="zephyr.html">Zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ubuntu.html">Ubuntu</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">STM32</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#assert-macro">Assert macro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flash">FLASH</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="can.html">CAN</a></li>
@@ -288,113 +288,42 @@
                                 
   <section id="stm32">
 <h1>STM32<a class="headerlink" href="#stm32" title="Permalink to this heading"></a></h1>
-<section id="assert-macro">
-<h2>Assert macro<a class="headerlink" href="#assert-macro" title="Permalink to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">assert_param</span></code> là một macro được sử dụng trong các thư viện chuẩn của
-STM32 để kiểm tra các điều kiện và tham số đầu vào trong các hàm.
-Nó giúp đảm bảo rằng các tham số đầu vào hợp lệ, nếu không hợp lệ
-thì nó sẽ kích hoạt một xử lý lỗi.</p>
-<p>Dưới đây là cách sử dụng assert_param trong chương trình STM32:</p>
-<p>1. Cấu hình <em>USE_FULL_ASSERT</em>
-Trước khi sử dụng <code class="docutils literal notranslate"><span class="pre">assert_param</span></code>, bạn cần chắc chắn rằng <em>USE_FULL_ASSERT</em>
-được định nghĩa trong dự án của bạn. Điều này thường được cấu hình trong
-tệp tiêu đề <code class="docutils literal notranslate"><span class="pre">stm32fxx_hal_conf.h</span></code> (thay thế xx bằng dòng vi điều khiển của bạn,
-ví dụ: stm32f4xx_hal_conf.h).</p>
-<p>Mở tệp stm32fxx_hal_conf.h và đảm bảo rằng dòng #define USE_FULL_ASSERT không bị chú thích:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define USE_FULL_ASSERT</span>
+<section id="flash">
+<h2>FLASH<a class="headerlink" href="#flash" title="Permalink to this heading"></a></h2>
+<p>If you want to flash your program to a different sector of the flash memory, you need to modify the following files:</p>
+<ul>
+<li><p>In the files STM32F411VETX_FLASH.ld and STM32F411VETX_RAM.ld, change the ORIGIN and LENGTH values of the FLASH section:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">FLASH</span><span class="w">    </span><span class="p">(</span><span class="n">rx</span><span class="p">)</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">ORIGIN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x8008000</span><span class="p">,</span><span class="w">   </span><span class="n">LENGTH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">224</span><span class="n">K</span>
 </pre></div>
 </div>
-<p>2. Khai báo hàm <em>assert_failed</em>
-Bạn cũng cần cung cấp định nghĩa của hàm <code class="docutils literal notranslate"><span class="pre">assert_failed</span></code>. Hàm
-này sẽ được gọi khi <code class="docutils literal notranslate"><span class="pre">assert_param</span></code> phát hiện ra một lỗi. Thêm
-định nghĩa này vào tệp mã nguồn chính của bạn:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">assert_failed</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">line</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="cm">/* User can add his own implementation to report the HAL error return state */</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Wrong parameters value: file %s on line %d</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">);</span>
-<span class="c1">// Infinite loop</span>
-<span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="p">}</span>
-<span class="p">}</span>
+</div></blockquote>
+</li>
+<li><p>In the system_stm32f4xx.c file, enable USER_VECT_TAB_ADDRESS, and update FLASH_BASE and VECT_TAB_OFFSET accordingly:</p>
+<blockquote>
+<div><div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#define USER_VECT_TAB_ADDRESS</span>
+<span class="cp">#if defined(USER_VECT_TAB_ADDRESS)</span>
+<span class="cm">/*!&lt; Uncomment the following line if you need to relocate your vector Table</span>
+<span class="cm">    in Sram else user remap will be done in Flash. */</span>
+<span class="cm">/* #define VECT_TAB_SRAM */</span>
+
+<span class="cp">#if defined(VECT_TAB_SRAM)</span>
+<span class="cp">#define VECT_TAB_BASE_ADDRESS   SRAM_BASE       </span><span class="cm">/*!&lt; Vector Table base address field.</span>
+<span class="cm">                                                    This value must be a multiple of 0x200. */</span>
+<span class="cp">#else</span>
+<span class="cp">#define VECT_TAB_BASE_ADDRESS   0x8008000      </span><span class="cm">/*!&lt; Vector Table base address field.</span>
+<span class="cm">                                                    This value must be a multiple of 0x200. */</span>
+<span class="cp">#endif </span><span class="cm">/* VECT_TAB_SRAM */</span>
+<span class="cp">#if !defined(VECT_TAB_OFFSET)</span>
+<span class="cp">#define VECT_TAB_OFFSET         0x8000U     </span><span class="cm">/*!&lt; Vector Table offset field.</span>
+<span class="cm">                                                    This value must be a multiple of 0x200. */</span>
+<span class="cp">#endif </span><span class="cm">/* VECT_TAB_OFFSET */</span>
+<span class="cp">#endif </span><span class="cm">/* USER_VECT_TAB_ADDRESS */</span>
 </pre></div>
 </div>
-<p>3. Sử dụng <em>assert_param</em>
-<code class="docutils literal notranslate"><span class="pre">assert_param</span></code> được sử dụng để kiểm tra các điều kiện
-trong các hàm của bạn. Ví dụ, nếu bạn có một hàm nhận
-một tham số mà phải nằm trong khoảng từ 0 đến 10, bạn
-có thể sử dụng <code class="docutils literal notranslate"><span class="pre">assert_param</span></code> để kiểm tra điều này:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">MyFunction</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">param</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="c1">// Kiểm tra tham số đầu vào phải nằm trong khoảng từ 0 đến 10</span>
-<span class="n">assert_param</span><span class="p">(</span><span class="n">param</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">param</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
-
-<span class="c1">// Phần còn lại của hàm</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Ví dụ đầy đủ
-Dưới đây là một ví dụ đầy đủ về việc sử dụng <code class="docutils literal notranslate"><span class="pre">assert_param</span></code> trong một chương trình STM32:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;main.h&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-
-<span class="cp">#ifdef USE_FULL_ASSERT</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">assert_failed</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">line</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Wrong parameters value: file %s on line %d</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">);</span>
-<span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="p">}</span>
-<span class="p">}</span>
-<span class="cp">#endif </span><span class="cm">/* USE_FULL_ASSERT */</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">MyFunction</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">param</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="n">assert_param</span><span class="p">(</span><span class="n">param</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">param</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
-
-<span class="c1">// Phần còn lại của hàm</span>
-<span class="p">}</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="c1">// Khởi tạo hệ thống</span>
-<span class="n">HAL_Init</span><span class="p">();</span>
-<span class="n">SystemClock_Config</span><span class="p">();</span>
-
-<span class="c1">// Sử dụng hàm với tham số hợp lệ</span>
-<span class="n">MyFunction</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-
-<span class="c1">// Sử dụng hàm với tham số không hợp lệ</span>
-<span class="n">MyFunction</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
-
-<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Tệp <em>stm32fxx_hal_conf.h</em></p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef __STM32FXX_HAL_CONF_H</span>
-<span class="cp">#define __STM32FXX_HAL_CONF_H</span>
-
-<span class="cm">/* ... các định nghĩa và cấu hình khác ... */</span>
-
-<span class="cm">/* Định nghĩa USE_FULL_ASSERT để kích hoạt assert_param */</span>
-<span class="cp">#define USE_FULL_ASSERT</span>
-
-<span class="cm">/* ... các định nghĩa và cấu hình khác ... */</span>
-
-<span class="cp">#endif </span><span class="cm">/* __STM32FXX_HAL_CONF_H */</span>
-</pre></div>
-</div>
-<p><strong>Tổng kết</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">assert_param</span></code> là một công cụ hữu ích để kiểm tra tính hợp lệ của các tham số trong các hàm của bạn.
-<em>USE_FULL_ASSERT</em> cần được định nghĩa trong tệp cấu hình để kích hoạt <code class="docutils literal notranslate"><span class="pre">assert_param</span></code>.
-assert_failed là hàm sẽ được gọi khi một điều kiện <code class="docutils literal notranslate"><span class="pre">assert_param</span></code> không thỏa mãn,
-và bạn có thể định nghĩa hàm này để thực hiện các hành động xử lý lỗi, như in ra
-thông báo lỗi hoặc dừng chương trình.
-Sử dụng <code class="docutils literal notranslate"><span class="pre">assert_param</span></code> giúp bạn phát hiện sớm các lỗi liên quan đến tham số và điều
-kiện không hợp lệ trong quá trình phát triển và gỡ lỗi.</p>
+</div></blockquote>
+</li>
+</ul>
 </section>
 </section>
 
