@@ -13,7 +13,6 @@ RyanDank`s Documentation
    Contents/can
    Contents/electric_component
    Contents/gps_neo9m
-   Contents/pcb
    Contents/mqtt
    Contents/docker
    Contents/wiregaurd
