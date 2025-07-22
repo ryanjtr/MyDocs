@@ -333,7 +333,21 @@ Connect to new available wifi
 
         sudo nmcli connection delete uuid <uuid here>
 
+With Ubuntu 25.04 and above will not support `wireless-tools` in its repository, so use `iw` for replacement.
 
+Install `iw`
+
+    .. code-block:: bash
+
+        sudo apt install iw
+
+Check show wifi
+
+    .. code-block:: bash
+
+        iw dev
+
+        
 Install Visual Studio Code on an Ubuntu Server without a GUI
 ---------------------------------------------------------------
 

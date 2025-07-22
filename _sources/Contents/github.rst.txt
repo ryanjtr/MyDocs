@@ -1,14 +1,24 @@
-Github
-======
+Github 
+=======
 
 .. contents::
     :depth: 3
 
-Working space
-Stage area and git local
+Introduction
+------------
 
-Installation
--------------------
+This guide provides a step-by-step process for using Git and GitHub, from installation to managing repositories, branches, and commits. It is designed for beginners and intermediate users, covering essential commands and common workflows.
+
+Prerequisites
+-------------
+
+Before starting, ensure you have:
+- A GitHub account (sign up at `GitHub <https://github.com>`_).
+- Git installed on your system.
+- Basic familiarity with the command line.
+
+Installing Git
+--------------
 
 **For Ubuntu**
 
@@ -16,29 +26,56 @@ Installation
 
     sudo apt install git
 
-Commands
---------------
+**For Windows**
 
-.. note::
+- **Windows**: Download and install Git from `git-scm.com <https://git-scm.com>`_.
 
-    If first time use github, you must commands below
+
+Verify installation:
 
 .. code-block:: bash
 
-    git config --global user.name "John"
+    git --version
 
-    git config --global user.mail "nguyevana@gmail.com"
+Configuring Git
+----------------
 
-    git config credential.helper store # to store user name and password to your computer
+Set up your Git identity (run these commands once):
 
+.. code-block:: bash
 
-Write access to repository not granted. fatal: unable to access
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    git config --global user.name "Your Name"
+    git config --global user.email "your.email@example.com"
 
-Visit this `link stackoverflow <https://stackoverflow.com/questions/70538793/remote-write-access-to-repository-not-granted-fatal-unable-to-access>`_
+To store credentials for convenience:
 
-Initiate git local
-~~~~~~~~~~~~~~~~~~~
+.. code-block:: bash
+
+    git config --global credential.helper store
+
+.. note::
+
+    The ``credential.helper store`` command saves your GitHub credentials locally, so you don't need to re-enter them for each push. Use with caution on shared computers.
+
+Creating a GitHub Repository
+----------------------------
+
+1. Log in to your GitHub account.
+2. Click the **+** icon in the top-right corner and select **New repository**.
+3. Provide a repository name, description (optional), and choose visibility (public/private).
+4. Optionally, initialize with a README, .gitignore, or license.
+5. Click **Create repository** to generate the repository URL (e.g., ``https://github.com/username/repo.git``).
+
+Initializing a Local Repository
+---------------------------------
+
+Navigate to your project directory:
+
+.. code-block:: bash
+
+    cd /path/to/your/project
+
+Initialize a local Git repository:
 
 .. code-block:: bash
 
@@ -46,162 +83,292 @@ Initiate git local
 
 .. note::
 
-    If you mistakenly use ``git init`` in wrong the folder, then on Windows, you can invoke 
-    
-    .. code-block:: bash
-        
-        dir /a
-        
-    to find ``.git`` file. Then delete it with 
+    If you accidentally initialize a repository in the wrong folder:
+    - On Windows, list hidden files with ``dir /a`` to find the ``.git`` folder, then delete it with ``rmdir /s /q .git``.
+    - On Linux/Mac, use ``ls -a`` to find ``.git``, then delete with ``rm -rf .git``.
 
-    .. code-block:: bash
+Ignoring Files with .gitignore
+--------------------------------
 
-        rmdir /s /q .git
-
-Git ignore
-~~~~~~~~~~~~~~~~~~~~~~
-
-Git will not ignore files/folders that have already been tracked, even if they have been added to ``.gitignore``
-
-You have to remove files/folders from Git's tracking status, here i will remove folder ``Debug``:
+Create a ``.gitignore`` file to exclude files/folders from being tracked (e.g., logs, temporary files):
 
 .. code-block:: bash
 
-    git rm -r --cached Debug
+    touch .gitignore
 
-Then, commit the changes, and Git will ignore the Debug folder according to the ``.gitignore``.
+Example ``.gitignore`` content:
 
-Add all file to local
-~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: text
+
+    # Ignore all .log files
+    *.log
+    # Except specific log file
+    !important.log
+    # Ignore entire folder
+    web-app/*
+
+If a file/folder is already tracked, remove it from Git's index:
+
+.. code-block:: bash
+
+    git rm -r --cached <folder_or_file>
+    git commit -m "Update .gitignore to ignore <folder_or_file>"
+
+Staging and Committing Changes
+-------------------------------
+
+Stage all changes:
 
 .. code-block:: bash
 
     git add .
 
-Commit code to local
-~~~~~~~~~~~~~~~~~~~~~
+Commit changes with a message:
 
 .. code-block:: bash
 
-    git commit -m "message"
+    git commit -m "Descriptive commit message"
 
-
-Link to remote repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-    git remote add origin <Url_repo>
-
-Push code to branch
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Push code to branch ``master`` of remote repository, later then just use ``git push``
-
-.. code-block:: bash
-
-    git push -u origin master
-
-
-Update code from branch to local
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Update code from branch ``master`` to local
-
-.. code-block:: bash
-
-    git pull origin master
-
-Change to another version (version: code committed to git remote)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-    git checkout <commit_id>
-
-Create a new branch and move to it (-b: create a new branch)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-    git checkout -b <branch_name>
-
-Merge a branch to master
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-    git merge <branch_name>
-
-List branch 
-~~~~~~~~~~~~~~~~
-
-.. code-block:: bash 
-
-    git branch -a
-
-Delete branch
-~~~~~~~~~~~~~~~~~
-
-#. Delete local branch
-
-    .. code-block:: bash
-
-        git branch -d <nbranch_name>
-
-#. Delete remote branch
-
-    .. code-block:: bash
-
-        git push origin --delete <nbranch_name>
-
-Assumed you committed c1 c2 c3 c4 c5. If you use the command below, then we will return to c2, code in c3 c4 c5 will be deleted (as never exist)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-    git reset --hard <id_c2>
-
-Force to push code to remote due to difference in commit history (not recommend)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-    git push -f
-
-Show id commit
-~~~~~~~~~~~~~~~~~
+View commit history:
 
 .. code-block:: bash
 
     git log
 
-Return to a commit in history
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Linking to a Remote Repository
+--------------------------------
+
+Connect your local repository to the GitHub repository:
 
 .. code-block:: bash
 
-    git revert <id_commit>
+    git remote add origin <repository_url>
 
-Git clone
-~~~~~~~~~~~~~~
-
-If you don't need the entire commit history, you can perform a shallow clone, which only fetches the latest state of the repository. Use the --depth option:
+Verify the remote:
 
 .. code-block:: bash
 
-    git clone --recurse-submodules --depth 1 https://github.com/cetic/6lbr.git
+    git remote -v
 
-Reset code local to and get code from git repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pushing to GitHub
+-----------------
 
-If you want to change current code and recover it from git repository
+Push changes to the ``main`` branch (or ``master`` in older repositories):
+
+.. code-block:: bash
+
+    git push -u origin main
+
+.. note::
+
+    The ``-u`` flag sets the upstream branch, so subsequent pushes can use simply ``git push``.
+
+Pulling Updates from GitHub
+----------------------------
+
+Update your local repository with changes from the remote branch:
+
+.. code-block:: bash
+
+    git pull origin main
+
+Working with Branches
+---------------------
+
+**List Branches**
+
+View all local and remote branches:
+
+.. code-block:: bash
+
+    git branch -a
+
+**Create and Switch to a New Branch**
+
+.. code-block:: bash
+
+    git checkout -b <branch_name>
+
+.. note::
+
+    For Git 2.23+, you can use ``git switch -c <branch_name>`` to create and switch to a branch.
+
+**Switch to an Existing Branch**
+
+.. code-block:: bash
+
+    git checkout <branch_name>
+
+Or with Git 2.23+:
+
+.. code-block:: bash
+
+    git switch <branch_name>
+
+**Merge a Branch**
+
+Switch to the target branch (e.g., ``main``) and merge another branch:
+
+.. code-block:: bash
+
+    git checkout main
+    git merge <branch_name>
+
+**Delete a Branch**
+
+Delete a local branch:
+
+.. code-block:: bash
+
+    git branch -d <branch_name>
+
+Delete a remote branch:
+
+.. code-block:: bash
+
+    git push origin --delete <branch_name>
+
+.. note::
+
+    Use ``-D`` instead of ``-d`` to force-delete a local branch with unmerged changes.
+
+Cloning a Repository
+--------------------
+
+Clone a repository to your local machine:
+
+.. code-block:: bash
+
+    git clone <repository_url>
+
+For a shallow clone (only the latest state):
+
+.. code-block:: bash
+
+    git clone --recurse-submodules --depth 1 <repository_url>
+
+Managing Commits
+----------------
+
+**Revert to a Previous Commit**
+
+Undo changes by reverting to a specific commit:
+
+.. code-block:: bash
+
+    git revert <commit_id>
+
+**Reset to a Previous Commit**
+
+Reset to a previous commit, discarding later commits:
+
+.. code-block:: bash
+
+    git reset --hard <commit_id>
+
+.. warning::
+
+    Use ``git reset --hard`` cautiously, as it permanently deletes commits after the specified ID.
+
+Soft reset (keeps changes in working directory):
+
+.. code-block:: bash
+
+    git reset --soft <commit_id>
+
+**Force Push**
+
+Force push to overwrite remote commit history (use with caution):
+
+.. code-block:: bash
+
+    git push -f
+
+Restoring Files
+---------------
+
+**Restore a Specific File**
+
+Revert a modified but uncommitted file to its last committed state:
+
+.. code-block:: bash
+
+    git checkout -- <file_name>
+
+Or with Git 2.23+:
+
+.. code-block:: bash
+
+    git restore <file_name>
+
+**Restore All Files**
+
+Revert all uncommitted changes:
+
+.. code-block:: bash
+
+    git checkout .
+    # Or
+    git restore .
+
+Reset Local Repository to Match Remote
+----------------------------------------
+
+Fetch the latest remote state and reset local repository:
 
 .. code-block:: bash
 
     git fetch origin
+    git reset --hard origin/<branch_name>
+
+Cleaning Untracked Files
+--------------------------
+
+Remove untracked files and directories:
 
 .. code-block:: bash
 
-    git reset --hard origin/<branch-name>
+    git clean -df
 
+Troubleshooting
+---------------
+
+**Write Access Denied**
+
+If you encounter: *Write access to repository not granted. fatal: unable to access*
+
+- Ensure you have write permissions for the repository.
+- Check your credentials or SSH key configuration.
+- Refer to this `StackOverflow thread <https://stackoverflow.com/questions/70538793/remote-write-access-to-repository-not-granted-fatal-unable-to-access>`_ for detailed solutions.
+
+**Detached HEAD State**
+
+If you checkout a specific commit (e.g., ``git checkout <commit_id>``), you enter a detached HEAD state. To save changes:
+
+1. Create a new branch:
+
+.. code-block:: bash
+
+    git checkout -b new-branch-name
+
+2. Commit changes and push as usual.
+
+Additional Commands
+-------------------
+
+**List Files in Current Branch**
+
+.. code-block:: bash
+
+    git ls-files
+
+**Check Current Branch**
+
+.. code-block:: bash
+
+    git branch
+
+Conclusion
+----------
+
+This guide covers the essential Git and GitHub workflows for managing repositories, branches, and commits. Practice these commands in a test repository to build confidence before applying them to critical projects. For further details, refer to the `Git documentation <https://git-scm.com/doc>`_ or `GitHub Docs <https://docs.github.com>`_.
