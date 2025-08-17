@@ -1,5 +1,5 @@
-Activation Script
-=================
+Activate Win-Office
+======================
 
 **Activation Script** is a script used to activate Windows and Office via methods such as HWID, Ohook, KMS38, and Online KMS.  
 It focuses on open-source implementation and has fewer detections by antivirus software.  
