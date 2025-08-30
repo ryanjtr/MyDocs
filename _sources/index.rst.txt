@@ -4,7 +4,7 @@ RyanDank`s Documentation
 .. toctree::
    :maxdepth: 2
    
-   Contents/raspberryPi
+   
    Contents/github
    Contents/sphinx 
    Contents/zephyr
@@ -13,8 +13,6 @@ RyanDank`s Documentation
    Contents/can
    Contents/electric_component
    Contents/gps_neo9m
-   Contents/mqtt
-   Contents/docker
    Contents/wiregaurd
    Contents/vivado
    Contents/RISCV/riscv
@@ -23,6 +21,7 @@ RyanDank`s Documentation
    Contents/STM32/lvglf7.rst
    Contents/esp32.rst
    Contents/activewinoffice.rst
-   
+   Contents/Raspberry/raspberrydoc.rst
+
 
 

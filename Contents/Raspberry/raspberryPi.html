@@ -3,35 +3,34 @@
 
 <head>
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-    <link sizes="32x32" href="../_static/logo.png" rel="icon" type="image/png">
+    <link sizes="32x32" href="../../_static/logo.png" rel="icon" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Raspberry Pi &mdash; RyanDocs 2024 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/dark_mode_css/general.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/dark_mode_css/dark.css" />
+    <title>Set up raspberry pi &mdash; RyanDocs 2024 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/general.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/dark.css" />
 
     
     <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
+    <script src="../../_static/js/html5shiv.min.js"></script>
     <![endif]-->
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/clipboard.min.js"></script>
-        <script src="../_static/copybutton.js"></script>
-        <script src="../_static/scripts.js"></script>
-        <script src="../_static/dark_mode_js/default_dark.js"></script>
-        <script src="../_static/dark_mode_js/theme_switcher.js"></script>
-        <script src="../_static/js/theme.js"></script>
-        <link rel="index" title="Index" href="../genindex.html" />
-        <link rel="search" title="Search" href="../search.html" />
-        <link rel="next" title="Github" href="github.html" />
-        <link rel="prev" title="RyanDank`s Documentation" href="../index.html" /> 
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/scripts.js"></script>
+        <script src="../../_static/dark_mode_js/default_dark.js"></script>
+        <script src="../../_static/dark_mode_js/theme_switcher.js"></script>
+        <script src="../../_static/js/theme.js"></script>
+        <link rel="index" title="Index" href="../../genindex.html" />
+        <link rel="search" title="Search" href="../../search.html" />
+        <link rel="prev" title="Promgramable IO" href="programableIO.html" /> 
         <style>
             #logo-container {
                 position: relative;
@@ -63,17 +62,17 @@
         <nav data-toggle="wy-nav-shift" class="wy-nav-side">
             <div class="wy-side-scroll">
                 <div class="wy-side-nav-search" >
-                    <a href="../index.html"  class="icon icon-home" >
+                    <a href="../../index.html"  class="icon icon-home" >
                         RyanDocs
                         <div id="logo-container">
-                            <img id="logo-image" src="../_static/c_stitch.gif" class="logo"
+                            <img id="logo-image" src="../../_static/c_stitch.gif" class="logo"
                                 alt="Logo" />
-                            <img id="logo-image" src="../_static/stitch.gif" class="logo hidden"
+                            <img id="logo-image" src="../../_static/stitch.gif" class="logo hidden"
                                 alt="Logo" />
                         </div>
                     </a>
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -83,44 +82,46 @@
                 <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
                     aria-label="Navigation menu">
                     <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Raspberry Pi</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#install-raspberry-pi-os-without-monitor-or-keyboard">Install Raspberry Pi OS without monitor or keyboard</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#boot-raspberry-pi">Boot Raspberry Pi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#find-raspberry-pi-address-and-use-ssh">Find Raspberry Pi address and use SSH</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#enable-vnc-and-use-vnctiger">Enable VNC and use VNCTiger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#command-for-terminal">Command for terminal</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#shut-down-command">Shut down command</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reboot-command">Reboot Command</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#power-off-command">Power off command</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#install-gpiozero-library-for-ubuntu-sever-os">Install gpiozero library for ubuntu sever OS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#install-i2c-tools">Install i2c-tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../github.html">Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zephyr.html">Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ubuntu.html">Ubuntu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stm32.html">STM32</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../can.html">CAN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../electric_component.html">Electric Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gps_neo9m.html">GPS NEO-9M</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wiregaurd.html">Wiregaurd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vivado.html">Vivado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RISCV/riscv.html">RISC-V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../STM32/freertos.html">FreeRTOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ContikiOS/contikios.html">ContikiOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../STM32/lvglf7.html">LVGL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../esp32.html">ESP32</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activewinoffice.html">Activate Win-Office</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="raspberrydoc.html">Raspberry Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="programableIO.html">Promgramable IO</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Set up raspberry pi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-raspberry-pi-os-without-monitor-or-keyboard">Install Raspberry Pi OS without monitor or keyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boot-raspberry-pi">Boot Raspberry Pi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#find-raspberry-pi-address-and-use-ssh">Find Raspberry Pi address and use SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enable-vnc-and-use-vnctiger">Enable VNC and use VNCTiger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#command-for-terminal">Command for terminal</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#shut-down-command">Shut down command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reboot-command">Reboot Command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#power-off-command">Power off command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-gpiozero-library-for-ubuntu-sever-os">Install gpiozero library for ubuntu sever OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-i2c-tools">Install i2c-tools</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#install-lcd-for-raspberry-pi">Install LCD for Raspberry Pi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#connect-raspberry-pi-3-b-and-laptop-via-uart-debian-gnu-linux-12-bookworm">Connect Raspberry Pi 3 B+ and Laptop via UART (Debian GNU/Linux 12 (bookworm))</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#connect-to-new-available-wifi">Connect to new available wifi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#install-visual-studio-code-on-an-ubuntu-server-without-a-gui">Install Visual Studio Code on an Ubuntu Server without a GUI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#observe-ram-rom-resources-of-system">Observe RAM/ROM resources of system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-lcd-for-raspberry-pi">Install LCD for Raspberry Pi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connect-raspberry-pi-3-b-and-laptop-via-uart-debian-gnu-linux-12-bookworm">Connect Raspberry Pi 3 B+ and Laptop via UART (Debian GNU/Linux 12 (bookworm))</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connect-to-new-available-wifi">Connect to new available wifi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-visual-studio-code-on-an-ubuntu-server-without-a-gui">Install Visual Studio Code on an Ubuntu Server without a GUI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#observe-ram-rom-resources-of-system">Observe RAM/ROM resources of system</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="github.html">Github</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="zephyr.html">Zephyr</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ubuntu.html">Ubuntu</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stm32.html">STM32</a></li>
-<li class="toctree-l1"><a class="reference internal" href="can.html">CAN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="electric_component.html">Electric Components</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gps_neo9m.html">GPS NEO-9M</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mqtt.html">MQTT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wiregaurd.html">Wiregaurd</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vivado.html">Vivado</a></li>
-<li class="toctree-l1"><a class="reference internal" href="RISCV/riscv.html">RISC-V</a></li>
-<li class="toctree-l1"><a class="reference internal" href="STM32/freertos.html">FreeRTOS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ContikiOS/contikios.html">ContikiOS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="STM32/lvglf7.html">LVGL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="esp32.html">ESP32</a></li>
-<li class="toctree-l1"><a class="reference internal" href="activewinoffice.html">Activate Win-Office</a></li>
+</ul>
+</li>
 </ul>
 
 
@@ -184,7 +185,7 @@
                                                 color: white; font-size: 16px; border: none; cursor: pointer; 
                                                 border-radius: 30px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 4px 8px rgba(255, 255, 255, 0.1); 
                                                 margin-bottom: 20px; padding: 3px 5px 3px 30px; 
-                                                background-image: url('../_static/button_link_image/fb.png');
+                                                background-image: url('../../_static/button_link_image/fb.png');
                                                 background-repeat: no-repeat; background-position: 5px center; background-size: 30px 30px;">
                                 FACEBOOK
                             </button>
@@ -196,7 +197,7 @@
                                                 color: white; font-size: 16px; border: none; cursor: pointer; 
                                                 border-radius: 30px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 4px 8px rgba(255, 255, 255, 0.1); 
                                                 margin-bottom: 20px; padding: 3px 5px 3px 30px; 
-                                                background-image: url('../_static/button_link_image/yt.png'); 
+                                                background-image: url('../../_static/button_link_image/yt.png'); 
                                                 background-repeat: no-repeat; background-position: 5px center; background-size: 30px 30px;">
                                 YOUTUBE
                             </button>
@@ -206,7 +207,7 @@
                                                 color: white; font-size: 16px; border: none; cursor: pointer; 
                                                 border-radius: 30px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 4px 8px rgba(255, 255, 255, 0.1); 
                                                 padding: 3px 5px 3px 30px; 
-                                                background-image: url('../_static/button_link_image/github.png'); background-repeat: no-repeat; 
+                                                background-image: url('../../_static/button_link_image/github.png'); background-repeat: no-repeat; 
                                                 background-position: 5px center; background-size: 30px 30px;">
                                 GITHUB
                             </button>
@@ -227,7 +228,7 @@
         <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
             <nav class="wy-nav-top" aria-label="Mobile navigation menu" >
                 <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-                <a href="../index.html">RyanDocs</a>
+                <a href="../../index.html">RyanDocs</a>
             </nav>
             <div class="wy-nav-content">
 
@@ -241,7 +242,7 @@
                 </div>
 
                 <audio id="audio-player" loop>
-                    <source src="../_static/music_folder/bao_tien_mot_mo.mp3" type="audio/mpeg">
+                    <source src="../../_static/music_folder/bao_tien_mot_mo.mp3" type="audio/mpeg">
                 </audio>
 
                 <!-- script music control -->
@@ -292,8 +293,9 @@
                     <div class="rst-content">
                         <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Raspberry Pi</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="raspberrydoc.html">Raspberry Documentation</a></li>
+      <li class="breadcrumb-item active">Set up raspberry pi</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -302,12 +304,12 @@
                         <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
                             <div itemprop="articleBody">
                                 
-  <section id="raspberry-pi">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink">Raspberry Pi</a><a class="headerlink" href="#raspberry-pi" title="Permalink to this heading"></a></h1>
-<nav class="contents" id="contents">
-<p class="topic-title">Contents</p>
+  <section id="set-up-raspberry-pi">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Set up raspberry pi</a><a class="headerlink" href="#set-up-raspberry-pi" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#raspberry-pi" id="id1">Raspberry Pi</a></p>
+<li><p><a class="reference internal" href="#set-up-raspberry-pi" id="id1">Set up raspberry pi</a></p>
 <ul>
 <li><p><a class="reference internal" href="#install-raspberry-pi-os-without-monitor-or-keyboard" id="id2">Install Raspberry Pi OS without monitor or keyboard</a></p></li>
 <li><p><a class="reference internal" href="#boot-raspberry-pi" id="id3">Boot Raspberry Pi</a></p></li>
@@ -640,7 +642,7 @@ Reboot for the changes to take effect.</p>
 </ol>
 <p>Reference:</p>
 <p>Link 1 <a class="reference external" href="https://www.circuits.dk/setup-raspberry-pi-3-gpio-uart/" rel="noopener noreferrer" target="_blank">How to setup the UART on Raspberry Pi 3</a></p>
-<p>Link 2 <a href="#id12"><span class="problematic" id="id13">`Serial communication over UART Raspberry Pi 4&lt;https://forums.raspberrypi.com/viewtopic.php?t=307094&gt;`_</span></a></p>
+<p>Link 2 <a class="reference external" href="https://forums.raspberrypi.com/viewtopic.php?t=307094" rel="noopener noreferrer" target="_blank">Serial communication over UART Raspberry Pi 4</a></p>
 <p>Link 3 <a class="reference external" href="https://cloudchirp.medium.com/serial-to-raspberry-pi-da635122b4d0" rel="noopener noreferrer" target="_blank">Serial Console to Raspberry Pi</a></p>
 </section>
 <section id="connect-to-new-available-wifi">
@@ -770,7 +772,7 @@ while the server doesn’t need to have a GUI.</p>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>htop
 </pre></div>
 </div>
-<img alt="../_images/ram_and_rom_resources.png" src="../_images/ram_and_rom_resources.png" />
+<img alt="../../_images/ram_and_rom_resources.png" src="../../_images/ram_and_rom_resources.png" />
 </div></blockquote>
 </li>
 </ol>
@@ -785,8 +787,7 @@ while the server doesn’t need to have a GUI.</p>
 
 
                         <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="RyanDank`s Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="github.html" class="btn btn-neutral float-right" title="Github" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="programableIO.html" class="btn btn-neutral float-left" title="Promgramable IO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
