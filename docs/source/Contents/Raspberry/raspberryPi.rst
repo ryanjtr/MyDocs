@@ -1,4 +1,4 @@
-SET UP RASPBERRY PI
+Set up Raspberry Pi
 =====================
 
 .. contents:: Table of Contents

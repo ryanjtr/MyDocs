@@ -164,4 +164,18 @@ Then you can load uf2 file to pico board
 
     .. code-block:: bash
 
-        sudo picotool load <name_file>.uf2 -f
+        sudo picotool load <name_file>.uf2 -f\
+
+
+Failed to open /dev/ttyACM0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you see this error in Serial Monitor in VScode, this means the configuration of Serial Monitor is wrong. To fix
+it, you have to open ``Command Palette`` (Ctrl + Shift + P) -> enter ``Preferences: Open Settings (JSON)``
+
+Add or edit the configuration::
+    
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "serialport.defaultBaudRate": 115200,
+    "serialport.enableRTSCTS": false,
+    "serialport.enableDTR": false

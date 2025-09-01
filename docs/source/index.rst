@@ -8,7 +8,6 @@ RyanDank`s Documentation
    Contents/github
    Contents/sphinx 
    Contents/zephyr
-   Contents/ubuntu
    Contents/stm32
    Contents/can
    Contents/electric_component
@@ -22,6 +21,7 @@ RyanDank`s Documentation
    Contents/esp32.rst
    Contents/activewinoffice.rst
    Contents/Raspberry/raspberrydoc.rst
+   Contents/linuxcontent/linuxdoc.rst
 
 
 
