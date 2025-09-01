@@ -5,6 +5,13 @@ PICO TOOL
     :depth: 3
     :local:
 
+Pinout RP2350 Pico2
+-----------------------
+
+.. image:: image/pinout_rp2350_pico2.jpg
+    :scale: 70%
+    :align: center
+
 
 Installation
 -----------------
@@ -34,6 +41,13 @@ Build pictotool
         cd build
         cmake ..
         make -j$(nproc)
+
+Install system-wide
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+    sudo make install
 
 Verification
 ~~~~~~~~~~~~~~~~~
@@ -80,3 +94,74 @@ make -j$(nproc)
 * Summary
 
     ``make -j$(nproc)`` = *compile using as many jobs as CPU cores → maximum build speed*.  
+
+sudo make install
+~~~~~~~~~~~~~~~~~~~~
+
+When you build software from source (with cmake .. && make), the files are compiled but stay inside your build/ folder. They aren’t “installed” on the system yet::
+
+    make install → runs the install rules defined in the project's CMakeLists.txt or Makefile.
+
+Typically copies binaries (picotool, my_program, …) into system folders like /usr/local/bin/.
+
+May also copy libraries into /usr/local/lib/, headers into /usr/local/include/, etc::
+
+    sudo → needed because writing into /usr/local/bin or /usr/local/lib requires root permissions.
+
+So for example, after::
+
+    cmake ..
+    make
+    sudo make install
+
+
+You can run the program globally, e.g. just type:
+
+    .. code-block:: bash
+
+        picotool
+
+
+from any folder, instead of having to run it from inside build/.
+
+.. note::
+
+    If you don't run sudo make install, you can still use the program, but you must call it with a relative path, e.g.::
+
+    ./build/picotool
+
+
+sudo make install is optional, but convenient if you want the tool to be available system-wide.
+
+
+Common errors
+------------------
+
+Wrong uf2 file for board
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You will see the error below 
+
+    .. code-block:: bash
+
+        Family ID 'rp2040' cannot be downloaded anywhere
+        ERROR: This file cannot be loaded onto a device with no partition table
+
+Your board shows up as RP2350 (Pico 2), but your .uf2 was built for RP2040. The UF2 header contains 
+a family ID; RP2040 and RP2350 are different, so the bootloader refuses it.
+
+To solve this problem, please follow the commands below:
+
+    .. code-block:: bash
+
+        rm -rf build
+        mkdir build
+        cd build
+        cmake -DPICO_PLATFORM=rp2350 -DPICO_BOARD=pico2 ..
+        make -j$(nproc)
+
+Then you can load uf2 file to pico board
+
+    .. code-block:: bash
+
+        sudo picotool load <name_file>.uf2 -f

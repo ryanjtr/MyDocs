@@ -30,7 +30,7 @@
         <script src="../../_static/js/theme.js"></script>
         <link rel="index" title="Index" href="../../genindex.html" />
         <link rel="search" title="Search" href="../../search.html" />
-        <link rel="next" title="Promgramable IO" href="programableIO.html" />
+        <link rel="next" title="PROGRAMABLE IO" href="programableIO.html" />
         <link rel="prev" title="SET UP RASPBERRY PI" href="raspberryPi.html" /> 
         <style>
             #logo-container {
@@ -102,20 +102,27 @@
 <li class="toctree-l1 current"><a class="reference internal" href="raspberrydoc.html">Raspberry Documentation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="raspberryPi.html">SET UP RASPBERRY PI</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">PICO TOOL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pinout-rp2350-pico2">Pinout RP2350 Pico2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#install-package-and-dependencies">Install package and dependencies</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#clone-picotool-from-github">CLone picotool from github</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#build-pictotool">Build pictotool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-system-wide">Install system-wide</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#verification">Verification</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#command-detail">Command detail</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#make-j-nproc">make -j$(nproc)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sudo-make-install">sudo make install</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#common-errors">Common errors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wrong-uf2-file-for-board">Wrong uf2 file for board</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="programableIO.html">Promgramable IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programableIO.html">PROGRAMABLE IO</a></li>
 </ul>
 </li>
 </ul>
@@ -305,25 +312,37 @@
 <nav class="contents local" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#installation" id="id1">Installation</a></p>
+<li><p><a class="reference internal" href="#pinout-rp2350-pico2" id="id1">Pinout RP2350 Pico2</a></p></li>
+<li><p><a class="reference internal" href="#installation" id="id2">Installation</a></p>
 <ul>
-<li><p><a class="reference internal" href="#install-package-and-dependencies" id="id2">Install package and dependencies</a></p></li>
-<li><p><a class="reference internal" href="#clone-picotool-from-github" id="id3">CLone picotool from github</a></p></li>
-<li><p><a class="reference internal" href="#build-pictotool" id="id4">Build pictotool</a></p></li>
-<li><p><a class="reference internal" href="#verification" id="id5">Verification</a></p></li>
+<li><p><a class="reference internal" href="#install-package-and-dependencies" id="id3">Install package and dependencies</a></p></li>
+<li><p><a class="reference internal" href="#clone-picotool-from-github" id="id4">CLone picotool from github</a></p></li>
+<li><p><a class="reference internal" href="#build-pictotool" id="id5">Build pictotool</a></p></li>
+<li><p><a class="reference internal" href="#install-system-wide" id="id6">Install system-wide</a></p></li>
+<li><p><a class="reference internal" href="#verification" id="id7">Verification</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#command-detail" id="id6">Command detail</a></p>
+<li><p><a class="reference internal" href="#command-detail" id="id8">Command detail</a></p>
 <ul>
-<li><p><a class="reference internal" href="#make-j-nproc" id="id7">make -j$(nproc)</a></p></li>
+<li><p><a class="reference internal" href="#make-j-nproc" id="id9">make -j$(nproc)</a></p></li>
+<li><p><a class="reference internal" href="#sudo-make-install" id="id10">sudo make install</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#common-errors" id="id11">Common errors</a></p>
+<ul>
+<li><p><a class="reference internal" href="#wrong-uf2-file-for-board" id="id12">Wrong uf2 file for board</a></p></li>
 </ul>
 </li>
 </ul>
 </nav>
+<section id="pinout-rp2350-pico2">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Pinout RP2350 Pico2</a><a class="headerlink" href="#pinout-rp2350-pico2" title="Permalink to this heading"></a></h2>
+<a class="reference internal image-reference" href="../../_images/pinout_rp2350_pico2.jpg"><img alt="../../_images/pinout_rp2350_pico2.jpg" class="align-center" src="../../_images/pinout_rp2350_pico2.jpg" style="width: 1007.9999999999999px; height: 794.5px;" /></a>
+</section>
 <section id="installation">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Installation</a><a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Installation</a><a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <section id="install-package-and-dependencies">
-<h3><a class="toc-backref" href="#id2" role="doc-backlink">Install package and dependencies</a><a class="headerlink" href="#install-package-and-dependencies" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Install package and dependencies</a><a class="headerlink" href="#install-package-and-dependencies" title="Permalink to this heading"></a></h3>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>cmake<span class="w"> </span>build-essential<span class="w"> </span>libusb-1.0-0-dev
@@ -332,7 +351,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 </div></blockquote>
 </section>
 <section id="clone-picotool-from-github">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink">CLone picotool from github</a><a class="headerlink" href="#clone-picotool-from-github" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">CLone picotool from github</a><a class="headerlink" href="#clone-picotool-from-github" title="Permalink to this heading"></a></h3>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/raspberrypi/picotool.git
 <span class="nb">cd</span><span class="w"> </span>picotool
@@ -341,7 +360,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 </div></blockquote>
 </section>
 <section id="build-pictotool">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">Build pictotool</a><a class="headerlink" href="#build-pictotool" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Build pictotool</a><a class="headerlink" href="#build-pictotool" title="Permalink to this heading"></a></h3>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>build
@@ -351,8 +370,14 @@ make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</s
 </div>
 </div></blockquote>
 </section>
+<section id="install-system-wide">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Install system-wide</a><a class="headerlink" href="#install-system-wide" title="Permalink to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>make<span class="w"> </span>install
+</pre></div>
+</div>
+</section>
 <section id="verification">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">Verification</a><a class="headerlink" href="#verification" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Verification</a><a class="headerlink" href="#verification" title="Permalink to this heading"></a></h3>
 <p>Plug pico board to laptop (hold BOOTSEL to enter USB mass storage mode), then invoke command</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>picotool<span class="w"> </span>info
@@ -363,9 +388,9 @@ make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</s
 </section>
 </section>
 <section id="command-detail">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Command detail</a><a class="headerlink" href="#command-detail" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Command detail</a><a class="headerlink" href="#command-detail" title="Permalink to this heading"></a></h2>
 <section id="make-j-nproc">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">make -j$(nproc)</a><a class="headerlink" href="#make-j-nproc" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">make -j$(nproc)</a><a class="headerlink" href="#make-j-nproc" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Meaning</p>
 <blockquote>
@@ -404,6 +429,70 @@ So the command expands to:</p>
 </li>
 </ul>
 </section>
+<section id="sudo-make-install">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">sudo make install</a><a class="headerlink" href="#sudo-make-install" title="Permalink to this heading"></a></h3>
+<p>When you build software from source (with cmake .. &amp;&amp; make), the files are compiled but stay inside your build/ folder. They aren’t “installed” on the system yet:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>make install → runs the install rules defined in the project&#39;s CMakeLists.txt or Makefile.
+</pre></div>
+</div>
+<p>Typically copies binaries (picotool, my_program, …) into system folders like /usr/local/bin/.</p>
+<p>May also copy libraries into /usr/local/lib/, headers into /usr/local/include/, etc:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo → needed because writing into /usr/local/bin or /usr/local/lib requires root permissions.
+</pre></div>
+</div>
+<p>So for example, after:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">..</span>
+<span class="n">make</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>You can run the program globally, e.g. just type:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>picotool
+</pre></div>
+</div>
+</div></blockquote>
+<p>from any folder, instead of having to run it from inside build/.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you don’t run sudo make install, you can still use the program, but you must call it with a relative path, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">build</span><span class="o">/</span><span class="n">picotool</span>
+</pre></div>
+</div>
+</div>
+<p>sudo make install is optional, but convenient if you want the tool to be available system-wide.</p>
+</section>
+</section>
+<section id="common-errors">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Common errors</a><a class="headerlink" href="#common-errors" title="Permalink to this heading"></a></h2>
+<section id="wrong-uf2-file-for-board">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Wrong uf2 file for board</a><a class="headerlink" href="#wrong-uf2-file-for-board" title="Permalink to this heading"></a></h3>
+<p>You will see the error below</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Family<span class="w"> </span>ID<span class="w"> </span><span class="s1">&#39;rp2040&#39;</span><span class="w"> </span>cannot<span class="w"> </span>be<span class="w"> </span>downloaded<span class="w"> </span>anywhere
+ERROR:<span class="w"> </span>This<span class="w"> </span>file<span class="w"> </span>cannot<span class="w"> </span>be<span class="w"> </span>loaded<span class="w"> </span>onto<span class="w"> </span>a<span class="w"> </span>device<span class="w"> </span>with<span class="w"> </span>no<span class="w"> </span>partition<span class="w"> </span>table
+</pre></div>
+</div>
+</div></blockquote>
+<p>Your board shows up as RP2350 (Pico 2), but your .uf2 was built for RP2040. The UF2 header contains
+a family ID; RP2040 and RP2350 are different, so the bootloader refuses it.</p>
+<p>To solve this problem, please follow the commands below:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>-rf<span class="w"> </span>build
+mkdir<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>build
+cmake<span class="w"> </span>-DPICO_PLATFORM<span class="o">=</span>rp2350<span class="w"> </span>-DPICO_BOARD<span class="o">=</span>pico2<span class="w"> </span>..
+make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Then you can load uf2 file to pico board</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>picotool<span class="w"> </span>load<span class="w"> </span>&lt;name_file&gt;.uf2<span class="w"> </span>-f
+</pre></div>
+</div>
+</div></blockquote>
+</section>
 </section>
 </section>
 
@@ -416,7 +505,7 @@ So the command expands to:</p>
 
                         <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="raspberryPi.html" class="btn btn-neutral float-left" title="SET UP RASPBERRY PI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="programableIO.html" class="btn btn-neutral float-right" title="Promgramable IO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="programableIO.html" class="btn btn-neutral float-right" title="PROGRAMABLE IO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
