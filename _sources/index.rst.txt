@@ -2,7 +2,7 @@ RyanDank`s Documentation
 ==========================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    
    
    Contents/github

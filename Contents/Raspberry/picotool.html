@@ -5,7 +5,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link sizes="32x32" href="../../_static/logo.png" rel="icon" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Raspberry Documentation &mdash; RyanDocs 2024 documentation</title>
+    <title>PICO TOOL &mdash; RyanDocs 2024 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -30,8 +30,8 @@
         <script src="../../_static/js/theme.js"></script>
         <link rel="index" title="Index" href="../../genindex.html" />
         <link rel="search" title="Search" href="../../search.html" />
-        <link rel="next" title="SET UP RASPBERRY PI" href="raspberryPi.html" />
-        <link rel="prev" title="Activate Win-Office" href="../activewinoffice.html" /> 
+        <link rel="next" title="Promgramable IO" href="programableIO.html" />
+        <link rel="prev" title="SET UP RASPBERRY PI" href="raspberryPi.html" /> 
         <style>
             #logo-container {
                 position: relative;
@@ -99,9 +99,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../STM32/lvglf7.html">LVGL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../esp32.html">ESP32</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activewinoffice.html">Activate Win-Office</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Raspberry Documentation</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="raspberrydoc.html">Raspberry Documentation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="raspberryPi.html">SET UP RASPBERRY PI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="picotool.html">PICO TOOL</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PICO TOOL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install-package-and-dependencies">Install package and dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clone-picotool-from-github">CLone picotool from github</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#build-pictotool">Build pictotool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verification">Verification</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#command-detail">Command detail</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#make-j-nproc">make -j$(nproc)</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="programableIO.html">Promgramable IO</a></li>
 </ul>
 </li>
@@ -277,7 +290,8 @@
                         <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Raspberry Documentation</li>
+          <li class="breadcrumb-item"><a href="raspberrydoc.html">Raspberry Documentation</a></li>
+      <li class="breadcrumb-item active">PICO TOOL</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -286,15 +300,111 @@
                         <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
                             <div itemprop="articleBody">
                                 
-  <section id="raspberry-documentation">
-<h1>Raspberry Documentation<a class="headerlink" href="#raspberry-documentation" title="Permalink to this heading"></a></h1>
-<div class="toctree-wrapper compound">
+  <section id="pico-tool">
+<h1>PICO TOOL<a class="headerlink" href="#pico-tool" title="Permalink to this heading"></a></h1>
+<nav class="contents local" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#installation" id="id1">Installation</a></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="raspberryPi.html">SET UP RASPBERRY PI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="picotool.html">PICO TOOL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programableIO.html">Promgramable IO</a></li>
+<li><p><a class="reference internal" href="#install-package-and-dependencies" id="id2">Install package and dependencies</a></p></li>
+<li><p><a class="reference internal" href="#clone-picotool-from-github" id="id3">CLone picotool from github</a></p></li>
+<li><p><a class="reference internal" href="#build-pictotool" id="id4">Build pictotool</a></p></li>
+<li><p><a class="reference internal" href="#verification" id="id5">Verification</a></p></li>
 </ul>
+</li>
+<li><p><a class="reference internal" href="#command-detail" id="id6">Command detail</a></p>
+<ul>
+<li><p><a class="reference internal" href="#make-j-nproc" id="id7">make -j$(nproc)</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="installation">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Installation</a><a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<section id="install-package-and-dependencies">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Install package and dependencies</a><a class="headerlink" href="#install-package-and-dependencies" title="Permalink to this heading"></a></h3>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>cmake<span class="w"> </span>build-essential<span class="w"> </span>libusb-1.0-0-dev
+</pre></div>
 </div>
+</div></blockquote>
+</section>
+<section id="clone-picotool-from-github">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">CLone picotool from github</a><a class="headerlink" href="#clone-picotool-from-github" title="Permalink to this heading"></a></h3>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/raspberrypi/picotool.git
+<span class="nb">cd</span><span class="w"> </span>picotool
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="build-pictotool">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Build pictotool</a><a class="headerlink" href="#build-pictotool" title="Permalink to this heading"></a></h3>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>build
+cmake<span class="w"> </span>..
+make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="verification">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Verification</a><a class="headerlink" href="#verification" title="Permalink to this heading"></a></h3>
+<p>Plug pico board to laptop (hold BOOTSEL to enter USB mass storage mode), then invoke command</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>picotool<span class="w"> </span>info
+</pre></div>
+</div>
+</div></blockquote>
+<p>If you install successfully, you will see information about the device.</p>
+</section>
+</section>
+<section id="command-detail">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Command detail</a><a class="headerlink" href="#command-detail" title="Permalink to this heading"></a></h2>
+<section id="make-j-nproc">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">make -j$(nproc)</a><a class="headerlink" href="#make-j-nproc" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>Meaning</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>make</strong> → the build program in Linux. It reads the <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> to compile the project.</p></li>
+<li><p><strong>-jN</strong> → tells <code class="docutils literal notranslate"><span class="pre">make</span></code> to run <em>N jobs in parallel</em> (compile multiple files at the same time).</p></li>
+<li><p><strong>$(nproc)</strong> → a shell command that returns the number of CPU cores on the system.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Example</p>
+<blockquote>
+<div><p>If your machine has <strong>8 cores</strong>, then <code class="docutils literal notranslate"><span class="pre">$(nproc)</span> <span class="pre">=</span> <span class="pre">8</span></code>.
+So the command expands to:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>-j8
+</pre></div>
+</div>
+</div></blockquote>
+<p>This runs <strong>8 parallel build processes</strong>, using all CPU cores to speed up the compilation.</p>
+</div></blockquote>
+</li>
+<li><p>Comparison</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span></code> → only 1 job at a time.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-j4</span></code> → up to 4 jobs in parallel.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-j$(nproc)</span></code> → automatically uses all available CPU cores (fastest).</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Summary</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-j$(nproc)</span></code> = <em>compile using as many jobs as CPU cores → maximum build speed</em>.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
 </section>
 
 
@@ -305,8 +415,8 @@
 
 
                         <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../activewinoffice.html" class="btn btn-neutral float-left" title="Activate Win-Office" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="raspberryPi.html" class="btn btn-neutral float-right" title="SET UP RASPBERRY PI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="raspberryPi.html" class="btn btn-neutral float-left" title="SET UP RASPBERRY PI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="programableIO.html" class="btn btn-neutral float-right" title="Promgramable IO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
