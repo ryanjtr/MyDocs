@@ -1,4 +1,4 @@
-Ubuntu
+Install/Uninstall
 ====================
 
 .. contents:: 

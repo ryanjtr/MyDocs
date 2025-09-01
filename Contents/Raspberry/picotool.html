@@ -30,8 +30,8 @@
         <script src="../../_static/js/theme.js"></script>
         <link rel="index" title="Index" href="../../genindex.html" />
         <link rel="search" title="Search" href="../../search.html" />
-        <link rel="next" title="PROGRAMABLE IO" href="programableIO.html" />
-        <link rel="prev" title="SET UP RASPBERRY PI" href="raspberryPi.html" /> 
+        <link rel="next" title="Programable IO" href="programableIO.html" />
+        <link rel="prev" title="Set up Raspberry Pi" href="raspberryPi.html" /> 
         <style>
             #logo-container {
                 position: relative;
@@ -86,7 +86,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../github.html">Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zephyr.html">Zephyr</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ubuntu.html">Ubuntu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stm32.html">STM32</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../can.html">CAN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../electric_component.html">Electric Components</a></li>
@@ -100,7 +99,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../esp32.html">ESP32</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activewinoffice.html">Activate Win-Office</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="raspberrydoc.html">Raspberry Documentation</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="raspberryPi.html">SET UP RASPBERRY PI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberryPi.html">Set up Raspberry Pi</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">PICO TOOL</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#pinout-rp2350-pico2">Pinout RP2350 Pico2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a><ul>
@@ -118,13 +117,15 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#common-errors">Common errors</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#wrong-uf2-file-for-board">Wrong uf2 file for board</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#failed-to-open-dev-ttyacm0">Failed to open /dev/ttyACM0</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="programableIO.html">PROGRAMABLE IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programableIO.html">Programable IO</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../linuxcontent/linuxdoc.html">Ubuntu documentation</a></li>
 </ul>
 
 
@@ -331,6 +332,7 @@
 <li><p><a class="reference internal" href="#common-errors" id="id11">Common errors</a></p>
 <ul>
 <li><p><a class="reference internal" href="#wrong-uf2-file-for-board" id="id12">Wrong uf2 file for board</a></p></li>
+<li><p><a class="reference internal" href="#failed-to-open-dev-ttyacm0" id="id13">Failed to open /dev/ttyACM0</a></p></li>
 </ul>
 </li>
 </ul>
@@ -488,10 +490,22 @@ make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</s
 </div></blockquote>
 <p>Then you can load uf2 file to pico board</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>picotool<span class="w"> </span>load<span class="w"> </span>&lt;name_file&gt;.uf2<span class="w"> </span>-f
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>picotool<span class="w"> </span>load<span class="w"> </span>&lt;name_file&gt;.uf2<span class="w"> </span>-f<span class="se">\</span>
 </pre></div>
 </div>
 </div></blockquote>
+</section>
+<section id="failed-to-open-dev-ttyacm0">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Failed to open /dev/ttyACM0</a><a class="headerlink" href="#failed-to-open-dev-ttyacm0" title="Permalink to this heading"></a></h3>
+<p>If you see this error in Serial Monitor in VScode, this means the configuration of Serial Monitor is wrong. To fix
+it, you have to open <code class="docutils literal notranslate"><span class="pre">Command</span> <span class="pre">Palette</span></code> (Ctrl + Shift + P) -&gt; enter <code class="docutils literal notranslate"><span class="pre">Preferences:</span> <span class="pre">Open</span> <span class="pre">Settings</span> <span class="pre">(JSON)</span></code></p>
+<p>Add or edit the configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;C_Cpp.default.configurationProvider&quot;</span><span class="p">:</span> <span class="s2">&quot;ms-vscode.cmake-tools&quot;</span><span class="p">,</span>
+<span class="s2">&quot;serialport.defaultBaudRate&quot;</span><span class="p">:</span> <span class="mi">115200</span><span class="p">,</span>
+<span class="s2">&quot;serialport.enableRTSCTS&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;serialport.enableDTR&quot;</span><span class="p">:</span> <span class="n">false</span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>
@@ -504,8 +518,8 @@ make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</s
 
 
                         <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="raspberryPi.html" class="btn btn-neutral float-left" title="SET UP RASPBERRY PI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="programableIO.html" class="btn btn-neutral float-right" title="PROGRAMABLE IO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="raspberryPi.html" class="btn btn-neutral float-left" title="Set up Raspberry Pi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="programableIO.html" class="btn btn-neutral float-right" title="Programable IO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -5,7 +5,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link sizes="32x32" href="../../_static/logo.png" rel="icon" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SPI PIO &mdash; RyanDocs 2024 documentation</title>
+    <title>Download File &mdash; RyanDocs 2024 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -29,7 +29,8 @@
         <script src="../../_static/dark_mode_js/theme_switcher.js"></script>
         <script src="../../_static/js/theme.js"></script>
         <link rel="index" title="Index" href="../../genindex.html" />
-        <link rel="search" title="Search" href="../../search.html" /> 
+        <link rel="search" title="Search" href="../../search.html" />
+        <link rel="prev" title="Install/Uninstall" href="install_and_uninstall.html" /> 
         <style>
             #logo-container {
                 position: relative;
@@ -80,11 +81,10 @@
                 </div>
                 <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
                     aria-label="Navigation menu">
-                    <ul>
+                    <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../github.html">Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zephyr.html">Zephyr</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ubuntu.html">Ubuntu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stm32.html">STM32</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../can.html">CAN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../electric_component.html">Electric Components</a></li>
@@ -97,7 +97,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../STM32/lvglf7.html">LVGL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../esp32.html">ESP32</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activewinoffice.html">Activate Win-Office</a></li>
-<li class="toctree-l1"><a class="reference internal" href="raspberrydoc.html">Raspberry Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Raspberry/raspberrydoc.html">Raspberry Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="linuxdoc.html">Ubuntu documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install_and_uninstall.html">Install/Uninstall</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Download File</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#download-file-with-aria2c">Download file with aria2c</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Download file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#speed-downloading-with-multi-connection">Speed downloading with multi connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resume-downloading">Resume downloading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#download-multiple-files-from-a-list">Download multiple files from a list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
 
@@ -270,7 +285,8 @@
                         <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">SPI PIO</li>
+          <li class="breadcrumb-item"><a href="linuxdoc.html">Ubuntu documentation</a></li>
+      <li class="breadcrumb-item active">Download File</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -279,39 +295,82 @@
                         <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
                             <div itemprop="articleBody">
                                 
-  <section id="spi-pio">
-<h1>SPI PIO<a class="headerlink" href="#spi-pio" title="Permalink to this heading"></a></h1>
-<nav class="contents local" id="table-of-contents-depth-3">
-<p class="topic-title">Table of Contents
-: depth: 3</p>
+  <section id="download-file">
+<h1>Download File<a class="headerlink" href="#download-file" title="Permalink to this heading"></a></h1>
+<nav class="contents local" id="tables-of-contents">
+<p class="topic-title">Tables of Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#build-spi-pio-file" id="id1">Build spi.pio file</a></p></li>
-<li><p><a class="reference internal" href="#content-pio-spi-c" id="id2">Content pio_spi.c</a></p>
+<li><p><a class="reference internal" href="#download-file-with-aria2c" id="id2">Download file with aria2c</a></p>
 <ul>
-<li><p><a class="reference internal" href="#general" id="id3">General</a></p></li>
+<li><p><a class="reference internal" href="#installation" id="id3">Installation</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id4">Download file</a></p></li>
+<li><p><a class="reference internal" href="#speed-downloading-with-multi-connection" id="id5">Speed downloading with multi connection</a></p></li>
+<li><p><a class="reference internal" href="#resume-downloading" id="id6">Resume downloading</a></p></li>
+<li><p><a class="reference internal" href="#download-multiple-files-from-a-list" id="id7">Download multiple files from a list</a></p></li>
 </ul>
 </li>
 </ul>
 </nav>
-<section id="build-spi-pio-file">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Build spi.pio file</a><a class="headerlink" href="#build-spi-pio-file" title="Permalink to this heading"></a></h2>
-<p>The content in spi.pio file included</p>
+<section id="download-file-with-aria2c">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Download file with aria2c</a><a class="headerlink" href="#download-file-with-aria2c" title="Permalink to this heading"></a></h2>
+<section id="installation">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Installation</a><a class="headerlink" href="#installation" title="Permalink to this heading"></a></h3>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>aria2<span class="w"> </span>-y
+</pre></div>
+</div>
+</div></blockquote>
 </section>
-<section id="content-pio-spi-c">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Content pio_spi.c</a><a class="headerlink" href="#content-pio-spi-c" title="Permalink to this heading"></a></h2>
-<section id="general">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink">General</a><a class="headerlink" href="#general" title="Permalink to this heading"></a></h3>
+<section id="id1">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Download file</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<p>Simple file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aria2c</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">zip</span>
+</pre></div>
+</div>
+<p>Change file’name when saving:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aria2c</span> <span class="o">-</span><span class="n">o</span> <span class="n">newname</span><span class="o">.</span><span class="n">zip</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">zip</span>
+</pre></div>
+</div>
+<p>Add path when saving:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aria2c</span> <span class="o">-</span><span class="n">d</span> <span class="o">~/</span><span class="n">Downloads</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">zip</span>
+</pre></div>
+</div>
+</section>
+<section id="speed-downloading-with-multi-connection">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Speed downloading with multi connection</a><a class="headerlink" href="#speed-downloading-with-multi-connection" title="Permalink to this heading"></a></h3>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>aria2c<span class="w"> </span>-x<span class="w"> </span><span class="m">16</span><span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><span class="w"> </span>https://example.com/bigfile.iso
+</pre></div>
+</div>
+</div></blockquote>
 <ul class="simple">
-<li><p>__time_critical_func(…): tell compiler/linker to set this function to  “fast” RAM/flash area, this is good for I/O realtime</p></li>
-<li><dl class="simple">
-<dt>Check FIFO before read/write</dt><dd><ul>
-<li><p>pio_sm_is_tx_fifo_full(…): avoid writing when TX FIFO is full</p></li>
-<li><p>pio_sm_is_rx_fifo_empty(…): avoid reading when RX FIFO is full</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-x</span> <span class="pre">16</span></code>: maximum 16 parallel-connection</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">16</span></code>: divide file into 16 pieces for faster downloading</p></li>
 </ul>
-</dd>
-</dl>
-</li>
+</section>
+<section id="resume-downloading">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Resume downloading</a><a class="headerlink" href="#resume-downloading" title="Permalink to this heading"></a></h3>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>aria2c<span class="w"> </span>-c<span class="w"> </span>https://example.com/file.zip
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-c</span></code>: continue</p></li>
 </ul>
+</section>
+<section id="download-multiple-files-from-a-list">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Download multiple files from a list</a><a class="headerlink" href="#download-multiple-files-from-a-list" title="Permalink to this heading"></a></h3>
+<p>Create file <code class="docutils literal notranslate"><span class="pre">list.txt</span></code> with below contents:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">file1</span><span class="o">.</span><span class="n">iso</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">file2</span><span class="o">.</span><span class="n">zip</span>
+</pre></div>
+</div>
+<p>Then run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aria2c</span> <span class="o">-</span><span class="n">i</span> <span class="nb">list</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>
@@ -323,7 +382,9 @@
 
 
 
-                        <footer>
+                        <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="install_and_uninstall.html" class="btn btn-neutral float-left" title="Install/Uninstall" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 
