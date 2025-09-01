@@ -1,5 +1,5 @@
 
-Promgramable IO
+PROGRAMABLE IO
 ==========================
 
 This manual summarizes the Programmable I/O (PIO) instruction set of the
