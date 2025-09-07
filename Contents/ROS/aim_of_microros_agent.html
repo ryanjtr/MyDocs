@@ -5,7 +5,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link sizes="32x32" href="../../_static/logo.png" rel="icon" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Raspberry Documentation &mdash; RyanDocs 2024 documentation</title>
+    <title>&lt;no title&gt; &mdash; RyanDocs 2024 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -29,9 +29,7 @@
         <script src="../../_static/dark_mode_js/theme_switcher.js"></script>
         <script src="../../_static/js/theme.js"></script>
         <link rel="index" title="Index" href="../../genindex.html" />
-        <link rel="search" title="Search" href="../../search.html" />
-        <link rel="next" title="Set up Raspberry Pi" href="raspberryPi.html" />
-        <link rel="prev" title="Activate Win-Office" href="../activewinoffice.html" /> 
+        <link rel="search" title="Search" href="../../search.html" /> 
         <style>
             #logo-container {
                 position: relative;
@@ -82,7 +80,7 @@
                 </div>
                 <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
                     aria-label="Navigation menu">
-                    <ul class="current">
+                    <ul>
 <li class="toctree-l1"><a class="reference internal" href="../github.html">Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zephyr.html">Zephyr</a></li>
@@ -98,12 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../STM32/lvglf7.html">LVGL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../esp32.html">ESP32</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activewinoffice.html">Activate Win-Office</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Raspberry Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="raspberryPi.html">Set up Raspberry Pi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="picotool.html">Picotool</a></li>
-<li class="toctree-l2"><a class="reference internal" href="programableIO.html">Programable IO</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../Raspberry/raspberrydoc.html">Raspberry Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linuxcontent/linuxdoc.html">Ubuntu documentation</a></li>
 </ul>
 
@@ -277,7 +270,7 @@
                         <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Raspberry Documentation</li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -286,16 +279,32 @@
                         <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
                             <div itemprop="articleBody">
                                 
-  <section id="raspberry-documentation">
-<h1>Raspberry Documentation<a class="headerlink" href="#raspberry-documentation" title="Permalink to this heading"></a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="raspberryPi.html">Set up Raspberry Pi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="picotool.html">Picotool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programableIO.html">Programable IO</a></li>
-</ul>
-</div>
-</section>
+  <p>🎯 Mục đích của micro-ROS Agent</p>
+<p>Trong hệ sinh thái micro-ROS, có 2 phần:</p>
+<p>Client (thiết bị nhúng, MCU, board STM32/ESP32, …)
+→ chạy firmware micro-ROS, publish/subscribe topic, gửi service, action…</p>
+<p>Agent (chạy trên PC/Raspberry Pi/Linux host)
+→ cầu nối giữa thiết bị nhúng và ROS 2 middleware (DDS).</p>
+<p>🔗 Cách hoạt động</p>
+<p>Client (MCU) không thể tự nói chuyện trực tiếp với DDS/ROS 2 core.</p>
+<p>Client gửi dữ liệu qua transport (UART/Serial, UDP, TCP, CAN, …).</p>
+<p>Agent nhận dữ liệu này, dịch sang message DDS chuẩn → đưa vào ROS 2 graph.</p>
+<p>Ngược lại, Agent cũng nhận topic/service từ ROS 2 rồi chuyển xuống Client.</p>
+<p>👉 Nói nôm na:
+Agent = “bridge” giúp board nhỏ (STM32/ESP32, …) xuất hiện trong ROS 2 như 1 node bình thường.</p>
+<p>📌 Ví dụ</p>
+<p>ESP32 chạy micro-ROS firmware, publish topic /imu/data.</p>
+<p>ESP32 chỉ biết gửi UART.</p>
+<p>micro-ROS Agent trên PC nhận UART → dịch thành topic ROS 2 → giờ bạn có thể:</p>
+<p>ros2 topic echo /imu/data</p>
+<p>thấy dữ liệu từ ESP32 như từ 1 node ROS 2.</p>
+<p>Ngược lại:</p>
+<p>PC gửi lệnh /cmd_vel (geometry_msgs/Twist).</p>
+<p>Agent chuyển qua UART → ESP32 nhận và điều khiển robot.</p>
+<p>✅ Tóm gọn</p>
+<p>Client = node chạy trên vi điều khiển.</p>
+<p>Agent = cầu nối để client “hiện diện” trong ROS 2.</p>
+<p>Nếu không có Agent → vi điều khiển không “thấy” và không “được thấy” trong hệ ROS 2.</p>
 
 
                             </div>
@@ -304,10 +313,7 @@
 
 
 
-                        <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../activewinoffice.html" class="btn btn-neutral float-left" title="Activate Win-Office" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="raspberryPi.html" class="btn btn-neutral float-right" title="Set up Raspberry Pi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                        <footer>
 
   <hr/>
 

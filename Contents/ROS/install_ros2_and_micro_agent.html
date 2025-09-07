@@ -5,7 +5,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link sizes="32x32" href="../../_static/logo.png" rel="icon" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Raspberry Documentation &mdash; RyanDocs 2024 documentation</title>
+    <title>&lt;no title&gt; &mdash; RyanDocs 2024 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -29,9 +29,7 @@
         <script src="../../_static/dark_mode_js/theme_switcher.js"></script>
         <script src="../../_static/js/theme.js"></script>
         <link rel="index" title="Index" href="../../genindex.html" />
-        <link rel="search" title="Search" href="../../search.html" />
-        <link rel="next" title="Set up Raspberry Pi" href="raspberryPi.html" />
-        <link rel="prev" title="Activate Win-Office" href="../activewinoffice.html" /> 
+        <link rel="search" title="Search" href="../../search.html" /> 
         <style>
             #logo-container {
                 position: relative;
@@ -82,7 +80,7 @@
                 </div>
                 <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
                     aria-label="Navigation menu">
-                    <ul class="current">
+                    <ul>
 <li class="toctree-l1"><a class="reference internal" href="../github.html">Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zephyr.html">Zephyr</a></li>
@@ -98,12 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../STM32/lvglf7.html">LVGL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../esp32.html">ESP32</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activewinoffice.html">Activate Win-Office</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Raspberry Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="raspberryPi.html">Set up Raspberry Pi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="picotool.html">Picotool</a></li>
-<li class="toctree-l2"><a class="reference internal" href="programableIO.html">Programable IO</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../Raspberry/raspberrydoc.html">Raspberry Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linuxcontent/linuxdoc.html">Ubuntu documentation</a></li>
 </ul>
 
@@ -277,7 +270,7 @@
                         <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Raspberry Documentation</li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -286,16 +279,75 @@
                         <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
                             <div itemprop="articleBody">
                                 
-  <section id="raspberry-documentation">
-<h1>Raspberry Documentation<a class="headerlink" href="#raspberry-documentation" title="Permalink to this heading"></a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="raspberryPi.html">Set up Raspberry Pi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="picotool.html">Picotool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programableIO.html">Programable IO</a></li>
-</ul>
+  <p>✅ Quy trình chuẩn cài ROS 2 Humble + micro-ROS Agent (Ubuntu 22.04 Jammy)
+1. Xóa sạch gói ROS bị lỗi (nếu có)
+sudo apt remove –purge “ros-<em>”
+sudo apt remove –purge python3-ros</em> python3-colcon* python3-catkin* python3-rospkg* python3-rosdistro* python3-bloom* -y
+sudo apt autoremove -y
+sudo apt clean</p>
+<p>2. Thêm repo ROS 2 chính thức
+sudo apt update &amp;&amp; sudo apt install -y locales curl gnupg lsb-release software-properties-common
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8</p>
+<p>sudo add-apt-repository universe -y
+sudo curl -sSL <a class="reference external" href="https://raw.githubusercontent.com/ros/rosdistro/master/ros.key" rel="noopener noreferrer" target="_blank">https://raw.githubusercontent.com/ros/rosdistro/master/ros.key</a> </p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">sudo tee /usr/share/keyrings/ros-archive-keyring.gpg &gt;/dev/null</div>
 </div>
-</section>
+</div></blockquote>
+<p>echo “deb [arch=$(dpkg –print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] <a class="reference external" href="http://packages.ros.org/ros2/ubuntu" rel="noopener noreferrer" target="_blank">http://packages.ros.org/ros2/ubuntu</a> $(lsb_release -cs) main” | sudo tee /etc/apt/sources.list.d/ros2.list &gt;/dev/null</p>
+<p>3. Cài ROS 2 Humble desktop
+sudo apt update
+sudo apt upgrade -y
+sudo apt install ros-humble-desktop python3-colcon-common-extensions python3-rosdep python3-rospkg python3-rosdistro python3-catkin-pkg -y</p>
+<p>4. Khởi tạo rosdep
+sudo rosdep init || true
+rosdep update</p>
+<ol class="arabic simple" start="5">
+<li><p>Nạp môi trường ROS</p></li>
+</ol>
+<p>Thêm vào ~/.bashrc:</p>
+<p>echo “source /opt/ros/humble/setup.bash” &gt;&gt; ~/.bashrc
+source ~/.bashrc</p>
+<p><strong>Kiểm tra ROS 2</strong></p>
+<p>ros2 run demo_nodes_cpp talker
+# mở terminal khác
+ros2 run demo_nodes_cpp listener</p>
+<p>6. Tạo workspace cho micro-ROS Agent
+mkdir -p ~/uros_agent_ws/src
+cd ~/uros_agent_ws
+git clone -b humble <a class="reference external" href="https://github.com/micro-ROS/micro_ros_setup.git" rel="noopener noreferrer" target="_blank">https://github.com/micro-ROS/micro_ros_setup.git</a> src/micro_ros_setup</p>
+<p>rosdep update
+rosdep install –from-paths src –ignore-src -y –rosdistro humble</p>
+<p>colcon build
+source install/local_setup.bash</p>
+<p>7. Tạo và build Agent
+# Tạo agent workspace
+ros2 run micro_ros_setup create_agent_ws.sh</p>
+<p># Build agent
+ros2 run micro_ros_setup build_agent.sh</p>
+<p># Nạp lại env
+source install/local_setup.bash</p>
+<ol class="arabic simple" start="8">
+<li><p>Chạy Agent</p></li>
+</ol>
+<p>Serial:</p>
+<p>ros2 run micro_ros_agent micro_ros_agent serial -v6 –dev /dev/ttyACM0 -b 115200</p>
+<p>UDP:</p>
+<p>ros2 run micro_ros_agent micro_ros_agent udp4 -v6 -p 8888</p>
+<p>⚠️ Nếu lỗi vẫn còn</p>
+<p>Chạy:</p>
+<p>sudo apt –fix-broken install -y</p>
+<p>rồi lặp lại từ bước 3.</p>
+<p>👉 Với quy trình này bạn chỉ cần chạy tuần tự, không cần mò thủ công nữa.</p>
+<ol class="arabic simple" start="6">
+<li><p>Chạy Agent (để terminal này mở nguyên):</p></li>
+</ol>
+<p>ros2 run micro_ros_agent micro_ros_agent udp4 -v6 -p 8888</p>
+<p>Lưu ý: sau mỗi lần mở terminal mới, bạn cần:</p>
+<p>source /opt/ros/humble/setup.bash
+source ~/uros_agent_ws/install/local_setup.bash</p>
 
 
                             </div>
@@ -304,10 +356,7 @@
 
 
 
-                        <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../activewinoffice.html" class="btn btn-neutral float-left" title="Activate Win-Office" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="raspberryPi.html" class="btn btn-neutral float-right" title="Set up Raspberry Pi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                        <footer>
 
   <hr/>
 

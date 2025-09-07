@@ -1,4 +1,4 @@
-PICO TOOL
+Picotool
 ==============
 
 .. contents:: Table of Contents
@@ -12,6 +12,12 @@ Pinout RP2350 Pico2
     :scale: 70%
     :align: center
 
+Pinout TMC5160
+---------------------
+
+.. image:: image/tmc5160pin.jpg
+    :scale: 70%
+    :align: center
 
 Installation
 -----------------
