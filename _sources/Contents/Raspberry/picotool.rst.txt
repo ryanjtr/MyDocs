@@ -16,7 +16,7 @@ Pinout TMC5160
 ---------------------
 
 .. image:: image/tmc5160pin.jpg
-    :scale: 70%
+    :scale: 100%
     :align: center
 
 Installation
