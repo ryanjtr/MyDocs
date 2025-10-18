@@ -1,0 +1,30 @@
+stealth_chop_threshold (ngưỡng chuyển chế độ):
+
+Tốc độ thấp hơn ngưỡng ⇒ chạy bằng stealthChop (êm, yên tĩnh).
+
+Tốc độ cao hơn ngưỡng ⇒ chuyển sang spreadCycle (lực tốt hơn, hơi ồn hơn).
+
+StallGuard (cảm biến “kẹt/tải”):
+
+Chỉ hoạt động tin cậy khi đang ở spreadCycle.
+
+Ở stealthChop thì StallGuard không dùng được (thường bạn sẽ đọc thấy SG_RESULT = 0 hoài).
+
+
+Vì vậy, nếu bạn muốn homing bằng StallGuard:
+
+Đặt tốc độ homing (ví dụ 20 rad/s).
+
+Đặt stealth_chop_threshold nhỏ hơn tốc độ homing (ví dụ 5–8 rad/s) ⇒ homing sẽ chạy ở spreadCycle.
+
+Đặt cool_step_threshold (map sang TCOOLTHRS) sao cho tốc độ homing nằm trong “cửa sổ tốc độ hợp lệ” của StallGuard (thường đặt ~5–10 rad/s là ổn để SG bắt đầu được đánh giá).
+
+Tinh stall_guard_threshold (SGTHRS) 2–5 rồi nhìn SG_RESULT để chỉnh.
+
+Ví dụ cụ thể:
+
+Bạn homing ở 20 rad/s.
+
+Nếu stealth_chop_threshold = 100 ⇒ 20 < 100 ⇒ stealthChop ⇒ SG không hoạt động.
+
+Nếu stealth_chop_threshold = 8 ⇒ 20 > 8 ⇒ spreadCycle ⇒ SG hoạt động, có thể phát hiện kẹt để dừng.

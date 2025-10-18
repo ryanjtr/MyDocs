@@ -143,7 +143,7 @@ sudo make install is optional, but convenient if you want the tool to be availab
 Common errors
 ------------------
 
-Wrong uf2 file for board
+UF2 file for wrong board
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You will see the error below 
