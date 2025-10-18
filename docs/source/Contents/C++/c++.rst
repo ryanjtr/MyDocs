@@ -5,6 +5,6 @@ C++ Foundation
    :maxdepth: 1
 
 
-   install_compiler.rst 
-   namespace.rst 
-   variable.rst 
+   install_compiler
+   namespace
+   variable
