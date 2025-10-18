@@ -22,6 +22,7 @@ RyanDank`s Documentation
    Contents/activewinoffice.rst
    Contents/Raspberry/raspberrydoc.rst
    Contents/linuxcontent/linuxdoc.rst
+   Contents/C++/c++.rst 
 
 
 
