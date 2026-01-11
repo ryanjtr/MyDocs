@@ -21,6 +21,16 @@ Open a new terminal/command prompt and follow steps below
 
     pip install -U sphinx
 
+**Install MSYS2 for Window**
+
+Install ``make`` in MSYS terminal
+
+.. code-block:: bash
+
+    pacman -S mingw-w64-x86_64-make
+
+Then update path ``C:\msys64\usr\bin`` to path of system environment.
+
 Create document layout
 -------------------------------
 
